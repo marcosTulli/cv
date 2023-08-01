@@ -43,7 +43,7 @@ const jobsData: IJobs[] = [
       ],
     },
     sp: {
-      position: 'Desarrollador RPA',
+      position: 'Desarrollador Front-End',
       activePeriod: 'Jul 2022 - Nov 2022',
       companyName: 'Softtek',
       comapnyUrl: 'https://www.softtek.com/',
@@ -60,7 +60,7 @@ const jobsData: IJobs[] = [
     id: 3,
     en: {
       position: 'Front-End Developer',
-      activePeriod: 'Sep 2020 - June 2022',
+      activePeriod: 'Sep 2020 - Jun 2022',
       companyName: 'Mercap',
       comapnyUrl: 'https://www.mercapsoftware.com/',
       companyLogo: '/mercap.png',
@@ -71,8 +71,8 @@ const jobsData: IJobs[] = [
       ],
     },
     sp: {
-      position: 'Front-End Developer',
-      activePeriod: 'Sep 2020 - June 2022',
+      position: 'Desarrollador Front-End',
+      activePeriod: 'Sep 2020 - Jun 2022',
       companyName: 'Mercap',
       comapnyUrl: 'https://www.mercapsoftware.com/',
       companyLogo: '/mercap.png',

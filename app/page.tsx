@@ -9,57 +9,48 @@ import educationData from './assets/education-data';
 import { IStrings } from './models/strings';
 import stringsEn from './loc/strings-en';
 import stringsSp from './loc/strings-sp';
-import { downloadFile } from './utils/downloadFile';
-
 
 export enum Language {
   EN = 'en',
   SP = 'sp'
 }
 
+const icons = {
+  width: 20,
+  height: 20,
+};
+const getStringFile = (language: Language) => {
+  switch (language) {
+    case Language.EN:
+      return stringsEn;
+    case Language.SP:
+      return stringsSp;
+  }
+};
+
 export default function Home() {
   const [currentLanguage, setCurrentLanguage] = React.useState<Language>(Language.EN);
-  const [fileName, setFilename] = React.useState<string>('CVEN.pdf');
-
-  const icons = {
-    width: 20,
-    height: 20,
-  };
-
-  const getStringFile = (language: Language) => {
-    switch (language) {
-      case Language.EN:
-        return stringsEn;
-      case Language.SP:
-        return stringsSp;
-    }
-  };
+  const [fileName, setFilename] = React.useState<string>('CVEN');
+  const fileURL = `http://localhost:3000/${fileName}.pdf`;
+  const strings: IStrings = getStringFile(currentLanguage);
 
   const toggleLanguage = () => {
     setCurrentLanguage(currentLanguage === Language.EN ? Language.SP : Language.EN);
-    setFilename(fileName === 'CVEN.pdf' ? 'CVSP.pdf' : 'CVEN.pdf');
+    setFilename(fileName === 'CVEN' ? 'CVSP' : 'CVEN');
   };
 
-  const handleDownloadClick = () => {
-    const fileURL = `/public/${fileName}`; // Replace with the actual URL of the PDF file
-    fetch(fileURL)
-      .then(response => response.blob())
-      .then(data => {
-        downloadFile(data, { fileName }, 'application/pdf');
-      })
-      .catch(error => {
-        console.error('Error fetching or downloading the PDF file:', error);
-      });
+  const handleDownloadClick = (url: string) => {
+    fetch(url).then(res => res.blob()).then(blob => {
+      const blobURL = window.URL.createObjectURL(new Blob([blob]));
+      const aTag = document.createElement('a');
+      aTag.href = blobURL;
+      aTag.setAttribute('download', `${fileName}.pdf`);
+      document.body.appendChild(aTag);
+      aTag.click();
+      aTag.remove();
 
+    });
   };
-
-  const strings: IStrings = getStringFile(currentLanguage);
-
-
-  const df = () => {
-  };
-
-
 
   return (
     <div className="cvContainer">
@@ -124,7 +115,7 @@ export default function Home() {
                   <a href={strings.githubURL} target="_blank" title={strings.githubURL}>
                     <p>{strings.github}</p>
                   </a>
-                  <button className='download' title="download" onClick={handleDownloadClick}>
+                  <button className='download' title="download" onClick={() => handleDownloadClick(fileURL)}>
                     <Image src='/download.png' alt='download' width={40} height={40} />
                   </button>
                 </div>
