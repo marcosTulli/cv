@@ -15,5 +15,8 @@ export interface IStrings {
     github: string;
     linkedinURL: string;
     githubURL: string;
+    CV_EN: string;
+    CV_SP: string;
+
 
 }

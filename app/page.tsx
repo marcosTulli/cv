@@ -30,13 +30,21 @@ const getStringFile = (language: Language) => {
 
 export default function Home() {
   const [currentLanguage, setCurrentLanguage] = React.useState<Language>(Language.EN);
-  const [fileName, setFilename] = React.useState<string>('CVEN');
-  const fileURL = `http://localhost:3000/${fileName}.pdf`;
   const strings: IStrings = getStringFile(currentLanguage);
+  const [fileName, setFilename] = React.useState<string>(strings.CV_EN);
+  const fileURL = `http://localhost:3000/${fileName}.pdf`;
 
   const toggleLanguage = () => {
-    setCurrentLanguage(currentLanguage === Language.EN ? Language.SP : Language.EN);
-    setFilename(fileName === 'CVEN' ? 'CVSP' : 'CVEN');
+    switch (currentLanguage) {
+      case Language.EN:
+        setCurrentLanguage(Language.SP);
+        setFilename(strings.CV_SP);
+        break;
+      default:
+        setFilename(strings.CV_EN);
+        setCurrentLanguage(Language.EN);
+        break;
+    }
   };
 
   const handleDownloadClick = (url: string) => {

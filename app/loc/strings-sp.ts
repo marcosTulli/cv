@@ -17,6 +17,8 @@ const stringsSP: IStrings = {
     github: '/marcosTulli',
     githubURL: 'http://github.com/marcosTulli',
     linkedinURL: 'http://linkedin.com/in/marcos-tulli',
+    CV_EN: 'Marcos Tulli CV-en',
+    CV_SP: 'Marcos Tulli CV-es',
 };
 
 export default stringsSP;
