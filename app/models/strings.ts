@@ -13,4 +13,7 @@ export interface IStrings {
     phone: string;
     linkedin: string;
     github: string;
+    linkedinURL: string;
+    githubURL: string;
+
 }

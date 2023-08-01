@@ -15,6 +15,8 @@ const stringsSP: IStrings = {
     location: "Mar del Plata, Argentina",
     linkedin: '/in/marcos-tulli',
     github: '/marcosTulli',
+    githubURL: 'http://github.com/marcosTulli',
+    linkedinURL: 'http://linkedin.com/in/marcos-tulli',
 };
 
 export default stringsSP;

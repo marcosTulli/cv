@@ -15,6 +15,8 @@ const stringsEn: IStrings = {
     location: "Mar del Plata, Argentina",
     linkedin: '/in/marcos-tulli',
     github: '/marcosTulli',
+    linkedinURL: 'http://linkedin.com/in/marcos-tulli',
+    githubURL: 'http://github.com/marcosTulli',
 
 };
 

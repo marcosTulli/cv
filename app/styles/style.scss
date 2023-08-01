@@ -99,6 +99,12 @@
         flex: 1;
         padding: 2rem;
 
+        .download {
+            background-color: transparent;
+            border: none;
+            cursor: pointer
+        }
+
         .profile {
             display: flex;
             align-items: center;

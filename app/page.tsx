@@ -9,6 +9,7 @@ import educationData from './assets/education-data';
 import { IStrings } from './models/strings';
 import stringsEn from './loc/strings-en';
 import stringsSp from './loc/strings-sp';
+import { downloadFile } from './utils/downloadFile';
 
 
 export enum Language {
@@ -18,6 +19,7 @@ export enum Language {
 
 export default function Home() {
   const [currentLanguage, setCurrentLanguage] = React.useState<Language>(Language.EN);
+  const [fileName, setFilename] = React.useState<string>('CVEN.pdf');
 
   const icons = {
     width: 20,
@@ -35,9 +37,29 @@ export default function Home() {
 
   const toggleLanguage = () => {
     setCurrentLanguage(currentLanguage === Language.EN ? Language.SP : Language.EN);
+    setFilename(fileName === 'CVEN.pdf' ? 'CVSP.pdf' : 'CVEN.pdf');
+  };
+
+  const handleDownloadClick = () => {
+    const fileURL = `/public/${fileName}`; // Replace with the actual URL of the PDF file
+    fetch(fileURL)
+      .then(response => response.blob())
+      .then(data => {
+        downloadFile(data, { fileName }, 'application/pdf');
+      })
+      .catch(error => {
+        console.error('Error fetching or downloading the PDF file:', error);
+      });
+
   };
 
   const strings: IStrings = getStringFile(currentLanguage);
+
+
+  const df = () => {
+  };
+
+
 
   return (
     <div className="cvContainer">
@@ -68,7 +90,7 @@ export default function Home() {
                 <p>{strings.location}</p>
                 <div>
                   <p>EN</p>
-                  <label className="switch">
+                  <label title="Switch Language" className="switch">
                     <input type="checkbox" onChange={toggleLanguage} />
                     <span className="slider round"></span>
                   </label>
@@ -95,13 +117,16 @@ export default function Home() {
               </li>
               <li>
                 <div>
-                  <a href="http://linkedin.com/in/marcos-tulli" target="_blank">
+                  <a href={strings.linkedinURL} target="_blank" title={strings.linkedinURL}>
                     <Image src='/linkedin.png' alt='linkedin' width={icons.width} height={icons.height} />
                     <p>{strings.linkedin}</p>
                   </a>
-                  <a href="http://github.com/marcosTulli" target="_blank">
+                  <a href={strings.githubURL} target="_blank" title={strings.githubURL}>
                     <p>{strings.github}</p>
                   </a>
+                  <button className='download' title="download" onClick={handleDownloadClick}>
+                    <Image src='/download.png' alt='download' width={40} height={40} />
+                  </button>
                 </div>
               </li>
             </ul>
