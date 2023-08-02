@@ -16,7 +16,7 @@ const JobCard: React.FC<JobCardProps> = ({ data, language }) => {
                 <div className="workingPeriod">{jobData.activePeriod}</div>
             </div>
             <div className='companyTitle' title={jobData.comapnyUrl}>
-                <Image src={jobData.companyLogo} alt='phone-icon' width={22} height={22} />
+                <Image src={jobData.companyLogo} alt='phone-icon' width={15} height={15} />
                 <a className="companyName" href={jobData.comapnyUrl} target="_blank">
                     <div >{jobData.companyName}</div>
                 </a>

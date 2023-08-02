@@ -30,6 +30,21 @@ const Qualifications = () => {
             <div className="skills">
                 <div className="sectionTitle">{strings.skills}</div>
                 <div className="skillsCard">
+                    {skillsData.map((i) => {
+                        return (
+                            <div className='skill'>
+                                <Image src={i.url} alt={i.name} width={20} height={20} />
+                                {<p>{i.name}</p>}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+
+            {/* <div className="skills">
+                <div className="sectionTitle">{strings.skills}</div>
+                <div className="skillsCard">
                     <ul>
                         {skillsData.map((i) => {
                             return (
@@ -43,7 +58,7 @@ const Qualifications = () => {
                         })}
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </div>
 
     );

@@ -1,50 +1,221 @@
 .cvContainer {
-    font-family: 'Lato', sans-serif;
     width: 210mm;
     height: 297mm;
     margin: 0 auto;
     background-color: rgb(239, 238, 238);
-    display: flex;
-    flex-direction: column;
     border-radius: 1.56rem;
-    margin-top: 5rem;
+    gap: 2rem;
+    margin-top: 1rem;
     box-shadow: 44px 40px 0px 0px #f6e172;
-    padding-top: 5rem;
+    display: flex;
+    padding-top: 1rem;
 
-    .headerContainer {
-        display: flex;
+    .sectionTitle {
+        padding-top: 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #0b0b0b;
+    }
 
-        .about {
-            .candidateName {
-                font-size: 2.25rem;
-                font-weight: 900;
-                line-height: 140%;
-            }
+
+    .left {
+
+        // - - - - - - - - - - - - - - - - HEADER - - - - - - - - - - - - - - - - 
+
+        flex: 1;
+        margin-left: 0.65rem;
+
+        .headerContainer {
+            display: flex;
+            gap: 0;
 
             .about {
-                text-align: justify;
-                font-size: 1rem;
+                .candidateName {
+                    font-size: 2.25rem;
+                    font-weight: 900;
+                    line-height: 140%;
+                }
+
+                .aboutText {
+                    text-align: justify;
+                    font-size: 0.8rem;
+                    margin-top: 1rem;
+                    line-height: 1.6;
+                    color: #0b0b0b;
+                }
+            }
+
+
+        }
+
+        // - - - - - - - - - - - - - - - - WORK - - - - - - - - - - - - - - - - 
+
+
+
+        .workExperience {
+            margin-top: 1.5rem;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+
+            .jobCard {
+                display: flex;
+                text-align: left;
+                flex-direction: column;
                 margin-top: 1rem;
-                line-height: 1.6;
-                color: #0b0b0b;
+                border-radius: 0.75rem;
+                border: 1px solid #000;
+                background: #fff;
+                box-shadow: 15px 15px 0px 0px #3dc39b;
+                padding: 0.5rem;
+                width: 25rem;
+
+                .jobCardHeader {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.75rem;
+                    // margin-top: 0.75rem;
+
+                    .jobTitle {
+                        font-size: 12px;
+                        font-weight: 700;
+                    }
+
+                    .workingPeriod {
+                        font-weight: 400;
+                        font-size: 10px;
+                        color: #595959;
+                    }
+                }
+
+                .companyTitle {
+                    display: flex;
+                    font-size: 12px;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    .companyName {
+                        font-weight: 600;
+                        color: black;
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+                }
+
+                ul {
+                    list-style: disc;
+
+                    li {
+                        font-size: 10px;
+                        margin-bottom: 0.5rem;
+                    }
+                }
             }
         }
+    }
 
 
-        .download {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
 
-        .profile {
-            display: flex;
-            align-items: center;
+
+
+    .right {
+        flex: 1;
+
+        // - - - - - - - - - - - - - - - - INFO - - - - - - - - - - - - - - - - 
+
+        .info {
             flex-direction: column;
 
+            .profilePicture {
+                padding-top: 1rem;
+                width: 9rem;
+                height: 9rem;
+                box-shadow: 15px 15px 0px 0px #3dc39b;
+                border-radius: 0.75rem;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            .contactInfo {
+                margin-top: 1rem;
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-items: center;
+
+                ul {
+                    padding-inline-start: 0;
+                }
+
+                li {
+                    font-size: small;
+                    display: flex;
+                    align-items: center;
+
+                    p {
+                        margin: 7px 0;
+                    }
+
+                    img {
+                        margin-right: 0.5rem;
+                    }
+
+                }
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 0;
+                    padding-left: 0;
+
+                    p {
+                        margin: 0;
+                        margin-right: 1rem;
+                    }
+                }
+
+                .links {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 0;
+                    padding-left: 0;
+
+                    img {
+                        margin-right: 0.5rem;
+                    }
+
+                    p {
+                        margin: 0;
+                        margin-right: 1rem;
+                    }
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        text-decoration: none;
+                        cursor: pointer;
+                        color: black;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .download {
+                background-color: transparent;
+
+                border: none;
+                cursor: pointer;
+            }
+
             div {
-                padding-left: 1rem;
-                padding-right: 1rem;
+                margin: .55rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
             }
 
             .copy {
@@ -115,136 +286,19 @@
                 border-radius: 50%;
             }
 
-            .profilePicture {
-                width: 13.25rem;
-                height: 13.25rem;
-                box-shadow: 15px 15px 0px 0px #3dc39b;
-                border-radius: 0.75rem;
-                overflow: hidden;
-
-                img {
-                    object-fit: cover;
-                }
-            }
-
-            .contactInfo {
-                margin-top: 1rem;
-                list-style: none;
-                padding: 0;
-
-                li {
-                    display: flex;
-                    align-items: center;
-
-                    p {
-                        margin: 7px 0;
-                    }
-
-                    img {
-                        margin-right: 0.5rem;
-                    }
-                }
-
-                div {
-                    display: flex;
-                    align-items: center;
-
-                    img {
-                        margin-right: 0.5rem;
-                    }
-
-                    p {
-                        margin: 0;
-                        margin-right: 1rem;
-                    }
-
-                    a {
-                        display: flex;
-                        align-items: center;
-                        text-decoration: none;
-                        cursor: pointer;
-                        color: black;
-                        font-weight: 600;
-                    }
-                }
-            }
         }
 
-    }
 
-    .body {
-        display: flex;
-        padding: 1rem;
-
-        .workExperience {
-            margin-top: 1.5rem;
-            flex: 2;
-
-            .sectionTitle {
-                font-size: 1.375rem;
-                font-weight: 700;
-                color: #0b0b0b;
-            }
-
-            .jobCard {
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-
-                margin-top: 1rem;
-                border-radius: 0.75rem;
-                border: 1px solid #000;
-                background: #fff;
-                box-shadow: 15px 15px 0px 0px #3dc39b;
-                padding: 1rem;
-
-                .jobCardHeader {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 0.75rem;
-
-                    .jobTitle {
-                        font-weight: 700;
-                    }
-
-                    .workingPeriod {
-                        font-weight: 400;
-                        color: #595959;
-                    }
-                }
-
-                .companyTitle {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-
-                    .companyName {
-                        font-weight: 600;
-                        color: black;
-                        cursor: pointer;
-                        text-decoration: none;
-                    }
-                }
-
-                ul {
-                    list-style: disc;
-
-                    li {
-                        margin-bottom: 0.5rem;
-                    }
-                }
-            }
-        }
+        // - - - - - - - - - - - - - - - -  QUALIFICATIONS - - - - - - - - - - - - - - - - 
 
         .qualifications {
-            flex: 1;
-
             .education {
-                .sectionTitle {
-                    padding-top: 2rem;
-                    font-size: 1.375rem;
-                    font-weight: 700;
-                    color: #0b0b0b;
+                display: flex;
+                flex-direction: column;
+                padding-right: 3rem;
+
+                ul {
+                    padding-right: 0.4rem;
                 }
 
                 .educationCard {
@@ -253,51 +307,57 @@
                     border: 1px solid #000;
                     background: #fff;
                     box-shadow: 15px 15px 0px 0px #3dc39b;
-                    padding: 1.5rem;
+                    margin-right: 0.5rem;
+                    width: fit-content;
+
+
 
                     .degree {
-                        font-size: 1.125rem;
+                        font-size: 12px;
                         font-weight: 700;
                     }
 
                     p {
+                        font-size: 10px;
                         margin: 0.5rem 0;
                     }
                 }
             }
 
             .skills {
-                .sectionTitle {
-                    padding-top: 2rem;
-                    font-size: 1.375rem;
-                    font-weight: 700;
-                    color: #0b0b0b;
-                }
+                padding-top: 1rem;
+                padding-right: 3rem;
 
                 .skillsCard {
+                    max-height: 22rem;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
                     margin-top: 1.5rem;
                     border-radius: 0.75rem;
                     border: 1px solid #000;
                     background: #fff;
                     box-shadow: 15px 15px 0px 0px #3dc39b;
-                    padding: 1.5rem;
 
-                    ul {
-                        li {
-                            div {
-                                display: flex;
-                                align-items: center;
-                                gap: 1rem;
-
-                                p {
-                                    margin: 0.5rem 0;
-                                }
-                            }
-                        }
+                    .skill {
+                        margin-left: 1rem;
+                        margin-right: 1rem;
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 0.5rem;
                     }
+
                 }
             }
 
         }
+
+
+
+
+
     }
+
 }
