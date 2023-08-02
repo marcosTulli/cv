@@ -153,6 +153,12 @@ const Info = () => {
                                 target="_blank"
                                 title={strings.githubURL}
                             >
+                                <Image
+                                    src="/github.png"
+                                    alt="linkedin"
+                                    width={30}
+                                    height={20}
+                                />
                                 <p>{strings.github}</p>
                             </a>
                         </span>
