@@ -69,7 +69,7 @@ const Info = () => {
 
             <div className="contactInfo">
                 <ul>
-                    {/* <li>
+                    <li>
                         <Image
                             src="/location.png"
                             alt="location-icon"
@@ -77,7 +77,7 @@ const Info = () => {
                             height={icons.height}
                         />
                         <p>{strings.location}</p>
-                    </li> */}
+                    </li>
                     <li
                         onMouseEnter={() => setIsHover(true)}
                         onMouseLeave={() => setIsHover(false)}
