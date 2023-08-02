@@ -7,6 +7,7 @@ import { Language } from "@/app/types";
 
 const Qualifications = () => {
     const { lang, trans: strings } = useLanguage();
+
     return (
         <div className='qualifications'>
             <div className="education">

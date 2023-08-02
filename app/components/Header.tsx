@@ -2,16 +2,36 @@ import React from 'react';
 import Image from "next/image";
 import * as utils from "@/app/utils/index";
 import { useLanguage } from "@/app/contexts/LanguageContext";
-import { Language } from '../types';
+import copy from "copy-to-clipboard";
+import { CopyAlert } from './CopyAlert';
 
 
 const Header: React.FC = () => {
     const { lang, toggleLang, trans: strings } = useLanguage();
+    const [isHover, setIsHover] = React.useState<boolean>(false);
+    const [isCopied, setIsCopied] = React.useState<boolean>(false);
     const fileName = `${strings.cv}${lang}`;
     const icons = utils.icons;
     const handleDownloadClick = () => {
         utils.downloadFile('http://localhost:3000/', fileName);
     };
+
+    const copyToClipboard = (string: string) => {
+        copy(string);
+        setIsCopied(true);
+    };
+
+    React.useEffect(() => {
+        if (isCopied) {
+            setTimeout(() => {
+                setIsCopied(false);
+            }, 800);
+        }
+
+    }, [isCopied]);
+
+
+
 
     return (
         <div className='headerContainer'>
@@ -48,7 +68,10 @@ const Header: React.FC = () => {
                             </div>
                             <p>{strings.es}</p>
                         </li>
-                        <li>
+                        <li
+                            onMouseEnter={() => setIsHover(true)}
+                            onMouseLeave={() => setIsHover(false)}
+                        >
                             <Image
                                 src="/mail.png"
                                 alt="mail-icon"
@@ -56,6 +79,22 @@ const Header: React.FC = () => {
                                 height={icons.height}
                             />
                             <p>{strings.email}</p>
+                            <button
+                                title='Copy to clipboard'
+                                hidden={!isHover}
+                                className='copy'
+                                onClick={() => copyToClipboard(strings.email)}>
+                                <Image
+                                    src="/copy.png"
+                                    alt="mail-icon"
+                                    width={icons.width}
+                                    height={icons.height}
+                                />
+                            </button>
+                            <CopyAlert
+                                display={!isCopied}
+                                string={strings.email}
+                            />
                         </li>
 
                         <li>
