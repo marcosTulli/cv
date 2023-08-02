@@ -8,6 +8,7 @@ import skillsData from "@/app/assets/skills-data";
 import educationData from "@/app/assets/education-data";
 import { Language } from "@/app/types";
 import { useLanguage } from "@/app/contexts/LanguageContext";
+import { downloadFile } from "../utils/downloadFile";
 
 const icons = {
     width: 20,
@@ -15,19 +16,15 @@ const icons = {
 };
 
 export default function Home() {
-    const { lang, toggleLang, trans: strings, downloadFile } = useLanguage();
+    const { lang, toggleLang, trans: strings } = useLanguage();
+    const fileName = `${strings.cv}${lang}`;
+
     const handleDownloadClick = () => {
-        downloadFile().then((blob) => {
-            const blobURL = window.URL.createObjectURL(new Blob([blob]));
-            const aTag = document.createElement("a");
-            aTag.href = blobURL;
-            aTag.setAttribute("download", `CV Marcos Tulli.pdf`);
-            document.body.appendChild(aTag);
-            aTag.click();
-            aTag.remove();
-        });
+        downloadFile('http://localhost:3000/', fileName);
     };
-    // TODO: Split into smaller components
+
+    console.log(lang);
+
     return (
         <div className="cvContainer">
             <div className="leftSection">

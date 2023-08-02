@@ -13,7 +13,7 @@ interface ILanguageContext {
 
 const defaultContext = {
     lang: Language.EN,
-    trans: Es,
+    trans: En,
     setLang: (newLang: Language) => { },
     toggleLang: () => { console.log("Language Switch"); },
     downloadFile: () => Promise.resolve(new Blob())
@@ -27,7 +27,7 @@ interface LanguageContextProviderProps {
 
 export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = ({ children }) => {
     const [currentLanguage, setCurrentLanguage] = React.useState<Language>(Language.EN);
-    const [trans, setTrans] = React.useState<Translation>(En);
+    const [trans, setTrans] = React.useState<Translation>(Es);
     const setLang = useCallback((newLang: Language) => {
         setCurrentLanguage(newLang);
     }, [currentLanguage]);
