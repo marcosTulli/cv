@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useCallback, } from 'react';
 import { Translation, Language } from "@/app/types";
 import En from "@/app/loc/strings-en";
-import Es from "@/app/loc/strings-en";
+import Es from "@/app/loc/strings-es";
 
 interface ILanguageContext {
     lang: Language;
@@ -13,7 +13,7 @@ interface ILanguageContext {
 
 const defaultContext = {
     lang: Language.EN,
-    trans: En,
+    trans: Es,
     setLang: (newLang: Language) => { },
     toggleLang: () => { console.log("Language Switch"); },
     downloadFile: () => Promise.resolve(new Blob())
@@ -32,7 +32,6 @@ export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = (
         setCurrentLanguage(newLang);
     }, [currentLanguage]);
     const toggleLang = () => {
-        console.log(currentLanguage);
         setCurrentLanguage((prevLang) => prevLang === Language.EN ? Language.ES : Language.EN);
     };
     const downloadFile = useCallback(() => {
