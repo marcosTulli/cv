@@ -2,13 +2,17 @@ import React from 'react';
 import Image from "next/image";
 import * as utils from "@/app/utils/index";
 import { useLanguage } from "@/app/contexts/LanguageContext";
+import { Language } from '../types';
 
 
 const Header: React.FC = () => {
     const { lang, toggleLang, trans: strings } = useLanguage();
-    const icons = utils.icons;
     const fileName = `${strings.cv}${lang}`;
-    const handleDownloadClick = React.useCallback(() => { utils.downloadFile('http://localhost:3000/', fileName); }, []);
+    const icons = utils.icons;
+    const handleDownloadClick = () => {
+        utils.downloadFile('http://localhost:3000/', fileName);
+    };
+
     return (
         <div className='headerContainer'>
             <div className="about">
