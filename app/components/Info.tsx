@@ -30,40 +30,41 @@ const Info = () => {
 
     }, [isCopied]);
 
-
-    // <div>
-    //     <p>{strings.en}</p>
-    //     <label title="Switch Language" className="switch">
-    //         <input type="checkbox" onChange={() => toggleLang()} />
-    //         <span className="slider round"></span>
-    //     </label>
-    // </div>
-    // <p>{strings.es}</p>
-
-
-
-    // <button
-    //     className="download"
-    //     title="download"
-    //     onClick={handleDownloadClick}
-    // >
-    //     <Image
-    //         src="/download.png"
-    //         alt="download"
-    //         width={40}
-    //         height={40}
-    //     />
-    // </button>;
-
     return (
         <div className="info">
-            <div className="profilePicture">
-                <Image
-                    src="/profile-picture.jpg"
-                    alt="profile picture"
-                    width={300}
-                    height={300}
-                />
+            <div className='infoHeader'>
+                <div className="profilePicture">
+                    <Image
+                        src="/profile-picture.jpg"
+                        alt="profile picture"
+                        width={300}
+                        height={300}
+                    />
+                </div>
+                <div className='actions'>
+                    <div className='toggleLanguage'>
+                        <p>{strings.en}</p>
+                        <label title="Switch Language" className="switch">
+                            <input type="checkbox" onChange={() => toggleLang()} />
+                            <span className="slider round"></span>
+                        </label>
+                        <p>{strings.es}</p>
+                    </div>
+
+                    <button
+                        className="download"
+                        title="download"
+                        onClick={handleDownloadClick}
+                    >
+                        <Image
+                            src="/download.png"
+                            alt="download"
+                            width={20}
+                            height={20}
+                        />
+                    </button>
+                </div>
+
             </div>
 
             <div className="contactInfo">
