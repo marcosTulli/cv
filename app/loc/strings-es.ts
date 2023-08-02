@@ -18,6 +18,8 @@ const Es: Translation = {
     githubURL: 'http://github.com/marcosTulli',
     linkedinURL: 'http://linkedin.com/in/marcos-tulli',
     cv: 'Marcos Tulli CV-',
+    en: 'EN',
+    es: 'ES',
 };
 
 export default Es;

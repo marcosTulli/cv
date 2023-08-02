@@ -56,6 +56,8 @@ export interface Translation {
     linkedinURL: string;
     githubURL: string;
     cv: string;
+    en: string;
+    es: string;
 }
 
 export enum Language {
