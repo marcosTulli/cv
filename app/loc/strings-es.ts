@@ -1,6 +1,6 @@
-import { IStrings } from '../models/strings';
+import { Translation } from '@/app/types';
 
-const stringsSP: IStrings = {
+const Es: Translation = {
     candidateName: "Marcos Tulli",
     candidateTitle: "Desarrollador Front-End",
     about: "Con experiencia en servicio al cliente y soporte técnico, una licenciatura en tecnología y una pasión por aprender y evolucionar continuamente en mi campo, aporto una combinación única de empatía, trabajo en equipo y habilidades técnicas. Dedicado y ambicioso, siempre me esfuerzo por cumplir mis metas y compromisos a tiempo. pasión por aprender y evolucionar continuamente en mi campo, aporto una combinación única de empatía, trabajo en equipo y habilidades técnicas. Dedicado y ambicioso, siempre me esfuerzo por cumplir mis metas y compromisos a tiempo.",
@@ -21,4 +21,4 @@ const stringsSP: IStrings = {
     CV_SP: 'Marcos Tulli CV-es',
 };
 
-export default stringsSP;
+export default Es;

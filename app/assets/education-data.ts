@@ -1,4 +1,4 @@
-import { IEducation } from '../models/education';
+import { IEducation } from '@/app/types';
 
 const educationData: IEducation[] = [
     {
@@ -8,7 +8,7 @@ const educationData: IEducation[] = [
             content: "Teclab instituto tencico",
             url: ""
         },
-        sp: {
+        es: {
             title: "Tecnicatura en Programacion",
             content: "Teclab instituto tencico",
             url: ""
@@ -21,7 +21,7 @@ const educationData: IEducation[] = [
             content: "150+ hours of Front-End development path",
             url: ""
         },
-        sp: {
+        es: {
             title: "Curso de Pluralsight",
             content: "150+ horas de curso de desarrollo front-end en React.js ",
             url: ""
@@ -34,7 +34,7 @@ const educationData: IEducation[] = [
             content: "AZ-900 certified",
             url: "/next.png"
         },
-        sp: {
+        es: {
             title: "Desarrollo en la nube ",
             content: "Certificacion AZ-900",
             url: ""
@@ -47,7 +47,7 @@ const educationData: IEducation[] = [
             content: "National Technological University",
             url: "/react.pdf"
         },
-        sp: {
+        es: {
             title: "React",
             content: "Universidad Tecnologica Nacional",
             url: "/react.pdf"

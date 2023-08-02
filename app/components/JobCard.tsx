@@ -1,14 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
-import { IJobs } from '../models/jobs';
+import { IJobs } from '@/app/types';
 
 type JobCardProps = {
     data: IJobs;
     language: string;
 };
 const JobCard: React.FC<JobCardProps> = ({ data, language }) => {
-    const jobData = language === 'sp' ? data.sp : data.en;
-    const tasks = language === 'sp' ? data.sp.tasks : data.en.tasks;
+    const jobData = language === 'es' ? data.es : data.en;
+    const tasks = language === 'es' ? data.es.tasks : data.en.tasks;
     return (
         <div className="jobCard">
             <div className='jobCardHeader'>

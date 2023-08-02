@@ -1,4 +1,4 @@
-import { IJobs } from '../models/jobs';
+import { IJobs } from '@/app/types';
 
 const jobsData: IJobs[] = [
   {
@@ -15,7 +15,7 @@ const jobsData: IJobs[] = [
         'Collaborating with the team to deliver high-quality products on time',
       ],
     },
-    sp: {
+    es: {
       position: 'Desarrollador Front-End',
       activePeriod: 'Nov 2022 - Actual',
       companyName: 'Raona',
@@ -42,7 +42,7 @@ const jobsData: IJobs[] = [
         'Created bots to streamline workflows, reducing the number of errors by 95%',
       ],
     },
-    sp: {
+    es: {
       position: 'Desarrollador Front-End',
       activePeriod: 'Jul 2022 - Nov 2022',
       companyName: 'Softtek',
@@ -70,7 +70,7 @@ const jobsData: IJobs[] = [
         'Coded new features for client websites and fixed identified bugs',
       ],
     },
-    sp: {
+    es: {
       position: 'Desarrollador Front-End',
       activePeriod: 'Sep 2020 - Jun 2022',
       companyName: 'Mercap',

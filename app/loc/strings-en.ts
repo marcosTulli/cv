@@ -1,6 +1,6 @@
-import { IStrings } from '../models/strings';
+import { Translation } from '@/app/types';
 
-const stringsEn: IStrings = {
+const En: Translation = {
     candidateName: "Marcos Tulli",
     candidateTitle: "Front-End Developer",
     about: "With a background in customer service and technical support, a Bachelor's in Technology, and a passion for continuously learning and evolving in my field, I bring a unique combination of empathy, teamwork, and technical skills to the table. Dedicated and ambitious, I am always striving to meet my goals and commitments on time. passion for continuously learning and evolving in my field, I bring a unique combination of empathy, teamwork, and technical skills to the table. Dedicated and ambitious, I am always striving to meet my goals and commitments on time.",
@@ -22,4 +22,4 @@ const stringsEn: IStrings = {
 
 };
 
-export default stringsEn;
+export default En;
