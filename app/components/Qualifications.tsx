@@ -8,7 +8,7 @@ import { Language } from "@/app/types";
 const Qualifications = () => {
     const { lang, trans: strings } = useLanguage();
     return (
-        <div className='qualificatiions'>
+        <div className='qualifications'>
             <div className="education">
                 <div className="sectionTitle">{strings.education}</div>
                 <div className="educationCard">

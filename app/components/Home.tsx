@@ -10,11 +10,13 @@ export default function Home() {
     return (
         <div className="cvContainer">
             <Header />
-            <div className="leftSection">
+            <div className="body">
                 <WorkExperience />
-            </div>
-            <div className="rightSection">
                 <Qualifications />
+                {/* </div>
+            <div className="leftSection">
+            </div>
+            <div className="rightSection"> */}
             </div>
         </div>
     );

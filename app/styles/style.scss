@@ -159,16 +159,13 @@
 
     }
 
-    .leftSection {
+    .body {
         display: flex;
-        flex-direction: column;
-        flex: 2;
         padding: 1rem;
-
 
         .workExperience {
             margin-top: 1.5rem;
-            flex: 1;
+            flex: 2;
 
             .sectionTitle {
                 font-size: 1.375rem;
@@ -225,71 +222,69 @@
                 }
             }
         }
-    }
 
-    .rightSection {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        padding: 2rem;
+        .qualifications {
+            flex: 1;
 
-        .education {
-            .sectionTitle {
-                padding-top: 2rem;
-                font-size: 1.375rem;
-                font-weight: 700;
-                color: #0b0b0b;
-            }
-
-            .educationCard {
-                margin-top: 1.5rem;
-                border-radius: 0.75rem;
-                border: 1px solid #000;
-                background: #fff;
-                box-shadow: 15px 15px 0px 0px #3dc39b;
-                padding: 1.5rem;
-
-                .degree {
-                    font-size: 1.125rem;
+            .education {
+                .sectionTitle {
+                    padding-top: 2rem;
+                    font-size: 1.375rem;
                     font-weight: 700;
+                    color: #0b0b0b;
                 }
 
-                p {
-                    margin: 0.5rem 0;
+                .educationCard {
+                    margin-top: 1.5rem;
+                    border-radius: 0.75rem;
+                    border: 1px solid #000;
+                    background: #fff;
+                    box-shadow: 15px 15px 0px 0px #3dc39b;
+                    padding: 1.5rem;
+
+                    .degree {
+                        font-size: 1.125rem;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        margin: 0.5rem 0;
+                    }
                 }
             }
-        }
 
-        .skills {
-            .sectionTitle {
-                padding-top: 2rem;
-                font-size: 1.375rem;
-                font-weight: 700;
-                color: #0b0b0b;
-            }
+            .skills {
+                .sectionTitle {
+                    padding-top: 2rem;
+                    font-size: 1.375rem;
+                    font-weight: 700;
+                    color: #0b0b0b;
+                }
 
-            .skillsCard {
-                margin-top: 1.5rem;
-                border-radius: 0.75rem;
-                border: 1px solid #000;
-                background: #fff;
-                box-shadow: 15px 15px 0px 0px #3dc39b;
-                padding: 1.5rem;
+                .skillsCard {
+                    margin-top: 1.5rem;
+                    border-radius: 0.75rem;
+                    border: 1px solid #000;
+                    background: #fff;
+                    box-shadow: 15px 15px 0px 0px #3dc39b;
+                    padding: 1.5rem;
 
-                ul {
-                    li {
-                        div {
-                            display: flex;
-                            align-items: center;
-                            gap: 1rem;
+                    ul {
+                        li {
+                            div {
+                                display: flex;
+                                align-items: center;
+                                gap: 1rem;
 
-                            p {
-                                margin: 0.5rem 0;
+                                p {
+                                    margin: 0.5rem 0;
+                                }
                             }
                         }
                     }
                 }
             }
+
         }
     }
 }
