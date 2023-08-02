@@ -8,17 +8,13 @@ import skillsData from "@/app/assets/skills-data";
 import educationData from "@/app/assets/education-data";
 import { Language } from "@/app/types";
 import { useLanguage } from "@/app/contexts/LanguageContext";
-import { downloadFile } from "../utils/downloadFile";
-
-const icons = {
-    width: 20,
-    height: 20,
-};
+import * as utils from "@/app/utils/index";
 
 export default function Home() {
     const { lang, toggleLang, trans: strings } = useLanguage();
     const fileName = `${strings.cv}${lang}`;
-    const handleDownloadClick = React.useCallback(() => { downloadFile('http://localhost:3000/', fileName); }, []);
+    const handleDownloadClick = React.useCallback(() => { utils.downloadFile('http://localhost:3000/', fileName); }, []);
+    const icons = utils.icons;
 
     return (
         <div className="cvContainer">
