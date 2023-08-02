@@ -8,7 +8,6 @@ interface ILanguageContext {
     trans: Translation;
     setLang: (newLang: Language) => void;
     toggleLang: () => void;
-    downloadFile: () => Promise<Blob>;
 }
 
 const defaultContext = {
@@ -16,7 +15,6 @@ const defaultContext = {
     trans: En,
     setLang: (newLang: Language) => { },
     toggleLang: () => { console.log("Language Switch"); },
-    downloadFile: () => Promise.resolve(new Blob())
 };
 
 export const LanguageContext = createContext<ILanguageContext>(defaultContext);
@@ -34,14 +32,6 @@ export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = (
     const toggleLang = () => {
         setCurrentLanguage((prevLang) => prevLang === Language.EN ? Language.ES : Language.EN);
     };
-    const downloadFile = useCallback(() => {
-        return new Promise<Blob>((res, rej) => {
-            fetch(`http://localhost:3000/Marcos Tulli CV-${currentLanguage}.pdf`)
-                .then(async (res) => await res.blob())
-                .then(res)
-                .catch(rej);
-        });
-    }, [currentLanguage]);
 
     useEffect(() => {
         switch (currentLanguage) {
@@ -58,7 +48,6 @@ export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = (
                 lang: currentLanguage,
                 trans,
                 setLang,
-                downloadFile,
                 toggleLang
             }}
         >

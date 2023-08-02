@@ -18,12 +18,7 @@ const icons = {
 export default function Home() {
     const { lang, toggleLang, trans: strings } = useLanguage();
     const fileName = `${strings.cv}${lang}`;
-
-    const handleDownloadClick = () => {
-        downloadFile('http://localhost:3000/', fileName);
-    };
-
-    console.log(lang);
+    const handleDownloadClick = React.useCallback(() => { downloadFile('http://localhost:3000/', fileName); }, []);
 
     return (
         <div className="cvContainer">
