@@ -89,22 +89,28 @@ const Info = () => {
                             height={icons.height}
                         />
                         <p>{strings.email}</p>
-                        <button
-                            title='Copy to clipboard'
-                            hidden={!isHover}
-                            className='copy'
-                            onClick={() => copyString(strings.email)}>
-                            <Image
-                                src="/copy.png"
-                                alt="mail-icon"
-                                width={icons.width}
-                                height={icons.height}
-                            />
-                        </button>
-                        <CopyAlert
-                            display={!isCopied}
-                            string={strings.email}
-                        />
+                        <div className='copyButtonContainer'>
+                            <button
+                                title='Copy to clipboard'
+                                hidden={!isHover}
+                                className='copy'
+                                onClick={() => copyString(strings.email)}>
+                                <Image
+                                    src="/copy.png"
+                                    alt="mail-icon"
+                                    width={icons.width}
+                                    height={icons.height}
+                                />
+                            </button>
+                            <p
+                                hidden={!isHover}
+                            >
+                                <CopyAlert
+                                    display={!isCopied}
+                                    string={strings.email}
+                                />
+                            </p>
+                        </div>
                     </li>
                     <li>
                         <Image
@@ -154,9 +160,10 @@ const Info = () => {
                                 title={strings.githubURL}
                             >
                                 <Image
+                                    className='githubIcon'
                                     src="/github.png"
                                     alt="linkedin"
-                                    width={30}
+                                    width={35}
                                     height={20}
                                 />
                                 <p>{strings.github}</p>

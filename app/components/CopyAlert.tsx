@@ -12,7 +12,7 @@ export const CopyAlert: React.FC<CopyAlertProps> = ({ display, string }) => {
             hidden={display}
             className='copyAlert'
         >
-            {`${string} Copied to clipboard`}
+            &#9989;
         </p>
     );
 };

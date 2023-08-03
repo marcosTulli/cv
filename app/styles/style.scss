@@ -2,7 +2,8 @@
     width: 210mm;
     height: 297mm;
     margin: 0 auto;
-    background-color: rgb(239, 238, 238);
+    background-color: pink;
+    // background-color: rgb(239, 238, 238);
     border-radius: 1.56rem;
     gap: 2rem;
     margin-top: 1rem;
@@ -145,7 +146,6 @@
                 gap: 9px;
             }
 
-
             .profilePicture {
                 padding-top: 1rem;
                 width: 9rem;
@@ -155,14 +155,18 @@
                 overflow: hidden;
                 display: flex;
                 object-fit: cover;
+                position: relative;
+            }
 
-                img {
-                    width: 110%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-
+            .profilePicture img {
+                width: 110%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 0.75rem 0 0 0.75rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
             }
 
             .contactInfo {
@@ -182,7 +186,8 @@
                     align-items: center;
 
                     p {
-                        margin: 7px 0;
+                        margin: 6px 0;
+                        margin-right: 1rem;
                     }
 
                     img {
@@ -206,8 +211,6 @@
                 .links {
                     display: flex;
                     align-items: center;
-                    margin-left: 0;
-                    padding-left: 0;
 
                     p {
                         margin: 0;
@@ -215,12 +218,18 @@
                     }
 
                     a {
+
                         display: flex;
                         align-items: center;
                         text-decoration: none;
                         cursor: pointer;
                         color: black;
+
                         font-weight: 600;
+
+                        .githubIcon {
+                            margin: 0
+                        }
                     }
                 }
             }
@@ -238,18 +247,29 @@
                 padding-right: 0.5rem;
             }
 
-            .copy {
-                padding-left: 2rem;
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-            }
-
             .copyAlert {
-                background-color: rgb(68, 166, 211);
+                // font-size: 9px;
                 border-radius: .25rem;
+                // padding: 3px;
+                // position: static;
+            }
+
+            .copyButtonContainer {
+                padding: 0;
+                margin: 0;
+                display: flex;
+
+
+                .copy {
+                    padding-left: 2rem;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+
 
             }
+
 
             .switch {
                 position: relative;
@@ -279,7 +299,7 @@
                         height: 9px;
                         width: 9px;
                         left: 3px;
-                        bottom: 4px;
+                        bottom: 3.5px;
                         background-color: white;
                         transition: .4s;
                     }
