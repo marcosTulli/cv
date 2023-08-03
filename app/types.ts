@@ -38,6 +38,13 @@ export interface ISkills {
     url: string;
 }
 
+export interface IContactInfo {
+    id: number;
+    name: string;
+    src: string;
+    value: string;
+}
+
 export interface Translation {
     candidateName: string;
     candidateTitle: string;

@@ -4,31 +4,64 @@ import Image from "next/image";
 import { CopyAlert } from './CopyAlert';
 import copy from "copy-to-clipboard";
 import * as utils from "@/app/utils/index";
+import { contactInfo } from '@/app/assets/contact-info';
+
+interface HoverState {
+    id: number,
+    value: string,
+    isHover: boolean;
+    isCopied?: boolean;
+}
 
 const Info = () => {
     const { lang, toggleLang, trans: strings } = useLanguage();
-    const [isHover, setIsHover] = React.useState<boolean>(false);
-    const [isCopied, setIsCopied] = React.useState<boolean>(false);
+    const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const icons = utils.icons;
     const fileName = `${strings.cv}${lang}`;
+
+    const displayCopyButton = (id: number): boolean => {
+        if (hoverItem?.isHover && id === hoverItem.id) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+
+    const displayCopyConfirmation = (id: number): boolean => {
+        if (hoverItem?.isCopied && id === hoverItem.id) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
 
     const handleDownloadClick = () => {
         utils.downloadFile('http://localhost:3000/', fileName);
     };
 
-    const copyString = (string: string) => {
-        copy(string);
-        setIsCopied(true);
+    const handleTextHover = (id: number, value: string, isHover: boolean) => {
+        if (value !== strings.location) {
+            setHoverItem({ id, value, isHover });
+        }
+
     };
 
+    const handleCopy = (value: string, isCopied: boolean) => {
+        copy(value);
+        setHoverItem((i) => i ? { ...i, isCopied } : i);
+    };
+
+
     React.useEffect(() => {
-        if (isCopied) {
+        if (hoverItem?.isCopied && !hoverItem.isHover) {
             setTimeout(() => {
-                setIsCopied(false);
+                setHoverItem(undefined);
             }, 800);
         }
 
-    }, [isCopied]);
+    }, [hoverItem]);
 
     return (
         <div className="info">
@@ -66,66 +99,56 @@ const Info = () => {
                 </div>
 
             </div>
-
             <div className="contactInfo">
                 <ul>
-                    <li>
-                        <Image
-                            src="/location.png"
-                            alt="location-icon"
-                            width={icons.width}
-                            height={icons.height}
-                        />
-                        <p>{strings.location}</p>
-                    </li>
-                    <li
-                        onMouseEnter={() => setIsHover(true)}
-                        onMouseLeave={() => setIsHover(false)}
-                    >
-                        <Image
-                            src="/mail.png"
-                            alt="mail-icon"
-                            width={icons.width}
-                            height={icons.height}
-                        />
-                        <p>{strings.email}</p>
-                        <div className='copyButtonContainer'>
-                            <button
-                                title='Copy to clipboard'
-                                hidden={!isHover}
-                                className='copy'
-                                onClick={() => copyString(strings.email)}>
-                                <Image
-                                    src="/copy.png"
-                                    alt="mail-icon"
-                                    width={icons.width}
-                                    height={icons.height}
-                                />
-                            </button>
-                            <p
-                                hidden={!isHover}
-                            >
-                                <CopyAlert
-                                    display={!isCopied}
-                                    string={strings.email}
-                                />
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <Image
-                            src="/telephone.png"
-                            alt="phone-icon"
-                            width={icons.width}
-                            height={icons.height}
-                        />
-                        <p>{strings.phone}</p>
-                    </li>
+                    {
+                        contactInfo.map(i => {
+                            return (
+                                <li
+                                    onMouseEnter={() => handleTextHover(i.id, i.value, true)}
+                                    onMouseLeave={() => handleTextHover(i.id, i.value, false)}
+                                    key={i.id}
+                                >
+                                    <Image
+                                        src={i.src}
+                                        alt={i.name}
+                                        width={icons.width}
+                                        height={icons.height}
+                                    />
+                                    <p>{i.value}</p>
+                                    <div className='copyButtonContainer'>
+                                        <button
+                                            title='Copy to clipboard'
+                                            hidden={displayCopyButton(i.id)}
+                                            className='copy'
+                                            onClick={() => handleCopy(i.value, true)}>
+                                            <Image
+                                                src="/copy.png"
+                                                alt="mail-icon"
+                                                width={icons.width}
+                                                height={icons.height}
+                                            />
+                                        </button>
+                                        <p
+                                            hidden={displayCopyConfirmation(i.id)}
+                                        >
+                                            <CopyAlert
+                                                display={displayCopyButton(i.id)}
+                                                string={i.value}
+                                            />
+                                        </p>
+                                    </div>
+                                </li>
+                            );
+                        })
+                    }
+
                     <li>
                         <div>
                             <Image
                                 src="/uk.png"
                                 alt="english"
+
                                 width={icons.width}
                                 height={icons.height}
                             />

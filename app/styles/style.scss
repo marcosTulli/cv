@@ -2,8 +2,7 @@
     width: 210mm;
     height: 297mm;
     margin: 0 auto;
-    background-color: pink;
-    // background-color: rgb(239, 238, 238);
+    background-color: rgb(239, 238, 238);
     border-radius: 1.56rem;
     gap: 2rem;
     margin-top: 1rem;
@@ -173,8 +172,7 @@
                 margin-top: 1rem;
                 list-style: none;
                 padding: 0;
-                display: flex;
-                justify-items: center;
+                // display: flex;
 
                 ul {
                     padding-inline-start: 0;
@@ -184,10 +182,13 @@
                     font-size: small;
                     display: flex;
                     align-items: center;
+                    justify-content: left;
+
 
                     p {
                         margin: 6px 0;
-                        margin-right: 1rem;
+
+                        // margin-right: 1rem;
                     }
 
                     img {
@@ -258,7 +259,6 @@
                 padding: 0;
                 margin: 0;
                 display: flex;
-
 
                 .copy {
                     padding-left: 2rem;
