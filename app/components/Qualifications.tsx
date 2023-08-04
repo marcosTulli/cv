@@ -32,7 +32,7 @@ const Qualifications = () => {
                 <div className="skillsCard">
                     {skillsData.map((i) => {
                         return (
-                            <div className='skill'>
+                            <div key={i.id} className='skill'>
                                 <Image src={i.url} alt={i.name} width={20} height={20} />
                                 {<p>{i.name}</p>}
                             </div>
@@ -40,25 +40,6 @@ const Qualifications = () => {
                     })}
                 </div>
             </div>
-
-
-            {/* <div className="skills">
-                <div className="sectionTitle">{strings.skills}</div>
-                <div className="skillsCard">
-                    <ul>
-                        {skillsData.map((i) => {
-                            return (
-                                <li key={i.id}>
-                                    <div>
-                                        <Image src={i.url} alt={i.name} width={20} height={20} />
-                                        {<p>{i.name}</p>}
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            </div> */}
         </div>
 
     );

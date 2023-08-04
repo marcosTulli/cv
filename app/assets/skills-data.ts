@@ -23,33 +23,63 @@ const skillsData: ISkills[] = [
     },
     {
         id: 5,
+        name: "NodeJs",
+        url: "/node.png"
+    },
+    {
+        id: 6,
         name: "HTML",
         url: "/html.png"
     },
     {
-        id: 6,
+        id: 7,
         name: "CSS",
         url: "/css.png"
     },
     {
-        id: 7,
+        id: 8,
         name: "SASS",
         url: "/sass.png"
     },
     {
-        id: 8,
+        id: 9,
         name: "Agile",
         url: "/agile.png"
     },
     {
-        id: 9,
+        id: 10,
         name: "Linux",
         url: "/linux.png"
     },
     {
-        id: 10,
+        id: 11,
         name: "Azure",
         url: "/azure.png"
+    },
+    {
+        id: 12,
+        name: "Networking",
+        url: "/network.png"
+    },
+    {
+        id: 13,
+        name: "CLI",
+        url: "/cli.png"
+    },
+    {
+        id: 14,
+        name: "Testing",
+        url: "/test.png"
+    },
+    {
+        id: 15,
+        name: "Version Control",
+        url: "/git.png"
+    },
+    {
+        id: 16,
+        name: "Databases",
+        url: "/db.png"
     },
 ];
 

@@ -8,11 +8,11 @@ type CopyAlertProps = {
 
 export const CopyAlert: React.FC<CopyAlertProps> = ({ display, string }) => {
     return (
-        <p
+        <span
             hidden={display}
             className='copyAlert'
         >
             &#9989;
-        </p>
+        </span>
     );
 };
