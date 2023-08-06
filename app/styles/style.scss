@@ -1,12 +1,19 @@
+@import './global.scss';
+
+
 .cvContainer {
     width: 210mm;
     height: 297mm;
     margin: 0 auto;
     background-color: rgb(239, 238, 238);
+    // background-color: red;
+    border: solid black 1px;
     border-radius: 1.56rem;
     gap: 2rem;
     margin-top: 1rem;
-    box-shadow: 44px 40px 0px 0px #f6e172;
+    // box-shadow: 44px 40px 0px 0px #f6e172;
+    box-shadow: 44px 40px 0px 0px $yellow;
+
     display: flex;
     padding-top: 1rem;
 
@@ -60,18 +67,19 @@
             flex: 2;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-
+            gap: 2rem;
 
             .jobCard {
                 display: flex;
                 text-align: left;
                 flex-direction: column;
-                margin-top: 1rem;
+
+                // margin-top: 1rem;
+
                 border-radius: 0.75rem;
                 border: 1px solid #000;
-                background: #fff;
-                box-shadow: 15px 15px 0px 0px #3dc39b;
+                // background: #fff;
+                // box-shadow: 15px 15px 0px 0px #3dc39b;
                 padding: 0.5rem;
                 width: 25rem;
 
@@ -111,6 +119,7 @@
 
                     list-style: disc;
                     margin-bottom: 0;
+                    padding-left: 1.4rem;
 
                     li {
                         text-align: justify;
@@ -152,7 +161,7 @@
                 padding-top: 1rem;
                 width: 9rem;
                 height: 9rem;
-                box-shadow: 15px 15px 0px 0px #3dc39b;
+                box-shadow: 15px 15px 0px 0px $green;
                 border-radius: 0.75rem;
                 overflow: hidden;
                 display: flex;
@@ -227,7 +236,7 @@
                         align-items: center;
                         text-decoration: none;
                         cursor: pointer;
-                        color: black;
+                        color: $fontBlack;
 
                         font-weight: 600;
 
@@ -252,10 +261,7 @@
             }
 
             .copyAlert {
-                // font-size: 9px;
                 border-radius: .25rem;
-                // padding: 3px;
-                // position: static;
             }
 
             .copyButtonContainer {
@@ -269,8 +275,6 @@
                     border: none;
                     cursor: pointer;
                 }
-
-
             }
 
 
@@ -309,11 +313,11 @@
                 }
 
                 input:not(:checked)+.slider {
-                    background-color: #0e65ac;
+                    background-color: $switchBlue;
                 }
 
                 input:checked+.slider {
-                    background-color: rgb(222, 87, 87);
+                    background-color: $switchRed;
                 }
 
                 input:checked+.slider:before {
@@ -349,7 +353,7 @@
                     border-radius: 0.75rem;
                     border: 1px solid #000;
                     background: #fff;
-                    box-shadow: 15px 15px 0px 0px #3dc39b;
+                    box-shadow: 15px 15px 0px 0px $green;
                     margin-right: 0.5rem;
                     width: fit-content;
 
@@ -381,7 +385,7 @@
                     border: 1px solid #000;
                     background: #fff;
                     padding: 1rem;
-                    box-shadow: 15px 15px 0px 0px #3dc39b;
+                    box-shadow: 15px 15px 0px 0px $green;
 
                     .skill {
                         font-size: 65%;
