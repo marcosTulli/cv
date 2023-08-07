@@ -1,0 +1,68 @@
+@import '../../styles/global.scss';
+
+.workExperience {
+    margin-top: 1.5rem;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+
+
+    .jobCard {
+        display: flex;
+        text-align: left;
+        flex-direction: column;
+        border-radius: 0.75rem;
+        border: 1px solid $defaultBlack;
+        background: $defaultWhite;
+        // box-shadow: 15px 15px 0px 0px #3dc39b;
+        padding: 0.5rem;
+        width: 25rem;
+
+
+        .jobCardHeader {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+
+            .jobTitle {
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+            .workingPeriod {
+                font-weight: 400;
+                font-size: 10px;
+                color: $defaultGray;
+            }
+        }
+
+        .companyTitle {
+            display: flex;
+            font-size: 12px;
+            align-items: center;
+            gap: 0.5rem;
+
+            .companyName {
+                font-weight: 600;
+                color: $defaultBlack;
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+
+        ul {
+
+            list-style: disc;
+            margin-bottom: 0;
+            padding-left: 1.4rem;
+
+            li {
+                text-align: justify;
+                font-size: 11px;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}

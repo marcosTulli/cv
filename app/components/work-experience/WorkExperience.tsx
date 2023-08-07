@@ -1,47 +1,56 @@
 import React from 'react';
-import JobCard from "@/app/components/JobCard";
+import JobCard from "@/app/components/job-card/JobCard";
 import jobsData from "@/app/assets/jobs-data";
 import { useLanguage } from "@/app/contexts/LanguageContext";
+import styles from "./WorkExperience.module.scss";
 
 const WorkExperience = () => {
     const { lang, trans: strings } = useLanguage();
-
-    // Mapping between id and color
-    const idToColor = {
-        // Assign colors for specific ids
-        // For example:
-        1: '#3DC39B',
-        2: '#928CF8',
-        3: '#FE74A6',
-        4: '#5B6DFF',
-        // ...
+    const colors: { [key: number]: string; } = {
+        1: styles.blue,
+        2: styles.peach,
+        3: styles.lightPurple,
     };
 
     return (
-        <div className="workExperience">
+        <div className={styles.workExperience}>
             <div className="sectionTitle">{strings.workExperience}</div>
             {jobsData.map((i) => {
                 // Get the color for the specific id or default to a fallback color
-                const shadowColor = idToColor[i.id] || '#CCCCCC';
-                // Apply the selected color as a shadow
+                const shadowColor = colors[i.id] || '#CCCCCC';
+                // Apply the selected color as a shadow;
                 const cardStyle = {
-                    // boxShadow: `0px 4px 10px ${shadowColor}`,
                     borderRadius: "0.75rem",
                     boxShadow: `15px 15px 0px 0px ${shadowColor}`,
                 };
 
                 return (
-                    <div key={i.id} className="jobCardWrapper" style={cardStyle}>
+                    <div key={i.id} className="jobCardWrapper" style={cardStyle} >
                         <JobCard data={i} language={lang} />
                     </div>
                 );
             })}
-        </div>
+        </div >
     );
 };
 
 export default WorkExperience;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // // Mapping between id and color
 
 
 

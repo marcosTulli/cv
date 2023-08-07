@@ -30,6 +30,11 @@ const Info = () => {
 
     const displayCopyConfirmation = (id: number): boolean => {
         if (hoverItem?.isCopied && id === hoverItem.id) {
+            if (hoverItem?.isCopied || !hoverItem.isHover) {
+                setTimeout(() => {
+                    setHoverItem(undefined);
+                }, 800);
+            }
             return false;
         }
         else {
@@ -86,7 +91,7 @@ const Info = () => {
 
                     <button
                         className="download"
-                        title="download"
+                        title="Download"
                         onClick={handleDownloadClick}
                     >
                         <Image
@@ -133,7 +138,7 @@ const Info = () => {
                                             hidden={displayCopyConfirmation(i.id)}
                                         >
                                             <CopyAlert
-                                                display={displayCopyButton(i.id)}
+                                                display={displayCopyConfirmation(i.id)}
                                                 string={i.value}
                                             />
                                         </p>
