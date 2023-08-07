@@ -1,5 +1,7 @@
 export const downloadFile = (url: string, fileName: string) => {
-    fetch(url).then(res => res.blob()).then(blob => {
+    fetch(url, {
+        mode: 'no-cors'
+    }).then(res => res.blob()).then(blob => {
         const blobURL = window.URL.createObjectURL(new Blob([blob]));
         const aTag = document.createElement('a');
         aTag.href = blobURL;
