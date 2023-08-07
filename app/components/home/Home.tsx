@@ -1,18 +1,20 @@
 // TODO: Use eslint vscode extension
 "use client";
-import Header from "@/app/components/Header";
+import Header from "@/app/components/header/Header";
 import WorkExperience from "@/app/components/work-experience/WorkExperience";
-import Qualifications from "./Qualifications";
-import Info from './Info';
+import Qualifications from "@/app/components/qualifications/Qualifications";
+import Info from "@/app/components/info/Info";
+import styles from './Home.module.scss';
+
 
 export default function Home() {
     return (
-        <div className="cvContainer">
-            <div className="left">
+        <div className={styles.cvContainer}>
+            <div className={styles.left}>
                 <Header />
                 <WorkExperience />
             </div>
-            <div className="right">
+            <div className={styles.right}>
                 <Info />
                 <Qualifications />
             </div>

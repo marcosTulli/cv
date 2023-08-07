@@ -1,7 +1,6 @@
 "use client";
-import './styles/style.scss';
 import { LanguageContextProvider } from '@/app/contexts/LanguageContext';
-import Home from '@/app/components/Home';
+import Home from './components/home/Home';
 
 
 export default function HomePage() {

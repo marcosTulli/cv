@@ -5,6 +5,7 @@ import { CopyAlert } from './CopyAlert';
 import copy from "copy-to-clipboard";
 import * as utils from "@/app/utils/index";
 import { contactInfo } from '@/app/assets/contact-info';
+import styles from './Info.module.scss';
 
 interface HoverState {
     id: number,
@@ -69,9 +70,9 @@ const Info = () => {
     }, [hoverItem]);
 
     return (
-        <div className="info">
-            <div className='infoHeader'>
-                <div className="profilePicture">
+        <div className={styles.info}>
+            <div className={styles.infoHeader}>
+                <div className={styles.profilePicture}>
                     <Image
                         src="/profile-picture.jpg"
                         alt="profile picture"
@@ -79,18 +80,18 @@ const Info = () => {
                         height={300}
                     />
                 </div>
-                <div className='actions'>
-                    <div className='toggleLanguage'>
+                <div className={styles.actions}>
+                    <div className={styles.toggleLanguage}>
                         <p>{strings.en}</p>
-                        <label title="Switch Language" className="switch">
+                        <label title="Switch Language" className={styles.switch}>
                             <input type="checkbox" onChange={() => toggleLang()} />
-                            <span className="slider round"></span>
+                            <span className={`${styles.slider} ${styles.round}`}></span>
                         </label>
                         <p>{strings.es}</p>
                     </div>
 
                     <button
-                        className="download"
+                        className={styles.download}
                         title="Download"
                         onClick={handleDownloadClick}
                     >
@@ -100,11 +101,12 @@ const Info = () => {
                             width={20}
                             height={20}
                         />
+                        {/* <label>Download</label> */}
                     </button>
                 </div>
 
             </div>
-            <div className="contactInfo">
+            <div className={styles.contactInfo}>
                 <ul>
                     {
                         contactInfo.map(i => {
@@ -121,11 +123,11 @@ const Info = () => {
                                         height={icons.height}
                                     />
                                     <p>{i.value}</p>
-                                    <div className='copyButtonContainer'>
+                                    <div className={styles.copyButtonContainer}>
                                         <button
                                             title='Copy to clipboard'
                                             hidden={displayCopyButton(i.id)}
-                                            className='copy'
+                                            className={styles.copy}
                                             onClick={() => handleCopy(i.value, true)}>
                                             <Image
                                                 src="/copy.png"
@@ -168,7 +170,7 @@ const Info = () => {
                         </div>
                     </li>
                     <li>
-                        <span className='links'>
+                        <span className={styles.links}>
                             <a
                                 href={strings.linkedinURL}
                                 target="_blank"
@@ -188,7 +190,7 @@ const Info = () => {
                                 title={strings.githubURL}
                             >
                                 <Image
-                                    className='githubIcon'
+                                    className={styles.githubIcon}
                                     src="/github.png"
                                     alt="linkedin"
                                     width={35}
