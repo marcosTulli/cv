@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Switch.module.scss';
+import styles from './Toggle.module.scss';
 
 interface ToggleProps {
     leftSideString: string;
@@ -11,9 +11,9 @@ const Toggle: React.FC<ToggleProps> = ({ leftSideString, rightSideString, toggle
     return (
         <div className={styles.toggleLanguage}>
             <p>{leftSideString}</p>
-            <label title="Switch Language" >
-                <input type="checkbox" onChange={() => toggleFunc()} className={styles.slider} />
-                <span className="slider round"></span>
+            <label title="Switch Language" className={styles.toggle}>
+                <input type="checkbox" onChange={toggleFunc} />
+                <span className={`${styles.slider} ${styles.round}`}></span>
             </label>
             <p>{rightSideString}</p>
         </div>

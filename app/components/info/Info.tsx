@@ -6,6 +6,7 @@ import copy from "copy-to-clipboard";
 import * as utils from "@/app/utils/index";
 import { contactInfo } from '@/app/assets/contact-info';
 import styles from './Info.module.scss';
+import Toggle from '../toggle/Toggle';
 
 interface HoverState {
     id: number,
@@ -31,11 +32,6 @@ const Info = () => {
 
     const displayCopyConfirmation = (id: number): boolean => {
         if (hoverItem?.isCopied && id === hoverItem.id) {
-            if (hoverItem?.isCopied || !hoverItem.isHover) {
-                setTimeout(() => {
-                    setHoverItem(undefined);
-                }, 800);
-            }
             return false;
         }
         else {
@@ -59,16 +55,6 @@ const Info = () => {
         setHoverItem((i) => i ? { ...i, isCopied } : i);
     };
 
-
-    React.useEffect(() => {
-        if (hoverItem?.isCopied && !hoverItem.isHover) {
-            setTimeout(() => {
-                setHoverItem(undefined);
-            }, 800);
-        }
-
-    }, [hoverItem]);
-
     return (
         <div className={styles.info}>
             <div className={styles.infoHeader}>
@@ -81,15 +67,11 @@ const Info = () => {
                     />
                 </div>
                 <div className={styles.actions}>
-                    <div className={styles.toggleLanguage}>
-                        <p>{strings.en}</p>
-                        <label title="Switch Language" className={styles.switch}>
-                            <input type="checkbox" onChange={() => toggleLang()} />
-                            <span className={`${styles.slider} ${styles.round}`}></span>
-                        </label>
-                        <p>{strings.es}</p>
-                    </div>
-
+                    <Toggle
+                        leftSideString={strings.en}
+                        rightSideString={strings.es}
+                        toggleFunc={toggleLang}
+                    />
                     <button
                         className={styles.download}
                         title="Download"
@@ -101,7 +83,6 @@ const Info = () => {
                             width={20}
                             height={20}
                         />
-                        {/* <label>Download</label> */}
                     </button>
                 </div>
 
