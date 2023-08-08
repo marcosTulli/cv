@@ -62,9 +62,12 @@ export interface Translation {
     github: string;
     linkedinURL: string;
     githubURL: string;
+    projectRepo: string;
     cv: string;
     en: string;
     es: string;
+    englishCertificate: string;
+    azureCertificate: string;
 }
 
 export enum Language {

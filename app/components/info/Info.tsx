@@ -20,6 +20,8 @@ const Info = () => {
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const icons = utils.icons;
     const fileName = `${strings.cv}${lang}`;
+    const PORT = 3000;
+    const filePath = `http://localhost:${PORT}/${fileName}.pdf`;
 
     const displayCopyButton = (id: number): boolean => {
         if (hoverItem?.isHover && id === hoverItem.id) {
@@ -56,33 +58,55 @@ const Info = () => {
             <div className={styles.infoHeader}>
                 <div className={styles.profilePicture}>
                     <Image
-                        src="/profile-picture.jpg"
+                        src="/profile-picture.jpeg"
                         alt="profile picture"
                         width={300}
                         height={300}
                     />
                 </div>
+                {/* TODO -> ADD DROPDOWN */}
                 <div className={styles.actions}>
                     <Toggle
                         leftSideString={strings.en}
                         rightSideString={strings.es}
                         toggleFunc={toggleLang}
                     />
-                    <a href={`http://localhost:3000/${fileName}.pdf`} download={fileName}>
-                        {/* <button
+                    <span style={{ display: 'flex', gap: '1rem' }}>
+                        <a
+                            title='Download'
                             className={styles.download}
-                            title="Download"
-                            onClick={handleDownloadClick}
-                        > */}
+                            href={filePath}
+                            download={fileName}
+                            target="_blank"
+                        >
+                            <Image
+                                src="/download.png"
+                                alt="download"
+                                width={20}
+                                height={20}
+                            />
+                        </a>
                         <Image
-                            src="/download.png"
-                            alt="download"
+                            onMouseEnter={() => handleTextHover(0, strings.projectRepo, true)}
+                            onMouseLeave={() => handleTextHover(0, strings.projectRepo, false)}
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => handleCopy(strings.projectRepo, true)}
+                            title='Clone this project!'
+                            src="/clone.png"
+                            alt="clone"
                             width={20}
                             height={20}
                         />
-                        {/* </button> */}
-
-                    </a>
+                        <p
+                            style={{ margin: '0' }}
+                            hidden={displayCopyConfirmation(0)}
+                        >
+                            <CopyAlert
+                                display={displayCopyConfirmation(0)}
+                                string={"tuki"}
+                            />
+                        </p>
+                    </span>
                 </div>
 
             </div>
@@ -131,15 +155,21 @@ const Info = () => {
                     }
 
                     <li>
-                        <div>
-                            <Image
-                                src="/uk.png"
-                                alt="english"
+                        <div className={styles.languageContainer}>
+                            <a
+                                title="View certification"
+                                href={strings.englishCertificate}
+                                target='_blank'
+                            >
+                                <Image
+                                    src="/uk.png"
+                                    alt="english"
+                                    width={icons.width}
+                                    height={icons.height}
 
-                                width={icons.width}
-                                height={icons.height}
-                            />
-                            <p>{strings.english}</p>
+                                />
+                                <p>{strings.english}</p>
+                            </a>
                             <Image
                                 src="/spain.png"
                                 alt="spanish"

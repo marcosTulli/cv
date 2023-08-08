@@ -2,7 +2,7 @@ import React from 'react';
 
 type CopyAlertProps = {
     display: boolean;
-    string: string;
+    string?: string;
 };
 
 

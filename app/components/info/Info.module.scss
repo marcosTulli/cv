@@ -119,6 +119,22 @@
         }
     }
 
+    .languageContainer {
+        display: flex;
+        align-items: center;
+
+        a {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            color: $defaultBlack;
+            font-weight: 500;
+        }
+    }
+
     div {
         margin: .55rem;
         padding-left: 0.5rem;
