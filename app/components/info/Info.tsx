@@ -103,12 +103,11 @@ const Info = () => {
                         >
                             <CopyAlert
                                 display={displayCopyConfirmation(0)}
-                                string={"tuki"}
+                                string={""}
                             />
                         </p>
                     </span>
                 </div>
-
             </div>
             <div className={styles.contactInfo}>
                 <ul>

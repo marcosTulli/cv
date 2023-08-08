@@ -43,7 +43,7 @@ const jobsData: IJobs[] = [
       ],
     },
     es: {
-      position: 'Desarrollador Front-End',
+      position: 'Desarrollador RPA',
       activePeriod: 'Jul 2022 - Nov 2022',
       companyName: 'Softtek',
       comapnyUrl: 'https://www.softtek.com/',
