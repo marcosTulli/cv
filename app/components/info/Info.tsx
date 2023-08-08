@@ -21,7 +21,8 @@ const Info = () => {
     const icons = utils.icons;
     const fileName = `${strings.cv}${lang}`;
     const PORT = 3000;
-    const filePath = `http://localhost:${PORT}/${fileName}.pdf`;
+    // const filePath = `http://localhost:${PORT}/${fileName}.pdf`;
+    const filePath = 'http://localhost:3000/';
 
     const displayCopyButton = (id: number): boolean => {
         if (hoverItem?.isHover && id === hoverItem.id) {
@@ -75,7 +76,7 @@ const Info = () => {
                         <a
                             title='Download'
                             className={styles.download}
-                            href={filePath}
+                            href={`${filePath}${fileName}.pdf`}
                             target="_blank"
                         >
                             <Image
