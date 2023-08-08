@@ -39,10 +39,6 @@ const Info = () => {
         }
     };
 
-    const handleDownloadClick = () => {
-        utils.downloadFile('http://localhost:3000/', fileName);
-    };
-
     const handleTextHover = (id: number, value: string, isHover: boolean) => {
         if (value !== strings.location) {
             setHoverItem({ id, value, isHover });
@@ -72,18 +68,21 @@ const Info = () => {
                         rightSideString={strings.es}
                         toggleFunc={toggleLang}
                     />
-                    <button
-                        className={styles.download}
-                        title="Download"
-                        onClick={handleDownloadClick}
-                    >
+                    <a href={`http://localhost:3000/${fileName}.pdf`} download={fileName}>
+                        {/* <button
+                            className={styles.download}
+                            title="Download"
+                            onClick={handleDownloadClick}
+                        > */}
                         <Image
                             src="/download.png"
                             alt="download"
                             width={20}
                             height={20}
                         />
-                    </button>
+                        {/* </button> */}
+
+                    </a>
                 </div>
 
             </div>
