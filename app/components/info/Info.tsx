@@ -76,7 +76,6 @@ const Info = () => {
                             title='Download'
                             className={styles.download}
                             href={filePath}
-                            download={fileName}
                             target="_blank"
                         >
                             <Image
