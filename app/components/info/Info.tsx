@@ -14,15 +14,14 @@ interface HoverState {
     isHover: boolean;
     isCopied?: boolean;
 }
+const url = process.env.NEXT_PUBLIC_URL || '';
 
 const Info = () => {
     const { lang, toggleLang, trans: strings } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const icons = utils.icons;
     const fileName = `${strings.cv}${lang}`;
-    const PORT = 3000;
-    // const filePath = `http://localhost:${PORT}/${fileName}.pdf`;
-    const filePath = 'http://localhost:3000/';
+    const filePath = `${url}${fileName}.pdf`;
 
     const displayCopyButton = (id: number): boolean => {
         if (hoverItem?.isHover && id === hoverItem.id) {
@@ -76,7 +75,8 @@ const Info = () => {
                         <a
                             title='Download'
                             className={styles.download}
-                            href={`${filePath}${fileName}.pdf`}
+                            href={filePath}
+                            // download={fileName}
                             target="_blank"
                         >
                             <Image

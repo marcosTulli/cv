@@ -45,12 +45,12 @@ const educationData: IEducation[] = [
         en: {
             title: "React",
             content: "National Technological University",
-            url: "http://localhost:3000/reactCert.pdf"
+            url: "reactCert"
         },
         es: {
             title: "React",
             content: "Universidad Tecnologica Nacional",
-            url: "http://localhost:3000/reactCert.pdf"
+            url: "reactCert"
         }
     },
 ];

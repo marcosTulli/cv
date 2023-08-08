@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Language } from "@/app/types";
 import styles from './Qualifications.module.scss';
 
+const url = process.env.NEXT_PUBLIC_URL || '';
+
 const Qualifications = () => {
     const { lang, trans: strings } = useLanguage();
 
@@ -17,6 +19,8 @@ const Qualifications = () => {
                     <ul>
                         {educationData.map((i) => {
                             const education = lang === Language.ES ? i.es : i.en;
+                            const isUrl = i.en.url?.includes('http');
+                            const filePath = `${url}${i.en.url}.pdf`;
                             return (
                                 <li key={i.id}>
                                     <div className={styles.degree}>
@@ -24,7 +28,7 @@ const Qualifications = () => {
                                             (i.en.title === "React" || i.en.content.toLowerCase().includes('az')) ?
                                                 <a
                                                     title="View certification"
-                                                    href={i.en.url}
+                                                    href={isUrl ? i.en.url : filePath}
                                                     target="_blank">
                                                     <div>{education.title} </div>
                                                 </a>
