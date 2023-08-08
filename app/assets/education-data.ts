@@ -32,12 +32,12 @@ const educationData: IEducation[] = [
         en: {
             title: "Cloud Computing",
             content: "AZ-900 certified",
-            url: "/next.png"
+            url: "https://www.credly.com/badges/5d54f43d-768f-4d3f-89d8-8fcb3678c89e"
         },
         es: {
             title: "Desarrollo en la nube ",
             content: "Certificacion AZ-900",
-            url: ""
+            url: "https://www.credly.com/badges/5d54f43d-768f-4d3f-89d8-8fcb3678c89e"
         }
     },
     {
@@ -45,12 +45,12 @@ const educationData: IEducation[] = [
         en: {
             title: "React",
             content: "National Technological University",
-            url: "/react.pdf"
+            url: "http://localhost:3000/reactCert.pdf"
         },
         es: {
             title: "React",
             content: "Universidad Tecnologica Nacional",
-            url: "/react.pdf"
+            url: "http://localhost:3000/reactCert.pdf"
         }
     },
 ];

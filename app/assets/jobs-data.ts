@@ -22,9 +22,9 @@ const jobsData: IJobs[] = [
       comapnyUrl: 'https://www.raona.com/',
       companyLogo: '/raona.png',
       tasks: [
-        'Trabajando en el desarrollo y despliegue de aplicaciones escalables',
-        'Usar ReactJS para diseñar e implementar funciones de front-end, lo que resulta en una mejor experiencia y satisfacción del usuario',
-        'Colaborar con el equipo para entregar productos de alta calidad a tiempo',
+        "Trabajé en el desarrollo y despliegue de aplicaciones escalables",
+        "Utilicé ReactJS para diseñar e implementar características en el front-end, lo que resultó en una experiencia y satisfacción mejoradas para el usuario",
+        "Colaboré con el equipo para entregar productos de alta calidad a tiempo",
       ],
     }
   },

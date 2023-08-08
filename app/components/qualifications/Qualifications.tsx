@@ -19,7 +19,19 @@ const Qualifications = () => {
                             const education = lang === Language.ES ? i.es : i.en;
                             return (
                                 <li key={i.id}>
-                                    <div className={styles.degree}>{education.title}</div>
+                                    <div className={styles.degree}>
+                                        {
+                                            (i.en.title === "React" || i.en.content.toLowerCase().includes('az')) ?
+                                                <a
+                                                    title="View certification"
+                                                    href={i.en.url}
+                                                    target="_blank">
+                                                    <div>{education.title} </div>
+                                                </a>
+                                                :
+                                                <div>{education.title}</div>
+                                        }
+                                    </div>
                                     <p>{education.content}</p>
                                 </li>
                             );
@@ -41,7 +53,7 @@ const Qualifications = () => {
                     })}
                 </div>
             </div>
-        </div>
+        </div >
 
     );
 };

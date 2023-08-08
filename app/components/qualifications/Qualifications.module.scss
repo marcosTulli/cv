@@ -21,8 +21,15 @@
             width: fit-content;
 
             .degree {
+                display: flex;
                 font-size: 12px;
                 font-weight: 700;
+
+                a {
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: $defaultBlack
+                }
             }
 
             p {

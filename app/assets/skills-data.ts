@@ -61,11 +61,11 @@ const skillsData: ISkills[] = [
         name: "Networking",
         url: "/network.png"
     },
-    {
-        id: 13,
-        name: "CLI",
-        url: "/cli.png"
-    },
+    // {
+    //     id: 13,
+    //     name: "CLI",
+    //     url: "/cli.png"
+    // },
     {
         id: 14,
         name: "Testing",
@@ -73,12 +73,12 @@ const skillsData: ISkills[] = [
     },
     {
         id: 15,
-        name: "Version Control",
+        name: "Git / Bash",
         url: "/git.png"
     },
     {
         id: 16,
-        name: "Databases",
+        name: "SQL - MongoDB",
         url: "/db.png"
     },
 ];
