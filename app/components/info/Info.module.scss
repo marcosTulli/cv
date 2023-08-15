@@ -11,6 +11,12 @@
 
     }
 
+    .dropdown {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+    }
+
     .profilePicture {
         padding-top: 1rem;
         width: 9rem;
@@ -36,6 +42,15 @@
 
     .actions {
         align-content: center;
+
+        div {
+            button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+
+            }
+        }
     }
 
     .contactInfo {

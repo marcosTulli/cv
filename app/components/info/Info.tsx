@@ -9,6 +9,9 @@ import styles from './Info.module.scss';
 import Toggle from '../toggle/Toggle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
+import { displayPartsToString } from 'typescript';
+
+
 
 interface HoverState {
     id: number,
@@ -57,11 +60,7 @@ const Info = () => {
     };
 
     const handleMenuClick = () => {
-        if (!displayMenu) {
-            setDisplayMenu(!displayMenu);
-        }
-
-
+        setDisplayMenu(!displayMenu);
     };
 
     return (
@@ -82,8 +81,10 @@ const Info = () => {
                         </button>
                         {
                             displayMenu &&
-                            <Dropdown />
-
+                            <div className={styles.dropdown}
+                                onMouseLeave={() => setDisplayMenu(false)}>
+                                <Dropdown />
+                            </div>
                         }
                     </div>
                     {/* // <Toggle
