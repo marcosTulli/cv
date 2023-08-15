@@ -7,6 +7,8 @@ import * as utils from "@/app/utils/index";
 import { contactInfo } from '@/app/assets/contact-info';
 import styles from './Info.module.scss';
 import Toggle from '../toggle/Toggle';
+import MenuIcon from '@mui/icons-material/Menu';
+import Dropdown from '@/app/components/dropdown/Dropdown';
 
 interface HoverState {
     id: number,
@@ -19,6 +21,7 @@ const url = process.env.NEXT_PUBLIC_URL || '';
 const Info = () => {
     const { lang, toggleLang, trans: strings } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
+    const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
     const fileName = `${strings.cv}${lang}`;
     const filePath = `${url}${fileName}.pdf`;
@@ -53,6 +56,14 @@ const Info = () => {
         setHoverItem((i) => i ? { ...i, isCopied } : i);
     };
 
+    const handleMenuClick = () => {
+        if (!displayMenu) {
+            setDisplayMenu(!displayMenu);
+        }
+
+
+    };
+
     return (
         <div className={styles.info}>
             <div className={styles.infoHeader}>
@@ -64,49 +75,58 @@ const Info = () => {
                         height={300}
                     />
                 </div>
-                {/* TODO -> ADD DROPDOWN */}
                 <div className={styles.actions}>
-                    <Toggle
-                        leftSideString={strings.en}
-                        rightSideString={strings.es}
-                        toggleFunc={toggleLang}
-                    />
-                    <span style={{ display: 'flex', gap: '1rem' }}>
-                        <a
-                            title='Download'
-                            className={styles.download}
-                            href={filePath}
-                            // download={fileName}
-                            target="_blank"
-                        >
-                            <Image
-                                src="/download.png"
-                                alt="download"
-                                width={20}
-                                height={20}
-                            />
-                        </a>
-                        <Image
-                            onMouseEnter={() => handleTextHover(0, strings.projectRepo, true)}
-                            onMouseLeave={() => handleTextHover(0, strings.projectRepo, false)}
-                            style={{ cursor: 'pointer' }}
-                            onClick={() => handleCopy(strings.projectRepo, true)}
-                            title='Clone this project!'
-                            src="/clone.png"
-                            alt="clone"
-                            width={20}
-                            height={20}
-                        />
-                        <p
-                            style={{ margin: '0' }}
-                            hidden={displayCopyConfirmation(0)}
-                        >
-                            <CopyAlert
-                                display={displayCopyConfirmation(0)}
-                                string={""}
-                            />
-                        </p>
-                    </span>
+                    <div>
+                        <button onClick={handleMenuClick}>
+                            <MenuIcon />
+                        </button>
+                        {
+                            displayMenu &&
+                            <Dropdown />
+
+                        }
+                    </div>
+                    {/* // <Toggle
+                    //     leftSideString={strings.en}
+                    //     rightSideString={strings.es}
+                    //     toggleFunc={toggleLang}
+                    // />
+                    // <span style={{ display: 'flex', gap: '1rem' }}>
+                    //     <a
+                    //         title='Download'
+                    //         className={styles.download}
+                    //         href={filePath}
+                    //         // download={fileName}
+                    //         target="_blank"
+                    //     >
+                    //         <Image
+                    //             src="/download.png"
+                    //             alt="download"
+                    //             width={20}
+                    //             height={20}
+                    //         />
+                    //     </a>
+                    //     <Image
+                    //         onMouseEnter={() => handleTextHover(0, strings.projectRepo, true)}
+                    //         onMouseLeave={() => handleTextHover(0, strings.projectRepo, false)}
+                    //         style={{ cursor: 'pointer' }}
+                    //         onClick={() => handleCopy(strings.projectRepo, true)}
+                    //         title='Clone this project!'
+                    //         src="/clone.png"
+                    //         alt="clone"
+                    //         width={20}
+                    //         height={20}
+                    //     />
+                    //     <p
+                    //         style={{ margin: '0' }}
+                    //         hidden={displayCopyConfirmation(0)}
+                    //     >
+                    //         <CopyAlert
+                    //             display={displayCopyConfirmation(0)}
+                    //             string={""}
+                    //         />
+                    //     </p>
+                    // </span> */}
                 </div>
             </div>
             <div className={styles.contactInfo}>
