@@ -22,7 +22,6 @@ export default function Dropdown() {
     const handleCopy = (value: string, isCopied: boolean) => {
         copy(value);
         setDisplayCopyConfirmation(false);
-        // setHoverItem((i) => i ? { ...i, isCopied } : i);
     };
 
     React.useEffect(() => {
