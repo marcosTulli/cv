@@ -8,6 +8,7 @@ interface ILanguageContext {
     trans: Translation;
     setLang: (newLang: Language) => void;
     toggleLang: () => void;
+    isChecked: boolean;
 }
 
 const defaultContext = {
@@ -15,6 +16,7 @@ const defaultContext = {
     trans: En,
     setLang: (newLang: Language) => { },
     toggleLang: () => { console.log("Language Switch"); },
+    isChecked: false
 };
 
 export const LanguageContext = createContext<ILanguageContext>(defaultContext);
@@ -26,11 +28,13 @@ interface LanguageContextProviderProps {
 export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = ({ children }) => {
     const [currentLanguage, setCurrentLanguage] = React.useState<Language>(Language.EN);
     const [trans, setTrans] = React.useState<Translation>(Es);
+    const [isChecked, setIsChecked] = React.useState<boolean>(false);
     const setLang = useCallback((newLang: Language) => {
         setCurrentLanguage(newLang);
     }, [currentLanguage]);
     const toggleLang = () => {
         setCurrentLanguage((prevLang) => prevLang === Language.EN ? Language.ES : Language.EN);
+        setIsChecked((prev) => prev === false ? true : false);
     };
 
     useEffect(() => {
@@ -48,7 +52,9 @@ export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = (
                 lang: currentLanguage,
                 trans,
                 setLang,
-                toggleLang
+                toggleLang,
+                isChecked
+
             }}
         >
             {children}

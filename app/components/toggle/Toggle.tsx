@@ -6,12 +6,13 @@ interface ToggleProps {
 }
 
 const Toggle: React.FC<ToggleProps> = () => {
-    const { lang, toggleLang, trans: strings } = useLanguage();
+    const { isChecked, toggleLang, trans: strings } = useLanguage();
+
     return (
         <div className={styles.toggleLanguage}>
             <div>{strings.en}</div>
             <label title="Switch Language" className={styles.toggle}  >
-                <input type="checkbox" onChange={toggleLang} />
+                <input type="checkbox" onChange={toggleLang} defaultChecked={isChecked} />
                 <span className={`${styles.slider} ${styles.round}`}></span>
             </label>
             <div>{strings.es}</div>
