@@ -38,10 +38,6 @@ export default function Dropdown() {
                 <MenuItem>
                     <Typography variant="body2" color="text.secondary">
                         <Toggle
-                        // leftSideString={strings.en}
-                        // rightSideString={strings.es}
-                        // toggleFunc={toggleLang}
-                        // lang={lang}
                         />
                     </Typography>
                 </MenuItem>
@@ -50,9 +46,7 @@ export default function Dropdown() {
                     <Typography variant="body2" color="text.secondary">
                         <a
                             title='Download'
-                            // className={styles.download}
                             href={filePath}
-                            // download={fileName}
                             target="_blank"
                         >
                             <FileDownloadIcon color='inherit' />
@@ -62,7 +56,7 @@ export default function Dropdown() {
                 <MenuItem>
                     <ListItemText>{strings.dropdownOptionsClone}</ListItemText>
                     <p
-                        style={{ margin: '0' }}
+                        style={{ paddingRight: '10px', margin: '0' }}
                         hidden={displayCopyConfirmation}
                     >
                         <CopyAlert

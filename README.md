@@ -4,6 +4,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Node Version 18.17.0
 
+Create a .env.local file in the root of the project and add the following line:
+
+NEXT_PUBLIC_WEB_URL="localhost:3000"
+
 First, run the development server:
 
 ```bash
