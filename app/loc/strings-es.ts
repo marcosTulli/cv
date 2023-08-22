@@ -22,7 +22,9 @@ const Es: Translation = {
     en: 'EN',
     es: 'ES',
     englishCertificate: "https://www.efset.org/cert/WcpTzU",
-    azureCertificate: "https://www.credly.com/badges/5d54f43d-768f-4d3f-89d8-8fcb3678c89e"
+    azureCertificate: "https://www.credly.com/badges/5d54f43d-768f-4d3f-89d8-8fcb3678c89e",
+    dropdownOptionsDownload: 'Descargar CV',
+    dropdownOptionsClone: 'Clonar este proyecto',
 };
 
 export default Es;

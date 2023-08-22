@@ -68,6 +68,8 @@ export interface Translation {
     es: string;
     englishCertificate: string;
     azureCertificate: string;
+    dropdownOptionsDownload: string,
+    dropdownOptionsClone: string,
 }
 
 export enum Language {

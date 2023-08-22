@@ -1,53 +1,77 @@
 import * as React from 'react';
-import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import Typography from '@mui/material/Typography';
-import ContentCut from '@mui/icons-material/ContentCut';
-import ContentCopy from '@mui/icons-material/ContentCopy';
-import ContentPaste from '@mui/icons-material/ContentPaste';
-import Cloud from '@mui/icons-material/Cloud';
+import Toggle from '../toggle/Toggle';
+import { useLanguage } from "@/app/contexts/LanguageContext";
+import copy from "copy-to-clipboard";
+import { CopyAlert } from '../info/CopyAlert';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import CodeIcon from '@mui/icons-material/Code';
 
+
+const url = process.env.NEXT_PUBLIC_URL || '';
 export default function Dropdown() {
+    const { lang, toggleLang, trans: strings } = useLanguage();
+    const [displayCopyConfirmation, setDisplayCopyConfirmation] = React.useState<boolean>(true);
+    const fileName = `${strings.cv}${lang}`;
+    const filePath = `${url}${fileName}.pdf`;
+
+    const handleCopy = (value: string, isCopied: boolean) => {
+        copy(value);
+        setDisplayCopyConfirmation(false);
+        // setHoverItem((i) => i ? { ...i, isCopied } : i);
+    };
+
+    React.useEffect(() => {
+        if (!displayCopyConfirmation) {
+            setTimeout(() => { setDisplayCopyConfirmation(!displayCopyConfirmation); }, 800);
+        }
+    }, [displayCopyConfirmation]);
+
+
     return (
         <Paper sx={{ width: 320, maxWidth: '100%' }}>
             <MenuList>
                 <MenuItem>
-                    <ListItemIcon>
-                        <ContentCut fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Cut</ListItemText>
                     <Typography variant="body2" color="text.secondary">
-                        ⌘X
+                        <Toggle
+                        // leftSideString={strings.en}
+                        // rightSideString={strings.es}
+                        // toggleFunc={toggleLang}
+                        // lang={lang}
+                        />
                     </Typography>
                 </MenuItem>
                 <MenuItem>
-                    <ListItemIcon>
-                        <ContentCopy fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Copy</ListItemText>
+                    <ListItemText>{strings.dropdownOptionsDownload}</ListItemText>
                     <Typography variant="body2" color="text.secondary">
-                        ⌘C
+                        <a
+                            title='Download'
+                            // className={styles.download}
+                            href={filePath}
+                            // download={fileName}
+                            target="_blank"
+                        >
+                            <FileDownloadIcon color='inherit' />
+                        </a>
                     </Typography>
                 </MenuItem>
                 <MenuItem>
-                    <ListItemIcon>
-                        <ContentPaste fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Paste</ListItemText>
-                    <Typography variant="body2" color="text.secondary">
-                        ⌘V
-                    </Typography>
-                </MenuItem>
-                <Divider />
-                <MenuItem>
-                    <ListItemIcon>
-                        <Cloud fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Web Clipboard</ListItemText>
+                    <ListItemText>{strings.dropdownOptionsClone}</ListItemText>
+                    <p
+                        style={{ margin: '0' }}
+                        hidden={displayCopyConfirmation}
+                    >
+                        <CopyAlert
+                            display={displayCopyConfirmation}
+                            string={""}
+                        />
+                    </p>
+                    <CodeIcon
+                        onClick={() => handleCopy(strings.projectRepo, true)} />
                 </MenuItem>
             </MenuList>
         </Paper>

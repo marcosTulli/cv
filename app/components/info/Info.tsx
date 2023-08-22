@@ -6,14 +6,14 @@ import copy from "copy-to-clipboard";
 import * as utils from "@/app/utils/index";
 import { contactInfo } from '@/app/assets/contact-info';
 import styles from './Info.module.scss';
-import Toggle from '../toggle/Toggle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
-import Switch from '@mui/material/Switch';
-import { displayPartsToString } from 'typescript';
-
-
-
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 interface HoverState {
     id: number,
@@ -21,15 +21,13 @@ interface HoverState {
     isHover: boolean;
     isCopied?: boolean;
 }
-const url = process.env.NEXT_PUBLIC_URL || '';
 
 const Info = () => {
-    const { lang, toggleLang, trans: strings } = useLanguage();
+    const { toggleLang, trans: strings } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
-    const fileName = `${strings.cv}${lang}`;
-    const filePath = `${url}${fileName}.pdf`;
+
 
     const displayCopyButton = (id: number): boolean => {
         if (hoverItem?.isHover && id === hoverItem.id) {
@@ -65,6 +63,29 @@ const Info = () => {
         setDisplayMenu(!displayMenu);
     };
 
+    const handleIcons = (iconName: string) => {
+        const icons = {
+            location: <LocationOnOutlinedIcon />,
+            phone: <LocalPhoneOutlinedIcon />,
+            email: <EmailOutlinedIcon />
+        };
+
+        switch (iconName) {
+            case 'location':
+                return icons.location;
+                break;
+            case 'phone':
+                return icons.phone;
+                break;
+            case 'email':
+                return icons.email;
+                break;
+
+            default:
+                break;
+        }
+    };
+
 
     return (
         <div className={styles.info}>
@@ -80,63 +101,18 @@ const Info = () => {
                 </div>
                 <div className={styles.actions}>
                     <div>
-                        <Toggle
-                            leftSideString={strings.en}
-                            rightSideString={strings.es}
-                            toggleFunc={toggleLang}
-                        />
                         <button onClick={handleMenuClick}>
                             <MenuIcon />
                         </button>
                         {
                             displayMenu &&
                             <div className={styles.dropdown}
-                                onMouseLeave={() => setDisplayMenu(false)}>
+                                onMouseLeave={() => setDisplayMenu(false)}
+                            >
                                 <Dropdown />
                             </div>
                         }
                     </div>
-                    {/* // <Toggle
-                    //     leftSideString={strings.en}
-                    //     rightSideString={strings.es}
-                    //     toggleFunc={toggleLang}
-                    // />
-                    // <span style={{ display: 'flex', gap: '1rem' }}>
-                    //     <a
-                    //         title='Download'
-                    //         className={styles.download}
-                    //         href={filePath}
-                    //         // download={fileName}
-                    //         target="_blank"
-                    //     >
-                    //         <Image
-                    //             src="/download.png"
-                    //             alt="download"
-                    //             width={20}
-                    //             height={20}
-                    //         />
-                    //     </a>
-                    //     <Image
-                    //         onMouseEnter={() => handleTextHover(0, strings.projectRepo, true)}
-                    //         onMouseLeave={() => handleTextHover(0, strings.projectRepo, false)}
-                    //         style={{ cursor: 'pointer' }}
-                    //         onClick={() => handleCopy(strings.projectRepo, true)}
-                    //         title='Clone this project!'
-                    //         src="/clone.png"
-                    //         alt="clone"
-                    //         width={20}
-                    //         height={20}
-                    //     />
-                    //     <p
-                    //         style={{ margin: '0' }}
-                    //         hidden={displayCopyConfirmation(0)}
-                    //     >
-                    //         <CopyAlert
-                    //             display={displayCopyConfirmation(0)}
-                    //             string={""}
-                    //         />
-                    //     </p>
-                    // </span> */}
                 </div>
             </div>
             <div className={styles.contactInfo}>
@@ -149,12 +125,12 @@ const Info = () => {
                                     onMouseLeave={() => handleTextHover(i.id, i.value, false)}
                                     key={i.id}
                                 >
-                                    <Image
-                                        src={i.src}
-                                        alt={i.name}
-                                        width={icons.width}
-                                        height={icons.height}
-                                    />
+                                    <p style={{ marginRight: '0.4rem', }}>
+                                        {
+
+                                            handleIcons(i.name)
+                                        }
+                                    </p>
                                     <p>{i.value}</p>
                                     <div className={styles.copyButtonContainer}>
                                         <button
@@ -162,12 +138,7 @@ const Info = () => {
                                             hidden={displayCopyButton(i.id)}
                                             className={styles.copy}
                                             onClick={() => handleCopy(i.value, true)}>
-                                            <Image
-                                                src="/copy.png"
-                                                alt="mail-icon"
-                                                width={icons.width}
-                                                height={icons.height}
-                                            />
+                                            <ContentCopyIcon style={{ width: '20px', height: '20px' }} />
                                         </button>
                                         <p
                                             hidden={displayCopyConfirmation(i.id)}
@@ -215,11 +186,9 @@ const Info = () => {
                                 target="_blank"
                                 title={strings.linkedinURL}
                             >
-                                <Image
-                                    src="/linkedin.png"
-                                    alt="linkedin"
-                                    width={icons.width}
-                                    height={icons.height}
+                                <LinkedInIcon
+                                    style={{ marginRight: '0.4rem' }}
+
                                 />
                                 <p>{strings.linkedin}</p>
                             </a>
@@ -228,12 +197,9 @@ const Info = () => {
                                 target="_blank"
                                 title={strings.githubURL}
                             >
-                                <Image
-                                    className={styles.githubIcon}
-                                    src="/github.png"
-                                    alt="linkedin"
-                                    width={35}
-                                    height={20}
+                                <GitHubIcon
+                                    style={{ marginRight: '0.4rem' }}
+
                                 />
                                 <p>{strings.github}</p>
                             </a>
