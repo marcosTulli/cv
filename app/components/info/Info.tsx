@@ -23,7 +23,7 @@ interface HoverState {
 }
 
 const Info = () => {
-    const { toggleLang, trans: strings } = useLanguage();
+    const { trans: strings } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
@@ -73,14 +73,10 @@ const Info = () => {
         switch (iconName) {
             case 'location':
                 return icons.location;
-                break;
             case 'phone':
                 return icons.phone;
-                break;
             case 'email':
                 return icons.email;
-                break;
-
             default:
                 break;
         }
@@ -127,7 +123,6 @@ const Info = () => {
                                 >
                                     <p style={{ marginRight: '0.4rem', }}>
                                         {
-
                                             handleIcons(i.name)
                                         }
                                     </p>

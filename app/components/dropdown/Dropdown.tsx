@@ -10,7 +10,7 @@ import copy from "copy-to-clipboard";
 import { CopyAlert } from '../info/CopyAlert';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import CodeIcon from '@mui/icons-material/Code';
-
+import styles from './Dropdown.module.scss';
 
 const url = process.env.NEXT_PUBLIC_URL || '';
 export default function Dropdown() {
@@ -33,28 +33,32 @@ export default function Dropdown() {
 
 
     return (
-        <Paper sx={{ width: 320, maxWidth: '100%' }}>
-            <MenuList>
-                <MenuItem>
+        <Paper sx={{ width: 240, maxWidth: '100%' }}>
+            <MenuList className={styles.menu}>
+                <MenuItem className={styles.menuItem}>
                     <Typography variant="body2" color="text.secondary">
-                        <Toggle
-                        />
+                        <Toggle />
                     </Typography>
                 </MenuItem>
-                <MenuItem>
-                    <ListItemText>{strings.dropdownOptionsDownload}</ListItemText>
-                    <Typography variant="body2" color="text.secondary">
-                        <a
-                            title='Download'
-                            href={filePath}
-                            target="_blank"
-                        >
-                            <FileDownloadIcon color='inherit' />
-                        </a>
-                    </Typography>
-                </MenuItem>
-                <MenuItem>
-                    <ListItemText>{strings.dropdownOptionsClone}</ListItemText>
+                <a
+                    style={{ textDecoration: 'none', color: 'black' }}
+                    title='Download'
+                    href={filePath}
+                    target="_blank"
+                >
+                    <MenuItem className={styles.menuItem}>
+                        <Typography variant="body2" color="text.secondary">
+                            <ListItemText className={styles.textItem} style={{ marginRight: '4.7rem' }} >{strings.dropdownOptionsDownload}</ListItemText>
+                        </Typography>
+                        <FileDownloadIcon color='inherit' />
+                    </MenuItem>
+                </a>
+                <MenuItem
+                    onClick={() => handleCopy(strings.projectRepo, true)}
+                    className={styles.menuItem}
+                >
+                    <ListItemText
+                        className={styles.textItem}>{strings.dropdownOptionsClone}</ListItemText>
                     <p
                         style={{ paddingRight: '10px', margin: '0' }}
                         hidden={displayCopyConfirmation}
@@ -65,7 +69,7 @@ export default function Dropdown() {
                         />
                     </p>
                     <CodeIcon
-                        onClick={() => handleCopy(strings.projectRepo, true)} />
+                    />
                 </MenuItem>
             </MenuList>
         </Paper>

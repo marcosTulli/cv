@@ -1,0 +1,14 @@
+@import '../../styles/global.scss';
+
+.menu {
+
+    .menuItem {
+        padding-left: 0;
+    }
+
+    .textItem {
+        color: $defaultBlack;
+        font-weight: 600
+    }
+
+}
