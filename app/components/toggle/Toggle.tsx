@@ -9,7 +9,7 @@ const Toggle: React.FC<ToggleProps> = () => {
     const { isChecked, toggleLang, trans: strings } = useLanguage();
 
     return (
-        <div className={styles.toggleLanguage}>
+        <div className={styles.toggleLanguage} style={{ margin: '0', padding: '0' }}>
             <div>{strings.en}</div>
             <label title="Switch Language" className={styles.toggle}  >
                 <input type="checkbox" onChange={toggleLang} defaultChecked={isChecked} />
