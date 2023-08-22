@@ -9,7 +9,9 @@ import styles from './Info.module.scss';
 import Toggle from '../toggle/Toggle';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
+import Switch from '@mui/material/Switch';
 import { displayPartsToString } from 'typescript';
+
 
 
 
@@ -63,10 +65,12 @@ const Info = () => {
         setDisplayMenu(!displayMenu);
     };
 
+
     return (
         <div className={styles.info}>
             <div className={styles.infoHeader}>
                 <div className={styles.profilePicture}>
+
                     <Image
                         src="/profile-picture.jpeg"
                         alt="profile picture"
@@ -76,6 +80,11 @@ const Info = () => {
                 </div>
                 <div className={styles.actions}>
                     <div>
+                        <Toggle
+                            leftSideString={strings.en}
+                            rightSideString={strings.es}
+                            toggleFunc={toggleLang}
+                        />
                         <button onClick={handleMenuClick}>
                             <MenuIcon />
                         </button>
