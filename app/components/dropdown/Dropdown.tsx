@@ -14,7 +14,7 @@ import styles from './Dropdown.module.scss';
 
 const url = process.env.NEXT_PUBLIC_URL || '';
 export default function Dropdown() {
-    const { lang, toggleLang, trans: strings } = useLanguage();
+    const { lang, trans: strings } = useLanguage();
     const [displayCopyConfirmation, setDisplayCopyConfirmation] = React.useState<boolean>(true);
     const fileName = `${strings.cv}${lang}`;
     const filePath = `${url}${fileName}.pdf`;
@@ -39,16 +39,18 @@ export default function Dropdown() {
                         <Toggle />
                     </Typography>
                 </MenuItem>
+
                 <a
-                    style={{ textDecoration: 'none', color: 'black' }}
+                    style={{
+                        textDecoration: 'none',
+                        color: 'black',
+                    }}
                     title='Download'
                     href={filePath}
                     target="_blank"
                 >
                     <MenuItem className={styles.menuItem}>
-                        <Typography variant="body2" color="text.secondary">
-                            <ListItemText className={styles.textItem} style={{ marginRight: '4.7rem' }} >{strings.dropdownOptionsDownload}</ListItemText>
-                        </Typography>
+                        <ListItemText className={styles.textItem}  >{strings.dropdownOptionsDownload}</ListItemText>
                         <FileDownloadIcon color='inherit' />
                     </MenuItem>
                 </a>
@@ -71,6 +73,6 @@ export default function Dropdown() {
                     />
                 </MenuItem>
             </MenuList>
-        </Paper>
+        </Paper >
     );
 }

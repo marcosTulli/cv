@@ -2,8 +2,13 @@
 
 .menu {
 
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+
     .menuItem {
         padding-left: 0;
+        justify-self: flex-end;
     }
 
     .textItem {
