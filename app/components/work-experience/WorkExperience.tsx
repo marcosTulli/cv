@@ -14,7 +14,7 @@ const WorkExperience = () => {
 
     return (
         <div className={styles.workExperience}>
-            <div className="sectionTitle">{strings.workExperience}</div>
+            <div className={styles.sectionTitle}>{strings.workExperience}</div>
             {jobsData.map((i) => {
                 // Get the color for the specific id or default to a fallback color
                 const shadowColor = colors[i.id] || '#CCCCCC';
