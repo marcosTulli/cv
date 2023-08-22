@@ -121,7 +121,7 @@ const Info = () => {
                                     onMouseLeave={() => handleTextHover(i.id, i.value, false)}
                                     key={i.id}
                                 >
-                                    <p style={{ marginRight: '0.4rem', }}>
+                                    <p style={{ marginRight: '0.4rem', height: '20px' }}>
                                         {
                                             handleIcons(i.name)
                                         }
