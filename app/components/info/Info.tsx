@@ -198,6 +198,7 @@ const Info = () => {
                             >
                                 <GitHubIcon
                                     style={{ marginRight: '0.4rem' }}
+                                    className={styles.TUKI}
 
                                 />
                                 <p>{strings.github}</p>

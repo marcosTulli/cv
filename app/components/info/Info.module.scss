@@ -181,16 +181,41 @@
 
         }
 
+        .profilePicture {
+            padding-top: 1rem;
+            width: 6rem;
+            height: 6rem;
+            box-shadow: 10px 10px 0px 0px $green;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            display: flex;
+            object-fit: cover;
+            position: relative;
+
+            img {
+                width: 110%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 0.75rem 0 0 0.75rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+
         .contactInfo {
+
+            margin: 0;
+            padding: 0;
+            gap: 0;
+
             div {
                 margin: 0;
                 padding: 0;
                 gap: 0;
             }
 
-            margin: 0;
-            padding: 0;
-            gap: 0
         }
 
         .infoHeader {
@@ -198,15 +223,25 @@
             margin: 0
         }
 
-        .languageContainer {
-            display: flex;
-            flex-direction: column;
+
+        // .languageContainer {
+        //     display: flex;
+        //     flex-direction: column;
 
 
-        }
+        // }
 
         .links {
+            margin-top: 0.5rem;
             flex-direction: column;
+            // align-content: flex-end;
+            gap: 0.5rem;
+
+            .TUKI {
+                margin-left: -19px;
+            }
+
+
         }
 
 
