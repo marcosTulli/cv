@@ -76,24 +76,26 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
                     </MenuItem>
                     <Divider />
                 </a>
-                <MenuItem
-                    onClick={() => handleCopy(strings.projectRepo, true)}
-                    className={styles.menuItem}
+                <a
+                    style={{
+                        textDecoration: 'none',
+                        color: 'black',
+                    }}
+                    title='Download'
+                    href={strings.projectRepo}
+                    target="_blank"
                 >
-                    <ListItemText
-                        className={styles.textItem}>{strings.dropdownOptionsClone}</ListItemText>
-                    <p
-                        style={{ paddingRight: '10px', margin: '0' }}
-                        hidden={displayCopyConfirmation}
+
+                    <MenuItem
+                        onClick={() => handleCopy(strings.projectRepo, true)}
+                        className={styles.menuItem}
                     >
-                        <CopyAlert
-                            display={displayCopyConfirmation}
-                            string={""}
+                        <ListItemText
+                            className={styles.textItem}>{strings.dropdownOptionsClone}</ListItemText>
+                        <CodeIcon
                         />
-                    </p>
-                    <CodeIcon
-                    />
-                </MenuItem>
+                    </MenuItem>
+                </a>
             </MenuList>
         </Paper >
     );

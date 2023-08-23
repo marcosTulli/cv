@@ -24,7 +24,7 @@ const En: Translation = {
     englishCertificate: "https://www.efset.org/cert/WcpTzU",
     azureCertificate: "https://www.credly.com/badges/5d54f43d-768f-4d3f-89d8-8fcb3678c89e",
     dropdownOptionsDownload: 'Download CV',
-    dropdownOptionsClone: 'Project code',
+    dropdownOptionsClone: 'View code',
 };
 
 export default En;
