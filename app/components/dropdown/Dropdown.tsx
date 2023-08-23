@@ -35,8 +35,8 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
 
 
     return (
-        <Paper sx={{ width: 'auto' }}>
-            <MenuList className={styles.menu}>
+        <Paper className={styles.menu} sx={{ width: 'auto' }}>
+            <MenuList >
                 <MenuItem className={styles.menuItem}>
                     {
                         isMobile ? (
