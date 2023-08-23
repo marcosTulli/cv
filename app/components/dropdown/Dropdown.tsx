@@ -18,11 +18,12 @@ import { useMediaQuery } from '@mui/material';
 
 
 interface IDropdownMenuProps {
-    handleClose: () => void;
+    handleClose?: () => void;
 }
 
 const url = process.env.NEXT_PUBLIC_URL || '';
-export default function Dropdown() {
+
+const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
     const { lang, trans: strings } = useLanguage();
     const [displayCopyConfirmation, setDisplayCopyConfirmation] = React.useState<boolean>(true);
     const fileName = `${strings.cv}${lang}`;
@@ -51,7 +52,7 @@ export default function Dropdown() {
                                 <ListItemText>
                                     <Toggle />
                                 </ListItemText>
-                                <CloseIcon />
+                                <CloseIcon onClick={() => { handleClose && handleClose(); }} />
                             </>
 
                         ) : (<Toggle />)
@@ -95,4 +96,6 @@ export default function Dropdown() {
             </MenuList>
         </Paper >
     );
-}
+};
+
+export default Dropdown;

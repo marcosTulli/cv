@@ -32,7 +32,7 @@ const Header: React.FC = () => {
                                 <div className={styles.dropdown}
                                     onMouseLeave={() => setDisplayMenu(false)}
                                 >
-                                    <Dropdown />
+                                    <Dropdown handleClose={handleMenuClick} />
                                 </div>
                             }
                         </div>
