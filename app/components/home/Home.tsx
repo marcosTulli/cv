@@ -13,7 +13,6 @@ export default function Home() {
             {isMobile ? (
                 <div className={styles.cvContainer}>
                     <Header />
-                    {/* <Info /> */}
                     <WorkExperience />
                     <Qualifications />
                 </div>
