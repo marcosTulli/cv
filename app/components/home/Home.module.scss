@@ -1,15 +1,15 @@
 @import '../../styles/global.scss';
 
 .cvContainer {
-    width: 210mm;
-    height: 297mm;
+    width: 798px;
+    height: 1130px;
     margin: 0 auto;
     background-color: $defaultWhite;
     border: solid $defaultBlack 1px;
     border-radius: 1.56rem;
     gap: 2rem;
     margin-top: 1rem;
-    // box-shadow: 44px 40px 0px 0px #f6e172;
+    margin-bottom: 5rem;
     box-shadow: 44px 40px 0px 0px $mustard;
 
     display: flex;
