@@ -14,6 +14,7 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useMediaQuery } from '@mui/material';
 
 interface HoverState {
     id: number,
@@ -27,6 +28,7 @@ const Info = () => {
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
+    const isMobile = useMediaQuery('(max-width: 500px)');
 
 
     const displayCopyButton = (id: number): boolean => {
@@ -87,7 +89,6 @@ const Info = () => {
         <div className={styles.info}>
             <div className={styles.infoHeader}>
                 <div className={styles.profilePicture}>
-
                     <Image
                         src="/profile-picture.jpeg"
                         alt="profile picture"
@@ -96,19 +97,22 @@ const Info = () => {
                     />
                 </div>
                 <div className={styles.actions}>
-                    <div>
-                        <button onClick={handleMenuClick}>
-                            <MenuIcon />
-                        </button>
-                        {
-                            displayMenu &&
-                            <div className={styles.dropdown}
-                                onMouseLeave={() => setDisplayMenu(false)}
-                            >
-                                <Dropdown />
-                            </div>
-                        }
-                    </div>
+                    {
+                        !isMobile &&
+                        <div>
+                            <button onClick={handleMenuClick}>
+                                <MenuIcon />
+                            </button>
+                            {
+                                displayMenu &&
+                                <div className={styles.dropdown}
+                                    onMouseLeave={() => setDisplayMenu(false)}
+                                >
+                                    <Dropdown />
+                                </div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div className={styles.contactInfo}>

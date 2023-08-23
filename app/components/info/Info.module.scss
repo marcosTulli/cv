@@ -170,6 +170,46 @@
 @media (max-width: 500px) {
     .info {
         width: 85%;
-        margin-left: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+
+        .actions {
+            margin: 10px;
+            padding: 0;
+            gap: 0;
+
+        }
+
+        .contactInfo {
+            div {
+                margin: 0;
+                padding: 0;
+                gap: 0;
+            }
+
+            margin: 0;
+            padding: 0;
+            gap: 0
+        }
+
+        .infoHeader {
+            padding: 0;
+            margin: 0
+        }
+
+        .languageContainer {
+            display: flex;
+            flex-direction: column;
+
+
+        }
+
+        .links {
+            flex-direction: column;
+        }
+
+
+
     }
 }

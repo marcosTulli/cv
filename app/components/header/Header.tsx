@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import styles from './Header.module.scss';
+import { useMediaQuery } from '@mui/material';
 
 const Header: React.FC = () => {
     const { trans: strings } = useLanguage();
