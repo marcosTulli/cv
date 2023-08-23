@@ -176,7 +176,7 @@ const Info = () => {
                                         height={icons.height}
 
                                     />
-                                    <p>{strings.english}</p>
+                                    <p>{isMobile ? null : strings.english}</p>
                                 </a>
                             </div>
                             <div>
@@ -186,7 +186,7 @@ const Info = () => {
                                     width={icons.width}
                                     height={icons.height}
                                 />
-                                <p>{strings.spanish}</p>
+                                <p>{isMobile ? null : strings.spanish}</p>
                             </div>
                         </div>
                     </li>

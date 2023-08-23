@@ -12,7 +12,7 @@
         }
 
         .educationCard {
-            margin-top: 1.5rem;
+            margin-top: .5rem;
             border-radius: 0.75rem;
             border: 1px solid $defaultBlack;
             background: $defaultWhite;
@@ -55,6 +55,7 @@
             background: $defaultWhite;
             padding: 1rem;
             box-shadow: 15px 15px 0px 0px $terracotta;
+            margin-top: 0.7rem;
 
             .skill {
                 font-size: 65%;
