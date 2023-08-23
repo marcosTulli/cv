@@ -35,57 +35,59 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
 
 
     return (
-        <MenuList className={styles.menu}>
-            <MenuItem className={styles.menuItem}>
-                {
-                    isMobile ? (
-                        <>
-                            <ListItemText >
-
-                                <Toggle />
-                            </ListItemText>
-                            <CloseIcon onClick={() => { handleClose && handleClose(); }} />
-                        </>
-
-                    ) : (<Toggle />)
-                }
-            </MenuItem>
-            <Divider />
-
-            <a
-                style={{
-                    textDecoration: 'none',
-                    color: 'black',
-                }}
-                title='Download'
-                href={filePath}
-                target="_blank"
-            >
+        <Paper className={styles.menu} sx={{ width: 'auto' }} style={{ backgroundColor: '#ffdb58' }}>
+            <MenuList >
                 <MenuItem className={styles.menuItem}>
-                    <ListItemText className={styles.textItem}  >{strings.dropdownOptionsDownload}</ListItemText>
-                    <FileDownloadIcon color='inherit' />
+                    {
+                        isMobile ? (
+                            <>
+                                <ListItemText >
+
+                                    <Toggle />
+                                </ListItemText>
+                                <CloseIcon onClick={() => { handleClose && handleClose(); }} />
+                            </>
+
+                        ) : (<Toggle />)
+                    }
                 </MenuItem>
                 <Divider />
-            </a>
-            <a
-                style={{
-                    textDecoration: 'none',
-                    color: 'black',
-                }}
-                title='Download'
-                href={strings.projectRepo}
-                target="_blank"
-            >
 
-                <MenuItem className={styles.menuItem}
+                <a
+                    style={{
+                        textDecoration: 'none',
+                        color: 'black',
+                    }}
+                    title='Download'
+                    href={filePath}
+                    target="_blank"
                 >
-                    <ListItemText
-                        className={styles.textItem}>{strings.dropdownOptionsClone}</ListItemText>
-                    <CodeIcon
-                    />
-                </MenuItem>
-            </a>
-        </MenuList>
+                    <MenuItem className={styles.menuItem}>
+                        <ListItemText className={styles.textItem}  >{strings.dropdownOptionsDownload}</ListItemText>
+                        <FileDownloadIcon color='inherit' />
+                    </MenuItem>
+                    <Divider />
+                </a>
+                <a
+                    style={{
+                        textDecoration: 'none',
+                        color: 'black',
+                    }}
+                    title='Download'
+                    href={strings.projectRepo}
+                    target="_blank"
+                >
+
+                    <MenuItem className={styles.menuItem}
+                    >
+                        <ListItemText
+                            className={styles.textItem}>{strings.dropdownOptionsClone}</ListItemText>
+                        <CodeIcon
+                        />
+                    </MenuItem>
+                </a>
+            </MenuList>
+        </Paper>
     );
 };
 
