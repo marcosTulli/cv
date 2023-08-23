@@ -26,7 +26,7 @@
 @media (max-width: 500px) {
     .headerContainer {
         margin-left: 1rem;
-        margin-right: 1rem;
+        // margin-right: 0rem;
         width: 100%;
         display: flex;
         gap: 0;
@@ -59,8 +59,7 @@
         }
 
         .about {
-            // background-color: red;
-            // width: 95%;
+            width: 95%;
         }
 
 
