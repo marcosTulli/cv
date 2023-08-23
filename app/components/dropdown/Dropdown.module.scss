@@ -17,3 +17,13 @@
     }
 
 }
+
+@media (max-width: 500px) {
+    .menu {
+        background-color: gray;
+        position: sticky;
+        width: auto;
+        margin-top: 4rem;
+        padding: 1rem;
+    }
+}
