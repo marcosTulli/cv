@@ -22,11 +22,8 @@
 
     }
 
-
     .right {
         flex: 1;
-
-
     }
 
 }
@@ -40,5 +37,9 @@
         border: none;
         box-shadow: none;
         gap: 1rem;
+
+        .workExperience {
+            width: 95%;
+        }
     }
 }

@@ -76,6 +76,22 @@
 @media (max-width: 500px) {
 
     .qualifications {
-        margin-left: 1rem;
+        .education {
+            padding: 0;
+
+            .educationCard {
+                width: 95%;
+            }
+        }
+
+        .skills {
+            margin-top: 2rem;
+            padding: 0;
+            width: 95%;
+
+            .skillsCard {
+                width: 90%;
+            }
+        }
     }
 }
