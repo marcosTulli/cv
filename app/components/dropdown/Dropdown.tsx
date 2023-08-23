@@ -3,6 +3,7 @@ import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
+import ListItem from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Toggle from '../toggle/Toggle';
 import { useLanguage } from "@/app/contexts/LanguageContext";
@@ -11,6 +12,14 @@ import { CopyAlert } from '../info/CopyAlert';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import CodeIcon from '@mui/icons-material/Code';
 import styles from './Dropdown.module.scss';
+import { Divider } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { useMediaQuery } from '@mui/material';
+
+
+interface IDropdownMenuProps {
+    handleClose: () => void;
+}
 
 const url = process.env.NEXT_PUBLIC_URL || '';
 export default function Dropdown() {
@@ -18,6 +27,7 @@ export default function Dropdown() {
     const [displayCopyConfirmation, setDisplayCopyConfirmation] = React.useState<boolean>(true);
     const fileName = `${strings.cv}${lang}`;
     const filePath = `${url}${fileName}.pdf`;
+    const isMobile = useMediaQuery('(max-width: 500px)');
 
     const handleCopy = (value: string, isCopied: boolean) => {
         copy(value);
@@ -34,12 +44,20 @@ export default function Dropdown() {
     return (
         <Paper sx={{ width: 240, maxWidth: '100%' }}>
             <MenuList className={styles.menu}>
-
                 <MenuItem className={styles.menuItem}>
-                    <Typography variant="body2" color="text.secondary">
-                        <Toggle />
-                    </Typography>
+                    {
+                        isMobile ? (
+                            <>
+                                <ListItemText>
+                                    <Toggle />
+                                </ListItemText>
+                                <CloseIcon />
+                            </>
+
+                        ) : (<Toggle />)
+                    }
                 </MenuItem>
+                <Divider />
 
                 <a
                     style={{
@@ -54,6 +72,7 @@ export default function Dropdown() {
                         <ListItemText className={styles.textItem}  >{strings.dropdownOptionsDownload}</ListItemText>
                         <FileDownloadIcon color='inherit' />
                     </MenuItem>
+                    <Divider />
                 </a>
                 <MenuItem
                     onClick={() => handleCopy(strings.projectRepo, true)}
