@@ -12,7 +12,7 @@ const Toggle: React.FC<ToggleProps> = () => {
         <div className={styles.toggleLanguage} style={{ margin: '0', padding: '0' }}>
             <div>{strings.en}</div>
             <label title="Switch Language" className={styles.toggle}  >
-                <input type="checkbox" onChange={toggleLang} defaultChecked={isChecked} />
+                <input id="1" type="checkbox" onChange={toggleLang} defaultChecked={isChecked} />
                 <span className={`${styles.slider} ${styles.round}`}></span>
             </label>
             <div>{strings.es}</div>
