@@ -22,3 +22,13 @@
 
 
 }
+
+@media (max-width: 500px) {
+    .headerContainer {
+        margin-left: 2rem;
+        width: 85%;
+        display: flex;
+        gap: 0;
+
+    }
+}
