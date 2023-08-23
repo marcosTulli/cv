@@ -88,14 +88,18 @@ const Info = () => {
     return (
         <div className={styles.info}>
             <div className={styles.infoHeader}>
-                <div className={styles.profilePicture}>
-                    <Image
-                        src="/profile-picture.jpeg"
-                        alt="profile picture"
-                        width={300}
-                        height={300}
-                    />
-                </div>
+                {
+                    !isMobile &&
+                    <div className={styles.profilePicture}>
+                        <Image
+                            src="/profile-picture.jpeg"
+                            alt="profile picture"
+                            width={300}
+                            height={300}
+                        />
+                    </div>
+                }
+
                 <div className={styles.actions}>
                     {
                         !isMobile &&
@@ -131,23 +135,27 @@ const Info = () => {
                                         }
                                     </p>
                                     <p>{i.value}</p>
-                                    <div className={styles.copyButtonContainer}>
-                                        <button
-                                            title='Copy to clipboard'
-                                            hidden={displayCopyButton(i.id)}
-                                            className={styles.copy}
-                                            onClick={() => handleCopy(i.value, true)}>
-                                            <ContentCopyIcon style={{ width: '20px', height: '20px' }} />
-                                        </button>
-                                        <p
-                                            hidden={displayCopyConfirmation(i.id)}
-                                        >
-                                            <CopyAlert
-                                                display={displayCopyConfirmation(i.id)}
-                                                string={i.value}
-                                            />
-                                        </p>
-                                    </div>
+                                    {
+                                        !isMobile &&
+                                        <div className={styles.copyButtonContainer}>
+                                            <button
+                                                title='Copy to clipboard'
+                                                hidden={displayCopyButton(i.id)}
+                                                className={styles.copy}
+                                                onClick={() => handleCopy(i.value, true)}>
+                                                <ContentCopyIcon style={{ width: '20px', height: '20px' }} />
+                                            </button>
+                                            <p
+                                                hidden={displayCopyConfirmation(i.id)}
+                                            >
+                                                <CopyAlert
+                                                    display={displayCopyConfirmation(i.id)}
+                                                    string={i.value}
+                                                />
+                                            </p>
+                                        </div>
+
+                                    }
                                 </li>
                             );
                         })
@@ -155,27 +163,31 @@ const Info = () => {
 
                     <li>
                         <div className={styles.languageContainer}>
-                            <a
-                                title="View certification"
-                                href={strings.englishCertificate}
-                                target='_blank'
-                            >
+                            <div>
+                                <a
+                                    title="View certification"
+                                    href={strings.englishCertificate}
+                                    target='_blank'
+                                >
+                                    <Image
+                                        src="/uk.png"
+                                        alt="english"
+                                        width={icons.width}
+                                        height={icons.height}
+
+                                    />
+                                    <p>{strings.english}</p>
+                                </a>
+                            </div>
+                            <div>
                                 <Image
-                                    src="/uk.png"
-                                    alt="english"
+                                    src="/spain.png"
+                                    alt="spanish"
                                     width={icons.width}
                                     height={icons.height}
-
                                 />
-                                <p>{strings.english}</p>
-                            </a>
-                            <Image
-                                src="/spain.png"
-                                alt="spanish"
-                                width={icons.width}
-                                height={icons.height}
-                            />
-                            <p>{strings.spanish}</p>
+                                <p>{strings.spanish}</p>
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -187,24 +199,43 @@ const Info = () => {
                             >
                                 <LinkedInIcon
                                     style={{ marginRight: '0.4rem' }}
-
                                 />
                                 <p>{strings.linkedin}</p>
                             </a>
-                            <a
-                                href={strings.githubURL}
-                                target="_blank"
-                                title={strings.githubURL}
-                            >
-                                <GitHubIcon
-                                    style={{ marginRight: '0.4rem' }}
-                                    className={styles.TUKI}
+                            {!isMobile &&
+                                <a
+                                    href={strings.githubURL}
+                                    target="_blank"
+                                    title={strings.githubURL}
+                                >
+                                    <GitHubIcon
+                                        style={{ marginRight: '0.4rem' }}
+                                        className={styles.TUKI}
 
-                                />
-                                <p>{strings.github}</p>
-                            </a>
+                                    />
+                                    <p>{strings.github}</p>
+                                </a>
+
+                            }
                         </span>
                     </li>
+                    {isMobile &&
+                        <li >
+
+                            <span className={styles.links}>
+                                <a
+                                    href={strings.githubURL}
+                                    target="_blank"
+                                    title={strings.githubURL}
+                                >
+                                    <GitHubIcon
+                                        style={{ marginRight: '0.4rem' }}
+                                    />
+                                    <p>{strings.github}</p>
+                                </a></span>
+                        </li>
+
+                    }
                 </ul>
             </div>
         </div>

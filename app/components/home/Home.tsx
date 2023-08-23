@@ -14,7 +14,7 @@ export default function Home() {
             {isMobile ? (
                 <div className={styles.cvContainer}>
                     <Header />
-                    <Info />
+                    {/* <Info /> */}
                     <WorkExperience />
                     <Qualifications />
                 </div>
