@@ -49,7 +49,8 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
                     {
                         isMobile ? (
                             <>
-                                <ListItemText>
+                                <ListItemText >
+
                                     <Toggle />
                                 </ListItemText>
                                 <CloseIcon onClick={() => { handleClose && handleClose(); }} />

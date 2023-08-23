@@ -6,8 +6,6 @@
     align-items: center;
     margin-left: 0;
     padding-left: 0;
-
-
 }
 
 .toggle {
@@ -63,4 +61,11 @@
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+@media(max-width: 500px) {
+    .toggleLanguage {
+        gap: 0.4rem;
+    }
+
 }
