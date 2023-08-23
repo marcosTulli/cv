@@ -8,7 +8,7 @@ const Es: Translation = {
     education: "Educación y Certificaciones",
     skills: 'Habilidades',
     agile: 'Metodologias Agiles',
-    english: "C2 (Proficient)",
+    english: "C2",
     spanish: "Nativo",
     email: "marcostulli@hotmail.com",
     phone: "+5492236833631",

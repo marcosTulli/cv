@@ -3,12 +3,8 @@ import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material';
-import Typography from '@mui/material/Typography';
 import Toggle from '../toggle/Toggle';
 import { useLanguage } from "@/app/contexts/LanguageContext";
-import copy from "copy-to-clipboard";
-import { CopyAlert } from '../info/CopyAlert';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import CodeIcon from '@mui/icons-material/Code';
 import styles from './Dropdown.module.scss';
@@ -29,11 +25,6 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
     const fileName = `${strings.cv}${lang}`;
     const filePath = `${url}${fileName}.pdf`;
     const isMobile = useMediaQuery('(max-width: 500px)');
-
-    const handleCopy = (value: string, isCopied: boolean) => {
-        copy(value);
-        setDisplayCopyConfirmation(false);
-    };
 
     React.useEffect(() => {
         if (!displayCopyConfirmation) {
@@ -86,9 +77,7 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
                     target="_blank"
                 >
 
-                    <MenuItem
-                        onClick={() => handleCopy(strings.projectRepo, true)}
-                        className={styles.menuItem}
+                    <MenuItem className={styles.menuItem}
                     >
                         <ListItemText
                             className={styles.textItem}>{strings.dropdownOptionsClone}</ListItemText>
