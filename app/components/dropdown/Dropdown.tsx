@@ -43,7 +43,7 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
 
 
     return (
-        <Paper sx={{ width: 240, maxWidth: '100%' }}>
+        <Paper sx={{ width: 'auto' }}>
             <MenuList className={styles.menu}>
                 <MenuItem className={styles.menuItem}>
                     {

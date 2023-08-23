@@ -23,23 +23,15 @@
         background-color: $mustard;
         position: fixed;
         top: 0;
+        right: 0;
         left: 0;
-        width: 100%;
         border-radius: 0;
         padding: 1rem;
         gap: 0.7rem;
+        width: 100;
 
         li {
-            width: 92%;
-        }
-
-        // width: auto;
-
-        .menuItem {
-            display: flex;
-            flex-direction: row;
-
-
+            width: 100%;
         }
 
     }

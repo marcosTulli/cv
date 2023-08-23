@@ -241,17 +241,11 @@
 @media (max-width: 500px) {
     .cvContainer {
         height: 100%;
-        width: auto;
+        width: 95%;
         flex-direction: column;
         align-items: center;
         border: none;
         box-shadow: none;
         gap: 1rem;
-    }
-
-    .left,
-    .right {
-        margin: 0;
-        /* Remove side margins for stacking */
     }
 }
