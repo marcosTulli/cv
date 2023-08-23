@@ -3,7 +3,7 @@ import { useLanguage } from "@/app/contexts/LanguageContext";
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
-    const { lang, toggleLang, trans: strings } = useLanguage();
+    const { trans: strings } = useLanguage();
 
     return (
         <div className={styles.headerContainer}>
