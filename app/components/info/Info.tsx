@@ -40,6 +40,15 @@ const Info = () => {
         }
     };
 
+    React.useEffect(() => {
+        if (isMobile && hoverItem !== undefined) {
+            setTimeout(() => {
+                setHoverItem(undefined);
+            }, 700);
+        }
+
+    }, [isMobile, hoverItem]);
+
     const displayCopyConfirmation = (id: number): boolean => {
         if (hoverItem?.isCopied && id === hoverItem.id) {
             return false;
@@ -83,6 +92,7 @@ const Info = () => {
                 break;
         }
     };
+
 
 
     return (
@@ -134,7 +144,16 @@ const Info = () => {
                                             handleIcons(i.name)
                                         }
                                     </p>
-                                    <p>{i.value}</p>
+                                    <p
+                                        style={{ paddingRight: '0.5rem' }}
+                                        onClick={() => { isMobile && handleCopy(i.value, true); }}
+                                    >{i.value}</p>
+                                    {isMobile &&
+                                        <CopyAlert
+                                            display={displayCopyConfirmation(i.id)}
+                                            string={i.value}
+                                        />
+                                    }
                                     {
                                         !isMobile &&
                                         <div className={styles.copyButtonContainer}>
