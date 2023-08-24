@@ -2,7 +2,6 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import Toggle from '../toggle/Toggle';
 import { useLanguage } from "@/app/contexts/LanguageContext";
@@ -34,61 +33,57 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
     }, [displayCopyConfirmation]);
 
 
+    const menuItems = [
+        { name: 'toggle', text: '', href: '', icon: <Toggle /> },
+        { name: 'download', href: filePath, text: strings.dropdownOptionsDownload, icon: <FileDownloadIcon /> },
+        { name: 'repo', href: strings.projectRepo, text: strings.dropdownOptionsClone, icon: <CodeIcon /> },
+
+    ];
+
     return (
         <Paper className={styles.menu} sx={{ width: 'auto' }} style={{ backgroundColor: isMobile ? '#ffdb58' : 'null' }}>
-            <MenuList >
-                <MenuItem className={styles.menuItem}>
-                    {
-                        isMobile ? (
+            <MenuList style={{ padding: '0' }} >
+                {menuItems.map((item, index) => (
+                    <>
+                        <div key={index} className={styles.menuItem}>
+                            {item.name === 'toggle' && (
+                                <>
+                                    {isMobile && (
+                                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', paddingRight: '3rem' }}>
+                                            <ListItemText>
+                                                {item.icon}
+                                            </ListItemText>
+                                            <CloseIcon onClick={() => { handleClose && handleClose(); }} />
+                                        </div>
+                                    )}
+
+                                    {!isMobile && item.icon}
+                                </>
+                            )}
                             <>
-                                <ListItemText >
-
-                                    <Toggle />
+                                <ListItemText className={styles.textItem} >
+                                    {item.name !== 'toggle' && (
+                                        <a style={{ textDecoration: 'none', color: 'black' }} title='Download' href={item.href} target="_blank">
+                                            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', paddingRight: '3rem', marginLeft: '0', paddingLeft: '0' }}>
+                                                {item.text}
+                                                {item.icon}
+                                            </div>
+                                        </a>
+                                    )}
                                 </ListItemText>
-                                <CloseIcon onClick={() => { handleClose && handleClose(); }} />
                             </>
+                        </div>
+                        {
+                            (index !== menuItems.length - 1) &&
+                            <Divider />
+                        }
+                    </>
+                ))}
 
-                        ) : (<Toggle />)
-                    }
-                </MenuItem>
-                <Divider />
-
-                <a
-                    style={{
-                        textDecoration: 'none',
-                        color: 'black',
-                    }}
-                    title='Download'
-                    href={filePath}
-                    target="_blank"
-                >
-                    <MenuItem className={styles.menuItem}>
-                        <ListItemText className={styles.textItem}  >{strings.dropdownOptionsDownload}</ListItemText>
-                        <FileDownloadIcon color='inherit' />
-                    </MenuItem>
-                    <Divider />
-                </a>
-                <a
-                    style={{
-                        textDecoration: 'none',
-                        color: 'black',
-                    }}
-                    title='Download'
-                    href={strings.projectRepo}
-                    target="_blank"
-                >
-
-                    <MenuItem className={styles.menuItem}
-                    >
-                        <ListItemText
-                            className={styles.textItem}>{strings.dropdownOptionsClone}</ListItemText>
-                        <CodeIcon
-                        />
-                    </MenuItem>
-                </a>
             </MenuList>
         </Paper>
     );
 };
+
 
 export default Dropdown;
