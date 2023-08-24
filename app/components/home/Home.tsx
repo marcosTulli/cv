@@ -8,26 +8,35 @@ import { useMediaQuery } from '@mui/material';
 
 export default function Home() {
     const isMobile = useMediaQuery('(max-width: 500px)');
+
+    const commonContent = (
+        <>
+            <Header />
+            <WorkExperience />
+        </>
+    );
+    const mobileContent = (
+        <div className={styles.cvContainer}>
+            {commonContent}
+            <Qualifications />
+        </div>
+    );
+
+    const desktopContent = (
+        <div className={styles.cvContainer}>
+            <div className={styles.left}>
+                {commonContent}
+            </div>
+            <div className={styles.right}>
+                <Info />
+                <Qualifications />
+            </div>
+        </div>
+    );
+
     return (
         <>
-            {isMobile ? (
-                <div className={styles.cvContainer}>
-                    <Header />
-                    <WorkExperience />
-                    <Qualifications />
-                </div>
-            ) : (
-                <div className={styles.cvContainer}>
-                    <div className={styles.left}>
-                        <Header />
-                        <WorkExperience />
-                    </div>
-                    <div className={styles.right}>
-                        <Info />
-                        <Qualifications />
-                    </div>
-                </div>
-            )}
+            {isMobile ? mobileContent : desktopContent}
         </>
     );
 }
