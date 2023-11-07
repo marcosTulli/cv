@@ -10,9 +10,9 @@ const jobsData: IJobs[] = [
       comapnyUrl: 'https://www.raona.com/',
       companyLogo: '/raona.png',
       tasks: [
-        'Working on developing and deploying scalable applications',
-        'Utilizing ReactJS to design and implement front-end features, resulting in improved user experience and satisfaction',
-        'Collaborating with the team to deliver high-quality products on time',
+        'Worked on developing and deploying scalable applications with Next.js',
+        'Utilized ReactJS to design and implement front-end features, resulting in improved user experience and satisfaction',
+        'Collaborated with the team to deliver high-quality products on time',
       ],
     },
     es: {
