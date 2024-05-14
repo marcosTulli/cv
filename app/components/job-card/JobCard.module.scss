@@ -1,16 +1,15 @@
 @import '../../styles/global.scss';
 
 .jobCard {
+    font-family: $defaultFont;
     display: flex;
     text-align: left;
     flex-direction: column;
     border-radius: 0.75rem;
     border: 1px solid $defaultBlack;
     background: $defaultWhite;
-    // box-shadow: 15px 15px 0px 0px #3dc39b;
     padding: 0.5rem;
     width: 25rem;
-    // margin-bottom: 2rem;
 
 
     .jobCardHeader {

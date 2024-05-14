@@ -1,6 +1,7 @@
 @import '../../styles/global.scss';
 
 .info {
+    font-family: $defaultFont ;
     flex-direction: column;
 
     .infoHeader {

@@ -61,9 +61,9 @@ const jobsData: IJobs[] = [
     en: {
       position: 'Front-End Developer',
       activePeriod: 'Sep 2020 - Jun 2022',
-      companyName: 'Mercap',
-      comapnyUrl: 'https://www.mercapsoftware.com/',
-      companyLogo: '/mercap.png',
+      companyName: 'Softwire',
+      comapnyUrl: 'https://www.softwire.com/',
+      companyLogo: '/softwire.png',
       tasks: [
         'Developed HTML templates and designed responsive websites',
         'Participated in design meetings with clients to take high-level design requirements and turn them into user stories for the development team',
@@ -73,9 +73,9 @@ const jobsData: IJobs[] = [
     es: {
       position: 'Desarrollador Front-End',
       activePeriod: 'Sep 2020 - Jun 2022',
-      companyName: 'Mercap',
-      comapnyUrl: 'https://www.mercapsoftware.com/',
-      companyLogo: '/mercap.png',
+      companyName: 'Softwire',
+      comapnyUrl: 'https://www.softwire.com/',
+      companyLogo: '/softwire.png',
       tasks: [
         'Plantillas HTML desarrolladas y sitios web receptivos diseñados',
         'Participé en reuniones de diseño con clientes para tomar requisitos de diseño de alto nivel y convertirlos en historias de usuario para el equipo de desarrollo',

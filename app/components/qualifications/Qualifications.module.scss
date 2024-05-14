@@ -1,6 +1,8 @@
 @import '../../styles/global.scss';
 
 .qualifications {
+    font-family: $defaultFont ;
+
     .education {
         display: flex;
         flex-direction: column;
