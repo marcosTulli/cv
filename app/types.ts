@@ -79,35 +79,49 @@ export enum Language {
 
 
 // ______________ NEW MODELS ____________
-export interface ITask {
-    _id: string;
-    task: string;
-}
 
-export interface IPosition {
+
+export interface IAbout {
     en: string;
     sp: string;
 }
 
-export interface ITasks {
-    en: ITask[];
-    sp: ITask[] | string[];
+export interface ILanguages {
+    en: ILanguage[];
+    sp: ILanguage[];
 }
 
-export interface IExperience {
-    _id: string;
-    activePeriod: string;
-    companyName: string;
-    comapnyUrl: string;
-    companyLogo: string;
-    position: IPosition;
-    tasks: ITasks;
+export interface ILanguage {
+    language: string;
+    level: string;
+}
+
+export interface ISocial {
+    linkedin: ISocialMedia;
+    github: ISocialMedia;
+}
+
+export interface ISocialMedia {
+    display: string;
+    url: string;
+}
+
+export interface IUserInfo {
+    candidateTitle: string;
+    phone: string;
+    location: string;
+    about: IAbout;
+    languages: ILanguages;
+    social: ISocial;
+    cvEn: string;
+    cvEs: string;
 }
 
 export interface IUser {
     _id: string;
-    userId: string;
-    experiences: IExperience[];
+    name: string;
+    password: string;
+    email: string;
+    info: IUserInfo;
 }
-
 

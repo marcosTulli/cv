@@ -3,6 +3,7 @@ import JobCard from "@/app/components/job-card/JobCard";
 import jobsData from "@/app/assets/jobs-data";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import styles from "./WorkExperience.module.scss";
+import { userStore } from '@/app/store';
 
 const WorkExperience = () => {
     const { lang, trans: strings } = useLanguage();
