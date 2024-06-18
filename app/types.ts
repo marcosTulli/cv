@@ -76,3 +76,38 @@ export enum Language {
     EN = 'en',
     ES = 'es'
 }
+
+
+// ______________ NEW MODELS ____________
+export interface ITask {
+    _id: string;
+    task: string;
+}
+
+export interface IPosition {
+    en: string;
+    sp: string;
+}
+
+export interface ITasks {
+    en: ITask[];
+    sp: ITask[] | string[];
+}
+
+export interface IExperience {
+    _id: string;
+    activePeriod: string;
+    companyName: string;
+    comapnyUrl: string;
+    companyLogo: string;
+    position: IPosition;
+    tasks: ITasks;
+}
+
+export interface IUser {
+    _id: string;
+    userId: string;
+    experiences: IExperience[];
+}
+
+
