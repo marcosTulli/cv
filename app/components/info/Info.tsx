@@ -16,6 +16,7 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useMediaQuery } from '@mui/material';
+import { userStore } from '@/app/store';
 
 interface HoverState {
     id: number,
@@ -30,6 +31,8 @@ const Info = () => {
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
     const isMobile = useMediaQuery('(max-width: 500px)');
+    const { user } = userStore();
+    console.log(user);
 
 
     const displayCopyButton = (id: number): boolean => {
