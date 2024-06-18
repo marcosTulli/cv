@@ -6,3 +6,9 @@ export const useUsers = () =>
         queryKey: ['users'],
         queryFn: () => DataProviderInstance.getUsers(),
     });
+
+export const useUser = ({ id }: { id: string; }) =>
+    useQuery({
+        queryKey: ['user', id],
+        queryFn: () => DataProviderInstance.getUserById({ id }),
+    });

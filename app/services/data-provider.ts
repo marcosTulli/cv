@@ -44,6 +44,10 @@ class DataProvider {
         return this.get(`/users`);
     };
 
+    public getUserById = async ({ id }: { id: string; }): Promise<IUser> => {
+        return this.get(`/users/${id}`);
+    };
+
 
 }
 const DataProviderInstance = new DataProvider();
