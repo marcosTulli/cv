@@ -5,7 +5,6 @@ import Image from "next/image";
 import { CopyAlert } from './CopyAlert';
 import copy from "copy-to-clipboard";
 import * as utils from "@/app/utils/index";
-import { contactInfo } from '@/app/assets/contact-info';
 import styles from './Info.module.scss';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
@@ -16,7 +15,7 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useMediaQuery } from '@mui/material';
-import { userStore } from '@/app/store';
+import { useContactInfo } from '@/app/hooks';
 
 interface HoverState {
     id: number,
@@ -31,8 +30,7 @@ const Info = () => {
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
     const isMobile = useMediaQuery('(max-width: 500px)');
-    const { user } = userStore();
-    console.log(user);
+    const contactInfo = useContactInfo();
 
 
     const displayCopyButton = (id: number): boolean => {
