@@ -1,0 +1,74 @@
+
+
+So, my problem is that I receive this error: 
+
+Error: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+
+
+But, how can this break the rule: 
+
+import { userStore } from '../../store';
+import { Translation } from "@/app/types";
+
+const useEN = () => {
+    const { user } = userStore();
+
+    const En: Translation = {
+        candidateName: user.name,
+        candidateTitle: "Software engineer",
+        about: "Experienced and dedicated Web Developer with a keen knack for crafting immersive and user-centric web applications using the finesse of ReactJS. Demonstrating a proven history of harmonious cross-functional teamwork, I skillfully transform high-level design concepts into polished digital experiences that resonate with end-users. Fueled by a Bachelor's degree in computer programming from Teclab instituto tecnico, and complemented by PluralSight and Azure certifications, my toolkit boasts proficiency in TypeScript, JavaScript, Next.js, NodeJs, HTML, CSS, and Agile methodologies. Enthusiastic about leveraging my expertise to enhance digital solutions and drive enduring success.",
+        workExperience: "Work Experience",
+        education: "Education & Certifications",
+        skills: "Skills",
+        agile: 'Agile Methodologies',
+        english: "C2",
+        spanish: "Native",
+        email: "marcostulli@hotmail.com",
+        phone: "+5492236833631",
+        location: "Mar del Plata, Argentina",
+        linkedin: '/in/marcos-tulli',
+        github: '/marcosTulli',
+        linkedinURL: 'http://linkedin.com/in/marcos-tulli',
+        githubURL: 'http://github.com/marcosTulli',
+        projectRepo: 'https://github.com/marcosTulli/cv.git',
+        cv: 'Marcos Tulli CV-',
+        en: 'EN',
+        es: 'ES',
+        englishCertificate: "https://www.efset.org/cert/WcpTzU",
+        azureCertificate: "https://www.credly.com/badges/5d54f43d-768f-4d3f-89d8-8fcb3678c89e",
+        dropdownOptionsDownload: 'Download CV',
+        dropdownOptionsClone: 'View code',
+    };
+
+    return En;
+};
+
+
+
+export default useEN;
+
+
+but useContactInfo not: 
+
+
+
+
+
+src
+├── hooks
+│   ├── queries1.1
+│       ├──index.ts 
+│       └──... 
+│   ├── strings1.2
+│       ├──index.ts 
+│       └──en.ts 
+│       └──es.ts 
+│   ├── index.ts
+│   ├── useContactInfo.ts
+└── store...
+│   ├──index.ts 
+│   ├──userStore.ts 

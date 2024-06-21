@@ -1,7 +1,10 @@
 import React, { createContext, useContext, useEffect, useCallback, } from 'react';
 import { Translation, Language } from "@/app/types";
-import En from "@/app/loc/strings-en";
+import { useEN } from '@/app/hooks/';
 import Es from "@/app/loc/strings-es";
+// import En from "@/app/loc/strings-es";
+
+const En = useEN();
 
 interface ILanguageContext {
     lang: Language;
@@ -14,7 +17,7 @@ interface ILanguageContext {
 const defaultContext = {
     lang: Language.EN,
     trans: En,
-    setLang: (newLang: Language) => { },
+    setLang: (newLang: Language) => { newLang; },
     toggleLang: () => { console.log("Language Switch"); },
     isChecked: false
 };
@@ -29,6 +32,7 @@ export const LanguageContextProvider: React.FC<LanguageContextProviderProps> = (
     const [currentLanguage, setCurrentLanguage] = React.useState<Language>(Language.EN);
     const [trans, setTrans] = React.useState<Translation>(Es);
     const [isChecked, setIsChecked] = React.useState<boolean>(false);
+    // const { En } = EN();
     const setLang = useCallback((newLang: Language) => {
         setCurrentLanguage(newLang);
     }, [currentLanguage]);

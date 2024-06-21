@@ -5,7 +5,6 @@ import { useMediaQuery } from '@mui/material';
 import Info from '../info/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
-import Image from "next/image";
 
 const Header: React.FC = () => {
     const { trans: strings } = useLanguage();
