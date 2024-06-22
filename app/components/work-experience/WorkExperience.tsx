@@ -13,7 +13,6 @@ const WorkExperience = () => {
         3: styles.lightPurple,
     };
 
-    console.log(strings);
     return (
         <div className={styles.workExperience}>
             <div className={styles.sectionTitle} >{strings.workExperience}</div>

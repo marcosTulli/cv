@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import * as Utils from '@/app/utils/index';
-import { IUser } from '../types';
+import { IUser, Language } from '../types';
 
 
 const key = process.env.NEXT_PUBLIC_API_KEY || '';
@@ -44,8 +44,8 @@ class DataProvider {
         return this.get(`/users`);
     };
 
-    public getUserById = async ({ id }: { id: string; }): Promise<IUser> => {
-        return this.get(`/users/${id}`);
+    public getUserById = async ({ lang, id }: { lang: Language, id: string; }): Promise<IUser> => {
+        return this.get(`/users/${lang}/${id}`);
     };
 
 
