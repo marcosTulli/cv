@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
 
 const Header: React.FC = () => {
-    const { trans: strings } = useLanguage();
+    const { strings } = useLanguage();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const isMobile = useMediaQuery('(max-width: 500px)');
 

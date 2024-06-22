@@ -1,6 +1,6 @@
 import { Translation } from '@/app/types';
 
-const Es: Translation = {
+const es: Translation = {
     candidateName: "Marcos Tulli",
     candidateTitle: "Ingeniero de software",
     about: "Desarrollador Web experimentado y dedicado, con una habilidad excepcional para crear aplicaciones web inmersivas y centradas en el usuario utilizando la destreza de ReactJS. Demostrando una historia probada de trabajo en equipo armonioso y multifuncional, transformo hábilmente conceptos de diseño de alto nivel en experiencias digitales pulidas que resuenan con los usuarios finales. Impulsado por un título de Licenciatura en programación de computadoras de Teclab instituto técnico, y complementado con certificaciones de PluralSight y Azure, mi caja de herramientas cuenta con proficiencia en TypeScript, JavaScript, Next.js, NodeJs, HTML, CSS y metodologías ágiles. Entusiasta de aprovechar mi experiencia para mejorar soluciones digitales y lograr un éxito duradero.",
@@ -27,4 +27,4 @@ const Es: Translation = {
     dropdownOptionsClone: 'Ver código',
 };
 
-export default Es;
+export default es;

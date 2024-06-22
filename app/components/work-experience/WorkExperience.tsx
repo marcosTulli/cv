@@ -6,13 +6,14 @@ import { useLanguage } from '@/app/hooks';
 import styles from "./WorkExperience.module.scss";
 
 const WorkExperience = () => {
-    const { lang, trans: strings } = useLanguage();
+    const { currentLanguage, strings } = useLanguage();
     const colors: { [key: number]: string; } = {
         1: styles.blue,
         2: styles.peach,
         3: styles.lightPurple,
     };
 
+    console.log(strings);
     return (
         <div className={styles.workExperience}>
             <div className={styles.sectionTitle} >{strings.workExperience}</div>
@@ -26,7 +27,7 @@ const WorkExperience = () => {
 
                 return (
                     <div key={i.id} className={styles.jobCard} style={cardStyle} >
-                        <JobCard data={i} language={lang} />
+                        <JobCard data={i} language={currentLanguage} />
                     </div>
                 );
             })}

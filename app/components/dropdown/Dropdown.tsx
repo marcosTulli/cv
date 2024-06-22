@@ -22,9 +22,9 @@ interface IDropdownMenuProps {
 const url = process.env.NEXT_PUBLIC_URL || '';
 
 const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
-    const { lang, trans: strings } = useLanguage();
+    const { currentLanguage, strings } = useLanguage();
     const [displayCopyConfirmation, setDisplayCopyConfirmation] = React.useState<boolean>(true);
-    const fileName = `${strings.cv}${lang}`;
+    const fileName = `${strings.cv}${currentLanguage}`;
     const filePath = `${url}${fileName}.pdf`;
     const isMobile = useMediaQuery('(max-width: 500px)');
 

@@ -4,7 +4,7 @@ import useLanguage from './useLanguage';
 
 const useContactInfo = () => {
     const { user } = userStore();
-    const { trans: strings } = useLanguage();
+    const { strings } = useLanguage();
     const contactInfo: IContactInfo[] = [
         {
             id: 1,

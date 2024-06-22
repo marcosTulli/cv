@@ -10,7 +10,7 @@ import styles from './Qualifications.module.scss';
 const url = process.env.NEXT_PUBLIC_URL || '';
 
 const Qualifications = () => {
-    const { lang, trans: strings } = useLanguage();
+    const { currentLanguage, strings } = useLanguage();
 
     return (
         <div className={styles.qualifications}>
@@ -19,7 +19,7 @@ const Qualifications = () => {
                 <div className={styles.educationCard}>
                     <ul>
                         {educationData.map((i) => {
-                            const education = lang === Language.ES ? i.es : i.en;
+                            const education = currentLanguage === Language.ES ? i.es : i.en;
                             const isUrl = i.en.url?.includes('http');
                             const filePath = `${url}${i.en.url}.pdf`;
                             return (

@@ -1,6 +1,6 @@
 import { Translation } from '@/app/types';
 
-const En: Translation = {
+const en: Translation = {
     candidateName: "Marcos Tulli",
     candidateTitle: "Software engineer",
     about: "Experienced and dedicated Web Developer with a keen knack for crafting immersive and user-centric web applications using the finesse of ReactJS. Demonstrating a proven history of harmonious cross-functional teamwork, I skillfully transform high-level design concepts into polished digital experiences that resonate with end-users. Fueled by a Bachelor's degree in computer programming from Teclab instituto tecnico, and complemented by PluralSight and Azure certifications, my toolkit boasts proficiency in TypeScript, JavaScript, Next.js, NodeJs, HTML, CSS, and Agile methodologies. Enthusiastic about leveraging my expertise to enhance digital solutions and drive enduring success.",
@@ -27,4 +27,4 @@ const En: Translation = {
     dropdownOptionsClone: 'View code',
 };
 
-export default En;
+export default en;
