@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Toggle.module.scss';
-import { useLanguage } from '@/app/contexts/LanguageContext';
+// import { useLanguage } from '@/app/contexts/LanguageContext';
+import { useLanguage } from '@/app/hooks';
 
 interface ToggleProps {
 }
 
 const Toggle: React.FC<ToggleProps> = () => {
-    const { isChecked, toggleLang, trans: strings } = useLanguage();
+    const { isChecked, toggleLang, trans: strings, lang } = useLanguage();
 
     return (
         <div className={styles.toggleLanguage} style={{ margin: '0', padding: '0', fontSize: '15px' }}>

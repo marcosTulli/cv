@@ -1,0 +1,14 @@
+.container {
+    .button {
+
+        height: 3rem;
+        font-size: 2rem;
+
+        // background-color: red;
+        &:hover {
+            background-color: coral;
+            cursor: pointer;
+        }
+    }
+
+}

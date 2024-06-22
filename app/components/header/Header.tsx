@@ -1,5 +1,6 @@
 import React from 'react';
-import { useLanguage } from "@/app/contexts/LanguageContext";
+// import { useLanguage } from "@/app/contexts/LanguageContext";
+import { useLanguage } from '@/app/hooks';
 import styles from './Header.module.scss';
 import { useMediaQuery } from '@mui/material';
 import Info from '../info/Info';

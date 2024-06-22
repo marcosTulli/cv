@@ -1,27 +1,28 @@
 import { IContactInfo } from '../types';
 import { userStore } from '../store';
+import useLanguage from './useLanguage';
 
 const useContactInfo = () => {
     const { user } = userStore();
+    const { trans: strings } = useLanguage();
     const contactInfo: IContactInfo[] = [
         {
             id: 1,
             name: 'location',
             src: '/location.png',
-            value: user.info.location,
+            value: strings.location,
         },
         {
             id: 2,
             name: 'email',
             src: '/mail.png',
-            value: user.email,
-
+            value: strings.email
         },
         {
             id: 3,
             name: 'phone',
             src: '/telephone.png',
-            value: user.info.phone,
+            value: strings.phone,
 
         },
     ];

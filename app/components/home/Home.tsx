@@ -13,17 +13,17 @@ import { IUser } from '@/app/types';
 export default function Home() {
     const { data: users } = useUsers();
     // This will change when I implement login, and/or user selection. 
-    const userId = users ? users[1]._id : '';
-    const { data: user } = useUser({ id: userId });
-    const { setUser } = userStore();
+    // const userId = users ? users[1]._id : '';
+    // const { data: user } = useUser({ id: userId });
+    // const { setUser } = userStore();
 
-    React.useEffect(() => {
-        if (users && users?.length > 0) {
-            if (user !== undefined) {
-                setUser(user as IUser);
-            }
-        }
-    }, [users, user]);
+    // React.useEffect(() => {
+    //     if (users && users?.length > 0) {
+    //         if (user !== undefined) {
+    //             setUser(user as IUser);
+    //         }
+    //     }
+    // }, [users, user]);
 
     const isMobile = useMediaQuery('(max-width: 500px)');
 

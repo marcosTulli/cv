@@ -1,9 +1,9 @@
 import React from 'react';
 import JobCard from "@/app/components/job-card/JobCard";
 import jobsData from "@/app/assets/jobs-data";
-import { useLanguage } from "@/app/contexts/LanguageContext";
+// import { useLanguage } from "@/app/contexts/LanguageContext";
+import { useLanguage } from '@/app/hooks';
 import styles from "./WorkExperience.module.scss";
-import { userStore } from '@/app/store';
 
 const WorkExperience = () => {
     const { lang, trans: strings } = useLanguage();
@@ -19,7 +19,6 @@ const WorkExperience = () => {
             {jobsData.map((i) => {
                 const shadowColor = colors[i.id] || '#CCCCCC';
                 const cardStyle = {
-
                     marginBottom: '2rem',
                     borderRadius: "0.75rem",
                     boxShadow: `15px 15px 0px 0px ${shadowColor}`,

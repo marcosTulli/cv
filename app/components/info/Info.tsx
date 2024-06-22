@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import { useLanguage } from "@/app/contexts/LanguageContext";
+// import { useLanguage } from "@/app/contexts/LanguageContext";
+import { useLanguage } from '@/app/hooks';
 import Image from "next/image";
 import { CopyAlert } from './CopyAlert';
 import copy from "copy-to-clipboard";
