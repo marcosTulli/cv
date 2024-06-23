@@ -72,10 +72,6 @@ export interface Translation {
     dropdownOptionsClone: string,
 }
 
-export enum Language {
-    EN = 'en',
-    ES = 'es'
-}
 
 
 // ______________ NEW MODELS ____________
@@ -86,10 +82,6 @@ export interface IAbout {
     sp: string;
 }
 
-export interface ILanguages {
-    en: ILanguage[];
-    sp: ILanguage[];
-}
 
 export interface ILanguage {
     language: string;
@@ -106,14 +98,25 @@ export interface ISocialMedia {
     url: string;
 }
 
-type LanguageKey = `${Language}`;
-export type IUserInfo = {
-    [key in LanguageKey]: {
-        candidateTitle: string;
-        about: IAbout;
-        languages: ILanguages;
-    };
-};
+
+export interface ILanguageUserInfo {
+    candidateTitle: string;
+    about: string;
+    languages: ILanguage[];
+}
+
+export enum Language {
+    EN = 'en',
+    ES = 'es'
+}
+
+export type TLanguageKey = `${Language}`;
+
+// export type IUserInfo = {
+//     [key in TLanguageKey]: ILanguageUserInfo
+// };
+
+export type IUserInfo = Partial<Record<TLanguageKey, ILanguageUserInfo>>;
 
 export interface IUser {
     _id: string;

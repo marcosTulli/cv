@@ -13,7 +13,6 @@ const LanguageSelector = () => {
 
     const handleClick = (language: Language) => {
         setLang(language);
-        console.log(language);
     };
 
     return (

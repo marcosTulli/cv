@@ -17,15 +17,16 @@ export default function Home() {
     // This will change when I implement login, and/or user selection. 
     const userId = users ? users[1]._id : '';
     const { data: user } = useUser({ lang: currentLanguage, id: userId });
+
     const { setUser } = userStore();
 
     React.useEffect(() => {
-        if (users && users?.length > 0) {
+        if (currentLanguage && users && users?.length > 0) {
             if (user !== undefined) {
                 setUser(user as IUser);
             }
         }
-    }, [users, user]);
+    }, [users, user, currentLanguage]);
 
     const isMobile = useMediaQuery('(max-width: 500px)');
 

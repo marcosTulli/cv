@@ -1,53 +1,27 @@
 import { create } from 'zustand';
-import { IUser } from '../types';
+import { IUser, TLanguageKey } from '../types';
 
 const initialState: IUser = {
-    _id: "",
-    name: "",
-    password: "",
-    email: "",
+    _id: '',
+    name: '',
+    email: '',
+    password: '',
+    phone: '',
+    location: '',
+    availableLanguages: [],
+    cvs: [{}],
+    network: { linkedin: { display: '', url: '' }, github: { display: '', url: '' } },
     info: {
-        candidateTitle: "",
-        phone: "",
-        location: "",
-        about: {
-            en: "",
-            sp: ""
-        },
-        languages: {
-            en: [
-                {
-                    language: "",
-                    level: ""
-                },
-                {
-                    language: "",
-                    level: ""
-                }
-            ],
-            sp: [
-                {
-                    language: "",
-                    level: ""
-                },
-                {
-                    language: "",
-                    level: ""
-                }
+        en: {
+            candidateTitle: '',
+            about: '',
+            languages: [
+                { language: 'Spanish', level: 'Native' },
+                { language: 'English', level: 'C2' }
             ]
-        },
-        social: {
-            linkedin: {
-                display: "",
-                url: ""
-            },
-            github: {
-                display: "",
-                url: ""
-            }
-        },
-        cvEn: "",
-        cvEs: ""
+
+        }
+
     }
 };
 
