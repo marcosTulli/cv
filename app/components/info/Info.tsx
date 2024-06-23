@@ -17,6 +17,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useMediaQuery } from '@mui/material';
 import { useContactInfo } from '@/app/hooks';
+import { userStore } from '@/app/store';
 
 interface HoverState {
     id: number,
@@ -27,11 +28,16 @@ interface HoverState {
 
 const Info = () => {
     const { strings } = useLanguage();
+    const { currentLanguage } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
     const isMobile = useMediaQuery('(max-width: 500px)');
     const contactInfo = useContactInfo();
+    const { user } = userStore();
+    const info = user.info;
+    const data = ({ ...info[currentLanguage] });
+
 
 
     const displayCopyButton = (id: number): boolean => {
@@ -62,7 +68,7 @@ const Info = () => {
     };
 
     const handleTextHover = (id: number, value: string, isHover: boolean) => {
-        if (value !== strings.location) {
+        if (value !== user.location) {
             setHoverItem({ id, value, isHover });
         }
 
@@ -186,56 +192,52 @@ const Info = () => {
                     <li>
                         <div className={styles.languageContainer}>
                             <div>
-                                <a
-                                    title="View certification"
-                                    href={strings.englishCertificate}
-                                    target='_blank'
-                                >
-                                    <Image
-                                        src="/uk.png"
-                                        alt="english"
-                                        width={icons.width}
-                                        height={icons.height}
+                                {
+                                    data.languages?.map((i) => {
+                                        return (
+                                            <a
+                                                title="View certification"
+                                                href={strings.englishCertificate}
+                                                target='_blank'
+                                            >
+                                                <Image
+                                                    src={i.language.includes('g') ? '/uk.png' : '/spain.png'}
+                                                    alt="english"
+                                                    width={icons.width}
+                                                    height={icons.height}
 
-                                    />
-                                    <p>{strings.english}</p>
-                                </a>
-                            </div>
-                            <div>
-                                <Image
-                                    src="/spain.png"
-                                    alt="spanish"
-                                    width={icons.width}
-                                    height={icons.height}
-                                />
-                                <p>{strings.spanish}</p>
+                                                />
+                                                <p>{i.language}</p>
+                                            </a>
+
+                                        );
+                                    })
+                                }
                             </div>
                         </div>
                     </li>
                     <li>
                         <span className={styles.links}>
                             <a
-                                href={strings.linkedinURL}
+                                href={user.network.linkedin.url}
                                 target="_blank"
-                                title={strings.linkedinURL}
+                                title={user.network.linkedin.url}
                             >
                                 <LinkedInIcon
                                     style={{ marginRight: '0.4rem' }}
                                 />
-                                <p>{strings.linkedin}</p>
+                                <p>{user.network.linkedin.display}</p>
                             </a>
                             {!isMobile &&
                                 <a
-                                    href={strings.githubURL}
+                                    href={user.network.github.url}
                                     target="_blank"
-                                    title={strings.githubURL}
+                                    title={user.network.github.url}
                                 >
                                     <GitHubIcon
                                         style={{ marginRight: '0.4rem' }}
-                                        className={styles.TUKI}
-
                                     />
-                                    <p>{strings.github}</p>
+                                    <p>{user.network.github.display}</p>
                                 </a>
 
                             }
@@ -243,17 +245,16 @@ const Info = () => {
                     </li>
                     {isMobile &&
                         <li >
-
                             <span className={styles.links}>
                                 <a
-                                    href={strings.githubURL}
+                                    href={user.network.github.url}
                                     target="_blank"
-                                    title={strings.githubURL}
+                                    title={user.network.github.url}
                                 >
                                     <GitHubIcon
                                         style={{ marginRight: '0.4rem' }}
                                     />
-                                    <p>{strings.github}</p>
+                                    <p>{user.network.github.display}</p>
                                 </a></span>
                         </li>
 
