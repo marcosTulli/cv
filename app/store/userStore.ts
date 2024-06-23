@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { IUser, TLanguageKey } from '../types';
+import { IUser } from '../types';
 
 const initialState: IUser = {
     _id: '',
@@ -12,17 +12,15 @@ const initialState: IUser = {
     cvs: [{}],
     network: { linkedin: { display: '', url: '' }, github: { display: '', url: '' } },
     info: {
-        en: {
-            candidateTitle: '',
-            about: '',
-            languages: [
-                { language: 'Spanish', level: 'Native' },
-                { language: 'English', level: 'C2' }
-            ]
-
-        }
+        candidateTitle: '',
+        about: '',
+        languages: [
+            { language: 'Spanish', level: 'Native' },
+            { language: 'English', level: 'C2' }
+        ]
 
     }
+
 };
 
 interface IUserStore {

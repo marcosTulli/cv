@@ -48,6 +48,10 @@ class DataProvider {
         return this.get(`/users/${lang}/${id}`);
     };
 
+    // public getWorkData = async ({ lang, id }: { lang: Language, id: string; }): Promise<IUser> => {
+    //     return this.get(`/users/${lang}/${id}`);
+    // };
+
 
 }
 const DataProviderInstance = new DataProvider();

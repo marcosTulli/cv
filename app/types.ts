@@ -1,3 +1,7 @@
+export enum Language {
+    EN = 'en',
+    ES = 'es'
+}
 export interface IEducation {
     id: number,
     en: {
@@ -99,24 +103,12 @@ export interface ISocialMedia {
 }
 
 
-export interface ILanguageUserInfo {
+export interface IUserInfo {
     candidateTitle: string;
     about: string;
     languages: ILanguage[];
 }
 
-export enum Language {
-    EN = 'en',
-    ES = 'es'
-}
-
-export type TLanguageKey = `${Language}`;
-
-// export type IUserInfo = {
-//     [key in TLanguageKey]: ILanguageUserInfo
-// };
-
-export type IUserInfo = Partial<Record<TLanguageKey, ILanguageUserInfo>>;
 
 export interface IUser {
     _id: string;

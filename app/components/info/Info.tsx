@@ -35,8 +35,6 @@ const Info = () => {
     const isMobile = useMediaQuery('(max-width: 500px)');
     const contactInfo = useContactInfo();
     const { user } = userStore();
-    const info = user.info;
-    const data = ({ ...info[currentLanguage] });
 
 
 
@@ -193,7 +191,7 @@ const Info = () => {
                         <div className={styles.languageContainer}>
                             <div>
                                 {
-                                    data.languages?.map((i) => {
+                                    user.info.languages?.map((i) => {
                                         return (
                                             <a
                                                 title="View certification"

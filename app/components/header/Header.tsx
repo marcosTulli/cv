@@ -12,8 +12,6 @@ const Header: React.FC = () => {
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const isMobile = useMediaQuery('(max-width: 500px)');
     const { user } = userStore();
-    const info = user.info;
-    const data = ({ ...info[currentLanguage] });
 
     const handleMenuClick = () => {
         setDisplayMenu(!displayMenu);
@@ -42,8 +40,8 @@ const Header: React.FC = () => {
                     }
 
                 </div>
-                <h3 className={styles.candidateTitle}>{data.candidateTitle}</h3>
-                <p className={styles.aboutText}>{data.about}</p>
+                <h3 className={styles.candidateTitle}>{user.info.candidateTitle}</h3>
+                <p className={styles.aboutText}>{user.info.about}</p>
                 {isMobile && <Info />}
             </div>
         </div>
