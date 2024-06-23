@@ -106,22 +106,25 @@ export interface ISocialMedia {
     url: string;
 }
 
-export interface IUserInfo {
-    candidateTitle: string;
-    phone: string;
-    location: string;
-    about: IAbout;
-    languages: ILanguages;
-    social: ISocial;
-    cvEn: string;
-    cvEs: string;
-}
+type LanguageKey = `${Language}`;
+export type IUserInfo = {
+    [key in LanguageKey]: {
+        candidateTitle: string;
+        about: IAbout;
+        languages: ILanguages;
+    };
+};
 
 export interface IUser {
     _id: string;
     name: string;
-    password: string;
     email: string;
+    password: string;
+    phone: string;
+    location: string;
+    availableLanguages: Language[];
+    cvs: Record<string, string>[];
+    network: ISocial;
     info: IUserInfo;
 }
 

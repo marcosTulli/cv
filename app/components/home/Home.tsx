@@ -17,7 +17,6 @@ export default function Home() {
     // This will change when I implement login, and/or user selection. 
     const userId = users ? users[1]._id : '';
     const { data: user } = useUser({ lang: currentLanguage, id: userId });
-    console.log(users);
     const { setUser } = userStore();
 
     React.useEffect(() => {

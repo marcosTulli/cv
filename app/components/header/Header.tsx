@@ -6,11 +6,16 @@ import { useMediaQuery } from '@mui/material';
 import Info from '../info/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
+import { userStore } from '@/app/store';
 
 const Header: React.FC = () => {
-    const { strings } = useLanguage();
+    const { strings, currentLanguage } = useLanguage();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const isMobile = useMediaQuery('(max-width: 500px)');
+    const { user } = userStore();
+    // const tuki = user.info[currentLanguage].candidateTitle;
+    // console.log(tuki);
+    console.log(user.info);
 
     const handleMenuClick = () => {
         setDisplayMenu(!displayMenu);
