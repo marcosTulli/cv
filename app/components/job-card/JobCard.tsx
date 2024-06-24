@@ -1,34 +1,32 @@
 import React from 'react';
 import Image from 'next/image';
-import { IJobs } from '@/app/types';
+import { IExperience, IJobs } from '@/app/types';
 import styles from "./JobCard.module.scss";
 
 type JobCardProps = {
-    data: IJobs;
+    data: IExperience;
     language: string;
 };
 
 const JobCard: React.FC<JobCardProps> = ({ data, language }) => {
-    const jobData = language === 'es' ? data.es : data.en;
-    const tasks = language === 'es' ? data.es.tasks : data.en.tasks;
     return (
         <div className={styles.jobCard}>
             <div className={styles.jobCardHeader}>
-                <div className={styles.jobTitle}>{jobData.position}</div>
-                <div className={styles.workingPeriod}>{jobData.activePeriod}</div>
+                <div className={styles.jobTitle}>{data.info.position}</div>
+                <div className={styles.workingPeriod}>{data.activePeriod}</div>
             </div>
-            <div className={styles.companyTitle} title={jobData.comapnyUrl}>
-                <Image src={jobData.companyLogo} alt='phone-icon' width={15} height={15} />
-                <a className={styles.companyName} href={jobData.comapnyUrl} target="_blank">
-                    <div >{jobData.companyName}</div>
+            <div className={styles.companyTitle} title={data.comapnyUrl}>
+                <Image src={data.companyLogo} alt='phone-icon' width={15} height={15} />
+                <a className={styles.companyName} href={data.comapnyUrl} target="_blank">
+                    <div >{data.companyName}</div>
                 </a>
             </div>
             <ul>
 
                 {
-                    tasks.map((task, index) => {
+                    data.info.tasks.map((task, index) => {
                         return (
-                            <li key={index}>{task}</li>
+                            <li key={index}>{task.task}</li>
                         );
                     })
                 }

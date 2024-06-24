@@ -109,7 +109,6 @@ export interface IUserInfo {
     languages: ILanguage[];
 }
 
-
 export interface IUser {
     _id: string;
     name: string;
@@ -121,5 +120,29 @@ export interface IUser {
     cvs: Record<string, string>[];
     network: ISocial;
     info: IUserInfo;
+}
+
+export interface ITask {
+    _id: string;
+    task: string;
+}
+
+export interface IExperienceInfo {
+    position: string;
+    tasks: ITask[];
+}
+
+export interface IExperience {
+    _id: string;
+    comapnyUrl: string;
+    activePeriod: string;
+    companyName: string;
+    companyLogo: string;
+    info: IExperienceInfo;
+}
+export interface IWorkExperience {
+    _id: string;
+    userId: string;
+    experiences: IExperience[];
 }
 
