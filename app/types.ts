@@ -29,8 +29,13 @@ export interface IJobs {
     };
 }
 
+export interface ISkillsResponse {
+    _id: string,
+    userId: string,
+    skills: ISkills[];
+}
 export interface ISkills {
-    id: number,
+    _id: number,
     name: string;
     url: string;
 }

@@ -6,7 +6,7 @@ import { useLanguage } from '@/app/hooks';
 import Image from "next/image";
 import { Language } from "@/app/types";
 import styles from './Qualifications.module.scss';
-import { useEducation } from '@/app/hooks/queries';
+import { useEducation, useSkills } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 
 const url = process.env.NEXT_PUBLIC_URL || '';
@@ -14,7 +14,9 @@ const url = process.env.NEXT_PUBLIC_URL || '';
 const Qualifications = () => {
     const { currentLanguage, strings } = useLanguage();
     const { user } = userStore();
-    const { data } = useEducation({ id: user._id, lang: currentLanguage });
+    const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
+    const { data: skillsData } = useSkills({ id: user._id });
+    const skills = skillsData?.skills;
 
     return (
         <div className={styles.qualifications}>
@@ -22,7 +24,7 @@ const Qualifications = () => {
                 <div className={styles.sectionTitle}>{strings.education}</div>
                 <div className={styles.educationCard}>
                     <ul>
-                        {data?.map((i) => {
+                        {education?.map((i) => {
                             const isUrl = i.url?.includes('http');
                             const filePath = `${url}${i.url}`;
                             return (
@@ -51,9 +53,9 @@ const Qualifications = () => {
             <div className={styles.skills}>
                 <div className={styles.sectionTitle}>{strings.skills}</div>
                 <div className={styles.skillsCard}>
-                    {skillsData.map((i) => {
+                    {skills?.map((i) => {
                         return (
-                            <div key={i.id} className={styles.skill}>
+                            <div key={i._id} className={styles.skill}>
                                 <Image src={i.url} alt={i.name} width={20} height={20} />
                                 {<p>{i.name}</p>}
                             </div>

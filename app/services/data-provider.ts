@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { IUser, IWorkExperience, IEducation, Language } from '../types';
+import { IUser, IWorkExperience, IEducation, Language, ISkillsResponse } from '../types';
 
 const key = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
@@ -50,6 +50,10 @@ class DataProvider {
 
     public getEducation = async ({ lang, id }: { lang: Language, id: string; }): Promise<IEducation[]> => {
         return this.get(`/education/${lang}/${id}`);
+    };
+
+    public getSkills = async ({ id }: { id: string; }): Promise<ISkillsResponse> => {
+        return this.get(`/skills/${id}`);
     };
 
 
