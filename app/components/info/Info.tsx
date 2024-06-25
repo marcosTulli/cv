@@ -18,6 +18,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { useMediaQuery } from '@mui/material';
 import { useContactInfo } from '@/app/hooks';
 import { userStore } from '@/app/store';
+import LanguageSelector from '../language-selector/LanguageSelector';
 
 interface HoverState {
     id: number,
@@ -121,6 +122,7 @@ const Info = () => {
                     {
                         !isMobile &&
                         <div>
+                            <LanguageSelector />
                             <button onClick={handleMenuClick}>
                                 <MenuIcon />
                             </button>

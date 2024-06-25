@@ -4,7 +4,6 @@ import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import ListItemText from '@mui/material/ListItemText';
 import Toggle from '../toggle/Toggle';
-// import { useLanguage } from "@/app/contexts/LanguageContext";
 import { useLanguage } from '@/app/hooks';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import CodeIcon from '@mui/icons-material/Code';
@@ -12,7 +11,6 @@ import styles from './Dropdown.module.scss';
 import { Divider } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMediaQuery } from '@mui/material';
-import LanguageSelector from '../language-selector/LanguageSelector';
 
 
 interface IDropdownMenuProps {
@@ -34,9 +32,8 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
         }
     }, [displayCopyConfirmation]);
 
-
     const menuItems = [
-        { name: 'toggle', text: '', href: '', icon: <LanguageSelector /> },
+        // { name: 'toggle', text: '', href: '', icon: <LanguageSelector /> },
         { name: 'download', href: filePath, text: strings.dropdownOptionsDownload, icon: <FileDownloadIcon /> },
         { name: 'repo', href: strings.projectRepo, text: strings.dropdownOptionsClone, icon: <CodeIcon /> },
     ];

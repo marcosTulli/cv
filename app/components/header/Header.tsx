@@ -6,6 +6,8 @@ import Info from '../info/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
 import { userStore } from '@/app/store';
+import LanguageSelector from '../language-selector/LanguageSelector';
+
 
 const Header: React.FC = () => {
     const { currentLanguage } = useLanguage();
@@ -33,6 +35,7 @@ const Header: React.FC = () => {
                                 <div className={styles.dropdown}
                                     onMouseLeave={() => setDisplayMenu(false)}
                                 >
+                                    <LanguageSelector />
                                     <Dropdown handleClose={handleMenuClick} />
                                 </div>
                             }
