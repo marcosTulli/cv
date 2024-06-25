@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './LanguageSelector.module.scss';
 import { Language } from '@/app/types';
 import { useLanguage } from '@/app/hooks';
 import { userStore } from '@/app/store';
@@ -8,7 +7,7 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 const LanguageSelector = () => {
     const { setLang, currentLanguage } = useLanguage();

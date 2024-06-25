@@ -1,10 +1,6 @@
 import React from 'react';
-import educationData from "@/app/assets/education-data";
-import skillsData from "@/app/assets/skills-data";
-// import { useLanguage } from "@/app/contexts/LanguageContext";
 import { useLanguage } from '@/app/hooks';
 import Image from "next/image";
-import { Language } from "@/app/types";
 import styles from './Qualifications.module.scss';
 import { useEducation, useSkills } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';

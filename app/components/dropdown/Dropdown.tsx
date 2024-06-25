@@ -33,7 +33,6 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
     }, [displayCopyConfirmation]);
 
     const menuItems = [
-        // { name: 'toggle', text: '', href: '', icon: <LanguageSelector /> },
         { name: 'download', href: filePath, text: strings.dropdownOptionsDownload, icon: <FileDownloadIcon /> },
         { name: 'repo', href: strings.projectRepo, text: strings.dropdownOptionsClone, icon: <CodeIcon /> },
     ];
