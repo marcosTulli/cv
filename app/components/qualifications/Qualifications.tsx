@@ -6,11 +6,15 @@ import { useLanguage } from '@/app/hooks';
 import Image from "next/image";
 import { Language } from "@/app/types";
 import styles from './Qualifications.module.scss';
+import { useEducation } from '@/app/hooks/queries';
+import { userStore } from '@/app/store';
 
 const url = process.env.NEXT_PUBLIC_URL || '';
 
 const Qualifications = () => {
     const { currentLanguage, strings } = useLanguage();
+    const { user } = userStore();
+    const { data } = useEducation({ id: user._id, lang: currentLanguage });
 
     return (
         <div className={styles.qualifications}>
@@ -18,26 +22,25 @@ const Qualifications = () => {
                 <div className={styles.sectionTitle}>{strings.education}</div>
                 <div className={styles.educationCard}>
                     <ul>
-                        {educationData.map((i) => {
-                            const education = currentLanguage === Language.ES ? i.es : i.en;
-                            const isUrl = i.en.url?.includes('http');
-                            const filePath = `${url}${i.en.url}.pdf`;
+                        {data?.map((i) => {
+                            const isUrl = i.url?.includes('http');
+                            const filePath = `${url}${i.url}`;
                             return (
                                 <li key={i.id}>
                                     <div className={styles.degree}>
                                         {
-                                            (i.en.title === "React" || i.en.content.toLowerCase().includes('az')) ?
+                                            (i.title === "React" || i.content.toLowerCase().includes('az')) ?
                                                 <a
                                                     title="View certification"
-                                                    href={isUrl ? i.en.url : filePath}
+                                                    href={isUrl ? i.url : filePath}
                                                     target="_blank">
-                                                    <div>{education.title} </div>
+                                                    <div>{i.title} </div>
                                                 </a>
                                                 :
-                                                <div>{education.title}</div>
+                                                <div>{i.title}</div>
                                         }
                                     </div>
-                                    <p>{education.content}</p>
+                                    <p>{i.content}</p>
                                 </li>
                             );
                         })}

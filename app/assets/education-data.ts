@@ -1,6 +1,6 @@
 import { IEducation } from '@/app/types';
 
-const educationData: IEducation[] = [
+const educationData = [
     {
         id: 1,
         en: {

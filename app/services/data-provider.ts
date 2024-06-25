@@ -1,12 +1,8 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import * as Utils from '@/app/utils/index';
-import { IUser, IWorkExperience, Language } from '../types';
-
+import { IUser, IWorkExperience, IEducation, Language } from '../types';
 
 const key = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
-
-
 
 class DataProvider {
     headers: Record<string, string> = {
@@ -50,6 +46,10 @@ class DataProvider {
 
     public getWorkData = async ({ lang, id }: { lang: Language, id: string; }): Promise<IWorkExperience> => {
         return this.get(`/work-experience/${lang}/${id}`);
+    };
+
+    public getEducation = async ({ lang, id }: { lang: Language, id: string; }): Promise<IEducation[]> => {
+        return this.get(`/education/${lang}/${id}`);
     };
 
 

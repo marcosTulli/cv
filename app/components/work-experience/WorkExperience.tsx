@@ -2,7 +2,7 @@ import React from 'react';
 import JobCard from "@/app/components/job-card/JobCard";
 import { useLanguage } from '@/app/hooks';
 import styles from "./WorkExperience.module.scss";
-import useWorkExperience from '@/app/hooks/queries/useWorkExperience';
+import { useWorkExperience } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 import { IExperience } from '@/app/types';
 

@@ -26,7 +26,7 @@ const JobCard: React.FC<JobCardProps> = ({ data, language }) => {
                 {
                     data.info.tasks.map((task, index) => {
                         return (
-                            <li key={index}>{task.task}</li>
+                            <li key={task._id}>{task.task}</li>
                         );
                     })
                 }

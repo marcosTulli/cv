@@ -4,16 +4,9 @@ export enum Language {
 }
 export interface IEducation {
     id: number,
-    en: {
-        title: string;
-        content: string;
-        url?: string;
-    },
-    es: {
-        title: string;
-        content: string;
-        url?: string;
-    };
+    title: string;
+    content: string;
+    url?: string;
 }
 
 export interface IJobs {
