@@ -16,8 +16,8 @@ export default function Home() {
     const { currentLanguage } = useLanguage();
     // This will change when I implement login, and/or user selection. 
     const userId = users ? users[1]._id : '';
-    const { data: user } = useUser({ lang: currentLanguage, id: userId });
-    const { setUser } = userStore();
+    const { data: user, isPending } = useUser({ lang: currentLanguage, id: userId });
+    const { setUser, setIsLoadingUser } = userStore();
 
     React.useEffect(() => {
         if (currentLanguage && users && users?.length > 0) {
@@ -26,6 +26,10 @@ export default function Home() {
             }
         }
     }, [users, user, currentLanguage]);
+
+    React.useEffect(() => {
+        setIsLoadingUser(isPending);
+    }, [isPending]);
 
     const isMobile = useMediaQuery('(max-width: 500px)');
 

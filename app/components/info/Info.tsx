@@ -29,7 +29,6 @@ interface HoverState {
 
 const Info = () => {
     const { strings } = useLanguage();
-    const { currentLanguage } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;

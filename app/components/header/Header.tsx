@@ -1,7 +1,6 @@
 import React from 'react';
-import { useLanguage } from '@/app/hooks';
 import styles from './Header.module.scss';
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery, Skeleton } from '@mui/material';
 import Info from '../info/Info';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
@@ -10,10 +9,9 @@ import LanguageSelector from '../language-selector/LanguageSelector';
 
 
 const Header: React.FC = () => {
-    const { currentLanguage } = useLanguage();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const isMobile = useMediaQuery('(max-width: 500px)');
-    const { user } = userStore();
+    const { user, isLoadingUser } = userStore();
 
     const handleMenuClick = () => {
         setDisplayMenu(!displayMenu);
@@ -44,7 +42,11 @@ const Header: React.FC = () => {
 
                 </div>
                 <h3 className={styles.candidateTitle}>{user.info.candidateTitle}</h3>
-                <p className={styles.aboutText}>{user.info.about}</p>
+                {!isLoadingUser
+                    ? <p className={styles.aboutText}>{user.info.about}</p>
+                    : <Skeleton variant="rectangular" width={210} height={60} />
+
+                }
                 {isMobile && <Info />}
             </div>
         </div>
