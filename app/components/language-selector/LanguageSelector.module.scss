@@ -1,14 +1,13 @@
-.container {
-    .button {
+.form {
+    padding: 0;
+    margin: 0;
+    // background-color: red;
 
+    .drop {
         height: 3rem;
-        font-size: 2rem;
-
-        // background-color: red;
-        &:hover {
-            background-color: coral;
-            cursor: pointer;
-        }
+        width: 6rem;
+        // background-color: blue;
+        margin: 0;
+        padding: 0;
     }
-
 }

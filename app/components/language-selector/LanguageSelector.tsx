@@ -2,7 +2,7 @@ import React from 'react';
 import { Language } from '@/app/types';
 import { useLanguage } from '@/app/hooks';
 import { userStore } from '@/app/store';
-
+import style from './LanguageSelector.module.scss';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,24 +18,20 @@ const LanguageSelector = () => {
     };
 
     return (
-        <Box >
-            <FormControl >
-                <InputLabel id="demo-simple-select-label">Language</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={currentLanguage}
-                    label="language"
-                    onChange={(e) => handleClick(e.target.value as Language)}
-                >
-                    {user?.availableLanguages.map((lang, index) => {
-                        return (
-                            <MenuItem value={lang}>{lang}</MenuItem>
-                        );
-                    })}
-                </Select>
-            </FormControl>
-        </Box>
+        <FormControl className={style.form}>
+            <Select
+                className={style.drop}
+                id="lang-id"
+                value={currentLanguage}
+                onChange={(e) => handleClick(e.target.value as Language)}
+            >
+                {user?.availableLanguages.map((lang, index) => {
+                    return (
+                        <MenuItem value={lang}>{lang}</MenuItem>
+                    );
+                })}
+            </Select>
+        </FormControl>
     );
 };
 

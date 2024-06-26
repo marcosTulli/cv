@@ -121,7 +121,7 @@ const Info = () => {
                 <div className={styles.actions}>
                     {
                         !isMobile &&
-                        <div>
+                        <div style={{ padding: '0', margin: '0', }}>
                             <LanguageSelector />
                             <button onClick={handleMenuClick}>
                                 <MenuIcon />
