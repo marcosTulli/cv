@@ -9,7 +9,7 @@ import { IExperience } from '@/app/types';
 const WorkExperience = () => {
     const { currentLanguage, strings } = useLanguage();
     const { user } = userStore();
-    const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
+    const { data, isLoading } = useWorkExperience({ id: user._id, lang: currentLanguage });
     const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
     const colors: { [key: number]: string; } = {
         1: styles.blue,
@@ -30,7 +30,7 @@ const WorkExperience = () => {
 
                 return (
                     <div key={experience._id} className={styles.jobCard} style={cardStyle} >
-                        <JobCard data={experience} language={currentLanguage} />
+                        <JobCard data={experience} isLoading={isLoading} />
                     </div>
                 );
             })}
