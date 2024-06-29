@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import DataProviderInstance from "@/app/services/data-provider";
-import { Language } from "@/app/types";
+import { Language } from "@/app/models";
 
 const useWorkExperience = ({ lang, id }: { lang: Language, id: string; }) =>
     useQuery({

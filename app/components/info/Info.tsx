@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-// import { useLanguage } from "@/app/contexts/LanguageContext";
 import { useLanguage } from '@/app/hooks';
 import Image from "next/image";
 import { CopyAlert } from './CopyAlert';
@@ -29,7 +28,6 @@ interface HoverState {
 
 const Info = () => {
     const { strings } = useLanguage();
-    const { currentLanguage } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const icons = utils.icons;
@@ -199,6 +197,7 @@ const Info = () => {
                                                 title="View certification"
                                                 href={strings.englishCertificate}
                                                 target='_blank'
+                                                key={i.language}
                                             >
                                                 <Image
                                                     src={i.language.includes('g') ? '/uk.png' : '/spain.png'}

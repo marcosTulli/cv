@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Translation, Language } from "@/app/types";
+import { Translation, Language } from "@/app/models";
 import es from "@/app/loc/strings-es";
 import en from "@/app/loc/strings-en";
 
@@ -23,5 +23,5 @@ const useLanguage = create<ILanguage>((set) => ({
     },
 }));
 
-export default useLanguage
+export default useLanguage;
 

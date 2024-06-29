@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { IUser, IWorkExperience, IEducation, Language, ISkillsResponse } from '../types';
+import { IUser, IWorkExperience, IEducation, ISkillsResponse, IGetEducationParams, IGetSkillsParams, IGetUsersParams, IGetWorkDataParams, TAxiosGetParams } from '../models';
 
 const key = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
@@ -14,7 +14,7 @@ class DataProvider {
         const response = await axios.get(baseUrl + path, {
             ...options, params,
             paramsSerializer: {
-                encode: (params: any) => {
+                encode: (params: TAxiosGetParams) => {
                     return params;
                 }
             }, headers: this.headers
@@ -28,6 +28,7 @@ class DataProvider {
             params,
             responseType: 'blob',
             paramsSerializer: {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 encode: (params: any) => {
                     return params;
                 }
@@ -40,19 +41,19 @@ class DataProvider {
         return this.get(`/users`);
     };
 
-    public getUserById = async ({ lang, id }: { lang: Language, id: string; }): Promise<IUser> => {
+    public getUserById = async ({ lang, id }: IGetUsersParams): Promise<IUser> => {
         return this.get(`/users/${lang}/${id}`);
     };
 
-    public getWorkData = async ({ lang, id }: { lang: Language, id: string; }): Promise<IWorkExperience> => {
+    public getWorkData = async ({ lang, id }: IGetWorkDataParams): Promise<IWorkExperience> => {
         return this.get(`/work-experience/${lang}/${id}`);
     };
 
-    public getEducation = async ({ lang, id }: { lang: Language, id: string; }): Promise<IEducation[]> => {
+    public getEducation = async ({ lang, id }: IGetEducationParams): Promise<IEducation[]> => {
         return this.get(`/education/${lang}/${id}`);
     };
 
-    public getSkills = async ({ id }: { id: string; }): Promise<ISkillsResponse> => {
+    public getSkills = async ({ id }: IGetSkillsParams): Promise<ISkillsResponse> => {
         return this.get(`/skills/${id}`);
     };
 

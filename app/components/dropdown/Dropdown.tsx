@@ -3,7 +3,6 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import ListItemText from '@mui/material/ListItemText';
-import Toggle from '../toggle/Toggle';
 import { useLanguage } from '@/app/hooks';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import CodeIcon from '@mui/icons-material/Code';
@@ -41,8 +40,8 @@ const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
         <Paper className={styles.menu} sx={{ width: 'auto' }} style={{ backgroundColor: isMobile ? '#ffdb58' : 'null' }}>
             <MenuList style={{ padding: '0' }} >
                 {menuItems.map((item, index) => (
-                    <div>
-                        <div key={index} className={styles.menuItem}>
+                    <div key={index}>
+                        <div className={styles.menuItem}>
                             {item.name === 'toggle' && (
                                 <div>
                                     {isMobile && (

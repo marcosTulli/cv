@@ -1,6 +1,5 @@
-import { IContactInfo } from '../types';
+import { IContactInfo } from '../models';
 import { userStore } from '../store';
-import useLanguage from './useLanguage';
 
 const useContactInfo = () => {
     const { user } = userStore();

@@ -8,7 +8,7 @@ import Info from '@/app/components/info/Info';
 import { useMediaQuery } from '@mui/material';
 import { useUsers, useUser } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
-import { IUser } from '@/app/types';
+import { IUser } from '@/app/models';
 import { useLanguage } from '@/app/hooks';
 
 export default function Home() {
@@ -25,6 +25,7 @@ export default function Home() {
                 setUser(user as IUser);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [users, user, currentLanguage]);
 
     const isMobile = useMediaQuery('(max-width: 500px)');

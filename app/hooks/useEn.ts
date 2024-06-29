@@ -1,4 +1,4 @@
-import { Translation } from "@/app/types";
+import { Translation } from "@/app/models";
 import { userStore } from "../store";
 
 const useEN = () => {

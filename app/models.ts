@@ -1,6 +1,6 @@
 export enum Language {
     EN = 'en',
-    ES = 'es'
+    ES = 'es',
 }
 export interface IEducation {
     id: number,
@@ -74,16 +74,12 @@ export interface Translation {
     dropdownOptionsClone: string,
 }
 
-
-
 // ______________ NEW MODELS ____________
-
 
 export interface IAbout {
     en: string;
     sp: string;
 }
-
 
 export interface ILanguage {
     language: string;
@@ -99,7 +95,6 @@ export interface ISocialMedia {
     display: string;
     url: string;
 }
-
 
 export interface IUserInfo {
     candidateTitle: string;
@@ -143,4 +138,18 @@ export interface IWorkExperience {
     userId: string;
     experiences: IExperience[];
 }
+
+export interface IBaseParams {
+    lang: Language,
+    id: string;
+}
+
+export interface IGetUsersParams extends IBaseParams { }
+export interface IGetWorkDataParams extends IBaseParams { }
+export interface IGetEducationParams extends IBaseParams { }
+export interface IGetSkillsParams {
+    id: string;
+}
+
+export type TAxiosGetParams = IGetEducationParams | IGetUsersParams | IGetWorkDataParams | IGetSkillsParams
 

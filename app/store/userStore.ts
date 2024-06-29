@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { IUser } from '../types';
+import { IUser } from '../models';
 
 const initialState: IUser = {
     _id: '',

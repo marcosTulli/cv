@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { IExperience, IJobs } from '@/app/types';
+import { IExperience } from '@/app/models';
 import styles from "./JobCard.module.scss";
 
 type JobCardProps = {
@@ -8,7 +8,7 @@ type JobCardProps = {
     language: string;
 };
 
-const JobCard: React.FC<JobCardProps> = ({ data, language }) => {
+const JobCard: React.FC<JobCardProps> = ({ data }) => {
     return (
         <div className={styles.jobCard}>
             <div className={styles.jobCardHeader}>
@@ -24,7 +24,7 @@ const JobCard: React.FC<JobCardProps> = ({ data, language }) => {
             <ul>
 
                 {
-                    data.info.tasks.map((task, index) => {
+                    data.info.tasks.map((task) => {
                         return (
                             <li key={task._id}>{task.task}</li>
                         );

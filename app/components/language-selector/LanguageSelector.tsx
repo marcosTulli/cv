@@ -1,10 +1,8 @@
 import React from 'react';
-import { Language } from '@/app/types';
+import { Language } from '@/app/models';
 import { useLanguage } from '@/app/hooks';
 import { userStore } from '@/app/store';
 import style from './LanguageSelector.module.scss';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -27,7 +25,7 @@ const LanguageSelector = () => {
             >
                 {user?.availableLanguages.map((lang, index) => {
                     return (
-                        <MenuItem value={lang}>{lang}</MenuItem>
+                        <MenuItem key={index} value={lang}>{lang}</MenuItem>
                     );
                 })}
             </Select>

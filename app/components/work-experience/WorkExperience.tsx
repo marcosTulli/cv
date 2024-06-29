@@ -4,7 +4,7 @@ import { useLanguage } from '@/app/hooks';
 import styles from "./WorkExperience.module.scss";
 import { useWorkExperience } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
-import { IExperience } from '@/app/types';
+import { IExperience } from '@/app/models';
 
 const WorkExperience = () => {
     const { currentLanguage, strings } = useLanguage();

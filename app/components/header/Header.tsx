@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLanguage } from '@/app/hooks';
 import styles from './Header.module.scss';
 import { useMediaQuery } from '@mui/material';
 import Info from '../info/Info';
@@ -10,7 +9,6 @@ import LanguageSelector from '../language-selector/LanguageSelector';
 
 
 const Header: React.FC = () => {
-    const { currentLanguage } = useLanguage();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const isMobile = useMediaQuery('(max-width: 500px)');
     const { user } = userStore();

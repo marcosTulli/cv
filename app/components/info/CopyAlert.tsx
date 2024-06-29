@@ -6,7 +6,7 @@ type CopyAlertProps = {
 };
 
 
-export const CopyAlert: React.FC<CopyAlertProps> = ({ display, string }) => {
+export const CopyAlert: React.FC<CopyAlertProps> = ({ display }) => {
     return (
         <span
             hidden={display}
