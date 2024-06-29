@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import DataProviderInstance from "@/app/services/data-provider";
-import { Language } from "@/app/models";
+import { IGetEducationParams } from "@/app/models";
 
-const useWorkExperience = ({ lang, id }: { lang: Language, id: string; }) =>
+const useWorkExperience = ({ lang, id }: IGetEducationParams) =>
     useQuery({
         queryKey: ['education', id, lang],
         queryFn: () => DataProviderInstance.getEducation({ lang, id }),
