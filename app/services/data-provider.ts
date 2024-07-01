@@ -1,12 +1,17 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { IUser, IWorkExperience, IEducation, ISkillsResponse, IGetEducationParams, IGetSkillsParams, IGetUsersParams, IGetWorkDataParams, TAxiosGetParams } from '../models';
+import { IUser, IWorkExperience, IEducation, ISkillsResponse, IGetEducationParams, IGetSkillsParams, IGetUsersParams, IGetWorkDataParams, TAxiosGetParams, IGetIconParams } from '../models';
 
 const key = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+const localServer = 'http://localhost:3001';
 
 class DataProvider {
-    headers: Record<string, string> = {
+    jsonHeaders: Record<string, string> = {
         "Content-Type": "application/json;charset=UTF-8",
+        "x-api-key": `${key}`,
+    };
+    blobHeaders: Record<string, string> = {
+        "Content-Type": "image/png",
         "x-api-key": `${key}`,
     };
 
@@ -17,22 +22,21 @@ class DataProvider {
                 encode: (params: TAxiosGetParams) => {
                     return params;
                 }
-            }, headers: this.headers
+            }, headers: this.jsonHeaders
         });
         return response.data;
     }
 
     public async getCdn(path: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<Blob> {
-        const response = await axios.get<Blob>('cdn URL' + path, {
+        const response = await axios.get<Blob>(baseUrl + path, {
             ...options,
             params,
             responseType: 'blob',
             paramsSerializer: {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                encode: (params: any) => {
+                encode: (params: IGetIconParams) => {
                     return params;
                 }
-            }
+            }, headers: this.blobHeaders
         });
         return response.data as Blob;
     }
@@ -57,6 +61,9 @@ class DataProvider {
         return this.get(`/skills/${id}`);
     };
 
+    public getIcon = async ({ iconName }: IGetIconParams): Promise<Blob> => {
+        return this.getCdn(`/icons/${iconName}`);
+    };
 
 }
 const DataProviderInstance = new DataProvider();

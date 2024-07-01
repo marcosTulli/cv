@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguage } from '@/app/hooks';
 import Image from "next/image";
 import styles from './Qualifications.module.scss';
-import { useEducation, useSkills } from '@/app/hooks/queries';
+import { useEducation, useIcons, useSkills } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 
 const url = process.env.NEXT_PUBLIC_URL || '';
@@ -14,8 +14,13 @@ const Qualifications = () => {
     const { data: skillsData } = useSkills({ id: user._id });
     const skills = skillsData?.skills;
 
+    const { data } = useIcons({ iconName: 'typeScript.png' });
+    const icon = data ? URL.createObjectURL(data as Blob) : '';
+
+
     return (
         <div className={styles.qualifications}>
+            <h1></h1>
             <div className={styles.education}>
                 <div className={styles.sectionTitle}>{strings.education}</div>
                 <div className={styles.educationCard}>
@@ -52,7 +57,7 @@ const Qualifications = () => {
                     {skills?.map((i) => {
                         return (
                             <div key={i._id} className={styles.skill}>
-                                <Image src={i.url} alt={i.name} width={20} height={20} />
+                                <Image src={icon} alt={i.name} width={20} height={20} />
                                 {<p>{i.name}</p>}
                             </div>
                         );
