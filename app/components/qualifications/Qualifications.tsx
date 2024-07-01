@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { useLanguage } from '@/app/hooks';
-import Image from "next/image";
 import styles from './Qualifications.module.scss';
-import { useEducation, useIcons, useSkills } from '@/app/hooks/queries';
+import { useEducation, useSkills } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
+import Skill from '../skill/Skill';
 
 const url = process.env.NEXT_PUBLIC_URL || '';
 
@@ -12,11 +12,6 @@ const Qualifications = () => {
     const { user } = userStore();
     const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
     const { data: skillsData } = useSkills({ id: user._id });
-    const skills = skillsData?.skills;
-
-    const { data } = useIcons({ iconName: 'typeScript.png' });
-    const icon = data ? URL.createObjectURL(data as Blob) : '';
-
 
     return (
         <div className={styles.qualifications}>
@@ -54,14 +49,7 @@ const Qualifications = () => {
             <div className={styles.skills}>
                 <div className={styles.sectionTitle}>{strings.skills}</div>
                 <div className={styles.skillsCard}>
-                    {skills?.map((i) => {
-                        return (
-                            <div key={i._id} className={styles.skill}>
-                                <Image src={icon} alt={i.name} width={20} height={20} />
-                                {<p>{i.name}</p>}
-                            </div>
-                        );
-                    })}
+                    {skillsData?.skills?.map(i => <Skill key={i._id} skill={i} />)}
                 </div>
             </div>
         </div >

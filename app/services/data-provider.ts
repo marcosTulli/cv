@@ -28,7 +28,7 @@ class DataProvider {
     }
 
     public async getCdn(path: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<Blob> {
-        const response = await axios.get<Blob>(baseUrl + path, {
+        const response = await axios.get<Blob>(localServer + path, {
             ...options,
             params,
             responseType: 'blob',
