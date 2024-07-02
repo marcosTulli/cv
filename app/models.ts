@@ -154,5 +154,5 @@ export interface IGetSkillsParams {
 export type TAxiosGetParams = IGetEducationParams | IGetUsersParams | IGetWorkDataParams | IGetSkillsParams;
 
 export interface IGetIconParams {
-    iconName: string;
+    fileKey: string;
 }

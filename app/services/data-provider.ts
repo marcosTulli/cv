@@ -1,18 +1,18 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { IUser, IWorkExperience, IEducation, ISkillsResponse, IGetEducationParams, IGetSkillsParams, IGetUsersParams, IGetWorkDataParams, TAxiosGetParams, IGetIconParams } from '../models';
 
-const key = process.env.NEXT_PUBLIC_API_KEY || '';
+const cvApiKey = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
-const localServer = 'http://localhost:3001';
+const uploadThingUrl = process.env.NEXT_PUBLIC_UPLOADTHING_URL;
+
 
 class DataProvider {
     jsonHeaders: Record<string, string> = {
         "Content-Type": "application/json;charset=UTF-8",
-        "x-api-key": `${key}`,
+        "x-api-key": `${cvApiKey}`,
     };
     blobHeaders: Record<string, string> = {
         "Content-Type": "image/png",
-        "x-api-key": `${key}`,
     };
 
     public async get<T>(path: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<T> {
@@ -28,7 +28,7 @@ class DataProvider {
     }
 
     public async getCdn(path: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<Blob> {
-        const response = await axios.get<Blob>(localServer + path, {
+        const response = await axios.get<Blob>(uploadThingUrl + path, {
             ...options,
             params,
             responseType: 'blob',
@@ -61,8 +61,8 @@ class DataProvider {
         return this.get(`/skills/${id}`);
     };
 
-    public getIcon = async ({ iconName }: IGetIconParams): Promise<Blob> => {
-        return this.getCdn(`/icons/${iconName}`);
+    public getIcon = async ({ fileKey }: IGetIconParams): Promise<Blob> => {
+        return this.getCdn(`/${fileKey}`);
     };
 
 }
