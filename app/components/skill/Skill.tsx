@@ -9,8 +9,7 @@ interface ISkillProps {
     skill: ISkills;
 }
 const Skill: React.FC<ISkillProps> = ({ skill }) => {
-    const testKey = "798b3877-340c-4cbc-ac94-5c7bf19972f9-1sj3pb.png";
-    const { data: icon } = useIcons({ fileKey: testKey });
+    const { data: icon } = useIcons({ fileKey: skill.fileKey });
     return (
         <div className={styles.skill}>
             <Image src={icon ? icon : ''} alt={skill.name} width={20} height={20} />

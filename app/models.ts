@@ -37,7 +37,7 @@ export interface ISkillsResponse {
 export interface ISkills {
     _id: number,
     name: string;
-    url: string;
+    fileKey: string;
 }
 
 export interface IContactInfo {
