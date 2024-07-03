@@ -1,10 +1,8 @@
 'use client';
 import React from 'react';
-import { useLanguage } from '@/app/hooks';
 import Image from "next/image";
 import { CopyAlert } from './CopyAlert';
 import copy from "copy-to-clipboard";
-import * as utils from "@/app/utils/index";
 import styles from './Info.module.scss';
 import MenuIcon from '@mui/icons-material/Menu';
 import Dropdown from '@/app/components/dropdown/Dropdown';
@@ -18,6 +16,7 @@ import { useMediaQuery } from '@mui/material';
 import { useContactInfo } from '@/app/hooks';
 import { userStore } from '@/app/store';
 import LanguageSelector from '../language-selector/LanguageSelector';
+import Languages from './language-section/Languages';
 
 interface HoverState {
     id: number,
@@ -27,10 +26,9 @@ interface HoverState {
 }
 
 const Info = () => {
-    const { strings } = useLanguage();
+    // const { strings } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
-    const icons = utils.icons;
     const isMobile = useMediaQuery('(max-width: 500px)');
     const contactInfo = useContactInfo();
     const { user } = userStore();
@@ -188,32 +186,7 @@ const Info = () => {
                     }
 
                     <li>
-                        <div className={styles.languageContainer}>
-                            <div>
-                                {
-                                    user.info.languages?.map((i) => {
-                                        return (
-                                            <a
-                                                title="View certification"
-                                                href={strings.englishCertificate}
-                                                target='_blank'
-                                                key={i.language}
-                                            >
-                                                <Image
-                                                    src={i.language.includes('g') ? '/uk.png' : '/spain.png'}
-                                                    alt="english"
-                                                    width={icons.width}
-                                                    height={icons.height}
-
-                                                />
-                                                <p>{i.language}</p>
-                                            </a>
-
-                                        );
-                                    })
-                                }
-                            </div>
-                        </div>
+                        <Languages />
                     </li>
                     <li>
                         <span className={styles.links}>

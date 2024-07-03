@@ -9,7 +9,8 @@ const useIcons = ({ fileKey }: IGetIconParams) =>
             const blob: Blob = await DataProviderInstance.getIcon({ fileKey });
             const imageUrl = URL.createObjectURL(blob);
             return imageUrl;
-        }
+        },
+        enabled: fileKey.length > 0
     });
 
 

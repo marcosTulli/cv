@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { IUser, IWorkExperience, IEducation, ISkillsResponse, IGetEducationParams, IGetSkillsParams, IGetUsersParams, IGetWorkDataParams, TAxiosGetParams, IGetIconParams } from '../models';
+import { IUser, IWorkExperience, IEducation, ISkillsResponse, IGetEducationParams, IGetSkillsParams, IGetUsersParams, IGetWorkDataParams, TAxiosGetParams, IGetIconParams, IGetIconKeyParams } from '../models';
 
 const cvApiKey = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
@@ -63,6 +63,10 @@ class DataProvider {
 
     public getIcon = async ({ fileKey }: IGetIconParams): Promise<Blob> => {
         return this.getCdn(`/${fileKey}`);
+    };
+
+    public getIconKey = async ({ name }: IGetIconKeyParams): Promise<string> => {
+        return this.get(`/icons/${name}`);
     };
 
 }

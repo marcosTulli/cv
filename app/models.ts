@@ -37,7 +37,7 @@ export interface ISkillsResponse {
 export interface ISkills {
     _id: number,
     name: string;
-    fileKey: string;
+    formattedName: string;
 }
 
 export interface IContactInfo {
@@ -84,6 +84,7 @@ export interface IAbout {
 export interface ILanguage {
     language: string;
     level: string;
+    flag: string;
 }
 
 export interface ISocial {
@@ -155,4 +156,7 @@ export type TAxiosGetParams = IGetEducationParams | IGetUsersParams | IGetWorkDa
 
 export interface IGetIconParams {
     fileKey: string;
+}
+export interface IGetIconKeyParams {
+    name: string;
 }
