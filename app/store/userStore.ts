@@ -15,8 +15,8 @@ const initialState: IUser = {
         candidateTitle: '',
         about: '',
         languages: [
-            { language: 'Spanish', level: 'Native' },
-            { language: 'English', level: 'C2' }
+            { language: 'Spanish', level: 'Native', flag: 'spain' },
+            { language: 'English', level: 'C2', flag: 'uk' }
         ]
 
     }
