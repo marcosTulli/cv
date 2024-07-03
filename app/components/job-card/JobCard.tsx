@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { IExperience } from '@/app/models';
 import styles from "./JobCard.module.scss";
+import { useIconKey, useIcons } from '@/app/hooks/queries';
 
 type JobCardProps = {
     data: IExperience;
@@ -9,6 +10,17 @@ type JobCardProps = {
 };
 
 const JobCard: React.FC<JobCardProps> = ({ data }) => {
+    const [fileKey, setFileKey] = React.useState("");
+    const formattedname = data.companyLogo.split('.')[0].split('/')[1];
+    const { data: key } = useIconKey({ name: formattedname });
+    const { data: icon } = useIcons({ fileKey: fileKey });
+    React.useEffect(() => {
+        if (key) {
+            setFileKey(key);
+        }
+    }, [key]);
+
+
     return (
         <div className={styles.jobCard}>
             <div className={styles.jobCardHeader}>
@@ -16,7 +28,7 @@ const JobCard: React.FC<JobCardProps> = ({ data }) => {
                 <div className={styles.workingPeriod}>{data.activePeriod}</div>
             </div>
             <div className={styles.companyTitle} title={data.comapnyUrl}>
-                <Image src={data.companyLogo} alt='phone-icon' width={15} height={15} />
+                <Image src={icon ? icon : ''} alt='phone-icon' width={15} height={15} />
                 <a className={styles.companyName} href={data.comapnyUrl} target="_blank">
                     <div >{data.companyName}</div>
                 </a>
