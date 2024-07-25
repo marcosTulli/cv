@@ -5,7 +5,6 @@ import { useEducation, useSkills } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 import Skill from '../skill/Skill';
 
-const url = process.env.NEXT_PUBLIC_URL || '';
 
 const Qualifications = () => {
     const { currentLanguage, strings } = useLanguage();
@@ -14,46 +13,48 @@ const Qualifications = () => {
     const { data: skillsData } = useSkills({ id: user._id });
 
     return (
-        <div className={styles.qualifications}>
-            <h1></h1>
-            <div className={styles.education}>
-                <div className={styles.sectionTitle}>{strings.education}</div>
-                <div className={styles.educationCard}>
-                    <ul>
-                        {education?.map((i) => {
-                            const isUrl = i.url?.includes('http');
-                            const filePath = `${url}${i.url}`;
+        <>
+            <section className={styles.section}>
+                <div className={styles.sectionHeader}>
+                    <span className={styles.sectionTag}>{strings.education}</span>
+                    <h2 className={styles.sectionTitle}>Academic Background</h2>
+                    <p className={styles.sectionDescription}>
+                        Explore my educational journey and the degrees I have obtained.
+                    </p>
+                </div>
+                <div className={`${styles.flexGrid} py-12 ${styles.gridTwoCols}`}>
+                    <div className={styles.flexColumn}>
+                        {education?.map(school => {
                             return (
-                                <li key={i.id}>
-                                    <div className={styles.degree}>
-                                        {
-                                            (i.title === "React" || i.content.toLowerCase().includes('az')) ?
-                                                <a
-                                                    title="View certification"
-                                                    href={isUrl ? i.url : filePath}
-                                                    target="_blank">
-                                                    <div>{i.title} </div>
-                                                </a>
-                                                :
-                                                <div>{i.title}</div>
-                                        }
-                                    </div>
-                                    <p>{i.content}</p>
-                                </li>
+                                <div key={school.id} className={styles.education}>
+                                    <h3 className={styles.educationTitle}>{school.title}</h3>
+                                    <p className={styles.educationDetails}>{school.content}</p>
+                                </div>
                             );
                         })}
-                    </ul>
+                    </div>
                 </div>
-            </div>
-
-            <div className={styles.skills}>
-                <div className={styles.sectionTitle}>{strings.skills}</div>
-                <div className={styles.skillsCard}>
-                    {skillsData?.skills?.map(i => <Skill key={i._id} skill={i} />)}
+            </section>
+            <section className={styles.section}>
+                <div className={styles.sectionHeader}>
+                    <span className={styles.sectionTag}>{strings.skills}</span>
+                    <h2 className={styles.sectionTitle}>Skills</h2>
+                    <p className={styles.sectionDescription}>
+                        I possess a diverse set of skills that enable me to deliver high-quality work.
+                    </p>
                 </div>
-            </div>
-        </div >
+                <div className={`${styles.flexGrid} py-12 ${styles.gridThreeCols}`}>
+                    {skillsData?.skills?.map(skill => {
+                        return (
+                            <div key={skill._id} className={styles.skill}>
+                                <Skill skill={skill} />
+                            </div>
 
+                        );
+                    })}
+                </div>
+            </section>
+        </>
     );
 };
 
