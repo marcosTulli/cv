@@ -1,90 +1,20 @@
 @import '../../styles/global.scss';
 
-.headerContainer {
-    font-family: $defaultFont;
-    display: flex;
-    gap: 0;
+.header {
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: $defaultBlack;
 
-    .about {
-        .candidateName {
-            font-size: 2.25rem;
-            font-weight: 900;
-            line-height: 140%;
-        }
-
-        .aboutText {
-            text-align: justify;
-            font-size: 11px;
-            margin-top: 1rem;
-            line-height: 1.6;
-            color: $defaultBlack;
-        }
+    .title {
+        color: $darkSecondary;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0;
     }
 
-
-}
-
-@media (max-width: 500px) {
-    .headerContainer {
-        margin-left: 1rem;
-        // margin-right: 0rem;
-        width: 100%;
-        display: flex;
-        gap: 0;
-
-
-        .candidateTitle {
-            margin: 0;
-            margin-top: 0.5rem;
-            padding: 0;
-        }
-
-
-        .headerTitle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.2rem;
-            height: 30px;
-
-        }
-
-
-        div {
-            button {
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-
-            }
-        }
-
-        .about {
-            width: 95%;
-        }
-
-
-        .profilePicture {
-            width: 6rem;
-            height: 6rem;
-            box-shadow: 10px 10px 0px 0px $green;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            display: flex;
-            object-fit: cover;
-            position: relative;
-
-            img {
-                width: 110%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 0.75rem 0 0 0.75rem;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
-        }
-
+    .subtitle {
+        font-size: 1.25rem;
+        color: $darkSecondary;
+        margin: 0;
     }
 }

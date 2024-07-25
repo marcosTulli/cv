@@ -5,6 +5,7 @@ import { useLanguage } from '@/app/hooks';
 import { IExperience } from '@/app/models';
 import { useWorkExperience, useEducation, useSkills } from '@/app/hooks/queries';
 import Skill from '../skill/Skill';
+import Header from '../header/Header';
 
 
 const App = () => {
@@ -16,10 +17,7 @@ const App = () => {
     const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
     return (
         <div className={styles.mainContainer}>
-            <header className={styles.header}>
-                <h1 className={styles.title}>{user.name}</h1>
-                <p className={styles.subtitle}>{user.info.candidateTitle}</p>
-            </header>
+            <Header />
             <main>
                 <section className={styles.section}>
                     <div className={styles.sectionHeader}>
