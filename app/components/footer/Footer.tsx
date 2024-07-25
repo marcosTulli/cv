@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Footer.module.scss';
 import { userStore } from '@/app/store';
 
-
 const Footer = () => {
     const { user } = userStore();
     return (
