@@ -27,8 +27,9 @@
 }
 
 .section {
-    background-color: $darkMain;
+    background-color: $defaultBlack;
     padding: 3rem 1rem;
+
 }
 
 .sectionHeader {
@@ -95,15 +96,13 @@
     color: $darkSecondary;
 }
 
-.education {
-    background-color: red;
-}
+.education {}
 
 
-.jobTitle,
 .educationTitle,
 .projectTitle {
     font-size: 1.25rem;
+    color: $darkSecondary;
     font-weight: bold;
     margin: 0;
 }
@@ -113,6 +112,10 @@
     font-size: 1rem;
     color: $darkSecondary;
     margin: 0.5rem 0;
+}
+
+.educationDetails {
+    color: $darkSecondary
 }
 
 .jobDescription,
