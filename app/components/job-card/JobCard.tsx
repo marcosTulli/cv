@@ -25,10 +25,10 @@ const JobCard: React.FC<JobCardProps> = ({ experience }) => {
         <div key={experience._id} className={styles.job}>
             <h3 className={styles.jobTitle}>{experience.info.position}</h3>
             <p className={styles.jobDetails}>{experience.activePeriod}</p>
-            <Image src={icon ? icon : ''} alt='phone-icon' width={15} height={15} />
+            {/* <Image src={icon ? icon : ''} alt='phone-icon' width={15} height={15} />
             <a className={styles.companyName} href={experience.comapnyUrl} target="_blank">
                 <div >{experience.companyName}</div>
-            </a>
+            </a> */}
             <ul className={styles.jobDescription}>
                 {
                     experience.info.tasks.map(task => {
