@@ -2,53 +2,22 @@ import React from 'react';
 import styles from './NewLayout.module.scss';
 import { userStore } from '@/app/store';
 import { useLanguage } from '@/app/hooks';
-import { IExperience } from '@/app/models';
-import { useWorkExperience, useEducation, useSkills } from '@/app/hooks/queries';
+import { useEducation, useSkills } from '@/app/hooks/queries';
 import Skill from '../skill/Skill';
 import Header from '../header/Header';
+import WorkExperience from '../work-experience/WorkExperience';
 
 
 const App = () => {
     const { currentLanguage, strings } = useLanguage();
     const { user } = userStore();
-    const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
     const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
     const { data: skillsData } = useSkills({ id: user._id });
-    const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
     return (
         <div className={styles.mainContainer}>
             <Header />
             <main>
-                <section className={styles.section}>
-                    <div className={styles.sectionHeader}>
-                        <span className={styles.sectionTag}>{strings.workExperience}</span>
-                        <h2 className={styles.sectionTitle}>{strings.professionalHistory}</h2>
-                        <p className={styles.sectionDescription}>
-                            Explore my professional journey and the diverse roles I have held.
-                        </p>
-                    </div>
-                    <div className={`${styles.flexGrid} py-12 ${styles.gridTwoCols}`}>
-                        <div className={styles.flexColumn}>
-                            {experiences.map(experience => {
-                                return (
-                                    <div key={experience._id} className={styles.job}>
-                                        <h3 className={styles.jobTitle}>{experience.info.position}</h3>
-                                        <p className={styles.jobDetails}>{experience.activePeriod}</p>
-                                        <ul className={styles.jobDescription}>
-                                            {
-                                                experience.info.tasks.map(task => {
-                                                    return (
-                                                        <li key={task._id}>{task.task}</li>
-                                                    );
-                                                })
-                                            }
-                                        </ul>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </section>
+                <WorkExperience />
                 <section className={styles.section}>
                     <div className={styles.sectionHeader}>
                         <span className={styles.sectionTag}>{strings.education}</span>

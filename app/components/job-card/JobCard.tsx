@@ -5,13 +5,13 @@ import styles from "./JobCard.module.scss";
 import { useIconKey, useIcons } from '@/app/hooks/queries';
 
 type JobCardProps = {
-    data: IExperience;
+    experience: IExperience;
     language: string;
 };
 
-const JobCard: React.FC<JobCardProps> = ({ data }) => {
+const JobCard: React.FC<JobCardProps> = ({ experience }) => {
     const [fileKey, setFileKey] = React.useState("");
-    const formattedname = data.companyLogo.split('.')[0].split('/')[1];
+    const formattedname = experience.companyLogo.split('.')[0].split('/')[1];
     const { data: key } = useIconKey({ name: formattedname });
     const { data: icon } = useIcons({ fileKey: fileKey });
     React.useEffect(() => {
@@ -22,21 +22,16 @@ const JobCard: React.FC<JobCardProps> = ({ data }) => {
 
 
     return (
-        <div className={styles.jobCard}>
-            <div className={styles.jobCardHeader}>
-                <div className={styles.jobTitle}>{data.info.position}</div>
-                <div className={styles.workingPeriod}>{data.activePeriod}</div>
-            </div>
-            <div className={styles.companyTitle} title={data.comapnyUrl}>
-                <Image src={icon ? icon : ''} alt='phone-icon' width={15} height={15} />
-                <a className={styles.companyName} href={data.comapnyUrl} target="_blank">
-                    <div >{data.companyName}</div>
-                </a>
-            </div>
-            <ul>
-
+        <div key={experience._id} className={styles.job}>
+            <h3 className={styles.jobTitle}>{experience.info.position}</h3>
+            <p className={styles.jobDetails}>{experience.activePeriod}</p>
+            <Image src={icon ? icon : ''} alt='phone-icon' width={15} height={15} />
+            <a className={styles.companyName} href={experience.comapnyUrl} target="_blank">
+                <div >{experience.companyName}</div>
+            </a>
+            <ul className={styles.jobDescription}>
                 {
-                    data.info.tasks.map((task) => {
+                    experience.info.tasks.map(task => {
                         return (
                             <li key={task._id}>{task.task}</li>
                         );
@@ -44,6 +39,8 @@ const JobCard: React.FC<JobCardProps> = ({ data }) => {
                 }
             </ul>
         </div>
+
+
     );
 };
 
