@@ -1,6 +1,9 @@
+@import '../../styles/global.scss';
+
 .skill {
     // font-size: 65%;
     margin-left: 1rem;
+    color: $darkSecondary ;
     margin-right: 1rem;
     width: fit-content;
     display: flex;
