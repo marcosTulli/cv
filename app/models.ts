@@ -50,6 +50,7 @@ export interface IContactInfo {
 export interface Translation {
     candidateName: string;
     candidateTitle: string;
+    professionalHistory: string;
     about: string;
     workExperience: string;
     education: string;

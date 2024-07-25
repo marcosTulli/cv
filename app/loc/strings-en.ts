@@ -2,6 +2,7 @@ import { Translation } from '@/app/models';
 
 const en: Partial<Translation> = {
     workExperience: "Work Experience",
+    professionalHistory: "Professional History",
     education: "Education & Certifications",
     skills: "Skills",
     agile: 'Agile Methodologies',
