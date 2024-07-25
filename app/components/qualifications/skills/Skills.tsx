@@ -11,23 +11,25 @@ const Skills = () => {
     const { user } = userStore();
     const { data: skillsData } = useSkills({ id: user._id });
     return (
-        <section className={styles.section}>
-            <div className={styles.sectionHeader}>
+        <section className={styles.container}>
+            <div className={styles.skillsHeader}>
                 <span className={styles.sectionTag}>{strings.skills}</span>
                 <h2 className={styles.sectionTitle}>Skills</h2>
                 <p className={styles.sectionDescription}>
                     I possess a diverse set of skills that enable me to deliver high-quality work.
                 </p>
             </div>
-            <div className={`${styles.flexGrid} py-12 ${styles.gridThreeCols}`}>
-                {skillsData?.skills?.map(skill => {
-                    return (
-                        <div key={skill._id} className={styles.skill}>
-                            <Skill skill={skill} />
-                        </div>
+            <div className={styles.skillsGridContainer}>
+                <div className={styles.skillGrid}>
+                    {skillsData?.skills?.map(skill => {
+                        return (
+                            <div key={skill._id} className={styles.skill}>
+                                <Skill skill={skill} />
+                            </div>
 
-                    );
-                })}
+                        );
+                    })}
+                </div>
             </div>
         </section>
     );

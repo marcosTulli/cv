@@ -1,128 +1,54 @@
 @import '../../../styles/global.scss';
 
-.mainContainer {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.header {
-    padding: 2rem 1rem;
-    text-align: center;
-    background-color: $defaultBlack;
-
-}
-
-.title {
-    color: $darkSecondary;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    color: $darkSecondary;
-    margin: 0;
-}
-
-.section {
+.container {
     background-color: $darkMain;
     padding: 3rem 1rem;
-}
 
-.sectionHeader {
-    text-align: center;
-    margin-bottom: 2rem;
 
-}
+    .skillsHeader {
+        text-align: center;
+        margin-bottom: 2rem;
 
-.sectionTag {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    border-radius: 0.375rem;
-    color: $darkSecondary;
-}
+        .sectionTag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 0.375rem;
+            color: $darkSecondary;
+        }
 
-.sectionTitle {
-    color: $darkSecondary;
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
-}
+        .sectionTitle {
+            color: $darkSecondary;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
 
-.sectionDescription {
-    max-width: 900px;
-    margin: 0 auto;
-    color: $darkSecondary;
-    font-size: 1.125rem;
-}
-
-.flexGrid {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.gridTwoCols {
-    grid-template-columns: 1fr;
-}
-
-@media (min-width: 1024px) {
-    .gridTwoCols {
-        grid-template-columns: 1fr 1fr;
+        .sectionDescription {
+            max-width: 900px;
+            margin: 0 auto;
+            color: $darkSecondary;
+            font-size: 1.125rem;
+        }
     }
-}
 
-.gridThreeCols {
-    grid-template-columns: 1fr 1fr 1fr;
-}
+    .skillsGridContainer {
+        display: flex;
+        justify-content: center;
 
-.flexColumn {
-    display: flex;
-    flex-direction: column;
-}
+        .skillGrid {
 
-.job,
-.education,
-.project {
-    padding: 1.5rem;
-    border-radius: 0.375rem;
-}
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            row-gap: 1rem;
+            column-gap: 3rem;
 
-.job,
-.project {
-    color: $darkSecondary;
-}
+            @include respond-to(md) {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-.education {
-    background-color: red;
-}
+        }
+    }
 
-
-.jobTitle,
-.educationTitle,
-.projectTitle {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-.jobDetails,
-.projectDetails {
-    font-size: 1rem;
-    color: $darkSecondary;
-    margin: 0.5rem 0;
-}
-
-.jobDescription,
-.projectDescription {
-    list-style: disc;
-    padding-left: 1.5rem;
-    color: $darkSecondary;
-}
-
-.educationGPA {
-    font-size: 1rem;
-    color: #666;
 }
