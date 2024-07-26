@@ -39,14 +39,19 @@
         .skillGrid {
 
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             justify-content: center;
             row-gap: 1rem;
             column-gap: 3rem;
 
+            @include respond-to(lg) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             @include respond-to(md) {
                 grid-template-columns: repeat(2, 1fr);
             }
+
 
         }
     }

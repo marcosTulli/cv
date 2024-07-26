@@ -11,7 +11,7 @@ const Skills = () => {
     const { strings } = useLanguage();
     const { user } = userStore();
     const { data: skillsData } = useSkills({ id: user._id });
-    console.log(skillsData?.skills.map(i => i.name));
+
     return (
         <section className={styles.container}>
             <div className={styles.skillsHeader}>
