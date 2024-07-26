@@ -16,7 +16,6 @@ const WorkExperience = () => {
 
         <section className={styles.section}>
             <div className={styles.sectionHeader}>
-                <span className={styles.sectionTag}>{strings.workExperience}</span>
                 <h2 className={styles.sectionTitle}>{strings.professionalHistory}</h2>
                 <p className={styles.sectionDescription}>
                     Explore my professional journey and the diverse roles I have held.

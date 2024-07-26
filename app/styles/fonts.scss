@@ -1,5 +1,7 @@
-$defaultFont: 'Arial';
+$defaultCourier: 'Courier New', Courier, monospace;
+$defaultCalibri: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 :export {
-    deafultFont: $defaultFont
+    defaultCourier: $defaultCourier;
+    defaultCalibri: $defaultCalibri
 }
