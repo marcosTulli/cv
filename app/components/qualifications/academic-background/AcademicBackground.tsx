@@ -11,8 +11,7 @@ const AcademicBackground = () => {
     return (
         <section className={styles.section}>
             <div className={styles.sectionHeader}>
-                <span className={styles.sectionTag}>{strings.education}</span>
-                <h2 className={styles.sectionTitle}>Academic Background</h2>
+                <h2 className={styles.sectionTitle}>{strings.education}</h2>
                 <p className={styles.sectionDescription}>
                     Explore my educational journey and the degrees I have obtained.
                 </p>

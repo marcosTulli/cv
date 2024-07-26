@@ -15,8 +15,7 @@ const Skills = () => {
     return (
         <section className={styles.container}>
             <div className={styles.skillsHeader}>
-                <span className={styles.sectionTag}>{strings.skills}</span>
-                <h2 className={styles.sectionTitle}>Skills</h2>
+                <h2 className={styles.sectionTitle}>{strings.skills}</h2>
                 <p className={styles.sectionDescription}>
                     I possess a diverse set of skills that enable me to deliver high-quality work.
                 </p>

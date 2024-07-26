@@ -18,6 +18,7 @@
         }
 
         .sectionTitle {
+            font-family: $defaultCalibri;
             color: $darkSecondary;
             font-size: 2rem;
             font-weight: bold;
@@ -25,6 +26,7 @@
         }
 
         .sectionDescription {
+            font-family: $defaultCourier;
             max-width: 900px;
             margin: 0 auto;
             color: $darkSecondary;
@@ -38,6 +40,8 @@
 
         .skillGrid {
 
+            padding-top: 1rem;
+            font-family: $defaultCourier;
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             justify-content: center;
