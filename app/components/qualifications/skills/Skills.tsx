@@ -4,12 +4,14 @@ import Skill from '../../skill/Skill';
 import { useLanguage } from '@/app/hooks';
 import { userStore } from '@/app/store';
 import { useSkills } from '@/app/hooks/queries';
+import { ISkills } from '@/app/models';
 
 
 const Skills = () => {
     const { strings } = useLanguage();
     const { user } = userStore();
     const { data: skillsData } = useSkills({ id: user._id });
+    console.log(skillsData?.skills.map(i => i.name));
     return (
         <section className={styles.container}>
             <div className={styles.skillsHeader}>
@@ -21,7 +23,7 @@ const Skills = () => {
             </div>
             <div className={styles.skillsGridContainer}>
                 <div className={styles.skillGrid}>
-                    {skillsData?.skills?.map(skill => {
+                    {skillsData?.skills?.map((skill: ISkills) => {
                         return (
                             <div key={skill._id} className={styles.skill}>
                                 <Skill skill={skill} />
