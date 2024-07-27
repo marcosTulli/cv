@@ -4,28 +4,6 @@
     background-color: $darkMain;
     padding: 3rem 1rem;
 
-
-    .skillsHeader {
-        text-align: center;
-        margin-bottom: 2rem;
-
-        .sectionTitle {
-            font-family: $defaultCalibri;
-            color: $darkSecondary;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-
-        .sectionDescription {
-            font-family: $defaultCourier;
-            max-width: 900px;
-            margin: 0 auto;
-            color: $darkSecondary;
-            font-size: 1.125rem;
-        }
-    }
-
     .skillsGridContainer {
         display: flex;
         justify-content: center;
