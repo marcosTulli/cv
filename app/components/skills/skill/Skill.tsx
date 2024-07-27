@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './Skill.module.scss';
 import { ISkills } from '@/app/models';
-import Icon from '../icon/Icon';
+import Icon from '../../icon/Icon';
 
 interface ISkillProps {
     skill: ISkills;

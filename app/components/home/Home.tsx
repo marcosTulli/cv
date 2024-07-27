@@ -8,8 +8,9 @@ import { useLanguage } from '@/app/hooks';
 import Header from '../header/Header';
 import WorkExperience from '../work-experience/WorkExperience';
 import Footer from '../footer/Footer';
-import AcademicBackground from '../qualifications/academic-background/AcademicBackground';
-import Skills from '../qualifications/skills/Skills';
+import AcademicBackground from '../academic-background/AcademicBackground';
+import Skills from '../skills/Skills';
+
 
 export default function Home() {
     const { data: users } = useUsers();

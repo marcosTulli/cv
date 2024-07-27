@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Skills.module.scss';
-import Skill from '../../skill/Skill';
+import Skill from './skill/Skill';
 import { useLanguage } from '@/app/hooks';
 import { userStore } from '@/app/store';
 import { useSkills } from '@/app/hooks/queries';
