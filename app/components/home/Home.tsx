@@ -8,7 +8,7 @@ import { useLanguage } from '@/app/hooks';
 import Header from '../header/Header';
 import WorkExperience from '../work-experience/WorkExperience';
 import Footer from '../footer/Footer';
-import AcademicBackground from '../academic-background/AcademicBackground';
+import Education from '../education/Education';
 import Skills from '../skills/Skills';
 
 
@@ -34,7 +34,7 @@ export default function Home() {
         <div >
             <Header />
             <WorkExperience />
-            <AcademicBackground />
+            <Education />
             <Skills />
             <Footer />
         </div>

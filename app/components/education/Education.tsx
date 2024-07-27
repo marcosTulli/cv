@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './AcademicBackground.module.scss';
+import styles from './Education.module.scss';
 import { useLanguage } from '@/app/hooks';
 import { useEducation } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 
-const AcademicBackground = () => {
+const Education = () => {
     const { currentLanguage, strings } = useLanguage();
     const { user } = userStore();
     const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
@@ -32,4 +32,4 @@ const AcademicBackground = () => {
     );
 };
 
-export default AcademicBackground;
+export default Education;
