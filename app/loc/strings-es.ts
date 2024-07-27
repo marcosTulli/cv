@@ -10,6 +10,8 @@ const es: Partial<Translation> = {
     dropdownOptionsDownload: 'Descargar CV',
     dropdownOptionsClone: 'Ver código',
     skillsDescription: 'Poseo la posta',
+    educationDescription: 'Poseo la posta',
+    workExperienceDescription: 'Poseo la posta',
 };
 
 export default es;

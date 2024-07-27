@@ -11,6 +11,8 @@ const en: Partial<Translation> = {
     dropdownOptionsDownload: 'Download CV',
     dropdownOptionsClone: 'View code',
     skillsDescription: 'I possess a diverse set of skills that enable me to deliver high-quality work.',
+    workExperienceDescription: 'Explore my professional journey and the diverse roles I have held.',
+    educationDescription: 'Explore my educational journey and the degrees I have obtained.'
 };
 
 export default en;

@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from "./WorkExperience.module.scss";
-import WorkExperienceHeader from './WorkExperienceHeader';
 import WorkExperienceBody from './WorkExperienceBody';
+import SectionHeader from '../section-header/SectionHeader';
+import { useLanguage } from '@/app/hooks';
 
 const WorkExperience: React.FC = () => {
+    const { strings } = useLanguage();
     return (
         <section className={styles.section}>
-            <WorkExperienceHeader />
+            <SectionHeader title={strings.workExperience} description={strings.workExperienceDescription} />
             <WorkExperienceBody />
         </section>
 

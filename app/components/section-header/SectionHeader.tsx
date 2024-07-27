@@ -10,7 +10,7 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, page
 
     return (
         <div className={styles.sectionHeader}>
-            <div className={styles.sectionTitle}>{title}</div>
+            <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`} >{title}</div>
             <p className={styles.sectionDescription}>
                 {description}
             </p>

@@ -74,6 +74,8 @@ export interface Translation {
     dropdownOptionsDownload: string,
     dropdownOptionsClone: string,
     skillsDescription: string,
+    workExperienceDescription: string,
+    educationDescription: string,
 }
 
 // ______________ NEW MODELS ____________

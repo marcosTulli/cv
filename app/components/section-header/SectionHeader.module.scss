@@ -2,14 +2,20 @@
 
 .sectionHeader {
     text-align: center;
-    margin-bottom: 2rem;
     color: $darkSecondary;
 
     .sectionTitle {
-        font-family: $defaultCalibri;
         font-size: 2rem;
+    }
+
+    .pageTitle {
+        font-size: 3rem;
+    }
+
+    .pageTitle,
+    .sectionTitle {
+        font-family: $defaultCalibri;
         font-weight: bold;
-        margin: 0.5rem 0;
     }
 
     .sectionDescription {
