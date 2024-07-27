@@ -9,6 +9,7 @@ const es: Partial<Translation> = {
     es: 'ES',
     dropdownOptionsDownload: 'Descargar CV',
     dropdownOptionsClone: 'Ver código',
+    skillsDescription: 'Poseo la posta',
 };
 
 export default es;

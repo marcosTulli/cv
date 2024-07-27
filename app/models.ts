@@ -73,6 +73,7 @@ export interface Translation {
     azureCertificate: string;
     dropdownOptionsDownload: string,
     dropdownOptionsClone: string,
+    skillsDescription: string,
 }
 
 // ______________ NEW MODELS ____________

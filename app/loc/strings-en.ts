@@ -10,6 +10,7 @@ const en: Partial<Translation> = {
     es: 'ES',
     dropdownOptionsDownload: 'Download CV',
     dropdownOptionsClone: 'View code',
+    skillsDescription: 'I possess a diverse set of skills that enable me to deliver high-quality work.',
 };
 
 export default en;

@@ -1,13 +1,17 @@
 import React from 'react';
 import styles from './Skills.module.scss';
-import SkillsHeader from './SkillsHeader';
 import SkillsBody from './SkillsBody';
-
+import { useLanguage } from '@/app/hooks';
+import SectionHeader from '../section-header/SectionHeader';
 
 const Skills = () => {
+    const { strings } = useLanguage();
     return (
         <section className={styles.container}>
-            <SkillsHeader />
+            <SectionHeader
+                title={strings.skills}
+                description={strings.skillsDescription}
+            />
             <SkillsBody />
         </section>
     );
