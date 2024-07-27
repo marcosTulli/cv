@@ -7,8 +7,9 @@ import { useLanguage } from '@/app/hooks';
 
 import Header from '../header/Header';
 import WorkExperience from '../work-experience/WorkExperience';
-import Qualifications from '../qualifications/Qualifications';
 import Footer from '../footer/Footer';
+import AcademicBackground from '../qualifications/academic-background/AcademicBackground';
+import Skills from '../qualifications/skills/Skills';
 
 export default function Home() {
     const { data: users } = useUsers();
@@ -32,7 +33,8 @@ export default function Home() {
         <div >
             <Header />
             <WorkExperience />
-            <Qualifications />
+            <AcademicBackground />
+            <Skills />
             <Footer />
         </div>
     );
