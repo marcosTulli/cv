@@ -1,5 +1,5 @@
 import React from 'react';
-import JobCard from '../job-card/JobCard';
+import JobCard from './job-card/JobCard';
 import styles from './WorkExperience.module.scss';
 import { useWorkExperience } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';

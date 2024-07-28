@@ -8,8 +8,8 @@ const EducationBody = () => {
     const { user } = userStore();
     const { currentLanguage } = useLanguage();
     const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
-    return (
 
+    return (
         <div className={`${styles.flexGrid} py-12 ${styles.gridTwoCols}`}>
             <div className={styles.flexColumn}>
                 {education?.map(school => {
