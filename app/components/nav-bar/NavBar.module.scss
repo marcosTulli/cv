@@ -1,0 +1,15 @@
+@import '../../styles/global.scss';
+
+.navContainer {
+    display: flex;
+    color: $darkSecondary;
+    font-family: $defaultCourier;
+    position: fixed;
+    background-color: $defaultBlack;
+    width: 100%;
+
+    .navSection {
+        display: flex;
+        margin-right: 1rem;
+    }
+}
