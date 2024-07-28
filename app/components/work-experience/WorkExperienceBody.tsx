@@ -18,9 +18,7 @@ const WorkExperienceBody = () => {
             <div className={styles.flexColumn}>
                 {experiences.map((experience) => {
                     return (
-                        <div key={experience._id} className={styles.jobCard}  >
-                            <JobCard experience={experience} language={currentLanguage} />
-                        </div>
+                        <JobCard key={experience._id} experience={experience} language={currentLanguage} />
                     );
                 })}
             </div>
