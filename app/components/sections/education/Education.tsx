@@ -4,7 +4,7 @@ import EducationBody from './EducationBody';
 import SectionHeader from '../section-header/SectionHeader';
 import { useLanguage } from '@/app/hooks';
 
-const Education = () => {
+const Education: React.FC = () => {
     const { strings } = useLanguage();
     return (
         <section className={styles.section}>

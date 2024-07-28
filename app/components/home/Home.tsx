@@ -5,18 +5,15 @@ import { userStore } from '@/app/store';
 import { IUser } from '@/app/models';
 import { useLanguage } from '@/app/hooks';
 
-import Header from '../header/Header';
-import WorkExperience from '../work-experience/WorkExperience';
 import Footer from '../footer/Footer';
-import Education from '../education/Education';
-import Skills from '../skills/Skills';
-
+import Header from '../header/Header';
+import { Education, WorkExperience, Skills } from '../sections';
 
 export default function Home() {
     const { data: users } = useUsers();
     const { currentLanguage } = useLanguage();
     // This will change when I implement login, and/or user selection. 
-    const userId = users ? users[1]._id : '';
+    const userId = users ? users[1]._id : '';;
     const { data: user } = useUser({ lang: currentLanguage, id: userId });
     const { setUser } = userStore();
 

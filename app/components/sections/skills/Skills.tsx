@@ -4,7 +4,7 @@ import SkillsBody from './SkillsBody';
 import { useLanguage } from '@/app/hooks';
 import SectionHeader from '../section-header/SectionHeader';
 
-const Skills = () => {
+const Skills: React.FC = () => {
     const { strings } = useLanguage();
     return (
         <section className={styles.container}>

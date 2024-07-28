@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.scss';
 import { userStore } from '@/app/store';
-import SectionHeader from '../section-header/SectionHeader';
+import SectionHeader from '../sections/section-header/SectionHeader';
 
 const Header: React.FC = () => {
     const { user } = userStore();
