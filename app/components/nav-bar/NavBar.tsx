@@ -9,10 +9,9 @@ const NavBar: React.FC = () => {
         <div className={styles.navContainer}>
             {sections.map((section, index) => {
                 return (
-                    <div key={index} className={styles.navSection}>{section}</div>
+                    <div onClick={() => console.log(section)} key={index} className={styles.navSection}>{section}</div>
                 );
             })}
-
         </div>
     );
 };
