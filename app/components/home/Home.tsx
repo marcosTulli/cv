@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { useUsers, useUser } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
-import { IUser } from '@/app/models';
+import { IUser } from '@/app/models/interfaces';
 import { useLanguage } from '@/app/hooks';
 
 import Footer from '../footer/Footer';

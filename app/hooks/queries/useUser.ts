@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import DataProviderInstance from "@/app/services/data-provider";
-import { IGetUsersParams } from "@/app/models";
+import { IGetUsersParams } from "@/app/models/interfaces";
 
 const useUser = ({ lang, id }: IGetUsersParams) =>
     useQuery({

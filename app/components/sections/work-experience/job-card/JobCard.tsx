@@ -1,5 +1,5 @@
 import React from 'react';
-import { IExperience } from '@/app/models';
+import { IExperience } from '@/app/models/interfaces';
 import styles from "./JobCard.module.scss";
 
 type JobCardProps = {

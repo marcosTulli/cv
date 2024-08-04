@@ -1,5 +1,5 @@
 import React from 'react';
-import { Language } from '@/app/models';
+import { Language } from '@/app/models/enums';
 import { useLanguage } from '@/app/hooks';
 import { userStore } from '@/app/store';
 import style from './LanguageSelector.module.scss';

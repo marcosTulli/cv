@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import DataProviderInstance from "@/app/services/data-provider";
-import { IGetEducationParams } from "@/app/models";
+import { IGetEducationParams } from "@/app/models/interfaces";
 
 const useEducation = ({ lang, id }: IGetEducationParams) =>
     useQuery({

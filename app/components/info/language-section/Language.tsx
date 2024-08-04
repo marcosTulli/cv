@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { ILanguage } from '@/app/models';
+import { ILanguage } from '@/app/models/interfaces';
 import { useLanguage } from '@/app/hooks';
 import { icons } from '@/app/utils';
 import { useIconKey, useIcons } from '@/app/hooks/queries';

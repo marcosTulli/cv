@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import DataProviderInstance from "@/app/services/data-provider";
-import { IGetIconParams } from "@/app/models";
+import { IGetIconParams } from "@/app/models/interfaces";
 
 const useIcons = ({ fileKey }: IGetIconParams) =>
     useQuery({

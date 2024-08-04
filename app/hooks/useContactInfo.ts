@@ -1,4 +1,4 @@
-import { IContactInfo } from '../models';
+import { IContactInfo } from '../models/interfaces';
 import { userStore } from '../store';
 
 const useContactInfo = () => {

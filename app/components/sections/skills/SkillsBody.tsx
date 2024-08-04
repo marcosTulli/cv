@@ -3,7 +3,7 @@ import styles from './Skills.module.scss';
 import Skill from './skill/Skill';
 import { userStore } from '@/app/store';
 import { useSkills } from '@/app/hooks/queries';
-import { ISkills } from '@/app/models';
+import { ISkills } from '@/app/models/interfaces';
 
 const SkillsBody = () => {
     const { user } = userStore();

@@ -1,5 +1,4 @@
-import { IBaseParams } from "@/app/models/interfaces";
 
-export interface IGetSkillsParams extends IBaseParams {
+export interface IGetSkillsParams {
     id: string;
 }

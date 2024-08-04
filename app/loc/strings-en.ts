@@ -1,4 +1,4 @@
-import { Translation } from '@/app/models';
+import { Translation } from '@/app/models/interfaces';
 
 const en: Partial<Translation> = {
     workExperience: "Work Experience",

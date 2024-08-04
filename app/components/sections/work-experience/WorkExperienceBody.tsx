@@ -3,7 +3,7 @@ import JobCard from './job-card/JobCard';
 import styles from './WorkExperience.module.scss';
 import { useWorkExperience } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
-import { IExperience } from '@/app/models';
+import { IExperience } from '@/app/models/interfaces';
 import { useLanguage } from '@/app/hooks';
 
 

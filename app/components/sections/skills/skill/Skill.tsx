@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import styles from './Skill.module.scss';
-import { ISkills } from '@/app/models';
+import { ISkills } from '@/app/models/interfaces';
 import Icon from '@/app/components/icon/Icon';
 
 interface ISkillProps {
