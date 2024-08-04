@@ -1,5 +1,17 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { IUser, IWorkExperience, IEducation, ISkillsResponse, IGetEducationParams, IGetSkillsParams, IGetUsersParams, IGetWorkDataParams, TAxiosGetParams, IGetIconParams, IGetIconKeyParams } from '../models';
+import { TAxiosGetParams } from '../models/types';
+import {
+    IEducation,
+    ISkillsResponse,
+    IUser,
+    IWorkExperience,
+    IGetEducationParams,
+    IGetSkillsParams,
+    IGetUsersParams,
+    IGetWorkDataParams,
+    IGetIconKeyParams,
+    IGetIconParams
+} from '@/app/models/interfaces';
 
 const cvApiKey = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';

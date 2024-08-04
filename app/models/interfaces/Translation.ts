@@ -1,0 +1,30 @@
+export interface Translation {
+    candidateName: string;
+    candidateTitle: string;
+    professionalHistory: string;
+    about: string;
+    workExperience: string;
+    education: string;
+    skills: string;
+    agile: string;
+    english: string;
+    spanish: string;
+    email: string;
+    location: string;
+    phone: string;
+    linkedin: string;
+    github: string;
+    linkedinURL: string;
+    githubURL: string;
+    projectRepo: string;
+    cv: string;
+    en: string;
+    es: string;
+    englishCertificate: string;
+    azureCertificate: string;
+    dropdownOptionsDownload: string,
+    dropdownOptionsClone: string,
+    skillsDescription: string,
+    workExperienceDescription: string,
+    educationDescription: string,
+}
