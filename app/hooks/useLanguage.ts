@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { Translation, Language } from "@/app/models/interfaces";
+import { Translation } from "@/app/models/interfaces";
+import { Language } from '../models/enums';
 import es from "@/app/loc/strings-es";
 import en from "@/app/loc/strings-en";
 
