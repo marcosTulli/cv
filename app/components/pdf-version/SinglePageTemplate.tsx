@@ -1,42 +1,73 @@
-'use client';
+// Import necessary modules and styles
 import React from 'react';
-import styles from './SignlePageTemplate.module.scss'; // Replace with your actual CSS module file
+import styles from './SignlePageTemplate.module.scss';
+import { useLanguage } from '@/app/hooks';
+import { userStore } from '@/app/store';
+import { useEducation, useWorkExperience, useSkills } from '@/app/hooks/queries';
+import { IExperience } from '@/app/models/interfaces';
 
 const CV: React.FC = () => {
+    const { strings, currentLanguage } = useLanguage();
+    const { user } = userStore();
+    const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
+    const { data: skills } = useSkills({ id: user._id });
+    const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
+    const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
+
     return (
-        <div>
+        <div className={styles.container}>
+            {/* Header section */}
             <div className={styles.header}>
-                <h1>[Your Name]</h1>
+                <h1>{user.name}</h1>
                 <div className={styles.contactInfo}>
-                    <p>Email: [your.email@example.com]</p>
-                    <p>Phone: [Your Phone Number]</p>
-                    <p>Address: [Your Address]</p>
-                    <p>LinkedIn: [Your LinkedIn Profile]</p>
+                    <p>
+                        {strings.email} {user.email}
+                    </p>
+                    <p>
+                        {strings.phone} {user.phone}
+                    </p>
                 </div>
             </div>
+
+            {/* Work experience section */}
             <div className={styles.section}>
-                <h2>Education</h2>
-                <div className={styles.education}>
-                    <p className={styles.schoolName}>[School Name]</p>
-                    <p className={styles.degree}>[Degree]</p>
-                    <p>[Year of Graduation]</p>
-                </div>
-            </div>
-            <div className={styles.section}>
-                <h2>Experience</h2>
+                <h2>{strings.workExperience}</h2>
                 <div className={styles.experience}>
-                    <p className={styles.jobTitle}>[Job Title]</p>
-                    <p>[Company Name]</p>
-                    <p>[Duration]</p>
-                    <p>[Job Description]</p>
+                    {experiences.map((experience) => (
+                        <div key={experience._id}>
+                            <p className={styles.jobTitle}>{experience.companyName}</p>
+                            <p>{experience.activePeriod}</p>
+                            <p>{experience.info.position}</p>
+                            <ul>
+                                {experience.info.tasks.map((task) => (
+                                    <li key={task._id}>{task.task}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </div>
+
+            {/* Education section */}
             <div className={styles.section}>
-                <h2>Skills</h2>
+                <h2>{strings.education}</h2>
+                <div className={styles.education}>
+                    {education?.map((education) => (
+                        <div key={education.id}>
+                            <p className={styles.degree}>{education.title}</p>
+                            <p>{education.content}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Skills section */}
+            <div className={styles.section}>
+                <h2>{strings.skills}</h2>
                 <div className={styles.skills}>
-                    <p>[Skill 1]</p>
-                    <p>[Skill 2]</p>
-                    <p>[Skill 3]</p>
+                    {skills?.skills.map((skill) => (
+                        <p key={skill._id}>{skill.formattedName}</p>
+                    ))}
                 </div>
             </div>
         </div>
