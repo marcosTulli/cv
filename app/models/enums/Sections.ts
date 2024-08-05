@@ -1,7 +1,7 @@
 export enum Sections {
     WorkExperience = 'WorkExperience',
-    Skills = 'Skills',
     Education = 'Education',
+    Skills = 'Skills',
     Header = 'Header',
 }
 

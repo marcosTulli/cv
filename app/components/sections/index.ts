@@ -1,16 +1,3 @@
-import WorkExperience from './work-experience/WorkExperience';
-import Education from './education/Education';
-import Skills from './skills/Skills';
-
-const SectionsCollection: string[] = [
-    WorkExperience.name,
-    Education.name,
-    Skills.name
-];
-
-export {
-    WorkExperience,
-    Education,
-    Skills,
-    SectionsCollection
-};
+export { default as WorkExperience } from './work-experience/WorkExperience';
+export { default as Education } from './education/Education';
+export { default as Skills } from './skills/Skills';
