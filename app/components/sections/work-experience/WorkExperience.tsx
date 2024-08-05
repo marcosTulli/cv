@@ -3,22 +3,19 @@ import styles from "./WorkExperience.module.scss";
 import WorkExperienceBody from './WorkExperienceBody';
 import SectionHeader from '../section-header/SectionHeader';
 import { useLanguage } from '@/app/hooks';
-import { sectionRefStore } from '@/app/store';
+import { Sections } from '@/app/models/enums';
+import useSectionRef from '../hooks/useSectionRef';
 
 const WorkExperience: React.FC = () => {
-    const { setSection } = sectionRefStore();
     const { strings } = useLanguage();
-    const sectionRef = React.useRef(null);
-
-    React.useEffect(() => {
-        setSection('WorkExperience', sectionRef.current);
-        return () => { setSection('WorkExperience', null); };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const { sectionRef } = useSectionRef({ sectionName: Sections.WorkExperience });
 
     return (
         <section ref={sectionRef} className={styles.section}>
-            <SectionHeader title={strings.workExperience} description={strings.workExperienceDescription} />
+            <SectionHeader
+                title={strings.workExperience}
+                description={strings.workExperienceDescription}
+            />
             <WorkExperienceBody />
         </section>
 

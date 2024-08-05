@@ -3,21 +3,18 @@ import styles from './Skills.module.scss';
 import SkillsBody from './SkillsBody';
 import { useLanguage } from '@/app/hooks';
 import SectionHeader from '../section-header/SectionHeader';
-import { sectionRefStore } from '@/app/store';
+import { Sections } from '@/app/models/enums';
+import useSectionRef from '../hooks/useSectionRef';
 
 const Skills: React.FC = () => {
     const { strings } = useLanguage();
-    const { setSection } = sectionRefStore();
-    const sectionRef = React.useRef(null);
-
-    React.useEffect(() => {
-        setSection('Skills', sectionRef.current);
-        return () => { setSection('Skills', null); };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const { sectionRef } = useSectionRef({ sectionName: Sections.Skills });
 
     return (
-        <section ref={sectionRef} className={styles.container}>
+        <section
+            ref={sectionRef}
+            className={styles.container}
+        >
             <SectionHeader
                 title={strings.skills}
                 description={strings.skillsDescription}
