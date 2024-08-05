@@ -16,7 +16,6 @@ const WorkExperience: React.FC = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-
     return (
         <section ref={sectionRef} className={styles.section}>
             <SectionHeader title={strings.workExperience} description={strings.workExperienceDescription} />

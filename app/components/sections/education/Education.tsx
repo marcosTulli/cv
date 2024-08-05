@@ -11,14 +11,11 @@ const Education: React.FC = () => {
     const { setSection } = sectionRefStore();
     const sectionRef = React.useRef(null);
 
-
-
     React.useEffect(() => {
         setSection('Education', sectionRef.current);
         return () => { setSection('Education', null); };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
 
     return (
         <section ref={sectionRef} className={styles.section}>

@@ -3,6 +3,7 @@
 .navContainer {
     display: flex;
     color: $darkSecondary;
+    align-items: center;
     font-family: $defaultCourier;
     position: fixed;
     background-color: $defaultBlack;
