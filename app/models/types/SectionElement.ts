@@ -1,1 +1,5 @@
-export type TSectionElement = Record<string, HTMLElement | null>;
+import { RefObject } from 'react';
+
+export type TSectionElement = {
+    [key: string]: RefObject<HTMLDivElement> | null;
+};

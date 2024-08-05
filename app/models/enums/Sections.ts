@@ -3,5 +3,6 @@ export enum Sections {
     Education = 'Education',
     Skills = 'Skills',
     Header = 'Header',
+    PrintableTemplate = 'PrintableTemplate',
 }
 

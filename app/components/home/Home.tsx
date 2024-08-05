@@ -8,6 +8,8 @@ import { useLanguage } from '@/app/hooks';
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
 import { Education, WorkExperience, Skills } from '../sections';
+import { PrintableTemplate } from '../pdf-version/PrintableTemplate';
+import useDownload from '../nav-bar/hooks/useDownload';
 
 export default function Home() {
     const { data: users } = useUsers();
@@ -16,6 +18,7 @@ export default function Home() {
     const userId = users ? users[1]._id : '';;
     const { data: user } = useUser({ lang: currentLanguage, id: userId });
     const { setUser } = userStore();
+    const { sectionRef } = useDownload();
 
     React.useEffect(() => {
         if (currentLanguage && users && users?.length > 0) {
@@ -34,6 +37,8 @@ export default function Home() {
             <Education />
             <Skills />
             <Footer />
+            <PrintableTemplate ref={sectionRef} />
+
         </div>
     );
 }
