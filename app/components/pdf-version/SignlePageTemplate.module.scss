@@ -1,0 +1,52 @@
+.header {
+    margin-bottom: 20px;
+}
+
+.contactInfo {
+    margin-bottom: 15px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.education,
+.experience,
+.skills {
+    margin-bottom: 15px;
+}
+
+.schoolName,
+.degree,
+.jobTitle {
+    font-weight: bold;
+}
+
+
+@media all {
+    .page-break {
+        display: none;
+    }
+}
+
+@media print {
+
+    // html,
+    // body {
+    //     height: initial !important;
+    //     overflow: initial !important;
+    // }
+}
+
+@media print {
+    .page-break {
+        margin-top: 1rem;
+        display: block;
+        page-break-before: auto;
+    }
+}
+
+@page {
+    size: auto;
+    margin: 20mm;
+}
