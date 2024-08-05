@@ -1,5 +1,2 @@
-import { RefObject } from 'react';
 
-export type TSectionElement = {
-    [key: string]: RefObject<HTMLDivElement> | null;
-};
+export type TSectionElement = Record<string, HTMLDivElement | HTMLElement | null>;
