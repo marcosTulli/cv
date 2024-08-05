@@ -18,7 +18,7 @@ export default function Home() {
     const userId = users ? users[1]._id : '';;
     const { data: user } = useUser({ lang: currentLanguage, id: userId });
     const { setUser } = userStore();
-    const { sectionRef } = useDownload();
+    const { downloadRef } = useDownload();
 
     React.useEffect(() => {
         if (currentLanguage && users && users?.length > 0) {
@@ -37,7 +37,7 @@ export default function Home() {
             <Education />
             <Skills />
             <Footer />
-            <PrintableTemplate ref={sectionRef} />
+            <PrintableTemplate ref={downloadRef} />
 
         </div>
     );

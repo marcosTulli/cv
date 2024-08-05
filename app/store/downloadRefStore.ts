@@ -1,18 +1,16 @@
 import { create } from 'zustand';
-import { RefObject } from 'react';
-import { TSectionElement } from '../models/types';
+import { LegacyRef } from 'react';
 
 interface IDownloadRefStore {
-    sectionRef: TSectionElement;
-    setSection: (sectionName: string, element: RefObject<HTMLDivElement> | null) => void;
+    downloadRef: LegacyRef<HTMLDivElement>;
+    setDownloadRef: (element: LegacyRef<HTMLDivElement> | null) => void;
 }
 
 export const store = create<IDownloadRefStore>((set) => ({
-    sectionRef: {},
-    setSection: (sectionName: string, element: RefObject<HTMLDivElement> | null) =>
-        set((state) => ({
-            sectionRef: { ...state.sectionRef, [sectionName]: element },
-        })),
+    downloadRef: { current: null },
+    setDownloadRef: (element: LegacyRef<HTMLDivElement> | null) =>
+        set({ downloadRef: element }),
 }));
+
 
 export default store;
