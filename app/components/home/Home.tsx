@@ -38,7 +38,6 @@ export default function Home() {
             <Skills />
             <Footer />
             <PrintableTemplate ref={downloadRef} />
-
         </div>
     );
 }

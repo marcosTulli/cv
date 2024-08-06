@@ -16,58 +16,57 @@ const CV: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            {/* Header section */}
-            <div className={styles.header}>
-                <h1>{user.name}</h1>
-                <div className={styles.contactInfo}>
-                    <p>
-                        {strings.email} {user.email}
-                    </p>
-                    <p>
-                        {strings.phone} {user.phone}
-                    </p>
+            <div className={styles.leftContainer}>
+                <div className={styles.header}>
+                    <h1>{user.name}</h1>
+                    <div className={styles.contactInfo}>
+                        <p>
+                            {strings.email} {user.email}
+                        </p>
+                        <p>
+                            {strings.phone} {user.phone}
+                        </p>
+                    </div>
                 </div>
-            </div>
-
-            {/* Work experience section */}
-            <div className={styles.section}>
-                <h2>{strings.workExperience}</h2>
-                <div className={styles.experience}>
-                    {experiences.map((experience) => (
-                        <div key={experience._id}>
-                            <p className={styles.jobTitle}>{experience.companyName}</p>
-                            <p>{experience.activePeriod}</p>
-                            <p>{experience.info.position}</p>
-                            <ul>
-                                {experience.info.tasks.map((task) => (
-                                    <li key={task._id}>{task.task}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                <div className={styles.section}>
+                    <h2>{strings.education}</h2>
+                    <div className={styles.education}>
+                        {education?.map((education) => (
+                            <div key={education.id}>
+                                <p className={styles.degree}>{education.title}</p>
+                                <p>{education.content}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
 
-            {/* Education section */}
-            <div className={styles.section}>
-                <h2>{strings.education}</h2>
-                <div className={styles.education}>
-                    {education?.map((education) => (
-                        <div key={education.id}>
-                            <p className={styles.degree}>{education.title}</p>
-                            <p>{education.content}</p>
-                        </div>
-                    ))}
+                <div className={styles.section}>
+                    <h2>{strings.skills}</h2>
+                    <div className={styles.skills}>
+                        {skills?.skills.map((skill) => (
+                            <div key={skill._id} className={styles.skill}>{skill.formattedName}</div>
+                        ))}
+                    </div>
                 </div>
-            </div>
 
-            {/* Skills section */}
-            <div className={styles.section}>
-                <h2>{strings.skills}</h2>
-                <div className={styles.skills}>
-                    {skills?.skills.map((skill) => (
-                        <p key={skill._id}>{skill.formattedName}</p>
-                    ))}
+            </div>
+            <div className={styles.rightContainer}>
+                <div className={styles.section}>
+                    <h2>{strings.workExperience}</h2>
+                    <div className={styles.experience}>
+                        {experiences.map((experience) => (
+                            <div key={experience._id}>
+                                <p className={styles.jobTitle}>{experience.companyName}</p>
+                                <p>{experience.activePeriod}</p>
+                                <p>{experience.info.position}</p>
+                                <ul>
+                                    {experience.info.tasks.map((task) => (
+                                        <li key={task._id}>{task.task}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
