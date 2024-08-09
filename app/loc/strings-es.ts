@@ -12,6 +12,9 @@ const es: Partial<Translation> = {
     skillsDescription: 'Poseo la posta',
     educationDescription: 'Poseo la posta',
     workExperienceDescription: 'Poseo la posta',
+    email: 'Email',
+    phone: 'Telefono',
+    languages: 'Idiomas',
 };
 
 export default es;

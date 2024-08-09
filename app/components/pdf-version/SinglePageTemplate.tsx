@@ -1,76 +1,27 @@
-// Import necessary modules and styles
 import React from 'react';
+import { Grid, Container } from '@mui/material';
 import styles from './SignlePageTemplate.module.scss';
-import { useLanguage } from '@/app/hooks';
-import { userStore } from '@/app/store';
-import { useEducation, useWorkExperience, useSkills } from '@/app/hooks/queries';
-import { IExperience } from '@/app/models/interfaces';
+import Header from './components/Header';
+import Education from './components/Education';
+import Skills from './components/Skills';
+import WorkExperience from './components/WorkExperience';
 
-const CV: React.FC = () => {
-    const { strings, currentLanguage } = useLanguage();
-    const { user } = userStore();
-    const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
-    const { data: skills } = useSkills({ id: user._id });
-    const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
-    const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
-
+const SinglePageTemplate: React.FC = () => {
     return (
-        <div className={styles.container}>
-            <div className={styles.leftContainer}>
-                <div className={styles.header}>
-                    <h1>{user.name}</h1>
-                    <div className={styles.contactInfo}>
-                        <p>
-                            {strings.email} {user.email}
-                        </p>
-                        <p>
-                            {strings.phone} {user.phone}
-                        </p>
-                    </div>
-                </div>
-                <div className={styles.section}>
-                    <h2>{strings.education}</h2>
-                    <div className={styles.education}>
-                        {education?.map((education) => (
-                            <div key={education.id}>
-                                <p className={styles.degree}>{education.title}</p>
-                                <p>{education.content}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className={styles.section}>
-                    <h2>{strings.skills}</h2>
-                    <div className={styles.skills}>
-                        {skills?.skills.map((skill) => (
-                            <div key={skill._id} className={styles.skill}>{skill.formattedName}</div>
-                        ))}
-                    </div>
-                </div>
-
-            </div>
-            <div className={styles.rightContainer}>
-                <div className={styles.section}>
-                    <h2>{strings.workExperience}</h2>
-                    <div className={styles.experience}>
-                        {experiences.map((experience) => (
-                            <div key={experience._id}>
-                                <p className={styles.jobTitle}>{experience.companyName}</p>
-                                <p>{experience.activePeriod}</p>
-                                <p>{experience.info.position}</p>
-                                <ul>
-                                    {experience.info.tasks.map((task) => (
-                                        <li key={task._id}>{task.task}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Container maxWidth="xl" className={styles.container}>
+            <Grid container spacing={2}>
+                <Grid item xs={4} className={styles.leftContainer}>
+                    <Header />
+                    <Education />
+                    <Skills />
+                </Grid>
+                <Grid item xs={1} className={styles.divider}></Grid>
+                <Grid item xs={7} className={styles.rightContainer}>
+                    <WorkExperience />
+                </Grid>
+            </Grid>
+        </Container>
     );
 };
 
-export default CV;
+export default SinglePageTemplate;

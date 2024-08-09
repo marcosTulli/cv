@@ -17,6 +17,7 @@ export interface Translation {
     linkedinURL: string;
     githubURL: string;
     projectRepo: string;
+    languages: string;
     cv: string;
     en: string;
     es: string;

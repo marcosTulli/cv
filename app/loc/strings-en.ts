@@ -12,7 +12,10 @@ const en: Partial<Translation> = {
     dropdownOptionsClone: 'View code',
     skillsDescription: 'I possess a diverse set of skills that enable me to deliver high-quality work.',
     workExperienceDescription: 'Explore my professional journey and the diverse roles I have held.',
-    educationDescription: 'Explore my educational journey and the degrees I have obtained.'
+    educationDescription: 'Explore my educational journey and the degrees I have obtained.',
+    email: 'Email',
+    phone: 'Telephone',
+    languages: 'Languages',
 };
 
 export default en;
