@@ -15,7 +15,6 @@ const SinglePageTemplate: React.FC = () => {
                     <Education />
                     <Skills />
                 </Grid>
-                <Grid item xs={1} className={styles.divider}></Grid>
                 <Grid item xs={7} className={styles.rightContainer}>
                     <WorkExperience />
                 </Grid>

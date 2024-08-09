@@ -15,10 +15,10 @@ const Education: React.FC = () => {
             <div className={styles.education}>
                 {education?.map((education) => (
                     <div key={education.id}>
-                        <Typography variant="body1" className={styles.degree}>
+                        <Typography className={styles.degree}>
                             {education.title}
                         </Typography>
-                        <Typography variant="body2" className={styles.content}>
+                        <Typography className={styles.content}>
                             {education.content}
                         </Typography>
                     </div>

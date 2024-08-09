@@ -16,13 +16,13 @@ const Header: React.FC = () => {
             <div className={styles.contactInfo}>
                 <Typography variant="body1">{strings.email} {user.email}</Typography>
                 <Typography variant="body1">{strings.phone} {user.phone}</Typography>
-                <Typography variant="body1">{strings.languages}</Typography>
+                <Typography variant="body1">{strings.languages}:</Typography>
                 {user.info.languages.map((language) => (
-                    <div key={language.language} className={styles.languageContainer}>
+                    <li key={language.language} className={styles.languageContainer}>
                         <Typography variant="body2" className={styles.language} >
                             {` * ${language.language}: ${language.level}`}
                         </Typography>
-                    </div>
+                    </li>
                 ))}
             </div>
         </div>

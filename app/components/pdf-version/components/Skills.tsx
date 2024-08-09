@@ -12,13 +12,13 @@ const Skills: React.FC = () => {
     return (
         <div className={styles.section}>
             <Typography variant="h5" className={styles.sectionTitle}>{strings.skills}</Typography>
-            <div className={styles.skills}>
+            <ul className={styles.skills}>
                 {skills?.skills.map((skill) => (
-                    <Typography key={skill._id} className={styles.skill}>
+                    <li key={skill._id} className={styles.skill}>
                         {skill.formattedName}
-                    </Typography>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
 
     );
