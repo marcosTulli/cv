@@ -4,12 +4,12 @@ import { userStore } from '../store';
 const useContactInfo = () => {
     const { user } = userStore();
     const contactInfo: IContactInfo[] = [
-        {
-            id: 1,
-            name: 'location',
-            src: '/location.png',
-            value: user.location,
-        },
+        // {
+        //     id: 1,
+        //     name: 'location',
+        //     src: '/location.png',
+        //     value: user.location,
+        // },
         {
             id: 2,
             name: 'email',
