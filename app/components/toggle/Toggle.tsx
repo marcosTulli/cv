@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Toggle.module.scss';
 // import { languageStore } from '@/app/contexts/LanguageContext';
-import { languageStore } from '@/app/hooks';
+import { languageStore } from '@/app/store';
 
 interface ToggleProps {
 }
