@@ -13,7 +13,7 @@ const Education: React.FC = () => {
     return (
         <section
             ref={sectionRef}
-            className={styles.section}
+            className={styles.container}
         >
             <SectionHeader
                 title={strings.education}

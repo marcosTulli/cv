@@ -1,19 +1,33 @@
 @import '../../../styles/global.scss';
 
-.section {
+.container {
     background-color: $defaultBlack;
     padding: 3rem 1rem;
 
-    .flexGrid {
-        display: grid;
-        gap: 1.5rem;
+    .gridContainer {
+        display: flex;
+        justify-content: center;
 
-        .gridTwoCols {
-            grid-template-columns: 1fr;
+
+        .educationGrid {
+            display: grid;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+
+            @include respond-to(lg) {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            @include respond-to(md) {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
         }
 
         .education {
-            padding: 1rem;
+            padding: 0;
+            margin: 0;
         }
 
         .educationTitle {

@@ -20,16 +20,19 @@ const EducationBody = () => {
     }, [isLoadingEducation]);
 
     return (
-        <div className={`${styles.flexGrid} py-12 ${styles.gridTwoCols}`}>
-            <div className={styles.flexColumn}>
-                {education?.map(school => {
-                    return (
-                        <div key={school.id} className={styles.education}>
+        <div className={styles.gridContainer}>
+            <div className={styles.educationGrid}>
+                {education?.map((school) => (
+                    <div
+                        key={school.id}
+                        className={styles.education}
+                    >
+                        <div className={styles.educationContent}>
                             <h3 className={styles.educationTitle}>{school.title}</h3>
                             <p className={styles.educationDetails}>{school.content}</p>
                         </div>
-                    );
-                })}
+                    </div>
+                ))}
             </div>
         </div>
     );
