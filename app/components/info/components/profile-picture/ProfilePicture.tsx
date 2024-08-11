@@ -7,8 +7,8 @@ const ProfilePicture: React.FC = () => {
         <Image
             src="/profile.png"
             alt="profile picture"
-            width={500}
-            height={500}
+            width={100}
+            height={100}
             className={styles.profilePicture}
         />
     );

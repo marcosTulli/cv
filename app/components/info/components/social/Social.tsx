@@ -7,9 +7,9 @@ import { userStore } from '@/app/store';
 
 const Social: React.FC = () => {
     const { user } = userStore();
-    return (
 
-        <div className={styles.links}>
+    return (
+        <div className={styles.socialContainer}>
             <a
                 href={user.network.linkedin.url}
                 target="_blank"

@@ -1,33 +1,29 @@
 @import '../../../../styles/global.scss';
 
-.info {
-    .others {
-        .links {
-            display: flex;
-            gap: 1rem;
-            flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            color: $darkSecondary;
-            margin-left: -3px;
+.socialContainer {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    color: $darkSecondary;
+    margin-left: -3px;
 
-            p {
-                margin: 0;
-                margin-right: 1rem;
-            }
+    p {
+        margin: 0;
+        margin-right: 1rem;
+    }
 
-            a {
-                display: flex;
-                align-items: center;
-                color: $darkSecondary;
-                text-decoration: none;
-                cursor: pointer;
-                font-weight: 600;
+    a {
+        display: flex;
+        align-items: center;
+        color: $darkSecondary;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 600;
 
-                .githubIcon {
-                    margin: 0;
-                }
-            }
+        .githubIcon {
+            margin: 0;
         }
     }
 }

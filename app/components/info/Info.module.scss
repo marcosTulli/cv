@@ -7,11 +7,12 @@
     margin: 1;
     padding: 2rem;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
 
     .infoGrid {
         display: grid;
-        grid-template-columns: repeat(4, 4fr);
+        grid-template-columns: repeat(4, 1fr);
         align-items: center;
 
         @include respond-to(lg) {
