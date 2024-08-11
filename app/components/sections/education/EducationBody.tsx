@@ -1,13 +1,13 @@
 import React from 'react';
-import { useIsLoadingSections, useLanguage } from '@/app/hooks';
+import { useIsLoadingSections } from '@/app/hooks';
 import { useEducation } from '@/app/hooks/queries';
-import { userStore } from '@/app/store';
+import { languageStore, userStore } from '@/app/store';
 import styles from './Education.module.scss';
 import { LoadableSections } from '@/app/models/enums';
 
 const EducationBody = () => {
     const { user } = userStore();
-    const { currentLanguage } = useLanguage();
+    const { currentLanguage } = languageStore();
     const { data: education, isLoading: isLoadingEducation } = useEducation({ id: user._id, lang: currentLanguage });
     const { handleLoad } = useIsLoadingSections();
 

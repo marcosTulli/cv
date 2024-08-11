@@ -17,7 +17,7 @@ const initialState = {
     isChecked: false
 };
 
-const useLanguage = create<ILanguage>((set) => ({
+const languageStore = create<ILanguage>((set) => ({
     ...initialState,
     setLang: (newLang: Language) => {
         const strings = newLang === Language.EN ? en : es;
@@ -25,5 +25,5 @@ const useLanguage = create<ILanguage>((set) => ({
     },
 }));
 
-export default useLanguage;
+export default languageStore;
 

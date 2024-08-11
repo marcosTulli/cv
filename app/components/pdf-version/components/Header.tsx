@@ -1,11 +1,10 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { useLanguage } from '@/app/hooks';
 import styles from '../SignlePageTemplate.module.scss';
-import { userStore } from '@/app/store';
+import { languageStore, userStore } from '@/app/store';
 
 const Header: React.FC = () => {
-    const { strings } = useLanguage();
+    const { strings } = languageStore();
     const { user } = userStore();
     return (
 

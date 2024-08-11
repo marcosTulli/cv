@@ -1,12 +1,12 @@
 import React from 'react';
 import { Typography, } from '@mui/material';
-import { useLanguage } from '@/app/hooks';
+import { languageStore } from '@/app/store';
 import { useSkills } from '@/app/hooks/queries';
 import styles from '../SignlePageTemplate.module.scss';
 import { userStore } from '@/app/store';
 
 const Skills: React.FC = () => {
-    const { strings } = useLanguage();
+    const { strings } = languageStore();
     const { user } = userStore();
     const { data: skills } = useSkills({ id: user._id });
     return (

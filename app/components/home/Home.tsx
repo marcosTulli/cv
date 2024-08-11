@@ -1,9 +1,8 @@
 'use client';
 import * as React from 'react';
 import { useUser } from '@/app/hooks/queries';
-import { userStore } from '@/app/store';
+import { userStore, languageStore } from '@/app/store';
 import { IUser } from '@/app/models/interfaces';
-import { useLanguage } from '@/app/hooks';
 
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
@@ -16,7 +15,7 @@ import { LoadableSections } from '@/app/models/enums';
 
 export default function Home() {
     const userID = process.env.NEXT_PUBLIC_USER_ID || '';
-    const { currentLanguage } = useLanguage();
+    const { currentLanguage } = languageStore();
     const { handleLoad } = useIsLoadingSections();
     const { data: user, isLoading: isLoadingUser } = useUser({ lang: currentLanguage, id: userID });
     const { setUser } = userStore();

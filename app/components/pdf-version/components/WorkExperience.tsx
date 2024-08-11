@@ -1,13 +1,13 @@
 import React from 'react';
 import { Typography, } from '@mui/material';
-import { useLanguage } from '@/app/hooks';
 import { useWorkExperience } from '@/app/hooks/queries';
 import styles from '../SignlePageTemplate.module.scss';
 import { userStore } from '@/app/store';
 import { IExperience } from '@/app/models/interfaces';
+import { languageStore } from '@/app/store';
 
 const WorkExperience: React.FC = () => {
-    const { strings, currentLanguage } = useLanguage();
+    const { strings, currentLanguage } = languageStore();
     const { user } = userStore();
     const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
     const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];

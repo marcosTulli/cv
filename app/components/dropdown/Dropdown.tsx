@@ -3,13 +3,13 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import ListItemText from '@mui/material/ListItemText';
-import { useLanguage } from '@/app/hooks';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import CodeIcon from '@mui/icons-material/Code';
 import styles from './Dropdown.module.scss';
 import { Divider } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMediaQuery } from '@mui/material';
+import { languageStore } from '@/app/store';
 
 
 interface IDropdownMenuProps {
@@ -19,7 +19,7 @@ interface IDropdownMenuProps {
 const url = process.env.NEXT_PUBLIC_URL || '';
 
 const Dropdown: React.FC<IDropdownMenuProps> = ({ handleClose }) => {
-    const { currentLanguage, strings } = useLanguage();
+    const { currentLanguage, strings } = languageStore();
     const [displayCopyConfirmation, setDisplayCopyConfirmation] = React.useState<boolean>(true);
     const fileName = `${strings.cv}${currentLanguage}`;
     const filePath = `${url}${fileName}.pdf`;

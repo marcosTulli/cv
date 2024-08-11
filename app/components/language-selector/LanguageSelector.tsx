@@ -1,6 +1,6 @@
 import React from 'react';
 import { Language } from '@/app/models/enums';
-import { useLanguage } from '@/app/hooks';
+import { languageStore } from '@/app/store';
 import { userStore } from '@/app/store';
 import style from './LanguageSelector.module.scss';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const LanguageSelector = () => {
-    const { setLang, currentLanguage } = useLanguage();
+    const { setLang, currentLanguage } = languageStore();
     const { user } = userStore();
 
     const handleClick = (language: Language) => {

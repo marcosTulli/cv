@@ -26,7 +26,6 @@ interface HoverState {
 }
 
 const Info = () => {
-    // const { strings } = useLanguage();
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
     const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const isMobile = useMediaQuery('(max-width: 500px)');

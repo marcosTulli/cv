@@ -3,12 +3,13 @@ import styles from './NavBar.module.scss';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import useScroll from '@/app/components/nav-bar/hooks/useScroll';
 import { Sections } from '@/app/models/enums';
-import { useIsLoadingSections, useLanguage } from '@/app/hooks';
+import { useIsLoadingSections } from '@/app/hooks';
 import useDownload from './hooks/useDownload';
+import { languageStore } from '@/app/store';
 
 const NavBar: React.FC = () => {
     const { scroll } = useScroll();
-    const { strings } = useLanguage();
+    const { strings } = languageStore();
     const sections = Object.keys(Sections).filter((i) =>
         i !== Sections.Header && i !== Sections.PrintableTemplate
     );

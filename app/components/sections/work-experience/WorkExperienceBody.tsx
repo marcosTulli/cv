@@ -2,13 +2,13 @@ import React from 'react';
 import JobCard from './job-card/JobCard';
 import styles from './WorkExperience.module.scss';
 import { useWorkExperience } from '@/app/hooks/queries';
-import { userStore } from '@/app/store';
+import { languageStore, userStore } from '@/app/store';
 import { IExperience } from '@/app/models/interfaces';
-import { useIsLoadingSections, useLanguage } from '@/app/hooks';
+import { useIsLoadingSections } from '@/app/hooks';
 import { LoadableSections } from '@/app/models/enums';
 
 const WorkExperienceBody = () => {
-    const { currentLanguage } = useLanguage();
+    const { currentLanguage } = languageStore();
     const { user } = userStore();
     const { data, isLoading: isLoadingWorkExperience } = useWorkExperience({ id: user._id, lang: currentLanguage });
     const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
