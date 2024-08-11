@@ -9,5 +9,9 @@
         display: flex;
         gap: 1rem;
         padding-top: 1rem;
+
+        .icon {
+            justify-content: center;
+        }
     }
 }

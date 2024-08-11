@@ -16,6 +16,7 @@ const Social: React.FC = () => {
                 title={user.network.linkedin.url}
             >
                 <LinkedInIcon
+                    className={styles.icon}
                     style={{ marginRight: '0.4rem' }}
                 />
                 <p>{user.network.linkedin.display}</p>
@@ -26,6 +27,7 @@ const Social: React.FC = () => {
                 title={user.network.github.url}
             >
                 <GitHubIcon
+                    className={styles.icon}
                     style={{ marginRight: '0.4rem' }}
                 />
                 <p>{user.network.github.display}</p>

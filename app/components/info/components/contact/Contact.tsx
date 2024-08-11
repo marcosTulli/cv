@@ -10,11 +10,15 @@ const Contact: React.FC = () => {
     return (
         <div className={styles.contactInfoContainer}>
             <div className={styles.contact}>
-                <LocalPhoneOutlinedIcon />
+                <LocalPhoneOutlinedIcon
+                    className={styles.icon}
+                />
                 <div>{user.phone}</div>
             </div>
             <div className={styles.contact}>
-                <EmailOutlinedIcon />
+                <EmailOutlinedIcon
+                    className={styles.icon}
+                />
                 <div>{user.email}</div>
             </div>
         </div>

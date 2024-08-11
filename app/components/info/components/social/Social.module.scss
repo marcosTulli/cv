@@ -16,14 +16,10 @@
 
     a {
         display: flex;
+        gap: 1rem;
         align-items: center;
         color: $darkSecondary;
         text-decoration: none;
         cursor: pointer;
-        font-weight: 600;
-
-        .githubIcon {
-            margin: 0;
-        }
     }
 }
