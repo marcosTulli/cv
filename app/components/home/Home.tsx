@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { useUsers, useUser } from '@/app/hooks/queries';
+import { useUser } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 import { IUser } from '@/app/models/interfaces';
 import { useLanguage } from '@/app/hooks';
@@ -10,24 +10,34 @@ import Header from '../header/Header';
 import { Education, WorkExperience, Skills } from '../sections';
 import { PrintableTemplate } from '../pdf-version/PrintableTemplate';
 import useDownload from '../nav-bar/hooks/useDownload';
+import { useIsLoadingSections } from '@/app/hooks';
+import { LoadableSections } from '@/app/models/enums';
+
 
 export default function Home() {
-    const { data: users } = useUsers();
+    const userID = process.env.NEXT_PUBLIC_USER_ID || '';
     const { currentLanguage } = useLanguage();
-    // This will change when I implement login, and/or user selection. 
-    const userId = users ? users[0]._id : '';;
-    const { data: user } = useUser({ lang: currentLanguage, id: userId });
+    const { handleLoad } = useIsLoadingSections();
+    const { data: user, isLoading: isLoadingUser } = useUser({ lang: currentLanguage, id: userID });
     const { setUser } = userStore();
     const { downloadRef } = useDownload();
 
     React.useEffect(() => {
-        if (currentLanguage && users && users?.length > 0) {
+        handleLoad({
+            sectionName: LoadableSections.isLoadingUser,
+            isLoading: isLoadingUser
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoadingUser]);
+
+    React.useEffect(() => {
+        if (currentLanguage) {
             if (user !== undefined) {
                 setUser(user as IUser);
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [users, user, currentLanguage]);
+    }, [user, currentLanguage]);
 
 
     return (

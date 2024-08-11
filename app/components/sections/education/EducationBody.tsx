@@ -1,13 +1,23 @@
 import React from 'react';
-import { useLanguage } from '@/app/hooks';
+import { useIsLoadingSections, useLanguage } from '@/app/hooks';
 import { useEducation } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 import styles from './Education.module.scss';
+import { LoadableSections } from '@/app/models/enums';
 
 const EducationBody = () => {
     const { user } = userStore();
     const { currentLanguage } = useLanguage();
-    const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
+    const { data: education, isLoading: isLoadingEducation } = useEducation({ id: user._id, lang: currentLanguage });
+    const { handleLoad } = useIsLoadingSections();
+
+    React.useEffect(() => {
+        handleLoad({
+            sectionName: LoadableSections.isLoadingEducation,
+            isLoading: isLoadingEducation
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoadingEducation]);
 
     return (
         <div className={`${styles.flexGrid} py-12 ${styles.gridTwoCols}`}>

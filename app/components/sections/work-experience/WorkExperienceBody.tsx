@@ -4,14 +4,23 @@ import styles from './WorkExperience.module.scss';
 import { useWorkExperience } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 import { IExperience } from '@/app/models/interfaces';
-import { useLanguage } from '@/app/hooks';
-
+import { useIsLoadingSections, useLanguage } from '@/app/hooks';
+import { LoadableSections } from '@/app/models/enums';
 
 const WorkExperienceBody = () => {
     const { currentLanguage } = useLanguage();
     const { user } = userStore();
-    const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
+    const { data, isLoading: isLoadingWorkExperience } = useWorkExperience({ id: user._id, lang: currentLanguage });
     const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
+    const { handleLoad } = useIsLoadingSections();
+
+    React.useEffect(() => {
+        handleLoad({
+            sectionName: LoadableSections.isLoadingWorkExperience,
+            isLoading: isLoadingWorkExperience
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoadingWorkExperience]);
 
     return (
         <div className={`${styles.flexGrid} py-12 ${styles.gridTwoCols}`}>

@@ -10,6 +10,7 @@ const Skills: React.FC = () => {
     const { strings } = useLanguage();
     const { sectionRef } = useSectionRef({ sectionName: Sections.Skills });
 
+
     return (
         <section
             ref={sectionRef}
