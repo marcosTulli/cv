@@ -1,0 +1,21 @@
+.profilePicture {
+    padding-top: 1rem;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    object-fit: cover;
+    position: relative;
+
+    img {
+        width: 110%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.75rem 0 0 0.75rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+}

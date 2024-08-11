@@ -1,247 +1,26 @@
 @import '../../styles/global.scss';
 
 .info {
-    font-family: $defaultCourier ;
-    flex-direction: column;
-    color: $darkSecondary;
-    margin: 0;
-    padding: 0;
     display: flex;
+    font-family: $defaultCourier;
+    color: $darkSecondary;
+    margin: 1;
+    padding: 2rem;
     flex-direction: row;
     justify-content: center;
-    padding-top: 1rem;
 
-
-    .infoHeader {
-        justify-content: space-between;
-        font-size: 12px;
-        margin-left: 0;
-        padding-left: 0;
-    }
-
-
-    .profilePicture {
-        padding-top: 1rem;
-        width: 9rem;
-        height: 9rem;
-        border-radius: 100%;
-        overflow: hidden;
-        display: flex;
-        object-fit: cover;
-        position: relative;
-
-        img {
-            width: 110%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0.75rem 0 0 0.75rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
-    }
-
-    // .actions {
-    //     align-content: center;
-    //     // padding:0;
-
-    //     div {
-    //         button {
-    //             background-color: transparent;
-    //             border: none;
-    //             cursor: pointer;
-
-    //         }
-    //     }
-    // }
-
-    .contactInfo {
-        margin-top: 1rem;
-        list-style: none;
-        padding: 0;
-
-        ul {
-            padding-inline-start: 0;
-        }
-
-        li {
-            font-size: small;
-            display: flex;
-            align-items: center;
-
-            p {
-                margin: 6px 0;
-            }
-
-            img {
-                margin-right: 0.5rem;
-            }
-        }
-
-        div {
-            display: flex;
-            align-items: center;
-            margin-left: 0;
-            padding-left: 0;
-
-            p {
-                margin: 0;
-                margin-right: 1rem;
-            }
-        }
-
-    }
-
-    .others {
-        display: flex;
+    .infoGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 4fr);
         align-items: center;
 
-
-        div {
-            margin: 0.55rem;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
+        @include respond-to(lg) {
+            grid-template-columns: repeat(2, 2fr);
         }
 
-        .links {
-            display: flex;
-            gap: 1rem;
-            flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            color: $darkSecondary;
-            margin-left: -3px;
-
-            p {
-                margin: 0;
-                margin-right: 1rem;
-            }
-
-            a {
-                display: flex;
-                align-items: center;
-                color: $darkSecondary;
-                text-decoration: none;
-                cursor: pointer;
-                font-weight: 600;
-
-                .githubIcon {
-                    margin: 0;
-                }
-            }
+        @include respond-to(md) {
+            grid-template-columns: repeat(1, 1fr);
         }
+
     }
-
-
-
-    // .copyAlert {
-    //     border-radius: 0.25rem;
-    // }
-
-    //     .copyButtonContainer {
-    //         padding: 0;
-    //         margin: 0;
-    //         display: flex;
-
-    //         .copy {
-    //             padding-left: 2rem;
-    //             background-color: transparent;
-    //             border: none;
-    //             cursor: pointer;
-    //         }
-    //     }
 }
-
-// @media (max-width: 500px) {
-//     .info {
-//         display: flex;
-//         flex-direction: column;
-
-//         .actions {
-//             margin: 0;
-
-//         }
-
-//         .infoHeader {
-//             font-size: 11px;
-//         }
-
-
-
-//         .contactInfo li,
-//         .languageContainer a,
-//         .links a {
-//             font-size: 11px;
-//         }
-
-//         .profilePicture {
-//             width: 6rem;
-//             height: 6rem;
-//             box-shadow: 10px 10px 0px 0px $green;
-//             border-radius: 0.75rem;
-//             overflow: hidden;
-//             display: flex;
-//             object-fit: cover;
-//             position: relative;
-
-//             img {
-//                 width: 110%;
-//                 height: 100%;
-//                 object-fit: cover;
-//                 border-radius: 0.75rem 0 0 0.75rem;
-//                 position: absolute;
-//                 top: 0;
-//                 left: 0;
-//                 z-index: 1;
-//             }
-//         }
-
-//         .contactInfo {
-//             margin: 0;
-//             padding: 0;
-//             gap: 0;
-//             display: flex;
-
-
-//             ul {
-//                 display: flex;
-//                 flex-wrap: wrap;
-//                 justify-content: space-between;
-//                 margin-bottom: 0;
-//             }
-
-//             li {
-//                 width: 50%;
-//             }
-
-//             .languageContainer {
-//                 gap: 0;
-//                 margin: 0;
-//                 padding: 0;
-
-//                 display: flex;
-//                 // gap: 0.5rem;
-//             }
-
-//             .links {
-//                 width: 90%;
-//                 margin-top: 0.5rem;
-
-//             }
-
-//             div {
-//                 margin: 0;
-//                 padding: 0;
-//                 gap: 0;
-//             }
-
-//         }
-
-//         .infoHeader {
-//             padding: 0;
-//             margin: 0
-//         }
-
-//     }
-// }
