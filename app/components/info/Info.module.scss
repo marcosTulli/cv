@@ -1,16 +1,22 @@
 @import '../../styles/global.scss';
 
 .info {
-    font-family: $defaultFont ;
+    font-family: $defaultCourier ;
     flex-direction: column;
+    color: $darkSecondary;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 1rem;
+
 
     .infoHeader {
-        display: flex;
         justify-content: space-between;
         font-size: 12px;
         margin-left: 0;
         padding-left: 0;
-
     }
 
     .dropdown {
@@ -23,8 +29,7 @@
         padding-top: 1rem;
         width: 9rem;
         height: 9rem;
-        box-shadow: 15px 15px 0px 0px $green;
-        border-radius: 0.75rem;
+        border-radius: 100%;
         overflow: hidden;
         display: flex;
         object-fit: cover;
@@ -106,7 +111,6 @@
                 align-items: center;
                 text-decoration: none;
                 cursor: pointer;
-                color: $defaultBlack;
                 font-weight: 600;
 
                 .githubIcon {
@@ -134,6 +138,7 @@
         display: flex;
         align-items: center;
 
+
         div {
             padding: 0;
             margin: 0;
@@ -144,9 +149,9 @@
             display: flex;
             align-items: center;
             padding: 0;
+            color: $darkSecondary;
             margin: 0;
             text-decoration: none;
-            color: $defaultBlack;
             font-weight: 500;
         }
     }
@@ -175,95 +180,95 @@
     }
 }
 
-@media (max-width: 500px) {
-    .info {
-        display: flex;
-        flex-direction: column;
+// @media (max-width: 500px) {
+//     .info {
+//         display: flex;
+//         flex-direction: column;
 
-        .actions {
-            margin: 0;
+//         .actions {
+//             margin: 0;
 
-        }
+//         }
 
-        .infoHeader {
-            font-size: 11px;
-        }
-
-
-
-        .contactInfo li,
-        .languageContainer a,
-        .links a {
-            font-size: 11px;
-        }
-
-        .profilePicture {
-            width: 6rem;
-            height: 6rem;
-            box-shadow: 10px 10px 0px 0px $green;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            display: flex;
-            object-fit: cover;
-            position: relative;
-
-            img {
-                width: 110%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 0.75rem 0 0 0.75rem;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
-        }
-
-        .contactInfo {
-            margin: 0;
-            padding: 0;
-            gap: 0;
-            display: flex;
+//         .infoHeader {
+//             font-size: 11px;
+//         }
 
 
-            ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin-bottom: 0;
-            }
 
-            li {
-                width: 50%;
-            }
+//         .contactInfo li,
+//         .languageContainer a,
+//         .links a {
+//             font-size: 11px;
+//         }
 
-            .languageContainer {
-                gap: 0;
-                margin: 0;
-                padding: 0;
+//         .profilePicture {
+//             width: 6rem;
+//             height: 6rem;
+//             box-shadow: 10px 10px 0px 0px $green;
+//             border-radius: 0.75rem;
+//             overflow: hidden;
+//             display: flex;
+//             object-fit: cover;
+//             position: relative;
 
-                display: flex;
-                // gap: 0.5rem;
-            }
+//             img {
+//                 width: 110%;
+//                 height: 100%;
+//                 object-fit: cover;
+//                 border-radius: 0.75rem 0 0 0.75rem;
+//                 position: absolute;
+//                 top: 0;
+//                 left: 0;
+//                 z-index: 1;
+//             }
+//         }
 
-            .links {
-                width: 90%;
-                margin-top: 0.5rem;
+//         .contactInfo {
+//             margin: 0;
+//             padding: 0;
+//             gap: 0;
+//             display: flex;
 
-            }
 
-            div {
-                margin: 0;
-                padding: 0;
-                gap: 0;
-            }
+//             ul {
+//                 display: flex;
+//                 flex-wrap: wrap;
+//                 justify-content: space-between;
+//                 margin-bottom: 0;
+//             }
 
-        }
+//             li {
+//                 width: 50%;
+//             }
 
-        .infoHeader {
-            padding: 0;
-            margin: 0
-        }
+//             .languageContainer {
+//                 gap: 0;
+//                 margin: 0;
+//                 padding: 0;
 
-    }
-}
+//                 display: flex;
+//                 // gap: 0.5rem;
+//             }
+
+//             .links {
+//                 width: 90%;
+//                 margin-top: 0.5rem;
+
+//             }
+
+//             div {
+//                 margin: 0;
+//                 padding: 0;
+//                 gap: 0;
+//             }
+
+//         }
+
+//         .infoHeader {
+//             padding: 0;
+//             margin: 0
+//         }
+
+//     }
+// }

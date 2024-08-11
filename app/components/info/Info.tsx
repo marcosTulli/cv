@@ -4,8 +4,6 @@ import Image from "next/image";
 import { CopyAlert } from './CopyAlert';
 import copy from "copy-to-clipboard";
 import styles from './Info.module.scss';
-import MenuIcon from '@mui/icons-material/Menu';
-import Dropdown from '@/app/components/dropdown/Dropdown';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
@@ -15,7 +13,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { useMediaQuery } from '@mui/material';
 import { useContactInfo } from '@/app/hooks';
 import { userStore } from '@/app/store';
-import LanguageSelector from '../language-selector/LanguageSelector';
 import Languages from './language-section/Languages';
 
 interface HoverState {
@@ -27,7 +24,6 @@ interface HoverState {
 
 const Info = () => {
     const [hoverItem, setHoverItem] = React.useState<HoverState | undefined>();
-    const [displayMenu, setDisplayMenu] = React.useState<boolean>(false);
     const isMobile = useMediaQuery('(max-width: 500px)');
     const contactInfo = useContactInfo();
     const { user } = userStore();
@@ -73,9 +69,9 @@ const Info = () => {
         setHoverItem((i) => i ? { ...i, isCopied } : i);
     };
 
-    const handleMenuClick = () => {
-        setDisplayMenu(!displayMenu);
-    };
+    // const handleMenuClick = () => {
+    //     setDisplayMenu(!displayMenu);
+    // };
 
     const handleIcons = (iconName: string) => {
         const icons = {
@@ -101,36 +97,13 @@ const Info = () => {
     return (
         <div className={styles.info}>
             <div className={styles.infoHeader}>
-                {
-                    !isMobile &&
-                    <div className={styles.profilePicture}>
-                        <Image
-                            src="/profile-picture.jpeg"
-                            alt="profile picture"
-                            width={300}
-                            height={300}
-                        />
-                    </div>
-                }
-
-                <div className={styles.actions}>
-                    {
-                        !isMobile &&
-                        <div style={{ padding: '0', margin: '0', }}>
-                            <LanguageSelector />
-                            <button onClick={handleMenuClick}>
-                                <MenuIcon />
-                            </button>
-                            {
-                                displayMenu &&
-                                <div className={styles.dropdown}
-                                    onMouseLeave={() => setDisplayMenu(false)}
-                                >
-                                    <Dropdown />
-                                </div>
-                            }
-                        </div>
-                    }
+                <div className={styles.profilePicture}>
+                    <Image
+                        src="/profile.png"
+                        alt="profile picture"
+                        width={300}
+                        height={300}
+                    />
                 </div>
             </div>
             <div className={styles.contactInfo}>

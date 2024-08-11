@@ -4,6 +4,8 @@
     text-align: center;
     color: $darkSecondary;
     padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
 
     .sectionTitle {
         font-size: 2rem;
