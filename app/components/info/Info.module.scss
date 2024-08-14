@@ -12,9 +12,8 @@
     flex-grow: 1;
 
     .infoGrid {
-        display: flex;
-        // display: grid;
-        // grid-template-columns: repeat(4, 1fr);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         align-items: center;
         width: max-content;
 

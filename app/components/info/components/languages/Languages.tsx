@@ -9,15 +9,13 @@ const Languages = ({ }) => {
 
     return (
         <Container className={styles.languageContainer}>
-            <div>
-                {
-                    user.info.languages?.map((i) => {
-                        return (
-                            <Language key={i.language} language={i} />
-                        );
-                    })
-                }
-            </div>
+            {
+                user.info.languages?.map((i) => {
+                    return (
+                        <Language key={i.language} language={i} />
+                    );
+                })
+            }
         </Container>
 
     );
