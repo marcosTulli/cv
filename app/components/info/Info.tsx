@@ -13,8 +13,8 @@ const Info: React.FC = () => {
             <div className={styles.infoGrid}>
                 <ProfilePicture />
                 <Contact />
-                <Languages />
                 <Social />
+                <Languages />
             </div>
         </div>
     );

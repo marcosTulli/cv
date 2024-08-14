@@ -4,10 +4,11 @@
     display: flex;
     gap: 1rem;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     color: $darkSecondary;
     margin-left: -3px;
+
 
     p {
         margin: 0;
@@ -21,5 +22,9 @@
         color: $darkSecondary;
         text-decoration: none;
         cursor: pointer;
+
+        @include respond-to(md) {
+            padding-top: 0.5rem;
+        }
     }
 }

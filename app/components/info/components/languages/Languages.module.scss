@@ -1,12 +1,17 @@
 @import '../../../../styles/global.scss';
 
 .languageContainer {
-    display: flex;
-    justify-self: center;
 
-    a {
-        cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    max-height: min-content;
+    // width: 100px !important;
+
+    .language {
         display: flex;
+        flex-direction: row;
+        cursor: pointer;
         gap: 1rem;
         align-items: center;
         justify-self: center;
@@ -17,9 +22,9 @@
         img {
             justify-self: center;
         }
-    }
 
-    @include respond-to(md) {
-        justify-self: start;
+        @include respond-to(md) {
+            justify-self: flex-start;
+        }
     }
 }

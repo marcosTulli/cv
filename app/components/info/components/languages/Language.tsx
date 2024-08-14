@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { ILanguage } from '@/app/models/interfaces';
 import { icons } from '@/app/utils';
 import { useIconKey, useIcons } from '@/app/hooks/queries';
-import { languageStore } from '@/app/store';
 import styles from './Languages.module.scss';
 
 interface ILanguageProps {
@@ -12,7 +11,6 @@ interface ILanguageProps {
 
 }
 const Language: React.FC<ILanguageProps> = ({ language }) => {
-    const { strings } = languageStore();
     const [fileKey, setFileKey] = React.useState("");
     const { data: key } = useIconKey({ name: language.flag });
     const { data: icon } = useIcons({ fileKey: fileKey });
@@ -24,12 +22,7 @@ const Language: React.FC<ILanguageProps> = ({ language }) => {
     }, [key]);
 
     return (
-        <a
-            title="View certification"
-            href={strings.englishCertificate}
-            target='_blank'
-            key={language.language}
-        >
+        <div className={styles.language}>
             <Image
                 src={icon ? icon : ''}
                 alt="english"
@@ -39,7 +32,7 @@ const Language: React.FC<ILanguageProps> = ({ language }) => {
 
             />
             <p>{language.level}</p>
-        </a>
+        </div>
 
     );
 };
