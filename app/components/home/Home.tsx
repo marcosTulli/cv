@@ -47,8 +47,11 @@ export default function Home() {
             sx={{
                 height: '100vh',
                 width: '100vw',
+                minHeight: '100%',
+                minWidth: '100%',
                 display: 'flex',
                 flexDirection: 'column',
+                flexGrow: '1'
             }}
         >
             <Header />

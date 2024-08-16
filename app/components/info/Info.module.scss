@@ -8,7 +8,9 @@
     align-items: center;
     justify-content: center;
     margin: 0;
-    flex-grow: 1;
+    height: 100vh;
+    // flex-grow: 1;
+
 
     .infoGrid {
         display: grid;
