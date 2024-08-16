@@ -2,13 +2,12 @@
 
 .info {
     display: flex;
+    background-color: $defaultBlack;
     font-family: $defaultCourier;
     color: $darkSecondary;
-    margin: 1;
-    padding: 2rem;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin: 0;
     flex-grow: 1;
 
     .infoGrid {

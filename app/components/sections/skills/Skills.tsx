@@ -19,6 +19,7 @@ const Skills: React.FC = () => {
             <SectionHeader
                 title={strings.skills}
                 description={strings.skillsDescription}
+                isLoading={true}
             />
             <SkillsBody />
         </section>

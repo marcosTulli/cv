@@ -11,14 +11,15 @@ import { PrintableTemplate } from '../pdf-version/PrintableTemplate';
 import useDownload from '../nav-bar/hooks/useDownload';
 import { useIsLoadingSections } from '@/app/hooks';
 import { LoadableSections } from '@/app/models/enums';
-
+import Info from '../info/Info';
+import { Box } from '@mui/material';
 
 export default function Home() {
     const userID = process.env.NEXT_PUBLIC_USER_ID || '';
     const { currentLanguage } = languageStore();
     const { handleLoad } = useIsLoadingSections();
     const { data: user, isLoading: isLoadingUser } = useUser({ lang: currentLanguage, id: userID });
-    const { setUser } = userStore();
+    const { setUser, setIsLoadingUser } = userStore();
     const { downloadRef } = useDownload();
 
     React.useEffect(() => {
@@ -26,6 +27,7 @@ export default function Home() {
             sectionName: LoadableSections.isLoadingUser,
             isLoading: isLoadingUser
         });
+        setIsLoadingUser(isLoadingUser);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoadingUser]);
 
@@ -35,18 +37,27 @@ export default function Home() {
                 setUser(user as IUser);
             }
         }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user, currentLanguage]);
+    }, [user, currentLanguage, isLoadingUser]);
 
 
     return (
-        <div >
+        <Box
+            sx={{
+                height: '100vh',
+                width: '100vw',
+                display: 'flex',
+                flexDirection: 'column',
+            }}
+        >
             <Header />
+            <Info />
             <WorkExperience />
             <Education />
             <Skills />
             <Footer />
             <PrintableTemplate ref={downloadRef} />
-        </div>
+        </Box>
     );
 }

@@ -25,12 +25,16 @@ const initialState: IUser = {
 
 interface IUserStore {
     user: IUser,
+    isLoadingUser: boolean,
     setUser: (user: IUser) => void;
+    setIsLoadingUser: (isLoading: boolean) => void;
 }
 
 export const userStore = create<IUserStore>()((set) => ({
     user: initialState,
-    setUser: (user: IUser) => set({ user })
+    isLoadingUser: true,
+    setUser: (user: IUser) => set({ user }),
+    setIsLoadingUser: (isLoading) => set({ isLoadingUser: isLoading }),
 }));
 
 export default userStore;

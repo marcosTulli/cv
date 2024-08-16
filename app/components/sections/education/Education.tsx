@@ -18,6 +18,7 @@ const Education: React.FC = () => {
             <SectionHeader
                 title={strings.education}
                 description={strings.educationDescription}
+                isLoading={true}
             />
             <EducationBody />
         </section>

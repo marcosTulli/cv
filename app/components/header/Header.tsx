@@ -7,7 +7,7 @@ import { Sections } from '@/app/models/enums';
 import useSectionRef from '../sections/hooks/useSectionRef';
 
 const Header: React.FC = () => {
-    const { user } = userStore();
+    const { user, isLoadingUser } = userStore();
     const { sectionRef } = useSectionRef({ sectionName: Sections.Header });
 
     return (
@@ -19,6 +19,7 @@ const Header: React.FC = () => {
             <SectionHeader
                 title={user.name}
                 description={user.info.candidateTitle}
+                isLoading={isLoadingUser}
                 pageHeader
             />
         </section >

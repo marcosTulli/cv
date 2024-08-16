@@ -5,6 +5,7 @@
     color: $darkSecondary;
     padding-top: 2rem;
     display: flex;
+    margin: 0;
     flex-direction: column;
     align-content: center;
     width: 100%;
@@ -28,6 +29,10 @@
         max-width: 900px;
         margin: 0 auto;
         font-size: 1.125rem;
+    }
+
+    .skeleton {
+        background-color: red;
     }
 
 }

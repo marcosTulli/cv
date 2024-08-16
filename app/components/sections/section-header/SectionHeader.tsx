@@ -1,28 +1,25 @@
 import React from 'react';
 import styles from './SectionHeader.module.scss';
-import Info from '../../info/Info';
+import { Container, Skeleton } from '@mui/material';
+
 
 interface ISectionHeaderProps {
     title: string | undefined;
     description: string | undefined;
+    isLoading: boolean;
     pageHeader?: boolean;
 }
-const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, pageHeader }) => {
+const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, isLoading, pageHeader }) => {
 
     return (
-        <div className={styles.sectionHeader}>
+        <Container className={styles.sectionHeader}>
             <div>
                 <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`} >{title}</div>
                 <p className={styles.sectionDescription}>
                     {description}
                 </p>
             </div>
-            {
-                pageHeader && (
-                    <Info />
-                )
-            }
-        </div>
+        </Container>
     );
 };
 

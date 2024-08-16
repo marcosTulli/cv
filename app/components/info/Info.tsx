@@ -8,7 +8,6 @@ import ProfilePicture from './components/profile-picture/ProfilePicture';
 
 const Info: React.FC = () => {
     return (
-
         <div className={styles.info}>
             <div className={styles.infoGrid}>
                 <ProfilePicture />

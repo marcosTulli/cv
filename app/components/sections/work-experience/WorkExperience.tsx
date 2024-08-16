@@ -15,6 +15,7 @@ const WorkExperience: React.FC = () => {
             <SectionHeader
                 title={strings.workExperience}
                 description={strings.workExperienceDescription}
+                isLoading={true}
             />
             <WorkExperienceBody />
         </section>
