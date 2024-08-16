@@ -2,4 +2,6 @@
 
 .headerContainer {
     background-color: $defaultBlack;
+    display: flex;
+    justify-content: center;
 }

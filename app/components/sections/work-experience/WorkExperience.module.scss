@@ -3,9 +3,13 @@
 .section {
     background-color: $darkMain;
     padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .flexGrid {
-        display: grid;
+        display: flex;
+        justify-content: center;
         gap: 1.5rem;
     }
 }
