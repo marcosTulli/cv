@@ -13,6 +13,25 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, isLo
 
     return (
         <Container className={styles.sectionHeader}>
+            {isLoading && (
+                <div>
+                    <div
+                        className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`}
+                    >
+                        <Skeleton
+                            className={styles.skeleton}
+                            sx={{ bgcolor: 'grey.600' }}
+                            variant="rectangular"
+                            width={210}
+                            height={20}
+                        />
+                    </div>
+                    <p className={styles.sectionDescription}>
+                        <Skeleton />
+                    </p>
+
+                </div>
+            )}
             <div>
                 <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`} >{title}</div>
                 <p className={styles.sectionDescription}>
