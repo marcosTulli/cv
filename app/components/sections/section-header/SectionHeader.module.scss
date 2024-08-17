@@ -1,6 +1,5 @@
 @import '../../../styles/global.scss';
 
-.skeleton,
 .sectionHeader {
     text-align: center;
     color: $darkSecondary;
@@ -11,7 +10,6 @@
     align-content: center;
     width: 100%;
 
-    .skeleton,
     .sectionTitle {
         font-size: 2rem;
     }
@@ -20,14 +18,12 @@
         font-size: 3rem;
     }
 
-    .skeleton,
     .pageTitle,
     .sectionTitle {
         font-family: $defaultCalibri;
         font-weight: bold;
     }
 
-    .skeleton,
     .sectionDescription {
         font-family: $defaultCourier;
         max-width: 900px;
