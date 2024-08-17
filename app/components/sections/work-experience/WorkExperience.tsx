@@ -2,22 +2,36 @@ import React from 'react';
 import styles from "./WorkExperience.module.scss";
 import WorkExperienceBody from './WorkExperienceBody';
 import SectionHeader from '../section-header/SectionHeader';
-import { Sections } from '@/app/models/enums';
+import { LoadableSections, Sections } from '@/app/models/enums';
 import useSectionRef from '../hooks/useSectionRef';
-import { languageStore } from '@/app/store';
+import { languageStore, userStore } from '@/app/store';
+import { useWorkExperience } from '@/app/hooks/queries';
+import { useIsLoadingSections } from '@/app/hooks';
 
 const WorkExperience: React.FC = () => {
-    const { strings } = languageStore();
+    const { strings, currentLanguage } = languageStore();
+    const { user, isLoadingUser } = userStore();
+    const { data, isLoading: isLoadingWorkExperience } = useWorkExperience({ id: user._id, lang: currentLanguage });
     const { sectionRef } = useSectionRef({ sectionName: Sections.WorkExperience });
+    const { handleLoad } = useIsLoadingSections();
+
+    React.useEffect(() => {
+        handleLoad({
+            sectionName: LoadableSections.isLoadingWorkExperience,
+            isLoading: isLoadingWorkExperience
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoadingWorkExperience]);
+
 
     return (
         <section ref={sectionRef} className={styles.section}>
             <SectionHeader
                 title={strings.workExperience}
                 description={strings.workExperienceDescription}
-                isLoading={true}
+                isLoading={isLoadingWorkExperience || isLoadingUser}
             />
-            <WorkExperienceBody />
+            <WorkExperienceBody data={data?.experiences} />
         </section>
 
     );
