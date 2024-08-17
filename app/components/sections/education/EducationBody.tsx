@@ -1,28 +1,16 @@
-import React from 'react';
-import { useIsLoadingSections } from '@/app/hooks';
-import { useEducation } from '@/app/hooks/queries';
-import { languageStore, userStore } from '@/app/store';
+import * as React from 'react';
 import styles from './Education.module.scss';
-import { LoadableSections } from '@/app/models/enums';
+import { IEducation } from '@/app/models/interfaces';
 
-const EducationBody = () => {
-    const { user } = userStore();
-    const { currentLanguage } = languageStore();
-    const { data: education, isLoading: isLoadingEducation } = useEducation({ id: user._id, lang: currentLanguage });
-    const { handleLoad } = useIsLoadingSections();
-
-    React.useEffect(() => {
-        handleLoad({
-            sectionName: LoadableSections.isLoadingEducation,
-            isLoading: isLoadingEducation
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLoadingEducation]);
+interface IEdcuationBody {
+    data?: IEducation[],
+}
+const EducationBody: React.FC<IEdcuationBody> = ({ data }) => {
 
     return (
         <div className={styles.gridContainer}>
             <div className={styles.educationGrid}>
-                {education?.map((school) => (
+                {data?.map((school) => (
                     <div
                         key={school.id}
                         className={styles.education}

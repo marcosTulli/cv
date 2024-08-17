@@ -2,13 +2,28 @@ import React from 'react';
 import styles from './Education.module.scss';
 import EducationBody from './EducationBody';
 import SectionHeader from '../section-header/SectionHeader';
-import { Sections } from '@/app/models/enums';
+import { LoadableSections, Sections } from '@/app/models/enums';
 import useSectionRef from '../hooks/useSectionRef';
-import { languageStore } from '@/app/store';
+import { languageStore, userStore } from '@/app/store';
+import { useEducation } from '@/app/hooks/queries';
+import { useIsLoadingSections } from '@/app/hooks';
 
 const Education: React.FC = () => {
     const { strings } = languageStore();
     const { sectionRef } = useSectionRef({ sectionName: Sections.Education });
+    const { user, isLoadingUser } = userStore();
+    const { currentLanguage } = languageStore();
+    const { data: education, isLoading: isLoadingEducation } = useEducation({ id: user._id, lang: currentLanguage });
+    const { handleLoad } = useIsLoadingSections();
+
+    React.useEffect(() => {
+        handleLoad({
+            sectionName: LoadableSections.isLoadingEducation,
+            isLoading: isLoadingEducation
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoadingEducation]);
+
 
     return (
         <section
@@ -18,9 +33,9 @@ const Education: React.FC = () => {
             <SectionHeader
                 title={strings.education}
                 description={strings.educationDescription}
-                isLoading={true}
+                isLoading={isLoadingUser || isLoadingEducation}
             />
-            <EducationBody />
+            <EducationBody data={education} />
         </section>
     );
 };
