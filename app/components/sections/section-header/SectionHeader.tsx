@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './SectionHeader.module.scss';
 import { Container } from '@mui/material';
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';  // Ensure skeleton styles are imported
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface ISectionHeaderProps {
     title: string | undefined;

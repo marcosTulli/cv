@@ -23,6 +23,14 @@
             row-gap: 1rem;
             column-gap: 3rem;
 
+            .skill {
+                color: $darkSecondary ;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.9rem;
+            }
+
             @include respond-to(lg) {
                 grid-template-columns: repeat(3, 1fr);
             }

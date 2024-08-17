@@ -33,7 +33,11 @@ const Skills: React.FC = () => {
                 description={strings.skillsDescription}
                 isLoading={isLoadingUser || isLoadingSkills}
             />
-            <SkillsBody skillsData={skillsData} />
+            <SkillsBody
+                skillsData={skillsData}
+                isLoading={isLoadingUser || isLoadingSkills}
+
+            />
         </section>
     );
 };
