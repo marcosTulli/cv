@@ -10,7 +10,7 @@ const WorkExperience: React.FC = () => {
     const { strings, currentLanguage } = languageStore();
     const { user } = userStore();
     const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
-    const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: '', comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
+    const experiences: IExperience[] = data ? data.experiences : [{ _id: '', activePeriod: { startDate: '', endDate: '' }, comapnyUrl: '', companyLogo: '', companyName: '', info: { position: '', tasks: [{ _id: '', task: '' }] } }];
     return (
         <div className={styles.section}>
             <Typography variant="h4" className={styles.sectionTitle}>{strings.workExperience}</Typography>
@@ -20,7 +20,7 @@ const WorkExperience: React.FC = () => {
                         <Typography variant="h6" className={styles.jobTitle}>
                             {experience.companyName}
                         </Typography>
-                        <Typography variant="body2">{experience.activePeriod}</Typography>
+                        <Typography variant="body2">{`${experience.activePeriod.startDate} - ${experience.activePeriod.endDate}`}</Typography>
                         <Typography variant="body2">{experience.info.position}</Typography>
                         <ul>
                             {experience.info.tasks.map((task) => (

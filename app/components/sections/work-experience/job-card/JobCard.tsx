@@ -12,7 +12,7 @@ const JobCard: React.FC<JobCardProps> = ({ experience }) => {
         <div >
             <div key={experience._id} className={styles.job}>
                 <h3 className={styles.jobTitle}>{experience.info.position}</h3>
-                <p className={styles.jobDetails}>{experience.activePeriod}</p>
+                <p className={styles.jobDetails}>{`${experience.activePeriod.startDate} - ${experience.activePeriod.endDate}`}</p>
                 <ul className={styles.jobDescription}>
                     {
                         experience.info.tasks.map(task => {

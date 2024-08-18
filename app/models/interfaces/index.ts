@@ -21,3 +21,4 @@ export * from './GetEducationParams';
 export * from './GetSkillsParams';
 export * from './GetIconParams';
 export * from './GetIconKeyParams';
+export * from './ActivePeriod';

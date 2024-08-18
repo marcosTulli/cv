@@ -1,8 +1,9 @@
+import { IActivePeriod } from "./index";
 export interface IJobs {
     id: number,
     en: {
         position: string;
-        activePeriod: string;
+        activePeriod: IActivePeriod;
         companyName: string;
         comapnyUrl: string;
         companyLogo: string;
@@ -10,7 +11,7 @@ export interface IJobs {
     };
     es: {
         position: string;
-        activePeriod: string;
+        activePeriod: IActivePeriod;
         companyName: string;
         comapnyUrl: string;
         companyLogo: string;
