@@ -36,7 +36,6 @@ const Skills: React.FC = () => {
             <SkillsBody
                 skillsData={skillsData}
                 isLoading={isLoadingUser || isLoadingSkills}
-            // isLoading={true}
             />
         </section>
     );
