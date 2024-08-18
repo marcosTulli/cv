@@ -11,6 +11,7 @@ interface ISkillsBody {
 }
 
 const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
+    console.log(skillsData);
     return (
         <div className={styles.skillsGridContainer}>
             <div className={styles.skillGrid}>
@@ -18,13 +19,15 @@ const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
                     ? (
                         Array.from({ length: 30 }).map((_, index) => (
                             <div key={index} className={styles.skill}>
-                                <Skeleton circle height={20} width={20} />
-                                <Skeleton height={15} width={30} />
+                                <Skeleton circle height={30} width={30} />
+                                <Skeleton height={18} width={76} />
                             </div>
                         ))
                     )
                     : skillsData?.skills?.map((skill: ISkills) => (
-                        <Skill key={skill._id} skill={skill} />
+                        <div key={skill._id} className={styles.skill}>
+                            <Skill skill={skill} />
+                        </div>
                     ))
                 }
             </div>
