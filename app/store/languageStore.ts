@@ -4,7 +4,6 @@ import { Language } from '../models/enums';
 import es from "@/app/loc/strings-es";
 import en from "@/app/loc/strings-en";
 
-// TODO: Move this to the store folder
 interface ILanguage {
     currentLanguage: Language;
     strings: Translation | Partial<Translation>;
