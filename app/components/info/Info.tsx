@@ -7,14 +7,16 @@ import Languages from './components/languages/Languages';
 import ProfilePicture from './components/profile-picture/ProfilePicture';
 import { userStore } from '@/app/store';
 import InfoSkeleton from './components/info-skeleton/InfoSkeleton';
+import { useIsLoadingSections } from '@/app/hooks';
 
 const Info: React.FC = () => {
     const { isLoadingUser } = userStore();
+    const { isLoadingSections } = useIsLoadingSections();
 
     return (
         <div className={styles.info}>
             {
-                isLoadingUser
+                isLoadingUser || isLoadingSections
                     ? (<InfoSkeleton />)
                     : (
                         <div className={styles.infoGrid}>

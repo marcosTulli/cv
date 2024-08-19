@@ -11,7 +11,6 @@ interface ISkillsBody {
 }
 
 const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
-    console.log(skillsData);
     return (
         <div className={styles.skillsGridContainer}>
             <div className={styles.skillGrid}>

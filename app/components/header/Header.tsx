@@ -5,10 +5,13 @@ import SectionHeader from '../sections/section-header/SectionHeader';
 import NavBar from '../nav-bar/NavBar';
 import { Sections } from '@/app/models/enums';
 import useSectionRef from '../sections/hooks/useSectionRef';
+import { useIsLoadingSections } from '@/app/hooks';
 
 const Header: React.FC = () => {
     const { user, isLoadingUser } = userStore();
     const { sectionRef } = useSectionRef({ sectionName: Sections.Header });
+    const { isLoadingSections } = useIsLoadingSections();
+
 
     return (
         <section
@@ -19,7 +22,7 @@ const Header: React.FC = () => {
             <SectionHeader
                 title={user.name}
                 description={user.info.candidateTitle}
-                isLoading={isLoadingUser}
+                isLoading={isLoadingUser || isLoadingSections}
                 pageHeader
             />
         </section >
