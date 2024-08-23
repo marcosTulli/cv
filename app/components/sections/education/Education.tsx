@@ -35,7 +35,10 @@ const Education: React.FC = () => {
                 description={strings.educationDescription}
                 isLoading={isLoadingUser || isLoadingEducation}
             />
-            <EducationBody data={education} />
+            <EducationBody
+                data={education}
+                isLoading={isLoadingUser || isLoadingEducation}
+            />
         </section>
     );
 };
