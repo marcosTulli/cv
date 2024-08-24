@@ -46,12 +46,12 @@ export default function Home() {
         <Box
             sx={{
                 height: '100vh',
+                // backgroundColor: 'black',
                 width: '100vw',
                 minHeight: '100%',
+                margin: '0',
+                padding: '0',
                 minWidth: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                flexGrow: '1'
             }}
         >
             <Header />
