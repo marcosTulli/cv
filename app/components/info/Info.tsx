@@ -28,6 +28,7 @@ const Info: React.FC = () => {
                     )
             }
         </div>
+
     );
 };
 
