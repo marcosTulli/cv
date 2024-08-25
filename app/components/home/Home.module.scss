@@ -1,49 +1,5 @@
 @import '../../styles/global.scss';
 
-.cvContainer {
-    width: 798px;
-    height: 1130px;
-    margin: 0 auto;
-    // background-color: $defaultWhite;
-    // border: solid $defaultBlack 1px;
-    border-radius: 1.56rem;
-    gap: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    box-shadow: 44px 40px 0px 0px $mustard;
-
-    display: flex;
-    padding-top: 1rem;
-    flex-grow: 1;
-
-
-    .left {
-        flex: 1;
-        margin-left: 0.65rem;
-
-    }
-
-    .right {
-        flex: 1;
-    }
-
-}
-
-@media (max-width: 500px) {
-    .cvContainer {
-        height: 100%;
-        width: 95%;
-        flex-direction: column;
-        align-items: center;
-        border: none;
-        box-shadow: none;
-        gap: 1rem;
-        justify-content: flex-start;
-
-        .workExperience {
-            width: 95%;
-        }
-
-    }
-
+.homeContainer {
+    background-color: $defaultBlack;
 }

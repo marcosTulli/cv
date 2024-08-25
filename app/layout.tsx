@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import '@/app/styles/_reset.scss';
 
 export const metadata: Metadata = {
   title: 'Marcos Tulli',
