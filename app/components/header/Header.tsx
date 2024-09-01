@@ -6,6 +6,7 @@ import NavBar from '../nav-bar/NavBar';
 import { Sections } from '@/app/models/enums';
 import useSectionRef from '../sections/hooks/useSectionRef';
 import { useIsLoadingSections } from '@/app/hooks';
+import { Box } from '@mui/material';
 
 const Header: React.FC = () => {
     const { user, isLoadingUser } = userStore();
@@ -14,7 +15,9 @@ const Header: React.FC = () => {
 
 
     return (
-        <section
+        <Box
+            sx={{ bgcolor: 'primary.main' }}
+            component={'section'}
             ref={sectionRef}
             className={styles.headerContainer}
         >
@@ -25,7 +28,7 @@ const Header: React.FC = () => {
                 isLoading={isLoadingUser || isLoadingSections}
                 pageHeader
             />
-        </section >
+        </Box >
     );
 };
 

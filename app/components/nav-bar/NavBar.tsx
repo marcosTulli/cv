@@ -6,6 +6,7 @@ import { Sections } from '@/app/models/enums';
 import { useIsLoadingSections } from '@/app/hooks';
 import useDownload from './hooks/useDownload';
 import { languageStore } from '@/app/store';
+import ThemePicker from '../theme-picker/ThemePicker';
 
 const NavBar: React.FC = () => {
     const { scroll } = useScroll();
@@ -40,6 +41,7 @@ const NavBar: React.FC = () => {
             >
                 {strings.dropdownOptionsDownload}
             </button>
+            <ThemePicker />
         </div>
     );
 };
