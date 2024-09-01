@@ -1,20 +1,21 @@
 import { create } from 'zustand';
+import { Themes } from '../models/enums';
 
 interface ThemeState {
-    theme: 'light' | 'dark';
+    selectedTheme: Themes;
     toggleTheme: () => void;
 }
 
 interface ITheme {
-    theme: 'dark' | 'light';
+    selectedTheme: Themes;
 }
 const initialState: ITheme = {
-    theme: 'dark',
+    selectedTheme: Themes.dark,
 };
 
 const themeStore = create<ThemeState>((set) => ({
     ...initialState,
-    toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
+    toggleTheme: () => set((state) => ({ selectedTheme: state.selectedTheme === Themes.light ? Themes.dark : Themes.light })),
 }));
 
 export default themeStore;

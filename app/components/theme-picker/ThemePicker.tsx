@@ -1,13 +1,14 @@
 import React from 'react';
+import { Themes } from '@/app/models/enums';
 import { themeStore } from '@/app/store';
 
 const ThemePicker = () => {
-    const { theme, toggleTheme } = themeStore();
+    const { selectedTheme, toggleTheme } = themeStore();
 
     return (
         <div>
             <button onClick={toggleTheme}>
-                {theme === 'light' ? 'Dark' : 'Light'}
+                {selectedTheme === Themes.light ? Themes.dark : Themes.light}
             </button>
         </div>
     );
