@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './SectionHeader.module.scss';
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -15,7 +15,8 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, isLo
 
     return (
         <Container className={styles.sectionHeader}>
-            <div>
+            <Box
+                sx={{ color: 'secondary.main' }}>
                 <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`}>
                     {isLoading
                         ? (<Skeleton height={pageHeader ? 50 : 30} width={pageHeader ? 200 : 300} />)
@@ -28,7 +29,7 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, isLo
                         ? (<Skeleton height={pageHeader ? 50 : 30} width={pageHeader ? 100 : 400} />)
                         : (description)}
                 </p>
-            </div>
+            </Box>
         </Container>
     );
 };

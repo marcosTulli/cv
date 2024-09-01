@@ -2,7 +2,7 @@
 
 .navContainer {
     display: flex;
-    color: $darkSecondary;
+    // color: $darkSecondary;
     align-items: center;
     font-family: $defaultCourier;
     position: fixed;
@@ -14,7 +14,7 @@
         display: flex;
         margin-right: 1rem;
         background-color: transparent;
-        color: $darkSecondary;
+        // color: $darkSecondary;
         border: none;
         font-family: $defaultCourier;
         font-size: 16px;
@@ -22,7 +22,7 @@
         &:hover {
             cursor: pointer;
             font-weight: 900;
-            color: $englishGreen;
+            // color: $englishGreen;
             box-shadow: none;
         }
     }

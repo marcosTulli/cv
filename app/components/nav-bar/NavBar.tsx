@@ -7,6 +7,7 @@ import { useIsLoadingSections } from '@/app/hooks';
 import useDownload from './hooks/useDownload';
 import { languageStore } from '@/app/store';
 import ThemePicker from '../theme-picker/ThemePicker';
+import { Box, Button } from '@mui/material';
 
 const NavBar: React.FC = () => {
     const { scroll } = useScroll();
@@ -18,31 +19,33 @@ const NavBar: React.FC = () => {
     const { isLoadingSections } = useIsLoadingSections();
 
     return (
-        <div className={styles.navContainer}>
+        <Box className={styles.navContainer}>
             <HomeOutlinedIcon
                 className={styles.navSection}
                 onClick={() => scroll(Sections.Header)}
             />
             {sections.map((section, index) => {
                 return (
-                    <div
+                    <Box
+                        sx={{ color: 'secondary.main' }}
                         key={index}
                         className={styles.navSection}
                         onClick={() => scroll(section)}
                     >
                         {section}
-                    </div>
+                    </Box>
                 );
             })}
-            <button
+            <Button
+                sx={{ color: 'secondary.main' }}
                 disabled={isLoadingSections}
                 className={styles.downloadButton}
                 onClick={handleDownload}
             >
                 {strings.dropdownOptionsDownload}
-            </button>
+            </Button>
             <ThemePicker />
-        </div>
+        </Box>
     );
 };
 

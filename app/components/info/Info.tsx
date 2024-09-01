@@ -8,26 +8,30 @@ import ProfilePicture from './components/profile-picture/ProfilePicture';
 import { userStore } from '@/app/store';
 import InfoSkeleton from './components/info-skeleton/InfoSkeleton';
 import { useIsLoadingSections } from '@/app/hooks';
+import { Box } from '@mui/material';
 
 const Info: React.FC = () => {
     const { isLoadingUser } = userStore();
     const { isLoadingSections } = useIsLoadingSections();
 
     return (
-        <div className={styles.info}>
+        <Box
+
+            sx={{ bgcolor: 'defaultBackground.main' }}
+            className={styles.info}>
             {
                 isLoadingUser || isLoadingSections
                     ? (<InfoSkeleton />)
                     : (
-                        <div className={styles.infoGrid}>
+                        <Box className={styles.infoGrid}>
                             <ProfilePicture />
                             <Contact />
                             <Social />
                             <Languages />
-                        </div>
+                        </Box>
                     )
             }
-        </div>
+        </Box>
 
     );
 };

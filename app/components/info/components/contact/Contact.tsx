@@ -4,11 +4,15 @@ import styles from './Contact.module.scss';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { userStore } from '@/app/store';
+import { Box } from '@mui/material';
 
 const Contact: React.FC = () => {
     const { user } = userStore();
     return (
-        <div className={styles.contactInfoContainer}>
+        <Box
+
+            sx={{ color: 'secondary.main' }}
+            className={styles.contactInfoContainer}>
             <div className={styles.contact}>
                 <LocalPhoneOutlinedIcon
                     className={styles.icon}
@@ -21,7 +25,7 @@ const Contact: React.FC = () => {
                 />
                 <div>{user.email}</div>
             </div>
-        </div>
+        </Box>
 
     );
 
