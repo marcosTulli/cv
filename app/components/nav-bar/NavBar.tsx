@@ -20,10 +20,6 @@ import ThemePicker from '../theme-picker/ThemePicker';
 import { Tooltip } from '@mui/material';
 
 interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window?: () => Window;
 }
 
@@ -32,14 +28,14 @@ const drawerWidth = 240;
 export default function DrawerAppBar(props: Props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const handleDrawerToggle = () => { setMobileOpen((prevState) => !prevState); };
-    const { scroll } = useScroll();
     const { strings } = languageStore();
-    const { handleDownload } = useDownload();
     const { isLoadingSections } = useIsLoadingSections();
-
-
+    const { handleDownload } = useDownload();
+    const { scroll } = useScroll();
+    const handleDrawerToggle = () => { setMobileOpen((prevState) => !prevState); };
     const container = window !== undefined ? () => window().document.body : undefined;
+
+
 
     const navBarSections = [
         {
