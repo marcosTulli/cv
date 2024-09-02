@@ -28,7 +28,6 @@ const useTheme = () => {
             ...baseColors,
             primary: { main: '#E8D18A' },
             secondary: { main: '#2A5056', strong: '#1B3E44' },
-            tukis: { main: '#E8D18A', strong: '#DEAF76' },
             defaultBackground: { main: '#DEAF76' }
         }
 
