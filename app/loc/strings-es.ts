@@ -19,6 +19,7 @@ const es: Partial<Translation> = {
     downloadAction: 'Click para descargar',
     copyAction: 'Click para copiar',
     toggleThemeAction: 'Cambiar tema',
+    changeLanguageAction: 'Cambiar idioma',
 };
 
 export default es;

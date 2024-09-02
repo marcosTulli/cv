@@ -5,11 +5,12 @@ import { userStore } from '@/app/store';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 
 const LanguageSelector = () => {
     const { setLang, currentLanguage } = languageStore();
     const { user } = userStore();
+    const { strings } = languageStore();
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -29,16 +30,19 @@ const LanguageSelector = () => {
 
     return (
         <Box sx={{ bgColor: 'primary.main', }}>
-            <Button
-                id="language-selector-button"
-                aria-controls={open ? 'language-selector-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                sx={{ color: 'secondary.main' }}
-            >
-                {currentLanguage}
-            </Button>
+            <Tooltip title={strings.changeLanguageAction}>
+                <Button
+                    id="language-selector-button"
+                    aria-controls={open ? 'language-selector-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
+                    sx={{ color: 'secondary.main' }}
+                >
+                    {currentLanguage}
+                </Button>
+
+            </Tooltip>
             <Menu
                 id="language-selector-menu"
                 aria-labelledby="language-selector-button"
@@ -56,14 +60,15 @@ const LanguageSelector = () => {
 
                 sx={{
                     '& .MuiPaper-root': {
-                        width: '100px',
-                        backgroundColor: 'secondary.main', // Target only the menu's Paper element
-                        color: 'white',               // Set text color for the items
+                        padding: 0,
+                        width: '70px',
+                        backgroundColor: 'white',
+                        color: 'white',
                     },
                     '& .MuiMenuItem-root': {
-                        backgroundColor: 'secondary.main',  // Set MenuItem background color
+                        backgroundColor: 'white',
                         '&:hover': {
-                            backgroundColor: 'primary.main',   // Set hover background color
+                            backgroundColor: 'primary.main',
                         },
                     },
                 }}
@@ -73,11 +78,11 @@ const LanguageSelector = () => {
                         key={index}
                         onClick={() => handleLanguageChange(lang)}
                     >
-                        {lang}
+                        {lang.toUpperCase()}
                     </MenuItem>
                 ))}
             </Menu>
-        </Box>
+        </Box >
     );
 };
 

@@ -32,4 +32,5 @@ export interface Translation {
     downloadAction: string,
     copyAction: string,
     toggleThemeAction: string,
+    changeLanguageAction: string,
 }

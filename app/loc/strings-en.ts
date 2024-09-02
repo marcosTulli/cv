@@ -20,6 +20,7 @@ const en: Partial<Translation> = {
     downloadAction: 'Click to download',
     copyAction: 'Click to copy',
     toggleThemeAction: 'Change theme',
+    changeLanguageAction: 'Change language',
 };
 
 export default en;
