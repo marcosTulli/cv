@@ -1,12 +1,12 @@
 import React from 'react';
-import { themeStore } from '@/app/store';
+import { languageStore, themeStore } from '@/app/store';
 import { Box, Switch, Tooltip } from '@mui/material';
 
 const ThemePicker = () => {
     const { toggleTheme } = themeStore();
-    // const label = { inputProps: { 'aria-label': 'Color switch demo' } };
+    const { strings } = languageStore();
     return (
-        <Tooltip title={'Change theme'} >
+        <Tooltip title={strings.toggleThemeAction} >
             <Box>
                 <Switch
                     onChange={toggleTheme}

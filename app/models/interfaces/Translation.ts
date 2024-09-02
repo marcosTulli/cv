@@ -28,4 +28,8 @@ export interface Translation {
     skillsDescription: string,
     workExperienceDescription: string,
     educationDescription: string,
+    clickAction: string,
+    downloadAction: string,
+    copyAction: string,
+    toggleThemeAction: string,
 }

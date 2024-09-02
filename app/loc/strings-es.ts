@@ -15,6 +15,10 @@ const es: Partial<Translation> = {
     email: 'Email',
     phone: 'Telefono',
     languages: 'Idiomas',
+    clickAction: 'Ir a la sección',
+    downloadAction: 'Click para descargar',
+    copyAction: 'Click para copiar',
+    toggleThemeAction: 'Cambiar tema',
 };
 
 export default es;

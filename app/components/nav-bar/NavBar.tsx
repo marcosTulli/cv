@@ -17,6 +17,7 @@ import { useIsLoadingSections } from '@/app/hooks';
 import useDownload from './hooks/useDownload';
 import { languageStore } from '@/app/store';
 import ThemePicker from '../theme-picker/ThemePicker';
+import { Tooltip } from '@mui/material';
 
 interface Props {
     /**
@@ -48,53 +49,66 @@ export default function DrawerAppBar(props: Props) {
                     sx={{ color: 'secondary.main' }}
                     onClick={() => scroll(Sections.Header)}
                 >
-                    <HomeOutlinedIcon />
+                    <Tooltip title={strings.clickAction} >
+                        <HomeOutlinedIcon />
+                    </Tooltip>
+
                 </Button>
 
         },
         {
             name: Sections.WorkExperience,
             component:
-                <Button
-                    sx={{ color: 'secondary.main' }}
-                    onClick={() => scroll(Sections.WorkExperience)}
-                >
-                    {strings.workExperience}
-                </Button>
-
+                <Tooltip title={strings.clickAction} >
+                    <Button
+                        title={strings.clickAction}
+                        sx={{ color: 'secondary.main' }}
+                        onClick={() => scroll(Sections.WorkExperience)}
+                    >
+                        {strings.workExperience}
+                    </Button>
+                </Tooltip>
         },
         {
             name: Sections.Education,
             component:
-                <Button
-                    sx={{ color: 'secondary.main' }}
-                    onClick={() => scroll(Sections.Education)}
-                >
-                    {strings.education}
-                </Button>
+                <Tooltip title={strings.clickAction} >
+                    <Button
+                        title={strings.clickAction}
+                        sx={{ color: 'secondary.main' }}
+                        onClick={() => scroll(Sections.Education)}
+                    >
+                        {strings.education}
+                    </Button>
+                </Tooltip>
 
         },
         {
             name: Sections.Skills,
             component:
-                <Button
-                    sx={{ color: 'secondary.main' }}
-                    onClick={() => scroll(Sections.Skills)}
-                >
-                    {strings.skills}
-                </Button>
+                <Tooltip title={strings.clickAction} >
+                    <Button
+                        title={strings.clickAction}
+                        sx={{ color: 'secondary.main' }}
+                        onClick={() => scroll(Sections.Skills)}
+                    >
+                        {strings.skills}
+                    </Button>
+                </Tooltip>
 
         },
         {
             name: 'Download',
             component:
-                <Button
-                    sx={{ color: 'secondary.main' }}
-                    disabled={isLoadingSections}
-                    onClick={handleDownload}
-                >
-                    {strings.dropdownOptionsDownload}
-                </Button>
+                <Tooltip title={strings.downloadAction} >
+                    <Button
+                        sx={{ color: 'secondary.main' }}
+                        disabled={isLoadingSections}
+                        onClick={handleDownload}
+                    >
+                        {strings.dropdownOptionsDownload}
+                    </Button>
+                </Tooltip>
 
         },
         {

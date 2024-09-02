@@ -16,6 +16,10 @@ const en: Partial<Translation> = {
     email: 'Email',
     phone: 'Telephone',
     languages: 'Languages',
+    clickAction: 'Scroll to section',
+    downloadAction: 'Click to download',
+    copyAction: 'Click to copy',
+    toggleThemeAction: 'Change theme',
 };
 
 export default en;
