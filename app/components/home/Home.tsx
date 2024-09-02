@@ -48,7 +48,7 @@ export default function Home() {
             className={styles.homeContainer}
             sx={{
                 height: '100vh',
-                width: '100vw',
+                // width: '100vw',
                 bgcolor: 'defaultBackground.main',
                 minWidth: '100%',
             }}
