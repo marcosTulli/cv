@@ -11,7 +11,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import styles from './NavBar.module.scss';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -35,39 +34,97 @@ const drawerWidth = 240;
 export default function DrawerAppBar(props: Props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-
-    const handleDrawerToggle = () => {
-        setMobileOpen((prevState) => !prevState);
-    };
-
+    const handleDrawerToggle = () => { setMobileOpen((prevState) => !prevState); };
     const { scroll } = useScroll();
     const { strings } = languageStore();
-
-    const sections = Object.keys(Sections).filter((i) =>
-        i !== Sections.Header && i !== Sections.PrintableTemplate
-    );
     const { handleDownload } = useDownload();
     const { isLoadingSections } = useIsLoadingSections();
 
+
+    const container = window !== undefined ? () => window().document.body : undefined;
+
+    const navBarSections = [
+        {
+            name: 'Home',
+            component:
+                <Button
+                    sx={{ color: 'secondary.main' }}
+                    className={styles.navSection}
+                    onClick={() => scroll(Sections.Header)}
+                >
+                    <HomeOutlinedIcon />
+                </Button>
+
+        },
+        {
+            name: Sections.WorkExperience,
+            component:
+                <Button
+                    sx={{ color: 'secondary.main' }}
+                    className={styles.navSection}
+                    onClick={() => scroll(Sections.WorkExperience)}
+                >
+                    Work Experience
+                </Button>
+
+        },
+        {
+            name: Sections.Education,
+            component:
+                <Button
+                    sx={{ color: 'secondary.main' }}
+                    className={styles.navSection}
+                    onClick={() => scroll(Sections.Education)}
+                >
+                    Education
+                </Button>
+
+        },
+        {
+            name: Sections.Skills,
+            component:
+                <Button
+                    sx={{ color: 'secondary.main' }}
+                    className={styles.navSection}
+                    onClick={() => scroll(Sections.Skills)}
+                >
+                    Skills
+                </Button>
+
+        },
+        {
+            name: 'Download',
+            component:
+                <Button
+                    sx={{ color: 'secondary.main' }}
+                    disabled={isLoadingSections}
+                    className={styles.downloadButton}
+                    onClick={handleDownload}
+                >
+                    {strings.dropdownOptionsDownload}
+                </Button>
+
+        },
+        {
+            name: 'Theme picker',
+            component: <ThemePicker />
+        },
+    ];
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
-            </Typography>
+        <Box
+            sx={{ textAlign: 'center', backgroundColor: 'primary.main', flexGrow: '1' }}>
             <Divider />
             <List>
-                {sections.map((item) => (
-                    <ListItem key={item} disablePadding>
+                {navBarSections.map((item) => (
+                    <ListItem key={item.name} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
+                            <ListItemText primary={item.component} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
         </Box>
     );
-
-    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -83,39 +140,17 @@ export default function DrawerAppBar(props: Props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {sections.map((section) => (
-                            <Button
-                                sx={{ color: 'secondary.main' }}
-                                key={section}
-                                className={styles.navSection}
-                                onClick={() => scroll(section)}
-
-                            >
-                                {section}
-                            </Button>
-                        ))}
+                    <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexWrap: 'nowrap', alignItems: 'center' }}>
+                        {navBarSections.map(i => i.component)}
                     </Box>
-                    <Button
-                        sx={{ color: 'secondary.main' }}
-                        disabled={isLoadingSections}
-                        className={styles.downloadButton}
-                        onClick={handleDownload}
-                    >
-                        {strings.dropdownOptionsDownload}
-                    </Button>
-                    <ThemePicker />
                 </Toolbar>
             </AppBar>
-            <nav>
+            <nav >
                 <Drawer
                     container={container}
-                    variant="temporary"
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
+                    ModalProps={{ keepMounted: true }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
