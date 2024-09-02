@@ -5,7 +5,7 @@ import { ILanguage } from '@/app/models/interfaces';
 import { icons } from '@/app/utils';
 import { useIconKey, useIcons } from '@/app/hooks/queries';
 import styles from './Languages.module.scss';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 
 interface ILanguageProps {
     language: ILanguage;
@@ -23,19 +23,21 @@ const Language: React.FC<ILanguageProps> = ({ language }) => {
     }, [key]);
 
     return (
-        <Box
-            sx={{ color: 'secondary.main' }}
-            className={styles.language}>
-            <Image
-                src={icon ? icon : ''}
-                alt="english"
-                width={icons.width}
-                height={icons.height}
-                className={styles.icon}
-
-            />
-            <p>{language.level}</p>
-        </Box>
+        <Tooltip title={`${language.language}: ${language.level}`}>
+            <Box
+                sx={{ color: 'secondary.main' }}
+                className={styles.language}
+            >
+                <Image
+                    src={icon ? icon : ''}
+                    alt="english"
+                    width={icons.width}
+                    height={icons.height}
+                    className={styles.icon}
+                />
+                <Box component='p'>{language.level}</Box>
+            </Box>
+        </Tooltip>
 
     );
 };

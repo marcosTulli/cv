@@ -17,17 +17,10 @@
     .language {
         display: flex;
         flex-direction: row;
-        cursor: pointer;
         gap: 0.5rem;
         align-items: center;
         padding: 0.6rem 0 1rem 0;
-        justify-self: start;
         margin: 0;
         text-decoration: none;
-        font-weight: 500;
-
-        img {
-            justify-self: center;
-        }
     }
 }
