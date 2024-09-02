@@ -16,18 +16,20 @@ const useTheme = () => {
         palette: {
             ...baseColors,
             primary: { main: '#1A4958' },
-            secondary: { main: '#39B990', strong: '#0F9D6D' },
+            secondary: { main: '#d1ffff', strong: '#0F9D6D' },
             defaultBackground: { main: '#0f0f0f' }
         }
 
     };
 
+    // TODO: Pick better colors
     const light = {
         palette: {
             ...baseColors,
-            primary: { main: '#B0C0A9' },
+            primary: { main: '#E8D18A' },
             secondary: { main: '#2A5056', strong: '#1B3E44' },
-            defaultBackground: { main: '#f2f2f2' }
+            tukis: { main: '#E8D18A', strong: '#DEAF76' },
+            defaultBackground: { main: '#DEAF76' }
         }
 
     };

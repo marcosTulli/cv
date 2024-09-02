@@ -7,6 +7,7 @@ import useSectionRef from '../hooks/useSectionRef';
 import { languageStore, userStore } from '@/app/store';
 import { useWorkExperience } from '@/app/hooks/queries';
 import { useIsLoadingSections } from '@/app/hooks';
+import { Box } from '@mui/material';
 
 const WorkExperience: React.FC = () => {
     const { strings, currentLanguage } = languageStore();
@@ -25,7 +26,11 @@ const WorkExperience: React.FC = () => {
 
 
     return (
-        <section ref={sectionRef} className={styles.section}>
+        <Box
+            sx={{ bgcolor: 'primary.main' }}
+            component='section'
+            ref={sectionRef}
+            className={styles.section}>
             <SectionHeader
                 title={strings.workExperience}
                 description={strings.workExperienceDescription}
@@ -35,7 +40,7 @@ const WorkExperience: React.FC = () => {
                 data={data?.experiences}
                 isLoading={isLoadingWorkExperience || isLoadingUser}
             />
-        </section>
+        </Box>
 
     );
 };

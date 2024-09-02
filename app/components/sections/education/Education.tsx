@@ -7,6 +7,7 @@ import useSectionRef from '../hooks/useSectionRef';
 import { languageStore, userStore } from '@/app/store';
 import { useEducation } from '@/app/hooks/queries';
 import { useIsLoadingSections } from '@/app/hooks';
+import { Box } from '@mui/material';
 
 const Education: React.FC = () => {
     const { strings } = languageStore();
@@ -26,7 +27,9 @@ const Education: React.FC = () => {
 
 
     return (
-        <section
+        <Box
+            component={'section'}
+            sx={{ bgcolor: 'defaultBackground.main' }}
             ref={sectionRef}
             className={styles.container}
         >
@@ -39,7 +42,7 @@ const Education: React.FC = () => {
                 data={education}
                 isLoading={isLoadingUser || isLoadingEducation}
             />
-        </section>
+        </Box>
     );
 };
 

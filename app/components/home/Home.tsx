@@ -49,6 +49,7 @@ export default function Home() {
             sx={{
                 height: '100vh',
                 width: '100vw',
+                bgcolor: 'defaultBackground.main',
                 minWidth: '100%',
             }}
         >

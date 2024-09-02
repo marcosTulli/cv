@@ -7,6 +7,7 @@ import useSectionRef from '../hooks/useSectionRef';
 import { languageStore, userStore } from '@/app/store';
 import { useSkills } from '@/app/hooks/queries';
 import { useIsLoadingSections } from '@/app/hooks';
+import { Box } from '@mui/material';
 
 const Skills: React.FC = () => {
     const { strings } = languageStore();
@@ -24,7 +25,9 @@ const Skills: React.FC = () => {
     }, [isLoadingSkills]);
 
     return (
-        <section
+        <Box
+            component='section'
+            sx={{ bgcolor: 'primary.main' }}
             ref={sectionRef}
             className={styles.container}
         >
@@ -37,7 +40,7 @@ const Skills: React.FC = () => {
                 skillsData={skillsData}
                 isLoading={isLoadingUser || isLoadingSkills}
             />
-        </section>
+        </Box>
     );
 };
 

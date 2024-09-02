@@ -1,13 +1,20 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import { userStore } from '@/app/store';
+import { Box } from '@mui/material';
 
 const Footer = () => {
     const { user } = userStore();
     return (
-        <footer className={styles.footer}>
-            <p className={styles.footerText}>© 2024 {user.name}. All rights reserved.</p>
-        </footer>
+        <Box
+            component={'footer'}
+            sx={{ bgcolor: 'defaultBackground.main' }}
+            className={styles.footer}>
+            <Box
+                sx={{ color: 'secondary.main' }}
+                component={'p'}
+                className={styles.footerText}>© 2024 {user.name}. All rights reserved.</Box>
+        </Box>
     );
 };
 
