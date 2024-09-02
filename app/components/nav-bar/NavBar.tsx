@@ -18,6 +18,7 @@ import useDownload from './hooks/useDownload';
 import { languageStore } from '@/app/store';
 import ThemePicker from '../theme-picker/ThemePicker';
 import { Tooltip } from '@mui/material';
+import LanguageSelector from '../language-selector/LanguageSelector';
 
 interface Props {
     window?: () => Window;
@@ -104,6 +105,14 @@ export default function DrawerAppBar(props: Props) {
                     >
                         {strings.dropdownOptionsDownload}
                     </Button>
+                </Tooltip>
+
+        },
+        {
+            name: 'Language',
+            component:
+                <Tooltip title={strings.downloadAction} >
+                    <LanguageSelector />
                 </Tooltip>
 
         },

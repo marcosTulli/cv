@@ -7,7 +7,9 @@ const ThemePicker = () => {
     const { strings } = languageStore();
     return (
         <Tooltip title={strings.toggleThemeAction} >
-            <Box>
+            <Box
+                sx={{ padding: '0' }}
+            >
                 <Switch
                     onChange={toggleTheme}
                     color={'secondary'}

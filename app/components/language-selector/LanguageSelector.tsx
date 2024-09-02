@@ -1,35 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Language } from '@/app/models/enums';
 import { languageStore } from '@/app/store';
 import { userStore } from '@/app/store';
-import style from './LanguageSelector.module.scss';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { Box } from '@mui/material';
 
 const LanguageSelector = () => {
     const { setLang, currentLanguage } = languageStore();
     const { user } = userStore();
 
-    const handleClick = (language: Language) => {
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handleLanguageChange = (language: Language) => {
         setLang(language);
+        handleClose();
     };
 
     return (
-        <FormControl className={style.form}>
-            <Select
-                className={style.drop}
-                id="lang-id"
-                value={currentLanguage}
-                onChange={(e) => handleClick(e.target.value as Language)}
+        <Box sx={{ bgColor: 'primary.main', }}>
+            <Button
+                id="language-selector-button"
+                aria-controls={open ? 'language-selector-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                sx={{ color: 'secondary.main' }}
             >
-                {user?.availableLanguages.map((lang, index) => {
-                    return (
-                        <MenuItem key={index} value={lang}>{lang}</MenuItem>
-                    );
-                })}
-            </Select>
-        </FormControl>
+                {currentLanguage}
+            </Button>
+            <Menu
+                id="language-selector-menu"
+                aria-labelledby="language-selector-button"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                }}
+
+                sx={{
+                    '& .MuiPaper-root': {
+                        width: '100px',
+                        backgroundColor: 'secondary.main', // Target only the menu's Paper element
+                        color: 'white',               // Set text color for the items
+                    },
+                    '& .MuiMenuItem-root': {
+                        backgroundColor: 'secondary.main',  // Set MenuItem background color
+                        '&:hover': {
+                            backgroundColor: 'primary.main',   // Set hover background color
+                        },
+                    },
+                }}
+            >
+                {user?.availableLanguages.map((lang, index) => (
+                    <MenuItem
+                        key={index}
+                        onClick={() => handleLanguageChange(lang)}
+                    >
+                        {lang}
+                    </MenuItem>
+                ))}
+            </Menu>
+        </Box>
     );
 };
 
