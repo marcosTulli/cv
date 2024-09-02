@@ -35,7 +35,12 @@ export default function DrawerAppBar(props: Props) {
     const { scroll } = useScroll();
     const handleDrawerToggle = () => { setMobileOpen((prevState) => !prevState); };
     const container = window !== undefined ? () => window().document.body : undefined;
+    const handleDrawerClick = (sectionName: string) => {
+        if (sectionName !== 'Language') {
+            handleDrawerToggle();
+        }
 
+    };
 
 
     const navBarSections = [
@@ -129,7 +134,9 @@ export default function DrawerAppBar(props: Props) {
                 {navBarSections.map((item) => (
                     <ListItem key={item.name} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item.component} />
+                            <ListItemText
+                                onClick={() => handleDrawerClick(item.name)}
+                                primary={item.component} />
                         </ListItemButton>
                     </ListItem>
                 ))}
