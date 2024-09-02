@@ -10,7 +10,6 @@ const Contact: React.FC = () => {
     const { user } = userStore();
     return (
         <Box
-
             sx={{ color: 'secondary.main' }}
             className={styles.contactInfoContainer}>
             <div className={styles.contact}>

@@ -3,16 +3,17 @@
 .info {
     display: flex;
     font-family: $defaultCourier;
-    // color: $darkSecondary;
     align-items: center;
     justify-content: center;
     padding: 0 0 1rem 0;
 
+
     .infoGrid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 150px 270px 200px 250px 1fr;
         align-items: center;
         width: max-content;
+        gap: 1rem;
 
         .skeletonContainer {
             display: grid;

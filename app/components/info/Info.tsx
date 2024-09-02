@@ -16,7 +16,6 @@ const Info: React.FC = () => {
 
     return (
         <Box
-
             sx={{ bgcolor: 'defaultBackground.main' }}
             className={styles.info}>
             {

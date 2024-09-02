@@ -17,10 +17,10 @@
     .language {
         display: flex;
         flex-direction: row;
-        padding: 0;
         cursor: pointer;
-        gap: 1rem;
+        gap: 0.5rem;
         align-items: center;
+        padding: 0.6rem 0 1rem 0;
         justify-self: start;
         margin: 0;
         text-decoration: none;
