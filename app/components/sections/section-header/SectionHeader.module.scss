@@ -2,8 +2,6 @@
 
 .sectionHeader {
     text-align: center;
-    // color: $darkSecondary;
-    padding-top: 2rem;
     display: flex;
     margin: 0;
     flex-direction: column;
@@ -15,19 +13,21 @@
     }
 
     .pageTitle {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     .pageTitle,
     .sectionTitle {
         font-family: $defaultCalibri;
         font-weight: bold;
+        padding: 1rem
     }
 
     .sectionDescription {
         font-family: $defaultCourier;
         max-width: 900px;
         margin: 0 auto;
+        padding-bottom: 2rem;
         font-size: 1.125rem;
     }
 
