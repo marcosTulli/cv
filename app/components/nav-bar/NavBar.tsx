@@ -1,8 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -12,7 +10,6 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import styles from './NavBar.module.scss';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import useScroll from '@/app/components/nav-bar/hooks/useScroll';
 import { Sections } from '@/app/models/enums';
@@ -49,7 +46,6 @@ export default function DrawerAppBar(props: Props) {
             component:
                 <Button
                     sx={{ color: 'secondary.main' }}
-                    className={styles.navSection}
                     onClick={() => scroll(Sections.Header)}
                 >
                     <HomeOutlinedIcon />
@@ -61,10 +57,9 @@ export default function DrawerAppBar(props: Props) {
             component:
                 <Button
                     sx={{ color: 'secondary.main' }}
-                    className={styles.navSection}
                     onClick={() => scroll(Sections.WorkExperience)}
                 >
-                    Work Experience
+                    {strings.workExperience}
                 </Button>
 
         },
@@ -73,10 +68,9 @@ export default function DrawerAppBar(props: Props) {
             component:
                 <Button
                     sx={{ color: 'secondary.main' }}
-                    className={styles.navSection}
                     onClick={() => scroll(Sections.Education)}
                 >
-                    Education
+                    {strings.education}
                 </Button>
 
         },
@@ -85,10 +79,9 @@ export default function DrawerAppBar(props: Props) {
             component:
                 <Button
                     sx={{ color: 'secondary.main' }}
-                    className={styles.navSection}
                     onClick={() => scroll(Sections.Skills)}
                 >
-                    Skills
+                    {strings.skills}
                 </Button>
 
         },
@@ -98,7 +91,6 @@ export default function DrawerAppBar(props: Props) {
                 <Button
                     sx={{ color: 'secondary.main' }}
                     disabled={isLoadingSections}
-                    className={styles.downloadButton}
                     onClick={handleDownload}
                 >
                     {strings.dropdownOptionsDownload}
@@ -110,10 +102,10 @@ export default function DrawerAppBar(props: Props) {
             component: <ThemePicker />
         },
     ];
+
     const drawer = (
         <Box
             sx={{ textAlign: 'center', backgroundColor: 'primary.main', flexGrow: '1' }}>
-            <Divider />
             <List>
                 {navBarSections.map((item) => (
                     <ListItem key={item.name} disablePadding>
@@ -128,7 +120,6 @@ export default function DrawerAppBar(props: Props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
             <AppBar component="nav">
                 <Toolbar>
                     <IconButton

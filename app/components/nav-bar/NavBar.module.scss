@@ -2,28 +2,8 @@
 
 .navContainer {
     display: flex;
-    // color: $darkSecondary;
     align-items: center;
     font-family: $defaultCourier;
     position: fixed;
     width: 100%;
-
-
-    .downloadButton,
-    .navSection {
-        display: flex;
-        margin-right: 1rem;
-        background-color: transparent;
-        // color: $darkSecondary;
-        border: none;
-        font-family: $defaultCourier;
-        font-size: 16px;
-
-        &:hover {
-            cursor: pointer;
-            font-weight: 900;
-            // color: $englishGreen;
-            box-shadow: none;
-        }
-    }
 }
