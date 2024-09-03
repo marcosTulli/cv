@@ -63,7 +63,6 @@ export default function DrawerAppBar(props: Props) {
             component:
                 <Tooltip title={strings.clickAction} >
                     <Button
-                        title={strings.clickAction}
                         sx={{ color: 'secondary.main' }}
                         onClick={() => scroll(Sections.WorkExperience)}
                     >
@@ -76,7 +75,6 @@ export default function DrawerAppBar(props: Props) {
             component:
                 <Tooltip title={strings.clickAction} >
                     <Button
-                        title={strings.clickAction}
                         sx={{ color: 'secondary.main' }}
                         onClick={() => scroll(Sections.Education)}
                     >
@@ -90,7 +88,6 @@ export default function DrawerAppBar(props: Props) {
             component:
                 <Tooltip title={strings.clickAction} >
                     <Button
-                        title={strings.clickAction}
                         sx={{ color: 'secondary.main' }}
                         onClick={() => scroll(Sections.Skills)}
                     >
@@ -103,23 +100,22 @@ export default function DrawerAppBar(props: Props) {
             name: 'Download',
             component:
                 <Tooltip title={strings.downloadAction} >
-                    <Button
-                        sx={{ color: 'secondary.main' }}
-                        disabled={isLoadingSections}
-                        onClick={handleDownload}
-                    >
-                        {strings.dropdownOptionsDownload}
-                    </Button>
+                    <span>
+                        <Button
+                            sx={{ color: 'secondary.main' }}
+                            disabled={isLoadingSections}
+                            onClick={handleDownload}
+                        >
+                            {strings.dropdownOptionsDownload}
+                        </Button>
+                    </span>
                 </Tooltip>
 
         },
         {
             name: 'Language',
             component:
-                <Tooltip title={strings.downloadAction} >
-                    <LanguageSelector />
-                </Tooltip>
-
+                <LanguageSelector />
         },
         {
             name: 'Theme picker',
@@ -158,7 +154,11 @@ export default function DrawerAppBar(props: Props) {
                         <MenuIcon />
                     </IconButton>
                     <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexWrap: 'nowrap', alignItems: 'center' }}>
-                        {navBarSections.map(i => i.component)}
+                        {navBarSections.map(section => (
+                            <React.Fragment key={section.name}>
+                                {section.component}
+                            </React.Fragment>
+                        ))}
                     </Box>
                 </Toolbar>
             </AppBar>
