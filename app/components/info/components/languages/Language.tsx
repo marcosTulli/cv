@@ -42,13 +42,9 @@ const Language: React.FC<ILanguageProps> = ({ language }) => {
                         />
                         <Box component='p'>{language.level}</Box>
                     </Box>
-
-                    : <Box
-                        sx={{ color: 'secondary.main' }}
-                        className={styles.language}
-                    >
-                        <Skeleton height={25} width={30} />
-                        <Skeleton height={20} width={57.61} />
+                    : <Box className={styles.language} >
+                        <Skeleton height={22} width={26} />
+                        <Skeleton height={14} width={57.61} />
                     </Box>
             }
         </Tooltip>

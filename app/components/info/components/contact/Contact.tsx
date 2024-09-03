@@ -6,8 +6,13 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { userStore } from '@/app/store';
 import { Box, Tooltip } from '@mui/material';
 import copy from "copy-to-clipboard";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-const Contact: React.FC = () => {
+interface IContactProps {
+    isLoading: boolean;
+}
+const Contact: React.FC<IContactProps> = ({ isLoading }) => {
     const { user } = userStore();
     const tooltipDefault = 'Click to copy';
     const [tooltipTitle, setTooltipTitle] = React.useState<string>(tooltipDefault);
@@ -28,39 +33,57 @@ const Contact: React.FC = () => {
         <Box
             sx={{ color: 'secondary.main' }}
             className={styles.contactInfoContainer}>
-            <Tooltip
-                title={tooltipTitle}
-                TransitionProps={{ timeout: 500 }}
-            >
-                <Box
-                    onClick={handleCopy}
-                    onMouseOut={resetTooltip}
-                    className={styles.contact}>
-                    <LocalPhoneOutlinedIcon
-                        className={styles.icon}
-                    />
-                    <Box>{user.phone}</Box>
-                </Box>
+            {
+                isLoading
+                    ? <Box>
+                        <Box className={styles.contact}>
+                            <Skeleton className={styles.icon} height={24} width={24} />
+                            <Skeleton height={14} width={150} />
+                        </Box>
+                        <Box className={styles.contact}>
+                            <Skeleton className={styles.icon} height={24} width={24} />
+                            <Skeleton height={14} width={220} />
+                        </Box>
 
-            </Tooltip>
-            <Tooltip
-                title={tooltipTitle}
-                TransitionProps={{ timeout: 500 }}
-            >
-                <Box
-                    className={styles.contact}
-                    onClick={handleCopy}
-                    onMouseOut={resetTooltip}
-                >
-                    <EmailOutlinedIcon
-                        className={styles.icon}
-                    />
-                    <Box>{user.email}</Box>
-                </Box>
+                    </Box>
+                    : <Box>
 
-            </Tooltip>
+                        <Tooltip
+                            title={tooltipTitle}
+                            TransitionProps={{ timeout: 500 }}
+                        >
+                            <Box
+                                onClick={handleCopy}
+                                onMouseOut={resetTooltip}
+                                className={styles.contact}>
+                                <LocalPhoneOutlinedIcon
+                                    className={styles.icon}
+                                />
+                                <Box>{user.phone}</Box>
+                            </Box>
+
+                        </Tooltip>
+                        <Tooltip
+                            title={tooltipTitle}
+                            TransitionProps={{ timeout: 500 }}
+                        >
+                            <Box
+                                className={styles.contact}
+                                onClick={handleCopy}
+                                onMouseOut={resetTooltip}
+                            >
+                                <EmailOutlinedIcon
+                                    className={styles.icon}
+                                />
+                                <Box>{user.email}</Box>
+                            </Box>
+
+                        </Tooltip>
+                    </Box>
+
+            }
+
         </Box>
-
     );
 
 };

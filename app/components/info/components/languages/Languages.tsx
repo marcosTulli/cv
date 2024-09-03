@@ -2,22 +2,31 @@ import * as React from 'react';
 import styles from './Languages.module.scss';
 import { userStore } from '@/app/store';
 import Language from './Language';
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-const Languages = ({ }) => {
+interface ILanguagesProps {
+    isLoading: boolean;
+}
+
+const Languages: React.FC<ILanguagesProps> = ({ isLoading }) => {
     const { user } = userStore();
 
     return (
-        <Container className={styles.languageContainer}>
-            {
-                user.info.languages?.map((i) => {
-                    return (
-                        <Language key={i.language} language={i} />
-                    );
-                })
+        <Box className={styles.languageContainer}>
+            {isLoading
+                ? Array.from({ length: 4 }).map((_, index) => (
+                    <Box key={index} className={styles.language}>
+                        <Skeleton height={22} width={26} />
+                        <Skeleton height={14} width={57.61} />
+                    </Box>
+                ))
+                : user.info.languages?.map((language) => (
+                    <Language key={language.language} language={language} />
+                ))
             }
-        </Container>
-
+        </Box>
     );
 };
 

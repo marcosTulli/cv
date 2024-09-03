@@ -9,11 +9,6 @@
     align-items: start;
     padding: 0;
 
-    @include respond-to(md) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 2fr);
-    }
-
     .language {
         display: flex;
         flex-direction: row;
@@ -22,5 +17,12 @@
         padding: 0.6rem 0 1rem 0;
         margin: 0;
         text-decoration: none;
+
     }
+
+    @include respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 2fr);
+    }
+
 }
