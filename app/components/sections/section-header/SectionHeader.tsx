@@ -19,14 +19,14 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, isLo
                 sx={{ color: 'secondary.main' }}>
                 <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`}>
                     {isLoading
-                        ? (<Skeleton height={pageHeader ? 50 : 30} width={pageHeader ? 200 : 300} />)
+                        ? (<Skeleton height={pageHeader ? 64 : 30} width={pageHeader ? 350 : 300} />)
                         : (title)
                     }
                 </div>
 
                 <p className={styles.sectionDescription}>
                     {isLoading
-                        ? (<Skeleton height={pageHeader ? 50 : 30} width={pageHeader ? 100 : 400} />)
+                        ? (<Skeleton height={pageHeader ? 25 : 30} width={pageHeader ? 200 : 400} />)
                         : (description)}
                 </p>
             </Box>
