@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import styles from '@/app/components/info/Info.module.scss';
 
