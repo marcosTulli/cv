@@ -4,7 +4,7 @@ import Skill from './skill/Skill';
 import { ISkills, ISkillsResponse } from '@/app/models/interfaces';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Box } from '@mui/material';
+import { Grid } from '@mui/material';
 
 interface ISkillsBody {
     skillsData?: ISkillsResponse;
@@ -13,7 +13,7 @@ interface ISkillsBody {
 
 const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
     return (
-        <Box sx={{ color: 'secondary.main' }} className={styles.skillsGridContainer}>
+        <Grid container maxWidth='lg' sx={{ color: 'secondary.main' }} className={styles.skillsGridContainer}>
             <div className={styles.skillGrid}>
                 {isLoading
                     ? (
@@ -31,7 +31,7 @@ const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
                     ))
                 }
             </div>
-        </Box>
+        </Grid>
     );
 };
 

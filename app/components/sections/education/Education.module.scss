@@ -1,7 +1,7 @@
 @import '../../../styles/global.scss';
 
 .container {
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,11 +20,11 @@
             padding-bottom: 1rem;
 
             @include respond-to(lg) {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
             }
 
             @include respond-to(md) {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-template-columns: repeat(1, 1fr);
             }
         }
 

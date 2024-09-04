@@ -3,7 +3,7 @@ import styles from './Education.module.scss';
 import { IEducation } from '@/app/models/interfaces';
 import EducationCard from './EducationCard';
 import EducationSkeleton from './EducationSkeleton';
-import { Box } from '@mui/material';
+import { Grid } from '@mui/material';
 
 interface IEdcuationBody {
     data?: IEducation[],
@@ -12,7 +12,8 @@ interface IEdcuationBody {
 const EducationBody: React.FC<IEdcuationBody> = ({ data, isLoading }) => {
 
     return (
-        <Box
+        <Grid
+            container maxWidth='lg' spacing={1.5}
             sx={{ color: 'secondary.main' }}
             className={styles.gridContainer}>
             <div className={styles.educationGrid}>
@@ -24,7 +25,7 @@ const EducationBody: React.FC<IEdcuationBody> = ({ data, isLoading }) => {
                         ))
                 }
             </div>
-        </Box>
+        </Grid>
     );
 };
 
