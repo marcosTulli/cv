@@ -28,7 +28,6 @@ const ProfilePicture: React.FC<IProfilePictureProps> = ({ isLoading }) => {
                 width={size}
                 height={size}
                 className={styles.profilePicture}
-                layout="fixed"
             />
     );
 };
