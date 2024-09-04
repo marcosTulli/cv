@@ -26,7 +26,7 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({ title, description, isLo
 
                 <p className={styles.sectionDescription}>
                     {isLoading
-                        ? (<Skeleton height={25} width={pageHeader ? 200 : 700} />)
+                        ? (<Skeleton height={25} width={250} />)
                         : (description)}
                 </p>
             </Box>

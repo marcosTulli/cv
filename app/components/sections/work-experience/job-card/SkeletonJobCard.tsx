@@ -4,8 +4,12 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Box } from '@mui/material';
 
+import { useMediaQuery } from '@mui/material';
 
 const JobCardSkeleton: React.FC = () => {
+
+    const isMobile = useMediaQuery('(max-width: 500px)');
+    console.log(isMobile);
     return (
         <Box className={styles.job} sx={{ color: 'secondary.main' }} >
             <Box component={'h3'} className={styles.jobTitle}><Skeleton height={24} width={200} /></Box>
@@ -14,7 +18,7 @@ const JobCardSkeleton: React.FC = () => {
                 {
                     Array.from({ length: 14 }).map((_, i) => {
                         return (
-                            <Box key={i}><Skeleton height={8} width={400} /></Box>
+                            <Box sx={{ padding: 0 }} key={i}><Skeleton height={8} width={isMobile ? 300 : 400} /></Box>
                         );
                     })
                 }
