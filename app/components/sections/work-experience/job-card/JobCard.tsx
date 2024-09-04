@@ -10,20 +10,18 @@ type JobCardProps = {
 
 const JobCard: React.FC<JobCardProps> = ({ experience }) => {
     return (
-        <Box sx={{ color: 'secondary.main' }} >
-            <div key={experience._id} className={styles.job}>
-                <h3 className={styles.jobTitle}>{experience.info.position}</h3>
-                <p className={styles.jobDetails}>{`${experience.activePeriod.startDate} - ${experience.activePeriod.endDate}`}</p>
-                <ul className={styles.jobDescription}>
-                    {
-                        experience.info.tasks.map(task => {
-                            return (
-                                <li key={task._id}>{task.task}</li>
-                            );
-                        })
-                    }
-                </ul>
-            </div>
+        <Box className={styles.job} sx={{ color: 'secondary.main' }} >
+            <Box component={'h3'} className={styles.jobTitle}>{experience.info.position}</Box>
+            <p className={styles.jobDetails}>{`${experience.activePeriod.startDate} - ${experience.activePeriod.endDate}`}</p>
+            <ul className={styles.jobDescription}>
+                {
+                    experience.info.tasks.map(task => {
+                        return (
+                            <li key={task._id}>{task.task}</li>
+                        );
+                    })
+                }
+            </ul>
         </Box>
 
 

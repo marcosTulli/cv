@@ -4,7 +4,6 @@
     font-family: $defaultCalibri;
     padding: 1.5rem;
     border-radius: 0.375rem;
-    // color: $darkSecondary;
 
     .jobTitle {
         font-size: 1.25rem;
@@ -14,15 +13,12 @@
 
     .jobDetails {
         font-size: 1rem;
-        // color: $darkSecondary;
         font-family: $defaultCourier;
         margin: 0.5rem 0;
     }
 
     .jobDescription {
-        list-style: disc;
         padding-left: 1.5rem;
-        // color: $darkSecondary;
         font-family: $defaultCourier;
     }
 }

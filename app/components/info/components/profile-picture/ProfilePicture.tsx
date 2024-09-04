@@ -17,8 +17,8 @@ const ProfilePicture: React.FC<IProfilePictureProps> = ({ isLoading }) => {
             <Box className={styles.profilePicture}>
                 <Skeleton
                     circle
-                    height={size}
-                    width={size}
+                    height={158.13}
+                    width={158.13}
                 />
             </Box>
             :
@@ -28,6 +28,7 @@ const ProfilePicture: React.FC<IProfilePictureProps> = ({ isLoading }) => {
                 width={size}
                 height={size}
                 className={styles.profilePicture}
+                layout="fixed"
             />
     );
 };
