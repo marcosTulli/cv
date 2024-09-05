@@ -3,9 +3,8 @@ import { themeStore } from "../store";
 import { Themes } from "../models/enums";
 
 const useTheme = () => {
-
-
     const store = themeStore();
+
     const baseColors = {
         white: { main: '#f2f2f2' },
         black: { main: '#0f0f0f' },
@@ -33,14 +32,10 @@ const useTheme = () => {
 
     };
 
-
-
     const themeObject = store.selectedTheme === Themes.dark ? dark : light;
     const theme = createTheme(themeObject);
 
-    return {
-        theme
-    };
+    return { theme };
 };
 
 export default useTheme;

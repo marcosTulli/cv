@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './Header.module.scss';
 import { userStore } from '@/app/store';

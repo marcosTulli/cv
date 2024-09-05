@@ -1,3 +1,4 @@
+'use client';
 import * as React from 'react';
 import styles from './Languages.module.scss';
 import { userStore } from '@/app/store';

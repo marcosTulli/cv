@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from "./JobCard.module.scss";
 import Skeleton from 'react-loading-skeleton';

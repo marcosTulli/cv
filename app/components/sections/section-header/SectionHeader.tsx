@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './SectionHeader.module.scss';
 import { Box, Container } from '@mui/material';

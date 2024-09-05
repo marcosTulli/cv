@@ -1,3 +1,4 @@
+'use client';
 import * as React from 'react';
 import JobCard from './job-card/JobCard';
 import styles from './WorkExperience.module.scss';
@@ -15,7 +16,7 @@ const WorkExperienceBody: React.FC<IWorkExperienceBody> = ({ data, isLoading }) 
     const { currentLanguage } = languageStore();
 
     return (
-        <Container className={styles.section}>
+        <Container className={styles.section} >
             <Grid container maxWidth='lg' spacing={1.5}>
                 {
                     isLoading
