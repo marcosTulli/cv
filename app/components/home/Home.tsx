@@ -3,7 +3,6 @@ import * as React from 'react';
 import { useUser } from '@/app/hooks/queries';
 import { userStore, languageStore } from '@/app/store';
 import { IUser } from '@/app/models/interfaces';
-
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
 import { Education, WorkExperience, Skills } from '../sections';
@@ -13,7 +12,6 @@ import { useIsLoadingSections } from '@/app/hooks';
 import { LoadableSections } from '@/app/models/enums';
 import Info from '../info/Info';
 import { Box } from '@mui/material';
-import styles from './Home.module.scss';
 
 export default function Home() {
     const userID = process.env.NEXT_PUBLIC_USER_ID || '';
@@ -45,7 +43,6 @@ export default function Home() {
 
     return (
         <Box
-            className={styles.homeContainer}
             sx={{
                 height: '100vh',
                 bgcolor: 'defaultBackground.main',
