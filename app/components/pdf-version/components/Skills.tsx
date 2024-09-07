@@ -1,26 +1,18 @@
 import React from 'react';
-import { Typography, } from '@mui/material';
-import { languageStore } from '@/app/store';
-import { useSkills } from '@/app/hooks/queries';
+import { Typography } from '@mui/material';
 import styles from '../SignlePageTemplate.module.scss';
+import { useSkills } from '@/app/hooks/queries';
 import { userStore } from '@/app/store';
 
 const Skills: React.FC = () => {
-    const { strings } = languageStore();
     const { user } = userStore();
-    const { data: skills } = useSkills({ id: user._id });
+    const { data } = useSkills({ id: user._id });
     return (
-        <div className={styles.section}>
-            <Typography variant="h5" className={styles.sectionTitle}>{strings.skills}</Typography>
-            <ul className={styles.skills}>
-                {skills?.skills.map((skill) => (
-                    <li key={skill._id} className={styles.skill}>
-                        {skill.formattedName}
-                    </li>
-                ))}
-            </ul>
+        <div className={styles.skills}>
+            {data?.skills.map((skill) => (
+                <Typography key={skill._id} variant="body1" className={styles.skill}>{skill.formattedName}</Typography>
+            ))}
         </div>
-
     );
 };
 
