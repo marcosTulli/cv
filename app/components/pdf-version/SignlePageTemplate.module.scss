@@ -1,7 +1,11 @@
 @import '../../styles/global.scss';
 
 $headerTitle: 18px;
-$sectionTitle: 16px;
+$sectionTitle: 22px;
+$large: 16px;
+$medium: 14px;
+$small: 11px;
+
 
 .container {
     font-family: $defaultCalibri;
@@ -11,29 +15,33 @@ $sectionTitle: 16px;
     display: flex;
     flex-direction: row;
     margin: 1rem;
-    padding: 0;
+    padding: 2rem;
 
     .workExperience {
+        .experienceContainer {
+            padding-bottom: 1rem;
+        }
 
         .companyInfo {
             display: flex;
             gap: 2rem;
             justify-content: start;
             align-items: center;
+            padding-bottom: 0.5rem;
         }
 
         .companyName {
-            font-size: 12px;
+            font-size: $large;
             font-weight: 600;
         }
 
         .positionAndPeriod {
-            font-size: 10px;
+            font-size: $medium;
         }
 
         .task {
             padding-top: 2px;
-            font-size: 8px;
+            font-size: $small;
         }
     }
 
