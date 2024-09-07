@@ -12,12 +12,14 @@ const Education: React.FC = () => {
     return (
         <div className={styles.education}>
             <Typography className={styles.sectionTitle}>{strings.education}</Typography>
-            {educationData?.map((education) => (
-                <div className={styles.educationItem} key={education.id}>
-                    <Typography className={styles.degree}>{education.title}</Typography>
-                    <Typography className={styles.college}>{education.content}</Typography>
-                </div>
-            ))}
+            <ul>
+                {educationData?.map((education) => (
+                    <li className={styles.educationItem} key={education.id}>
+                        <Typography className={styles.degree}>{education.title}</Typography>
+                        <Typography className={styles.college}>{education.content}</Typography>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };

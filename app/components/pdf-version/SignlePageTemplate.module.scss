@@ -69,15 +69,17 @@ $small: 12px;
 
         .languagesContainer {
 
-            padding-top: 0.5rem;
+            font-size: $small;
+            padding: 0.5rem 0 0 1rem;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
 
             .languageContainer {
-                display: flex;
+
                 width: max-content;
 
                 .language {
+                    padding: 0;
                     font-size: $small;
                 }
             }
@@ -85,8 +87,15 @@ $small: 12px;
 
 
         .education {
+
+            ul {
+
+                padding: 0.5rem 0 0 1rem;
+            }
+
             .educationItem {
-                padding-top: 0.5rem;
+                // padding-top: 0.5rem;
+                font-size: $small;
 
                 .degree {
                     font-weight: 500;

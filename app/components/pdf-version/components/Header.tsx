@@ -20,15 +20,15 @@ const Header: React.FC = () => {
             </div>
             <Box>
                 <Typography className={styles.languageTitle}>{strings.languages}:</Typography>
-                <Box className={styles.languagesContainer}>
+                <ul className={styles.languagesContainer}>
                     {user.info.languages.map((language) => (
                         <li key={language.language} className={styles.languageContainer}>
                             <Typography variant="body2" className={styles.language} >
-                                {`* ${language.language}: ${language.level}`}
+                                {` ${language.language}: ${language.level}`}
                             </Typography>
                         </li>
                     ))}
-                </Box>
+                </ul>
             </Box>
         </div>
     );
