@@ -8,12 +8,14 @@
     align-content: center;
     width: 100%;
 
+
     .sectionTitle {
         font-size: 2rem;
     }
 
     .pageTitle {
         font-size: 4rem;
+
     }
 
     .pageTitle,
@@ -21,6 +23,11 @@
         font-family: $defaultCalibri;
         font-weight: bold;
         padding: 1rem
+    }
+
+    .headerDescription {
+        font-size: 2rem;
+        font-family: $defaultCourier;
     }
 
     .sectionDescription {
