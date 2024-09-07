@@ -11,7 +11,10 @@ type JobCardProps = {
 const JobCard: React.FC<JobCardProps> = ({ experience }) => {
     return (
         <Box className={styles.job} sx={{ color: 'secondary.main' }} >
-            <Box component={'h3'} className={styles.jobTitle}>{experience.info.position}</Box>
+            <Box component={'div'} sx={{ display: ' flex', flexDirection: 'row', gap: '1rem', alignItems: 'center' }}>
+                <Box component={'div'} className={styles.companyName}>{experience.companyName}</Box>
+                <Box component={'div'} className={styles.jobTitle}>{experience.info.position}</Box>
+            </Box>
             <p className={styles.jobDetails}>
                 {experience.info.position} | {experience.activePeriod.startDate} - {
                     experience.activePeriod.endDate.length > 0

@@ -5,9 +5,13 @@
     padding: 1.5rem;
     border-radius: 0.375rem;
 
+    .companyName {
+        font-size: 2rem;
+    }
+
     .jobTitle {
         font-size: 1.25rem;
-        font-weight: bold;
+        font-weight: 300;
         margin: 0;
     }
 

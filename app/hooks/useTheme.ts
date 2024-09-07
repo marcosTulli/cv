@@ -21,7 +21,6 @@ const useTheme = () => {
 
     };
 
-    // TODO: Pick better colors
     const light = {
         palette: {
             ...baseColors,
