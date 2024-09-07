@@ -7,7 +7,7 @@ const useTheme = () => {
 
     const baseColors = {
         white: { main: '#f2f2f2' },
-        black: { main: '#0f0f0f' },
+        black: { main: '#1A1A1A' },
         gray: { main: '#595959' },
     };
 
@@ -16,7 +16,7 @@ const useTheme = () => {
             ...baseColors,
             primary: { main: '#1A4958' },
             secondary: { main: '#d1ffff', strong: '#0F9D6D' },
-            defaultBackground: { main: '#0f0f0f' }
+            defaultBackground: { main: '#1A1A1A' }
         }
 
     };
@@ -25,9 +25,9 @@ const useTheme = () => {
     const light = {
         palette: {
             ...baseColors,
-            primary: { main: '#E8D18A' },
-            secondary: { main: '#2A5056', strong: '#1B3E44' },
-            defaultBackground: { main: '#DEAF76' }
+            primary: { main: '#F5F5DC' },
+            secondary: { main: '#1A1A1A', strong: '#1B3E44' },
+            defaultBackground: { main: '#C9D2B5' }
         }
 
     };
