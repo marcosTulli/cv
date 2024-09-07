@@ -1,30 +1,44 @@
 @import '../../../styles/global.scss';
 
 .container {
-    padding: 0.5rem;
+    padding: 2rem 0 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    @include respond-to(md) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
     .gridContainer {
         display: flex;
         justify-content: center;
-        padding-top: 0.5rem;
+        padding-top: 2rem;
+
+        @include respond-to(md) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+
+        }
 
 
         .educationGrid {
             display: grid;
             gap: 1.5rem;
-            grid-template-columns: repeat(3, 1fr);
-            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: start;
             padding-bottom: 1rem;
+            column-gap: 8rem;
 
             @include respond-to(lg) {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(1, 1fr);
+                justify-items: center;
             }
 
             @include respond-to(md) {
                 grid-template-columns: repeat(1, 1fr);
+                justify-items: center;
             }
         }
 
@@ -36,10 +50,18 @@
         .educationTitle {
             font-family: $defaultCalibri;
             margin: 0;
+
+            @include respond-to(md) {
+                text-align: center;
+            }
         }
 
         .educationDetails {
             font-family: $defaultCourier;
+
+            @include respond-to(md) {
+                text-align: center;
+            }
         }
     }
 
