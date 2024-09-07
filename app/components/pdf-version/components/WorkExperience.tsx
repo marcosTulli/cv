@@ -20,7 +20,7 @@ const WorkExperience: React.FC = () => {
                     <div className={styles.companyInfo}>
                         <Typography variant="h6" className={styles.companyName}>{experience.companyName}</Typography>
                         <Typography variant="body1" className={styles.positionAndPeriod}>
-                            {experience.info.position} | {experience.activePeriod.startDate} / {
+                            {experience.info.position} | {experience.activePeriod.startDate} - {
                                 experience.activePeriod.endDate.length > 0
                                     ? experience.activePeriod.endDate
                                     : 'present'}
