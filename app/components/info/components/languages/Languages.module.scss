@@ -6,7 +6,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     justify-content: flex-start;
-    align-items: start;
+    align-items: flex-start;
     padding: 0;
 
     .language {
