@@ -5,16 +5,17 @@ import { useEducation } from '@/app/hooks/queries';
 import { languageStore, userStore } from '@/app/store';
 
 const Education: React.FC = () => {
-    const { currentLanguage } = languageStore();
+    const { strings, currentLanguage } = languageStore();
     const { user } = userStore();
     const { data: educationData } = useEducation({ id: user._id, lang: currentLanguage });
 
     return (
         <div className={styles.education}>
+            <Typography className={styles.sectionTitle}>{strings.education}</Typography>
             {educationData?.map((education) => (
-                <div key={education.id}>
-                    <Typography variant="h6" className={styles.degree}>{education.title}</Typography>
-                    <Typography variant="body1">{education.content}</Typography>
+                <div className={styles.educationItem} key={education.id}>
+                    <Typography className={styles.degree}>{education.title}</Typography>
+                    <Typography className={styles.college}>{education.content}</Typography>
                 </div>
             ))}
         </div>

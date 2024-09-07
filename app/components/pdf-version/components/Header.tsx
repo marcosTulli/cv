@@ -16,11 +16,10 @@ const Header: React.FC = () => {
                 <Typography className={styles.contactItem}>
                     <LocalPhoneOutlinedIcon className={styles.icon} />{user.email}</Typography>
                 <Typography className={styles.contactItem}>
-                    <EmailOutlinedIcon className={styles.icon} /> {user.phone} </Typography>
+                    <EmailOutlinedIcon className={styles.icon} />{user.phone} </Typography>
             </div>
             <Box>
-
-                <Typography className={styles.languageTitle} >{strings.languages}:</Typography>
+                <Typography className={styles.languageTitle}>{strings.languages}:</Typography>
                 <Box className={styles.languagesContainer}>
                     {user.info.languages.map((language) => (
                         <li key={language.language} className={styles.languageContainer}>

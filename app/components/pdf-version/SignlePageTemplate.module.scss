@@ -26,6 +26,7 @@ $small: 12px;
 
     .sectionTitle {
         font-size: $sectionTitle;
+        padding-top: 0.2rem;
     }
 
     .candidateDescription {
@@ -84,14 +85,19 @@ $small: 12px;
 
 
         .education {
-            .degree {
-                font-weight: 500;
-                font-size: $medium;
+            .educationItem {
+                padding-top: 0.5rem;
+
+                .degree {
+                    font-weight: 500;
+                    font-size: $medium;
+                }
+
+                .college {
+                    font-size: $small;
+                }
             }
 
-            .Typography {
-                font-size: 12px;
-            }
         }
 
         .skills {
