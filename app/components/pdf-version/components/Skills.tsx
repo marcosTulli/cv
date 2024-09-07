@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import styles from '../SignlePageTemplate.module.scss';
 import { useSkills } from '@/app/hooks/queries';
 import { languageStore, userStore } from '@/app/store';
@@ -9,11 +9,14 @@ const Skills: React.FC = () => {
     const { data } = useSkills({ id: user._id });
     const { strings } = languageStore();
     return (
-        <div className={styles.skills}>
-            {data?.skills.map((skill) => (
-                <Typography key={skill._id} className={styles.skill}>{skill.formattedName}</Typography>
-            ))}
-        </div>
+        <Box className={styles.skillsContainer}>
+            <Typography className={styles.sectionTitle}>{strings.skills}</Typography>
+            <Box component='ul' className={styles.skills}>
+                {data?.skills.map((skill) => (
+                    <Box component='li' key={skill._id} className={styles.skill}>{skill.formattedName}</Box>
+                ))}
+            </Box>
+        </Box>
     );
 };
 

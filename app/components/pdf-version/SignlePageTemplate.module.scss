@@ -1,11 +1,12 @@
 @import '../../styles/global.scss';
 
-$headerTitle: 26px;
-$sectionTitle: 22px;
-$large: 16px;
-$medium: 14px;
-$small: 12px;
-
+$font-sizes: (
+    headerTitle: 26px,
+    sectionTitle: 22px,
+    large: 16px,
+    medium: 14px,
+    small: 12px
+);
 
 .container {
     font-family: $defaultCalibri;
@@ -15,22 +16,24 @@ $small: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    margin: 0rem;
+    margin: 0;
     padding: 2rem;
 
     .header {
+
         .sectionTitle {
-            font-size: $headerTitle;
+            font-size: map-get($font-sizes, headerTitle);
         }
     }
 
     .sectionTitle {
-        font-size: $sectionTitle;
+        font-size: map-get($font-sizes, sectionTitle);
         padding-top: 0.2rem;
+        padding-bottom: 0.4rem;
     }
 
     .candidateDescription {
-        font-size: $sectionTitle;
+        font-size: map-get($font-sizes, sectionTitle);
     }
 
     .leftContainer,
@@ -39,7 +42,6 @@ $small: 12px;
         flex-direction: column;
         gap: 0.5rem;
     }
-
 
     .leftContainer {
         .contactInfo {
@@ -50,7 +52,7 @@ $small: 12px;
 
             .icon,
             .contactItem {
-                font-size: $small;
+                font-size: map-get($font-sizes, small);
             }
 
             .contactItem {
@@ -58,77 +60,70 @@ $small: 12px;
                 gap: 0.5rem;
                 align-items: center;
             }
-
-
         }
 
         .languageTitle {
             padding-top: 1rem;
-            font-size: $medium;
+            font-size: map-get($font-sizes, medium);
         }
 
         .languagesContainer {
-
-            font-size: $small;
+            font-size: map-get($font-sizes, small);
             padding: 0.5rem 0 0 1rem;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
 
             .languageContainer {
-
                 width: max-content;
 
                 .language {
                     padding: 0;
-                    font-size: $small;
+                    font-size: map-get($font-sizes, small);
                 }
             }
         }
 
-
         .education {
-
             ul {
-
-                padding: 0.5rem 0 0 1rem;
+                padding: 0 0 0 1rem;
             }
 
             .educationItem {
-                // padding-top: 0.5rem;
-                font-size: $small;
+                font-size: map-get($font-sizes, small);
 
                 .degree {
                     font-weight: 500;
-                    font-size: $medium;
+                    font-size: map-get($font-sizes, medium);
                 }
 
                 .college {
-                    font-size: $small;
+                    font-size: map-get($font-sizes, small);
                 }
             }
-
         }
 
-        .skills {
-            display: flex;
-            flex-direction: column;
-            height: 200px;
-            flex-wrap: wrap;
-            column-count: 2;
-            margin: 0;
-            padding-left: 0.5rem;
+        .skillsContainer {
+            ul {
+                padding: 0 0 0 1rem;
+            }
 
-            .skill {
-                padding-top: 2px;
-                font-size: 12px;
+            .skills {
+                display: flex;
+                flex-direction: column;
+                height: 290px;
+                flex-wrap: wrap;
+                column-count: 2;
+                margin: 0;
+
+                .skill {
+                    padding-top: 2px;
+                    font-size: map-get($font-sizes, small);
+                    font-family: $defaultCalibri;
+                    font-weight: 200;
+                }
             }
         }
-
-
-
     }
-
-
 
     .rightContainer {
         .workExperience {
@@ -143,27 +138,22 @@ $small: 12px;
                     padding-bottom: 0.5rem;
 
                     .companyName {
-                        font-size: $large;
+                        font-size: map-get($font-sizes, large);
                         font-weight: 600;
                     }
 
                     .positionAndPeriod {
-                        font-size: $medium;
+                        font-size: map-get($font-sizes, medium);
                     }
-
                 }
 
                 .task {
                     padding-top: 2px;
-                    font-size: $small;
+                    font-size: map-get($font-sizes, small);
                 }
-
             }
-
         }
-
     }
-
 
     @media print {
         .container {
@@ -177,9 +167,7 @@ $small: 12px;
         }
     }
 
-
     @page {
         size: A4;
-        // margin: 20mm
     }
 }
