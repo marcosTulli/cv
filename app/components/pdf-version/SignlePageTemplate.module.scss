@@ -93,7 +93,7 @@ $font-sizes: (
                 font-size: map-get($font-sizes, small);
 
                 .degree {
-                    font-weight: 500;
+                    font-weight: 400;
                     font-size: map-get($font-sizes, medium);
                 }
 
@@ -120,7 +120,7 @@ $font-sizes: (
                     padding-top: 2px;
                     font-size: map-get($font-sizes, small);
                     font-family: $defaultCalibri;
-                    font-weight: 200;
+                    font-weight: 400;
                 }
             }
         }
@@ -131,21 +131,27 @@ $font-sizes: (
             .experienceContainer {
                 padding-bottom: 1rem;
 
+                .companyName {
+                    font-size: map-get($font-sizes, large);
+                    font-weight: 500;
+                }
+
+                .positionAndPeriod {
+                    font-size: map-get($font-sizes, medium);
+                }
+
                 .companyInfo {
                     display: flex;
-                    gap: 2rem;
+                    gap: 1rem;
                     justify-content: start;
                     align-items: center;
                     padding-bottom: 0.5rem;
 
-                    .companyName {
-                        font-size: map-get($font-sizes, large);
-                        font-weight: 600;
-                    }
 
-                    .positionAndPeriod {
-                        font-size: map-get($font-sizes, medium);
-                    }
+                }
+
+                ul {
+                    padding-left: 1rem;
                 }
 
                 .task {
