@@ -1,10 +1,10 @@
 @import '../../styles/global.scss';
 
-$headerTitle: 18px;
+$headerTitle: 26px;
 $sectionTitle: 22px;
 $large: 16px;
 $medium: 14px;
-$small: 11px;
+$small: 12px;
 
 
 .container {
@@ -12,45 +12,23 @@ $small: 11px;
     width: 100%;
     max-width: 210mm;
     max-height: 297mm;
+    overflow: hidden;
     display: flex;
-    flex-direction: row;
-    margin: 1rem;
+    flex-direction: column;
+    margin: 0rem;
     padding: 2rem;
 
-    .workExperience {
-        .experienceContainer {
-            padding-bottom: 1rem;
+    .header {
+        .sectionTitle {
+            font-size: $headerTitle;
         }
-
-        .companyInfo {
-            display: flex;
-            gap: 2rem;
-            justify-content: start;
-            align-items: center;
-            padding-bottom: 0.5rem;
-        }
-
-        .companyName {
-            font-size: $large;
-            font-weight: 600;
-        }
-
-        .positionAndPeriod {
-            font-size: $medium;
-        }
-
-        .task {
-            padding-top: 2px;
-            font-size: $small;
-        }
-    }
-
-    .languageContainer {
-        display: flex;
     }
 
     .sectionTitle {
-        padding-bottom: 0.5rem;
+        font-size: $sectionTitle;
+    }
+
+    .candidateDescription {
         font-size: $sectionTitle;
     }
 
@@ -61,68 +39,132 @@ $small: 11px;
         gap: 0.5rem;
     }
 
-    .divider {
-        height: 100%;
-        max-width: 2px;
-        padding: 0;
-        margin: 0;
-        background-color: $darkMain;
-    }
 
-    .header {
-        .sectionTitle {
-            font-size: $headerTitle;
-        }
-    }
+    .leftContainer {
+        .contactInfo {
+            padding-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
 
-    .contactInfo {
-        padding-top: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
+            .icon,
+            .contactItem {
+                font-size: $small;
+            }
 
-        .Typography {
-            font-size: 12px;
-        }
-    }
+            .contactItem {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+            }
 
-    .education {
-        .degree {
-            font-weight: 600;
-            font-size: 14px;
+
         }
 
-        .Typography {
-            font-size: 12px;
+        .languageTitle {
+            padding-top: 1rem;
+            font-size: $medium;
         }
+
+        .languagesContainer {
+
+            padding-top: 0.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            .languageContainer {
+                display: flex;
+                width: max-content;
+
+                .language {
+                    font-size: $small;
+                }
+            }
+        }
+
+
+        .education {
+            .degree {
+                font-weight: 500;
+                font-size: $medium;
+            }
+
+            .Typography {
+                font-size: 12px;
+            }
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            height: 200px;
+            flex-wrap: wrap;
+            column-count: 2;
+            margin: 0;
+            padding-left: 0.5rem;
+
+            .skill {
+                padding-top: 2px;
+                font-size: 12px;
+            }
+        }
+
+
+
     }
 
-    .skills {
-        display: flex;
-        flex-direction: column;
-        height: 200px;
-        flex-wrap: wrap;
-        column-count: 2;
-        margin: 0;
-        padding-left: 0.5rem;
 
-        .skill {
-            padding-top: 2px;
-            font-size: 12px;
+
+    .rightContainer {
+        .workExperience {
+            .experienceContainer {
+                padding-bottom: 1rem;
+
+                .companyInfo {
+                    display: flex;
+                    gap: 2rem;
+                    justify-content: start;
+                    align-items: center;
+                    padding-bottom: 0.5rem;
+
+                    .companyName {
+                        font-size: $large;
+                        font-weight: 600;
+                    }
+
+                    .positionAndPeriod {
+                        font-size: $medium;
+                    }
+
+                }
+
+                .task {
+                    padding-top: 2px;
+                    font-size: $small;
+                }
+
+            }
+
         }
+
     }
+
 
     @media print {
         .container {
             flex-direction: column;
             page-break-inside: avoid;
             page-break-after: avoid;
-            margin: 0
+            margin: 0;
+            max-height: 295mm;
+            max-width: 210mm;
+            overflow: hidden;
         }
     }
 
+
     @page {
         size: A4;
-        margin: 20mm
+        // margin: 20mm
     }
 }

@@ -8,8 +8,8 @@ export default function HomePage() {
 
   return (
     <Providers>
-      <Home />
-      {/* <SinglePageTemplate /> */}
+      {/* <Home /> */}
+      <SinglePageTemplate />
     </Providers>
   );
 

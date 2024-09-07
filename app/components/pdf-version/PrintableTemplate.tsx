@@ -1,16 +1,23 @@
 'use client';
 import { forwardRef } from 'react';
 import SinglePageTemplate from './SinglePageTemplate';
+import { Box } from '@mui/material';
 
 const PrintableTemplate = forwardRef<HTMLDivElement>(({ }, ref) => {
     return (
         <div hidden>
-            <div
+            <Box
+
+                sx={{
+                    height: '100vh',
+                    minWidth: '100%',
+                    overflow: 'hidden',
+                }}
                 ref={ref}
                 className="PrintableTemplate"
             >
                 <SinglePageTemplate />
-            </div>
+            </Box>
         </div>
     );
 });
