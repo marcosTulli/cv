@@ -12,6 +12,7 @@ const PrintableTemplate = forwardRef<HTMLDivElement>(({ }, ref) => {
                     height: '100vh',
                     minWidth: '100%',
                     overflow: 'hidden',
+                    background: '#F2F2F2'
                 }}
                 ref={ref}
                 className="PrintableTemplate"
