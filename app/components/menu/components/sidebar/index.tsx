@@ -42,7 +42,7 @@ const SideBar: React.FC<Props> = ({ window, isSidebarOpen, setIsSidebarOpen }) =
                 gap: '2rem',
                 height: '100%',
             }}>
-                <PageSections />
+                <PageSections onClick={handleDrawerToggle} />
                 <LanguageSelector />
                 <ThemePicker />
                 <Download />
