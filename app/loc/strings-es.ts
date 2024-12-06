@@ -10,7 +10,7 @@ const es: Partial<Translation> = {
     dropdownOptionsDownload: 'Descargar CV',
     dropdownOptionsClone: 'Ver código',
     skillsDescription: 'Poseo un conjunto diverso de habilidades que me permiten entregar trabajo de alta calidad.',
-    workExperienceDescription: 'Explora mi trayectoria profesional y los diversos roles que he desempe%C3%B1ado.',
+    workExperienceDescription: 'Explora mi trayectoria profesional y los diversos roles que he desempeñado.',
     educationDescription: 'Explora mi trayectoria educativa y los t%C3%ADtulos que he obtenido.',
     email: 'Email',
     phone: 'Telefono',
