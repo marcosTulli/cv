@@ -16,7 +16,6 @@ import ThemePicker from '@/app/components/theme-picker';
 import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
 import { Download, PageSection } from '../items';
 
-
 interface INavBarProps {
     setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }

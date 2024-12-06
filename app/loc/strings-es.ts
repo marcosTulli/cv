@@ -20,6 +20,10 @@ const es: Partial<Translation> = {
     copyAction: 'Click para copiar',
     toggleThemeAction: 'Cambiar tema',
     changeLanguageAction: 'Cambiar idioma',
+    scrollToHomeTooltip: 'Ir a inicio',
+    scrollToWorkTooltip: 'Ir a Experiencia laboral',
+    scrollToEducationTooltip: 'Ir a educación',
+    scrollToSkillsTooltip: 'Ir a habilidades',
 };
 
 export default es;
