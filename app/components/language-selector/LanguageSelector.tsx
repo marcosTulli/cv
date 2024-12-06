@@ -6,9 +6,10 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, Tooltip } from '@mui/material';
+import TranslateIcon from '@mui/icons-material/Translate';
 
 const LanguageSelector = () => {
-    const { setLang, currentLanguage } = languageStore();
+    const { setLang } = languageStore();
     const { user } = userStore();
     const { strings } = languageStore();
 
@@ -29,7 +30,7 @@ const LanguageSelector = () => {
     };
 
     return (
-        <Box sx={{ bgColor: 'primary.main', }}>
+        <Box sx={{ position: 'relative' }}>
             <Tooltip title={strings.changeLanguageAction}>
                 <Button
                     id="language-selector-button"
@@ -39,9 +40,8 @@ const LanguageSelector = () => {
                     onClick={handleClick}
                     sx={{ color: 'secondary.main' }}
                 >
-                    {currentLanguage}
+                    <TranslateIcon />
                 </Button>
-
             </Tooltip>
             <Menu
                 id="language-selector-menu"
@@ -57,18 +57,18 @@ const LanguageSelector = () => {
                     vertical: 'top',
                     horizontal: 'left',
                 }}
-
                 sx={{
+                    marginTop: '1rem',
                     '& .MuiPaper-root': {
-                        padding: 0,
-                        width: '70px',
-                        backgroundColor: 'white',
-                        color: 'white',
+                        backgroundColor: 'secondary.main',
+                        color: 'primary.main',
                     },
                     '& .MuiMenuItem-root': {
-                        backgroundColor: 'white',
+                        backgroundColor: 'secondary.main',
+                        color: 'primary.main',
                         '&:hover': {
                             backgroundColor: 'primary.main',
+                            color: 'secondary.main',
                         },
                     },
                 }}
@@ -77,12 +77,13 @@ const LanguageSelector = () => {
                     <MenuItem
                         key={index}
                         onClick={() => handleLanguageChange(lang)}
+                        sx={{ width: '100px' }}
                     >
                         {lang.toUpperCase()}
                     </MenuItem>
                 ))}
             </Menu>
-        </Box >
+        </Box>
     );
 };
 
