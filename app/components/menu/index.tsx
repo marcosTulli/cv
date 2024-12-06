@@ -5,14 +5,17 @@ import Sidebar from './components/sidebar';
 import NavBar from './components/navbar';
 
 const Menu = () => {
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <NavBar setMobileOpen={setMobileOpen} />
+            <NavBar
+                isSidebarOpen={isSidebarOpen}
+                setIsSidebarOpen={setIsSidebarOpen}
+            />
             <Sidebar
-                mobileOpen={mobileOpen}
-                setMobileOpen={setMobileOpen}
+                isSidebarOpen={isSidebarOpen}
+                setIsSidebarOpen={setIsSidebarOpen}
             />
         </Box>
     );

@@ -5,12 +5,12 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Themes } from '@/app/models/enums';
 
-const ThemeIcon = () => {
+const ThemeIcon: React.FC = () => {
     const { selectedTheme } = themeStore();
     return selectedTheme === Themes.light ? <DarkModeIcon /> : <LightModeIcon />;
 };
 
-const ThemePicker = () => {
+const ThemePicker: React.FC = () => {
     const { toggleTheme } = themeStore();
     const { strings } = languageStore();
 

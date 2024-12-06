@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Language } from '@/app/models/enums';
 import { languageStore } from '@/app/store';
 import { userStore } from '@/app/store';
@@ -8,12 +8,12 @@ import MenuItem from '@mui/material/MenuItem';
 import { Box, Tooltip } from '@mui/material';
 import TranslateIcon from '@mui/icons-material/Translate';
 
-const LanguageSelector = () => {
+const LanguageSelector: React.FC = () => {
     const { setLang } = languageStore();
     const { user } = userStore();
     const { strings } = languageStore();
 
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {

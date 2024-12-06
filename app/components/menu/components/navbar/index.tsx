@@ -8,30 +8,25 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { usePageSections } from '../../hooks';
 import { Tooltip } from '@mui/material';
-import ThemePicker from '@/app/components/theme-picker';
-import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
-import { Download, PageSection } from '../items';
+import { Download, PageSection, ThemePicker, LanguageSelector } from '../items';
+import OpenSideBarButton from '../items/OpenSideBarButton';
 
 interface INavBarProps {
-    setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isSidebarOpen: boolean;
 }
 
-const NavBar: React.FC<INavBarProps> = ({ setMobileOpen }) => {
-    const handleDrawerToggle = () => { setMobileOpen((prevState) => !prevState); };
+const NavBar: React.FC<INavBarProps> = ({ setIsSidebarOpen, isSidebarOpen }) => {
+    const handleDrawerToggle = () => { setIsSidebarOpen((prevState) => !prevState); };
     const { pageSections } = usePageSections();
 
     return (
-        <AppBar component="nav">
+        <AppBar component="nav" sx={{ alignItems: 'center' }}>
             <Toolbar>
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
+                <OpenSideBarButton
                     onClick={handleDrawerToggle}
-                    sx={{ mr: 2, display: { sm: 'none' } }}
-                >
-                    <MenuIcon />
-                </IconButton>
+                    display={!isSidebarOpen}
+                />
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexWrap: 'nowrap', alignItems: 'center' }}>
                     {
                         pageSections.map(section => (
@@ -45,7 +40,6 @@ const NavBar: React.FC<INavBarProps> = ({ setMobileOpen }) => {
                             </Tooltip>
                         ))
                     }
-                    {'  |  '}
                     <LanguageSelector />
                     <ThemePicker />
                     <Download />

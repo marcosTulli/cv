@@ -7,23 +7,21 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { languageStore } from '@/app/store';
 import { Tooltip } from '@mui/material';
-import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
 import { usePageSections } from '../../hooks';
-import ThemePicker from '@/app/components/theme-picker';
-import { Download, PageSection } from '../items';
+import { Download, PageSection, ThemePicker, LanguageSelector } from '../items';
 
 interface Props {
     window?: () => Window;
-    mobileOpen: boolean;
-    setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isSidebarOpen: boolean;
+    setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const drawerWidth = 240;
+const drawerWidth = 80;
 
-const SideBar: React.FC<Props> = ({ window, mobileOpen, setMobileOpen }) => {
+const SideBar: React.FC<Props> = ({ window, isSidebarOpen, setIsSidebarOpen }) => {
     const { strings } = languageStore();
     const handleDrawerToggle = () => {
-        setMobileOpen((prevState) => !prevState);
+        setIsSidebarOpen((prevState) => !prevState);
     };
     const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -38,38 +36,46 @@ const SideBar: React.FC<Props> = ({ window, mobileOpen, setMobileOpen }) => {
     return (
         <Drawer
             container={container}
-            open={mobileOpen}
+            open={isSidebarOpen}
             onClose={handleDrawerToggle}
             ModalProps={{ keepMounted: true }}
             sx={{
-                display: { xs: 'block', sm: 'none' },
+                display: { xs: 'flex', sm: 'none' },
                 '& .MuiDrawer-paper': {
                     boxSizing: 'border-box',
                     width: drawerWidth,
+                    overflow: 'hidden',
                 },
             }}
         >
             <Box sx={{
-                paddingTop: '2rem',
-                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
                 backgroundColor: 'primary.main',
-                height: '100%'
+                height: '100%',
             }}>
-                <List
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        height: '100%',
-                    }}
-                >
+                <List sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    height: '100%',
+                    justifyContent: 'center',
+                    padding: 0,  // Removes extra padding around the list
+                }}>
                     {pageSections.map((section) => (
-                        <ListItem key={section.name} disablePadding>
+                        <ListItem key={section.name} disablePadding sx={{ width: '100%' }}>
                             <ListItemButton
-                                sx={{ textAlign: 'center', color: 'secondary.main' }}
+                                sx={{
+                                    textAlign: 'center',
+                                    color: 'secondary.main',
+                                    width: '100%',  // Makes button fill the width of the list item
+                                    justifyContent: 'center',
+                                }}
                                 onClick={() => handleDrawerClick(section.name)}
                             >
-                                <ListItemText>
+                                <ListItemText sx={{ textAlign: 'center' }}>
                                     <PageSection section={section.name} />
                                 </ListItemText>
                             </ListItemButton>
