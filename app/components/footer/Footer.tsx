@@ -13,7 +13,7 @@ const Footer = () => {
             <Box
                 sx={{ color: 'secondary.main' }}
                 component={'p'}
-                className={styles.footerText}>© 2024 {user.name}. All rights reserved.</Box>
+                className={styles.footerText}>© 2024 {user.name} CV.</Box>
         </Box>
     );
 };

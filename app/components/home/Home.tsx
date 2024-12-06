@@ -7,7 +7,7 @@ import Footer from '../footer/Footer';
 import Header from '../header/Header';
 import { Education, WorkExperience, Skills } from '../sections';
 import { PrintableTemplate } from '../pdf-version/PrintableTemplate';
-import useDownload from '../nav-bar/hooks/useDownload';
+import useDownload from '../menu/hooks/useDownload';
 import { useIsLoadingSections } from '@/app/hooks';
 import { LoadableSections } from '@/app/models/enums';
 import Info from '../info/Info';

@@ -21,6 +21,10 @@ const en: Partial<Translation> = {
     copyAction: 'Click to copy',
     toggleThemeAction: 'Change theme',
     changeLanguageAction: 'Change language',
+    scrollToHomeTooltip: 'Go to home',
+    scrollToWorkTooltip: 'Go to work experience',
+    scrollToEducationTooltip: 'Go to education',
+    scrollToSkillsTooltip: 'Go to skills',
 };
 
 export default en;

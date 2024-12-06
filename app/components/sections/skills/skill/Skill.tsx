@@ -8,7 +8,6 @@ interface ISkillProps {
 }
 
 const Skill: React.FC<ISkillProps> = ({ skill }) => {
-
     return (
         <>
             <Icon name={skill.name} />
