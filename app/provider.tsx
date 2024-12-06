@@ -11,7 +11,6 @@ const queryClient = new QueryClient();
 export function Providers({ children }: { children: React.ReactNode; }) {
     const { theme } = useTheme();
 
-
     return (
         <QueryClientProvider client={queryClient}>
             <ThemeProvider theme={theme}>

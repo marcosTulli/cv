@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Header.module.scss';
 import { userStore } from '@/app/store';
 import SectionHeader from '../sections/section-header/SectionHeader';
-import NavBar from '../nav-bar/NavBar';
+import Menu from '@components/menu';
 import { Sections } from '@/app/models/enums';
 import useSectionRef from '../sections/hooks/useSectionRef';
 import { useIsLoadingSections } from '@/app/hooks';
@@ -14,7 +14,6 @@ const Header: React.FC = () => {
     const { sectionRef } = useSectionRef({ sectionName: Sections.Header });
     const { isLoadingSections } = useIsLoadingSections();
 
-
     return (
         <Box
             sx={{ bgcolor: 'defaultBackground.main' }}
@@ -22,7 +21,7 @@ const Header: React.FC = () => {
             ref={sectionRef}
             className={styles.headerContainer}
         >
-            <NavBar />
+            <Menu />
             <SectionHeader
                 title={user.name}
                 description={user.info.candidateTitle}
