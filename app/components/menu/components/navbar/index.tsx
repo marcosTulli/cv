@@ -12,7 +12,7 @@ import { Sections } from '@/app/models/enums';
 import { usePageSections } from '../../hooks';
 import { languageStore } from '@/app/store';
 import { Tooltip } from '@mui/material';
-import ThemePicker from '@/app/components/theme-picker/ThemePicker';
+import ThemePicker from '@/app/components/theme-picker';
 import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
 import { Download } from '../items';
 

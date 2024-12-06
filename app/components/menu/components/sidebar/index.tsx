@@ -10,7 +10,7 @@ import { languageStore } from '@/app/store';
 import { Tooltip } from '@mui/material';
 import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
 import { usePageSections } from '../../hooks';
-import ThemePicker from '@/app/components/theme-picker/ThemePicker';
+import ThemePicker from '@/app/components/theme-picker';
 import { Download } from '../items';
 
 interface Props {
