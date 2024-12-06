@@ -14,7 +14,7 @@ import { languageStore } from '@/app/store';
 import { Tooltip } from '@mui/material';
 import ThemePicker from '@/app/components/theme-picker';
 import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
-import { Download } from '../items';
+import { Download, PageSection } from '../items';
 
 
 interface INavBarProps {
@@ -50,17 +50,18 @@ const NavBar: React.FC<INavBarProps> = ({ setMobileOpen }) => {
 
                     </Button>
                     {
-                        pageSections.map(i => (
-                            <Tooltip key={i.title} title={i.title} >
+                        pageSections.map(section => (
+                            <Tooltip key={section.title} title={section.title} >
                                 <Button
                                     sx={{ color: 'secondary.main' }}
-                                    onClick={i.onClick}
+                                    onClick={section.onClick}
                                 >
-                                    {i.label}
+                                    <PageSection section={section.name} />
                                 </Button>
                             </Tooltip>
                         ))
                     }
+                    {'  |  '}
                     <LanguageSelector />
                     <ThemePicker />
                     <Download />
