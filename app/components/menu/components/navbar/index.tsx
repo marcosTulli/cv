@@ -6,11 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import useScroll from '@/app/components/menu/hooks/useScroll';
-import { Sections } from '@/app/models/enums';
 import { usePageSections } from '../../hooks';
-import { languageStore } from '@/app/store';
 import { Tooltip } from '@mui/material';
 import ThemePicker from '@/app/components/theme-picker';
 import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
@@ -21,8 +17,6 @@ interface INavBarProps {
 }
 
 const NavBar: React.FC<INavBarProps> = ({ setMobileOpen }) => {
-    const { strings } = languageStore();
-    const { scroll } = useScroll();
     const handleDrawerToggle = () => { setMobileOpen((prevState) => !prevState); };
     const { pageSections } = usePageSections();
 
@@ -39,15 +33,6 @@ const NavBar: React.FC<INavBarProps> = ({ setMobileOpen }) => {
                     <MenuIcon />
                 </IconButton>
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexWrap: 'nowrap', alignItems: 'center' }}>
-                    <Button
-                        sx={{ color: 'secondary.main' }}
-                        onClick={() => scroll(Sections.Header)}
-                    >
-                        <Tooltip title={strings.clickAction} >
-                            <HomeOutlinedIcon />
-                        </Tooltip>
-
-                    </Button>
                     {
                         pageSections.map(section => (
                             <Tooltip key={section.title} title={section.title} >

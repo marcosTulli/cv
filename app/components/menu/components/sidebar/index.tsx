@@ -5,13 +5,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import { languageStore } from '@/app/store';
 import { Tooltip } from '@mui/material';
 import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
 import { usePageSections } from '../../hooks';
 import ThemePicker from '@/app/components/theme-picker';
-import { Download } from '../items';
+import { Download, PageSection } from '../items';
 
 interface Props {
     window?: () => Window;
@@ -50,7 +49,12 @@ const SideBar: React.FC<Props> = ({ window, mobileOpen, setMobileOpen }) => {
                 },
             }}
         >
-            <Box sx={{ textAlign: 'center', backgroundColor: 'primary.main', height: '100%' }}>
+            <Box sx={{
+                paddingTop: '2rem',
+                textAlign: 'center',
+                backgroundColor: 'primary.main',
+                height: '100%'
+            }}>
                 <List
                     sx={{
                         display: 'flex',
@@ -59,20 +63,15 @@ const SideBar: React.FC<Props> = ({ window, mobileOpen, setMobileOpen }) => {
                         height: '100%',
                     }}
                 >
-                    <ListItem disablePadding>
-                        <ListItemButton sx={{ justifyContent: 'center', color: 'secondary.main' }}>
-                            <Tooltip title={strings.clickAction}>
-                                <HomeOutlinedIcon />
-                            </Tooltip>
-                        </ListItemButton>
-                    </ListItem>
-                    {pageSections.map((item) => (
-                        <ListItem key={item.name} disablePadding>
+                    {pageSections.map((section) => (
+                        <ListItem key={section.name} disablePadding>
                             <ListItemButton
                                 sx={{ textAlign: 'center', color: 'secondary.main' }}
-                                onClick={() => handleDrawerClick(item.name)}
+                                onClick={() => handleDrawerClick(section.name)}
                             >
-                                <ListItemText primary={item.label} />
+                                <ListItemText>
+                                    <PageSection section={section.name} />
+                                </ListItemText>
                             </ListItemButton>
                         </ListItem>
                     ))}

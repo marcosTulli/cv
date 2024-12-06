@@ -15,7 +15,7 @@ const usePageSections = () => {
     };
 
     const pageSections = Object.keys(Sections)
-        .filter(section => !(section === Sections.Header || section === Sections.PrintableTemplate))
+        .filter(section => !(section === Sections.PrintableTemplate))
         .map(section => {
             const camelCasedLabel = section.charAt(0).toLowerCase() + section.slice(1);
             return {
