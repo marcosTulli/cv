@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import { Download, ThemePicker, LanguageSelector } from '../items';
-import PageSections from '../navbar/PageSections';
+import { Actions, PageSections } from '../items';
 
 interface Props {
     window?: () => Window;
@@ -43,9 +42,7 @@ const SideBar: React.FC<Props> = ({ window, isSidebarOpen, setIsSidebarOpen }) =
                 height: '100%',
             }}>
                 <PageSections onClick={handleDrawerToggle} />
-                <LanguageSelector />
-                <ThemePicker />
-                <Download />
+                <Actions onClick={handleDrawerToggle} />
             </Box>
         </Drawer>
     );

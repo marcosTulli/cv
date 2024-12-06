@@ -8,7 +8,10 @@ import MenuItem from '@mui/material/MenuItem';
 import { Box, Tooltip } from '@mui/material';
 import TranslateIcon from '@mui/icons-material/Translate';
 
-const LanguageSelector: React.FC = () => {
+interface ILanguageSelectorProps {
+    onClick: () => void;
+}
+const LanguageSelector: React.FC<ILanguageSelectorProps> = ({ onClick }) => {
     const { setLang } = languageStore();
     const { user } = userStore();
     const { strings } = languageStore();
@@ -26,6 +29,7 @@ const LanguageSelector: React.FC = () => {
 
     const handleLanguageChange = (language: Language) => {
         setLang(language);
+        onClick && onClick();
         handleClose();
     };
 

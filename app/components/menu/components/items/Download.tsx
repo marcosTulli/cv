@@ -5,11 +5,19 @@ import { useDownload } from '../../hooks';
 import { useIsLoadingSections } from '@/app/hooks';
 import { languageStore } from '@/app/store';
 
-const Download: React.FC = () => {
+interface IDownloadButtonProps {
+    onClick?: () => void;
+}
 
+const Download: React.FC<IDownloadButtonProps> = ({ onClick }) => {
     const { isLoadingSections } = useIsLoadingSections();
     const { handleDownload } = useDownload();
     const { strings } = languageStore();
+
+    const handleClick = () => {
+        onClick && onClick();
+        handleDownload();
+    };
 
     return (
         <Tooltip title={strings.downloadAction} >
@@ -17,7 +25,7 @@ const Download: React.FC = () => {
                 <Button
                     sx={{ color: 'secondary.main' }}
                     disabled={isLoadingSections}
-                    onClick={handleDownload}
+                    onClick={handleClick}
                 >
                     <PictureAsPdfIcon />
                 </Button>

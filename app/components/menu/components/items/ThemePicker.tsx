@@ -10,16 +10,24 @@ const ThemeIcon: React.FC = () => {
     return selectedTheme === Themes.light ? <DarkModeIcon /> : <LightModeIcon />;
 };
 
-const ThemePicker: React.FC = () => {
+
+interface IThemePickerProps {
+    onClick?: () => void;
+}
+const ThemePicker: React.FC<IThemePickerProps> = ({ onClick }) => {
     const { toggleTheme } = themeStore();
     const { strings } = languageStore();
 
+    const handleClick = () => {
+        onClick && onClick();
+        toggleTheme();
+    };
 
     return (
         <Tooltip title={strings.toggleThemeAction} >
             <Box sx={{ alignItems: 'center', display: 'flex' }} >
                 <Button
-                    onClick={toggleTheme}
+                    onClick={handleClick}
                     color={'secondary'}
                 >
                     <ThemeIcon />

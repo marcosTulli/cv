@@ -1,7 +1,7 @@
 import React from 'react';
 import { usePageSections } from '../../hooks';
 import { Button, Tooltip } from '@mui/material';
-import { PageSection } from '../items';
+import { PageSection } from '.';
 
 interface IPageSectionProps {
     onClick?: () => void;

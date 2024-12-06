@@ -3,9 +3,8 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import { Download, ThemePicker, LanguageSelector } from '../items';
+import { PageSections, Actions } from '../items';
 import OpenSideBarButton from '../items/OpenSideBarButton';
-import PageSections from './PageSections';
 
 interface INavBarProps {
     setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,9 +27,7 @@ const NavBar: React.FC<INavBarProps> = ({ setIsSidebarOpen, isSidebarOpen }) => 
                     alignItems: 'center'
                 }}>
                     <PageSections />
-                    <LanguageSelector />
-                    <ThemePicker />
-                    <Download />
+                    <Actions />
                 </Box>
             </Toolbar>
         </AppBar>

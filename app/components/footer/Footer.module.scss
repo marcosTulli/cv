@@ -3,9 +3,9 @@
 .footer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     font-family: $defaultCalibri;
     padding: 1.5rem 1rem;
-    // color: $darkSecondary;
     margin: 0;
 
     @media (min-width: 640px) {
