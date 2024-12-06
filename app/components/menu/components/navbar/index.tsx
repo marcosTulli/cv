@@ -9,12 +9,12 @@ import Button from '@mui/material/Button';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import useScroll from '@/app/components/menu/hooks/useScroll';
 import { Sections } from '@/app/models/enums';
-import { useIsLoadingSections } from '@/app/hooks';
-import { useDownload, usePageSections } from '../../hooks';
+import { usePageSections } from '../../hooks';
 import { languageStore } from '@/app/store';
 import { Tooltip } from '@mui/material';
 import ThemePicker from '@/app/components/theme-picker/ThemePicker';
 import LanguageSelector from '@/app/components/language-selector/LanguageSelector';
+import { Download } from '../items';
 
 
 interface INavBarProps {
@@ -23,8 +23,6 @@ interface INavBarProps {
 
 const NavBar: React.FC<INavBarProps> = ({ setMobileOpen }) => {
     const { strings } = languageStore();
-    const { isLoadingSections } = useIsLoadingSections();
-    const { handleDownload } = useDownload();
     const { scroll } = useScroll();
     const handleDrawerToggle = () => { setMobileOpen((prevState) => !prevState); };
     const { pageSections } = usePageSections();
@@ -65,17 +63,7 @@ const NavBar: React.FC<INavBarProps> = ({ setMobileOpen }) => {
                     }
                     <LanguageSelector />
                     <ThemePicker />
-                    <Tooltip title={strings.downloadAction} >
-                        <span>
-                            <Button
-                                sx={{ color: 'secondary.main' }}
-                                disabled={isLoadingSections}
-                                onClick={handleDownload}
-                            >
-                                {strings.dropdownOptionsDownload}
-                            </Button>
-                        </span>
-                    </Tooltip>
+                    <Download />
                 </Box>
             </Toolbar>
         </AppBar>
