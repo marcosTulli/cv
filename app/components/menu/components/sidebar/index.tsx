@@ -2,32 +2,26 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { Actions, PageSections } from '../items';
+import useSideBar from '../../hooks/useSidebar';
 
-interface Props {
-    window?: () => Window;
-    isSidebarOpen: boolean;
-    setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+interface Props { window?: () => Window; }
 
-const drawerWidth = 80;
 
-const SideBar: React.FC<Props> = ({ window, isSidebarOpen, setIsSidebarOpen }) => {
-    const handleDrawerToggle = () => {
-        setIsSidebarOpen((prevState) => !prevState);
-    };
+const SideBar: React.FC<Props> = ({ window }) => {
+    const { isSideBarOpen, toggleSideBar } = useSideBar();
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <Drawer
             container={container}
-            open={isSidebarOpen}
-            onClose={handleDrawerToggle}
+            open={isSideBarOpen}
+            onClose={toggleSideBar}
             ModalProps={{ keepMounted: true }}
             sx={{
                 display: { xs: 'flex', sm: 'none' },
                 '& .MuiDrawer-paper': {
                     boxSizing: 'border-box',
-                    width: drawerWidth,
+                    width: 80,
                     overflow: 'hidden',
                 },
             }}
@@ -41,8 +35,8 @@ const SideBar: React.FC<Props> = ({ window, isSidebarOpen, setIsSidebarOpen }) =
                 gap: '2rem',
                 height: '100%',
             }}>
-                <PageSections onClick={handleDrawerToggle} />
-                <Actions onClick={handleDrawerToggle} />
+                <PageSections />
+                <Actions />
             </Box>
         </Drawer>
     );

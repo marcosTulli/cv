@@ -5,21 +5,19 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import { PageSections, Actions } from '../items';
 import OpenSideBarButton from '../items/OpenSideBarButton';
+import useSideBar from '../../hooks/useSidebar';
 
-interface INavBarProps {
-    setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    isSidebarOpen: boolean;
-}
-
-const NavBar: React.FC<INavBarProps> = ({ setIsSidebarOpen, isSidebarOpen }) => {
-    const handleDrawerToggle = () => { setIsSidebarOpen((prevState) => !prevState); };
+const NavBar: React.FC = () => {
+    const { isSideBarOpen, toggleSideBar } = useSideBar();
 
     return (
-        <AppBar component="nav" sx={{ alignItems: 'center' }}>
+        <AppBar component="nav" sx={{
+            alignItems: { xs: 'left', sm: 'center' },
+        }}>
             <Toolbar>
                 <OpenSideBarButton
-                    onClick={handleDrawerToggle}
-                    display={!isSidebarOpen}
+                    onClick={toggleSideBar}
+                    display={!isSideBarOpen}
                 />
                 <Box sx={{
                     display: { xs: 'none', sm: 'flex' },
