@@ -1,17 +1,18 @@
 import * as React from 'react';
 import { Download, ThemePicker, LanguageSelector } from '../items';
-
-interface IActionProps {
-    onClick?: () => void;
-}
+import useSideBar from '../../hooks/useSidebar';
 
 
-const Actions: React.FC<IActionProps> = ({ onClick }) => {
+const Actions: React.FC = () => {
+    const { isSideBarOpen, toggleSideBar } = useSideBar();
+
+    const toggle = () => { isSideBarOpen && toggleSideBar(); };
+
     return (
         <>
-            <LanguageSelector onClick={onClick as () => void} />
-            <ThemePicker onClick={onClick as () => void} />
-            <Download onClick={onClick as () => void} />
+            <LanguageSelector onClick={toggle} />
+            <ThemePicker onClick={toggle} />
+            <Download onClick={toggle} />
         </>
     );
 };

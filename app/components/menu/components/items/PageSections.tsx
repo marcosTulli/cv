@@ -2,18 +2,17 @@ import React from 'react';
 import { usePageSections } from '../../hooks';
 import { Button, Tooltip } from '@mui/material';
 import { PageSection } from '.';
+import useSideBar from '../../hooks/useSidebar';
 
-interface IPageSectionProps {
-    onClick?: () => void;
-}
-const PageSections: React.FC<IPageSectionProps> = ({ onClick }) => {
+const PageSections: React.FC = () => {
+    const { isSideBarOpen, toggleSideBar } = useSideBar();
     const { pageSections } = usePageSections();
     return (
         <>
             {
                 pageSections.map(section => {
                     const handleClick = () => {
-                        onClick && onClick();
+                        isSideBarOpen && toggleSideBar();
                         section.onClick();
                     };
 
