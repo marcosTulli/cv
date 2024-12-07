@@ -7,14 +7,13 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, Tooltip } from '@mui/material';
 import TranslateIcon from '@mui/icons-material/Translate';
+import useSideBar from '../../hooks/useSidebar';
 
-interface ILanguageSelectorProps {
-    onClick: () => void;
-}
-const LanguageSelector: React.FC<ILanguageSelectorProps> = ({ onClick }) => {
+const LanguageSelector: React.FC = () => {
     const { setLang } = languageStore();
     const { user } = userStore();
     const { strings } = languageStore();
+    const { isSideBarOpen, toggleSideBar } = useSideBar();
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -29,8 +28,8 @@ const LanguageSelector: React.FC<ILanguageSelectorProps> = ({ onClick }) => {
 
     const handleLanguageChange = (language: Language) => {
         setLang(language);
-        onClick && onClick();
         handleClose();
+        isSideBarOpen && toggleSideBar();
     };
 
     return (

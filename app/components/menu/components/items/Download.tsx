@@ -4,32 +4,29 @@ import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import { useDownload } from '../../hooks';
 import { useIsLoadingSections } from '@/app/hooks';
 import { languageStore } from '@/app/store';
+import useSideBar from '../../hooks/useSidebar';
 
-interface IDownloadButtonProps {
-    onClick?: () => void;
-}
 
-const Download: React.FC<IDownloadButtonProps> = ({ onClick }) => {
+const Download: React.FC = () => {
     const { isLoadingSections } = useIsLoadingSections();
-    const { handleDownload } = useDownload();
     const { strings } = languageStore();
+    const { isSideBarOpen, toggleSideBar } = useSideBar();
+    const { handleDownload } = useDownload();
 
     const handleClick = () => {
-        onClick && onClick();
         handleDownload();
+        isSideBarOpen && toggleSideBar();
     };
 
     return (
         <Tooltip title={strings.downloadAction} >
-            <span>
-                <Button
-                    sx={{ color: 'secondary.main' }}
-                    disabled={isLoadingSections}
-                    onClick={handleClick}
-                >
-                    <PictureAsPdfIcon />
-                </Button>
-            </span>
+            <Button
+                sx={{ color: 'secondary.main' }}
+                disabled={isLoadingSections}
+                onClick={handleClick}
+            >
+                <PictureAsPdfIcon />
+            </Button>
         </Tooltip>
     );
 };

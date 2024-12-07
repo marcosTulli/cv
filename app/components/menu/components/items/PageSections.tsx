@@ -7,6 +7,7 @@ import useSideBar from '../../hooks/useSidebar';
 const PageSections: React.FC = () => {
     const { isSideBarOpen, toggleSideBar } = useSideBar();
     const { pageSections } = usePageSections();
+
     return (
         <>
             {
