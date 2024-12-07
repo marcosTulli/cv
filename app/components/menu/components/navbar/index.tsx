@@ -15,7 +15,7 @@ const NavBar: React.FC<INavBarProps> = ({ setIsSidebarOpen, isSidebarOpen }) => 
     const handleDrawerToggle = () => { setIsSidebarOpen((prevState) => !prevState); };
 
     return (
-        <AppBar component="nav" sx={{ alignItems: 'center' }}>
+        <AppBar component="nav" sx={{ alignItems: { xs: 'left', sm: 'center' } }}>
             <Toolbar>
                 <OpenSideBarButton
                     onClick={handleDrawerToggle}
