@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import DataProviderInstance from "@/app/services/data-provider";
 import { IUser } from "@/app/models/interfaces";
 import { languageStore, userStore } from "@/app/store";
 import useIsLoadingSections from "../useIsLoadingSections";
 import React from "react";
 import { LoadableSections } from "@/app/models/enums";
+import { userService } from "@services";
 
 const id = process.env.NEXT_PUBLIC_USER_ID || '';
 
@@ -12,9 +12,11 @@ const useUser = () => {
     const { handleLoad } = useIsLoadingSections();
     const { setUser, setIsLoadingUser } = userStore();
     const { currentLanguage: lang } = languageStore();
+    const queryFn = () => userService.getUserById({ lang, id });
+
     const { data: user, isLoading: isLoadingUser } = useQuery({
         queryKey: ['user', id, lang],
-        queryFn: () => DataProviderInstance.getUserById({ lang, id }),
+        queryFn,
         enabled: id.length > 0
     });
 

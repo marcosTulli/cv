@@ -1,17 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { TAxiosGetParams } from '../models/types';
-import {
-    IEducation,
-    ISkillsResponse,
-    IUser,
-    IWorkExperience,
-    IGetEducationParams,
-    IGetSkillsParams,
-    IGetUsersParams,
-    IGetWorkDataParams,
-    IGetIconKeyParams,
-    IGetIconParams
-} from '@/app/models/interfaces';
+import { IGetIconParams } from '@/app/models/interfaces';
 
 const cvApiKey = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
@@ -27,8 +16,8 @@ class DataProvider {
         "Content-Type": "image/png",
     };
 
-    public async get<T>(path: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<T> {
-        const response = await axios.get(baseUrl + path, {
+    public async get<T>(location: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<T> {
+        const response = await axios.get(baseUrl + location, {
             ...options, params,
             paramsSerializer: {
                 encode: (params: TAxiosGetParams) => {
@@ -39,8 +28,8 @@ class DataProvider {
         return response.data;
     }
 
-    public async getCdn(path: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<Blob> {
-        const response = await axios.get<Blob>(uploadThingUrl + path, {
+    public async getCdn(location: string, params: Record<string, unknown> = {}, options: AxiosRequestConfig = {}): Promise<Blob> {
+        const response = await axios.get<Blob>(uploadThingUrl + location, {
             ...options,
             params,
             responseType: 'blob',
@@ -52,34 +41,6 @@ class DataProvider {
         });
         return response.data as Blob;
     }
-
-    public getUsers = async (): Promise<IUser[]> => {
-        return this.get(`/users`);
-    };
-
-    public getUserById = async ({ lang, id }: IGetUsersParams): Promise<IUser> => {
-        return this.get(`/users/${lang}/${id}`);
-    };
-
-    public getWorkData = async ({ lang, id }: IGetWorkDataParams): Promise<IWorkExperience> => {
-        return this.get(`/work-experience/${lang}/${id}`);
-    };
-
-    public getEducation = async ({ lang, id }: IGetEducationParams): Promise<IEducation[]> => {
-        return this.get(`/education/${lang}/${id}`);
-    };
-
-    public getSkills = async ({ id }: IGetSkillsParams): Promise<ISkillsResponse> => {
-        return this.get(`/skills/${id}`);
-    };
-
-    public getIcon = async ({ fileKey }: IGetIconParams): Promise<Blob> => {
-        return this.getCdn(`/${fileKey}`);
-    };
-
-    public getIconKey = async ({ name }: IGetIconKeyParams): Promise<string> => {
-        return this.get(`/icons/${name}`);
-    };
 
 }
 const DataProviderInstance = new DataProvider();
