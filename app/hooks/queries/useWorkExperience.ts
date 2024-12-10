@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import DataProviderInstance from "@/app/services/data-provider";
 import { IGetWorkDataParams } from "@/app/models/interfaces";
+import { workService } from "@services";
 
 const useWorkExperience = ({ lang, id }: IGetWorkDataParams) =>
     useQuery({
         queryKey: ['work-experience', id, lang],
-        queryFn: () => DataProviderInstance.getWorkData({ lang, id }),
+        queryFn: () => workService.getWorkData({ lang, id }),
         enabled: id.length > 0
     });
 

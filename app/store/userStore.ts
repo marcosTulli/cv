@@ -16,7 +16,9 @@ const initialState: IUser = {
         about: '',
         languages: [
             { language: 'Spanish', level: 'Native', flag: 'spain' },
-            { language: 'English', level: 'C2', flag: 'uk' }
+            { language: 'English', level: 'C2', flag: 'uk' },
+            { language: 'Italian', level: 'B1', flag: 'italy' },
+            { language: 'German', level: 'C2', flag: 'germany' }
         ]
 
     }

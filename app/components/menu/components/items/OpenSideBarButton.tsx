@@ -2,20 +2,18 @@
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import useSideBar from '../../hooks/useSidebar';
 
-interface IOpenSideBarButtonProps {
-    onClick: () => void;
-    display: boolean;
-}
 
-const OpenSideBarButton: React.FC<IOpenSideBarButtonProps> = ({ onClick, display }) => {
+const OpenSideBarButton: React.FC = () => {
+    const { isSideBarOpen, toggleSideBar } = useSideBar();
 
     return (
-        display && <IconButton
+        !isSideBarOpen && <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={onClick}
+            onClick={toggleSideBar}
             sx={{ mr: 2, display: { sm: 'none' } }}
         >
             <MenuIcon />

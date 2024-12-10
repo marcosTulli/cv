@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import DataProviderInstance from "@/app/services/data-provider";
+import { userService } from "@/app/services";
 
 const useUsers = () =>
     useQuery({
         queryKey: ['users'],
-        queryFn: () => DataProviderInstance.getUsers(),
+        queryFn: () => userService.getUsers(),
     });
 
 export default useUsers;
