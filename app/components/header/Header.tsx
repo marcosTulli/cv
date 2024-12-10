@@ -8,12 +8,13 @@ import { Sections } from '@/app/models/enums';
 import useSectionRef from '../sections/hooks/useSectionRef';
 import { useIsLoadingSections } from '@/app/hooks';
 import { Box } from '@mui/material';
+import { useUser } from '@/app/hooks/queries';
 
 const Header: React.FC = () => {
-    const { user, isLoadingUser } = userStore();
+    const { isLoadingUser } = userStore();
+    const { user } = useUser();
     const { sectionRef } = useSectionRef({ sectionName: Sections.Header });
     const { isLoadingSections } = useIsLoadingSections();
-
     return (
         <Box
             sx={{ bgcolor: 'defaultBackground.main' }}
@@ -23,8 +24,8 @@ const Header: React.FC = () => {
         >
             <Menu />
             <SectionHeader
-                title={user.name}
-                description={user.info.candidateTitle}
+                title={user?.name}
+                description={user?.info.candidateTitle}
                 isLoading={isLoadingUser || isLoadingSections}
                 pageHeader
             />

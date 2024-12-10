@@ -20,13 +20,16 @@ const Download: React.FC = () => {
 
     return (
         <Tooltip title={strings.downloadAction} >
-            <Button
-                sx={{ color: 'secondary.main' }}
-                disabled={isLoadingSections}
-                onClick={handleClick}
-            >
-                <PictureAsPdfIcon />
-            </Button>
+            <span> {/* This is to prevent browser error*/}
+                <Button
+                    sx={{ color: 'secondary.main' }}
+                    disabled={isLoadingSections}
+                    onClick={handleClick}
+                >
+                    <PictureAsPdfIcon />
+                </Button>
+
+            </span>
         </Tooltip>
     );
 };
