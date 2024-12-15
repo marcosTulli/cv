@@ -3,27 +3,18 @@ import React from 'react';
 import Image from 'next/image';
 import { ILanguage } from '@/app/models/interfaces';
 import { icons } from '@/app/utils';
-import { useIconKey, useIcons } from '@/app/hooks/queries';
-import styles from './Languages.module.scss';
+import styles from './index.module.scss';
 import { Box, Tooltip } from '@mui/material';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useLanguage } from '../../hooks';
 
-interface ILanguageProps {
+export interface ILanguageProps {
     language: ILanguage;
 
 }
 const Language: React.FC<ILanguageProps> = ({ language }) => {
-    const [fileKey, setFileKey] = React.useState("");
-    const { data: key } = useIconKey({ name: language.flag });
-    const { data: icon } = useIcons({ fileKey: fileKey });
-    const iconLoaded = icon !== undefined;
-
-    React.useEffect(() => {
-        if (key) {
-            setFileKey(key);
-        }
-    }, [key]);
+    const { iconLoaded, icon } = useLanguage({ language });
 
     return (
         <Tooltip title={`${language.language}: ${language.level}`}>

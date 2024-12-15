@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import styles from './Social.module.scss';
+import styles from './index.module.scss';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { userStore } from '@/app/store';

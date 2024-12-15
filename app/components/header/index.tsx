@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import styles from './Header.module.scss';
+import styles from './index.module.scss';
 import { userStore } from '@/app/store';
 import SectionHeader from '../sections/section-header/SectionHeader';
 import Menu from '@components/menu';
@@ -15,6 +15,7 @@ const Header: React.FC = () => {
     const { user } = useUser();
     const { sectionRef } = useSectionRef({ sectionName: Sections.Header });
     const { isLoadingSections } = useIsLoadingSections();
+
     return (
         <Box
             sx={{ bgcolor: 'defaultBackground.main' }}

@@ -1,11 +1,11 @@
 'use client';
 import * as React from 'react';
 import Footer from '../footer/Footer';
-import Header from '../header/Header';
+import Header from '../header';
 import { Education, WorkExperience, Skills } from '../sections';
 import { PrintableTemplate } from '../pdf-version/PrintableTemplate';
 import useDownload from '../menu/hooks/useDownload';
-import Info from '../info/Info';
+import Info from '@components/info';
 import { Box } from '@mui/material';
 
 const Home = () => {

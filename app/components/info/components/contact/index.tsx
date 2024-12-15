@@ -1,33 +1,20 @@
 'use client';
 import * as React from 'react';
-import styles from './Contact.module.scss';
+import styles from './index.module.scss';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { userStore } from '@/app/store';
 import { Box, Tooltip } from '@mui/material';
-import copy from "copy-to-clipboard";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useContact } from '../../hooks';
 
 interface IContactProps {
     isLoading: boolean;
 }
 const Contact: React.FC<IContactProps> = ({ isLoading }) => {
     const { user } = userStore();
-    const tooltipDefault = 'Click to copy';
-    const [tooltipTitle, setTooltipTitle] = React.useState<string>(tooltipDefault);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handleCopy = (event: any) => {
-        const value = event.target.innerText;
-        copy(value);
-        setTooltipTitle(`${value} copied to clipboard!`);
-    };
-
-    const resetTooltip = () => {
-        setTooltipTitle(tooltipDefault);
-
-    };
+    const { tooltipTitle, handleCopy, resetTooltip } = useContact();
 
     return (
         <Box

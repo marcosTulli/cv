@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import styles from './Languages.module.scss';
+import styles from './index.module.scss';
 import { userStore } from '@/app/store';
 import Language from './Language';
 import { Box } from '@mui/material';

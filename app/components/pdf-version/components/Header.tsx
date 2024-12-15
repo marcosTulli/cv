@@ -6,7 +6,7 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import ProfilePicture from '../../info/components/profile-picture/ProfilePicture';
+import ProfilePicture from '../../info/components/profile-picture';
 
 const Header: React.FC = () => {
     const { user } = userStore();
