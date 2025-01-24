@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import Footer from '../footer/Footer';
+import Footer from '../footer';
 import Header from '../header';
 import { Education, WorkExperience, Skills } from '../sections';
 import { PrintableTemplate } from '../pdf-version/PrintableTemplate';

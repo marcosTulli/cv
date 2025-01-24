@@ -6,13 +6,10 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Box } from '@mui/material';
 
-interface IProfilePictureProps {
-    isLoading: boolean;
-}
+interface IProfilePictureProps { isLoading: boolean; }
 
 const ProfilePicture: React.FC<IProfilePictureProps> = ({ isLoading }) => {
     const size = 160;
-
     return (
         isLoading ?
             <Box className={styles.profilePicture}>
