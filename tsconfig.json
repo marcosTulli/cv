@@ -27,6 +27,12 @@
       "@services*": ["./app/services/index"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "./next.config.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "./next.config.js"
+  ],
   "exclude": ["next.conifg.js, node_modules"]
 }

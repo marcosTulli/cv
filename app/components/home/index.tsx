@@ -1,32 +1,27 @@
-'use client';
-import * as React from 'react';
-import Footer from '../footer';
-import Header from '../header';
-import { Education, WorkExperience, Skills } from '../sections';
-import { PrintableTemplate } from '../pdf-version/PrintableTemplate';
-import useDownload from '../menu/hooks/useDownload';
-import Info from '@components/info';
-import { Box } from '@mui/material';
+"use client";
+import * as React from "react";
+import { Education, WorkExperience, Skills } from "../sections";
+import Info from "@components/info";
+import { Box } from "@mui/material";
+import { PrintableTemplate } from "../pdf-version/PrintableTemplate";
+import { useDownload } from "@/app/hooks";
 
 const Home = () => {
-    const { downloadRef } = useDownload();
-    return (
-        <Box
-            sx={{
-                height: '100vh',
-                bgcolor: 'defaultBackground.main',
-                minWidth: '100%',
-            }}
-        >
-            <Header />
-            <Info />
-            <WorkExperience />
-            <Education />
-            <Skills />
-            <Footer />
-            <PrintableTemplate ref={downloadRef} />
-        </Box>
-    );
+  const { downloadRef } = useDownload();
+  return (
+    <Box
+      sx={{
+        bgcolor: "defaultBackground.main",
+        minWidth: "100%",
+      }}
+    >
+      <Info />
+      <WorkExperience />
+      <Education />
+      <Skills />
+      <PrintableTemplate ref={downloadRef} />
+    </Box>
+  );
 };
 
 export default Home;
