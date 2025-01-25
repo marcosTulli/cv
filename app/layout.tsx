@@ -3,6 +3,8 @@ import "@/app/styles/_reset.scss";
 import { Providers } from "./provider";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import NavBar from "./components/menu/components/navbar";
+import Menu from "./components/menu";
 
 export const metadata: Metadata = {
   title: "Marcos Tulli",
@@ -16,19 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning>
-      <Providers>
-        <body
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            minHeight: "100vh",
-          }}
-        >
-          <Header />
-          <main style={{ flex: 1 }}>{children}</main>
+      <body>
+        <Providers>
+          <Menu />
+          <main className="flex-grow">{children}</main>
           <Footer />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }
