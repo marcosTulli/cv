@@ -28,12 +28,7 @@ const Skills: React.FC = () => {
   }, [isLoadingSkills]);
 
   return (
-    <Box
-      component="section"
-      sx={{ bgcolor: "primary.main" }}
-      ref={sectionRef}
-      className={styles.container}
-    >
+    <Box component="section" ref={sectionRef} className={styles.container}>
       <SectionHeader
         title={strings.skills}
         description={strings.skillsDescription}

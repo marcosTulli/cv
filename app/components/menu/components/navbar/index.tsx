@@ -27,9 +27,6 @@ const NavBar: React.FC = () => {
         >
           <PageSections />
           <Actions />
-          <Link href="/projects">
-            <Typography sx={{ color: "secondary.main" }}>Projects</Typography>
-          </Link>
         </Box>
       </Toolbar>
     </AppBar>

@@ -30,12 +30,7 @@ const Education: React.FC = () => {
   }, [isLoadingEducation]);
 
   return (
-    <Box
-      component={"section"}
-      sx={{ bgcolor: "defaultBackground.main" }}
-      ref={sectionRef}
-      className={styles.container}
-    >
+    <Box component={"section"} ref={sectionRef} className={styles.container}>
       <SectionHeader
         title={strings.education}
         description={strings.educationDescription}

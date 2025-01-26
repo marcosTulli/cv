@@ -12,11 +12,7 @@ const Info: React.FC = () => {
   const isLoading = isLoadingUser || isLoadingSections;
 
   return (
-    <Box
-      sx={{ bgcolor: "defaultBackground.main" }}
-      component={"section"}
-      className={styles.info}
-    >
+    <Box component={"section"} className={styles.info}>
       <Box className={styles.infoGrid}>
         <ProfilePicture isLoading={isLoading} />
         <Contact isLoading={isLoading} />

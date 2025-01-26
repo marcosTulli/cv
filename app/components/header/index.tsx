@@ -18,7 +18,6 @@ const Header: React.FC = () => {
 
   return (
     <Box
-      sx={{ bgcolor: "defaultBackground.main" }}
       component={"section"}
       ref={sectionRef}
       className={styles.headerContainer}
