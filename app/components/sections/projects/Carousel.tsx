@@ -35,8 +35,18 @@ const Carousel = () => {
   };
 
   const cards = [
-    { id: 1, title: "Card 1", content: "This is the content of Card 1" },
-    { id: 2, title: "Card 2", content: "This is the content of Card 2" },
+    {
+      id: 1,
+      title: "Card 1",
+      content: "This is the content of Card 1",
+      path: "",
+    },
+    {
+      id: 2,
+      title: "Card 2",
+      content: "This is the content of Card 2",
+      path: "",
+    },
   ];
 
   return (
@@ -52,15 +62,18 @@ const Carousel = () => {
               bgcolor: "primary.main",
               color: "secondary.main",
               borderRadius: "1rem",
-              boxShadow: "4px 4px 5px 4px rgba(0, 0, 0, 0.5)", // Stronger shadow
-              margin: "0 1rem",
+              boxShadow: "4px 4px 5px 4px rgba(0, 0, 0, 0.5)",
+              margin: "1rem",
               height: "200px",
               maxWidth: "200px",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              cursor: "pointer",
               alignItems: "center",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth hover effect
+              ":hover": {
+                bgcolor: "primary.weak",
+              },
             }}
             className="carousel-card"
           >

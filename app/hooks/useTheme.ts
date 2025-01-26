@@ -14,7 +14,7 @@ const useTheme = () => {
   const dark = {
     palette: {
       ...baseColors,
-      primary: { main: "#1A4958" },
+      primary: { main: "#1A4958", weak: "#3E7185" },
       secondary: { main: "#d1ffff", strong: "#0F9D6D" },
       defaultBackground: { main: "#1A1A1A" },
     },
@@ -23,7 +23,7 @@ const useTheme = () => {
   const light = {
     palette: {
       ...baseColors,
-      primary: { main: "#F5F5DC" },
+      primary: { main: "#F5F5DC", weak: "#E0E0C6" },
       secondary: { main: "#1A1A1A", strong: "#1B3E44" },
       defaultBackground: { main: "#C9D2B5" },
     },
