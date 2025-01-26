@@ -5,8 +5,6 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import { PageSections, Actions } from "../items";
 import OpenSideBarButton from "../items/OpenSideBarButton";
-import Link from "next/link";
-import { Typography } from "@mui/material";
 
 const NavBar: React.FC = () => {
   return (

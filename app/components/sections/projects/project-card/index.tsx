@@ -2,9 +2,7 @@ import React from "react";
 import styles from "./ProjectCard.module.scss";
 import { Box } from "@mui/material";
 
-type ProjectCard = {};
-
-const ProjectCard: React.FC<ProjectCard> = () => {
+const ProjectCard: React.FC = () => {
   return (
     <Box className={styles.job} sx={{ color: "secondary.main" }}>
       <Box

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/styles/_reset.scss";
 import { Providers } from "./provider";
-import Header from "./components/header";
 import Footer from "./components/footer";
-import NavBar from "./components/menu/components/navbar";
 import Menu from "./components/menu";
 
 export const metadata: Metadata = {

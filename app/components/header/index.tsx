@@ -3,7 +3,6 @@ import React from "react";
 import styles from "./index.module.scss";
 import { userStore } from "@/app/store";
 import SectionHeader from "../sections/section-header/SectionHeader";
-import Menu from "@components/menu";
 import { Sections } from "@/app/models/enums";
 import useSectionRef from "../sections/hooks/useSectionRef";
 import { useIsLoadingSections } from "@/app/hooks";
