@@ -22,9 +22,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@components/*": ["./app/components/*"],
-      "@hooks/*": ["./app/hooks/*"],
-      "@services*": ["./app/services/index"]
+      "@components/*": ["./components/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@services*": ["./services/index"]
     }
   },
   "include": [

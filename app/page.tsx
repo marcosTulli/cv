@@ -8,10 +8,10 @@ import {
 } from "@components/sections";
 import Info from "@components/info";
 import { Box } from "@mui/material";
-import { useDownload } from "@/app/hooks";
-import Header from "@/app/components/header";
-import { PrintableTemplate } from "./components/pdf-version/PrintableTemplate";
-import { Sections } from "./models/enums";
+import { useDownload } from "@/hooks";
+import Header from "@components/header";
+import { PrintableTemplate } from "@/components/pdf-version/PrintableTemplate";
+import { Sections } from "@/models/enums";
 
 const HomeHeader = () => (
   <React.Fragment>

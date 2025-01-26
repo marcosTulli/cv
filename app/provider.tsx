@@ -3,7 +3,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { ThemeProvider } from "@mui/material";
-import { useTheme } from "./hooks";
+import { useTheme } from "@/hooks";
 
 const queryClient = new QueryClient();
 

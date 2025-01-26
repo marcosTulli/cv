@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import "@/app/styles/_reset.scss";
+import "@/styles/_reset.scss";
 import { Providers } from "./provider";
-import Footer from "./components/footer";
-import Menu from "./components/menu";
+import Footer from "@/components/footer";
+import Menu from "@/components/menu";
 
 export const metadata: Metadata = {
   title: "Marcos Tulli",
