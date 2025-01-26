@@ -18,9 +18,13 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <body>
         <Providers>
-          <Menu />
+          <header>
+            <Menu />
+          </header>
           <main className="flex-grow">{children}</main>
-          <Footer />
+          <footer>
+            <Footer />
+          </footer>
         </Providers>
       </body>
     </html>

@@ -8,7 +8,7 @@ import OpenSideBarButton from "../items/OpenSideBarButton";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { IconButton } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 
 const NavBar: React.FC = () => {
   const pathName = usePathname();
@@ -34,11 +34,13 @@ const NavBar: React.FC = () => {
             <Actions />
           </Box>
         ) : (
-          <IconButton color="inherit" edge="start">
-            <Link href="/">
-              <ArrowBackIcon />
-            </Link>
-          </IconButton>
+          <Tooltip title="Home">
+            <IconButton color="inherit" edge="start">
+              <Link href="/">
+                <ArrowBackIcon />
+              </Link>
+            </IconButton>
+          </Tooltip>
         )}
       </Toolbar>
     </AppBar>
