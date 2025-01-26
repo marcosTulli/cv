@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import React, { PropsWithChildren } from "react";
+import { Box } from "@mui/material";
 
-const Projects: React.FC = () => {
+const Page: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Box
       sx={{
@@ -15,11 +15,9 @@ const Projects: React.FC = () => {
         height: "100vh",
       }}
     >
-      <Typography sx={{ color: "secondary.main", fontSize: "3rem" }}>
-        Projects
-      </Typography>
+      {children}
     </Box>
   );
 };
 
-export default Projects;
+export default Page;

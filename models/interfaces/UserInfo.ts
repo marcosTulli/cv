@@ -1,7 +1,7 @@
-import { ILanguage } from "@/app/models/interfaces";
+import { ILanguage } from "@/models/interfaces";
 
 export interface IUserInfo {
-    candidateTitle: string;
-    about: string;
-    languages: ILanguage[];
+  candidateTitle: string;
+  about: string;
+  languages: ILanguage[];
 }

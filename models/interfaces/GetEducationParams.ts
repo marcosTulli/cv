@@ -1,3 +1,3 @@
-import { IBaseParams } from "@/app/models/interfaces";
+import { IBaseParams } from "@/models/interfaces";
 
-export interface IGetEducationParams extends IBaseParams { }
+export interface IGetEducationParams extends IBaseParams {}

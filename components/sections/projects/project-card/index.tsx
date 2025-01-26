@@ -1,22 +1,50 @@
-import React from "react";
-import styles from "./ProjectCard.module.scss";
-import { Box } from "@mui/material";
+"use client";
+import * as React from "react";
+import { Card, CardContent, Typography } from "@mui/material";
+import Link from "next/link";
+import { IProject } from "@/models/interfaces";
 
-const ProjectCard: React.FC = () => {
+interface IProjectCardProps {
+  project: IProject;
+}
+const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
   return (
-    <Box className={styles.job} sx={{ color: "secondary.main" }}>
-      <Box
-        component={"div"}
-        sx={{
-          display: " flex",
-          flexDirection: "row",
-          gap: "1rem",
-          alignItems: "center",
-        }}
-      >
-        This is a project card
-      </Box>
-    </Box>
+    <Card
+      key={project.id}
+      sx={{
+        bgcolor: "primary.main",
+        color: "secondary.main",
+        borderRadius: "1rem",
+        boxShadow: "4px 4px 5px 4px rgba(0, 0, 0, 0.5)",
+        margin: "1rem",
+        height: "100px",
+        display: "flex",
+        justifyContent: "center",
+        maxWidth: "300px",
+        cursor: "pointer",
+        alignItems: "center",
+        ":hover": {
+          bgcolor: "primary.weak",
+        },
+      }}
+      className="carousel-card"
+    >
+      <Link href={project.path}>
+        <CardContent>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: "bold",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {project.title}
+          </Typography>
+        </CardContent>
+      </Link>
+    </Card>
   );
 };
 

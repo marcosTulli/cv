@@ -1,6 +1,6 @@
-import { Language } from '@/app/models/enums';
+import { Language } from "@/models/enums";
 
 export interface IBaseParams {
-    lang: Language,
-    id: string;
+  lang: Language;
+  id: string;
 }

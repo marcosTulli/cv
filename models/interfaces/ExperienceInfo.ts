@@ -1,6 +1,6 @@
-import { ITask } from '@/app/models/interfaces';
+import { ITask } from "@/models/interfaces";
 
 export interface IExperienceInfo {
-    position: string;
-    tasks: ITask[];
+  position: string;
+  tasks: ITask[];
 }

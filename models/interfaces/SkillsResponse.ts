@@ -1,8 +1,7 @@
-
-import { ISkills } from "@/app/models/interfaces";
+import { ISkills } from "@/models/interfaces";
 
 export interface ISkillsResponse {
-    _id: string,
-    userId: string,
-    skills: ISkills[];
+  _id: string;
+  userId: string;
+  skills: ISkills[];
 }
