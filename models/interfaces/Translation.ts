@@ -40,4 +40,17 @@ export interface Translation {
   copyAction: string;
   toggleThemeAction: string;
   changeLanguageAction: string;
+  createNodeButtonTooltip: string;
+  removeNodeButtonTooltip: string;
+  revealNodeTooltip: string;
+  collapseNodeToolTip: string;
+  createNodeButtonLabel: string;
+  removeNodeButtonLabel: string;
+  createNodeDialogTitle: string;
+  removeNodeConfirmation: string;
+  removeNodeDialogTitle: string;
+  nameLabel: string;
+  cancelLabel: string;
+  acceptLabel: string;
+  editSwitchLabel: string;
 }

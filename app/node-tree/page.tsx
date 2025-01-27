@@ -1,15 +1,32 @@
 "use client";
 import React from "react";
-import { Typography } from "@mui/material";
-import Page from "@/components/page";
+import { Box, Typography } from "@mui/material";
+import { Node, Dialogs, Header } from "./components";
+import { useTree } from "./hooks";
+import { INode } from "@/models/interfaces";
 
 const Projects: React.FC = () => {
+  const { rootNode, isLoading } = useTree();
   return (
-    <Page>
-      <Typography sx={{ color: "secondary.main", fontSize: "3rem" }}>
-        Node tree
-      </Typography>
-    </Page>
+    <Box
+      sx={{
+        bgcolor: "defaultBackground.main",
+        paddingTop: "4rem",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "start",
+        overflow: "auto",
+      }}
+    >
+      <Header />
+      {isLoading ? (
+        <Typography color="secondary">Loading ...</Typography>
+      ) : (
+        <Node node={rootNode as INode} />
+      )}
+      <Dialogs />
+    </Box>
   );
 };
 

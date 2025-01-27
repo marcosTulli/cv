@@ -30,6 +30,18 @@ const en: Partial<Translation> = {
   scrollToEducationTooltip: "Go to education",
   scrollToSkillsTooltip: "Go to skills",
   scrollToProjectsTooltip: "Go to Projects",
+  createNodeButtonTooltip: "Crreate Node",
+  removeNodeButtonTooltip: "Remove Node",
+  revealNodeTooltip: "Reveal",
+  collapseNodeToolTip: "Collapse",
+  createNodeButtonLabel: "Create",
+  removeNodeButtonLabel: "Remove",
+  createNodeDialogTitle: "New Node",
+  removeNodeConfirmation: "Are you sure you want to delete?",
+  removeNodeDialogTitle: "Remove Node",
+  nameLabel: "Name",
+  acceptLabel: "Accept",
+  cancelLabel: "Cancel",
 };
 
 export default en;

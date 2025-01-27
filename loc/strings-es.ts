@@ -17,6 +17,7 @@ const es: Partial<Translation> = {
     "Explora mi trayectoria educativa y los t%C3%ADtulos que he obtenido.",
   email: "Email",
   phone: "Telefono",
+  Projects: "Proyectos",
   languages: "Idiomas",
   clickAction: "Ir a la sección",
   downloadAction: "Click para descargar",
@@ -28,6 +29,18 @@ const es: Partial<Translation> = {
   scrollToEducationTooltip: "Ir a educación",
   scrollToSkillsTooltip: "Ir a habilidades",
   scrollToProjectsTooltip: "Ir a proyectos",
+  createNodeButtonTooltip: "Crear nodo",
+  removeNodeButtonTooltip: "Eliminar nodo",
+  revealNodeTooltip: "Desplegar",
+  collapseNodeToolTip: "Colapsar",
+  createNodeButtonLabel: "Crear",
+  removeNodeButtonLabel: "Eliminar",
+  createNodeDialogTitle: "Nuevo Nodo",
+  removeNodeDialogTitle: "Eliminar nodo",
+  removeNodeConfirmation: "¿Seguro que desea eliminar este nodo?",
+  nameLabel: "Nombre",
+  acceptLabel: "Aceptar",
+  cancelLabel: "Cancelar",
 };
 
 export default es;
