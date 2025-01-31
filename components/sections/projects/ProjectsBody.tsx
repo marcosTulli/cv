@@ -10,6 +10,7 @@ import { IProject } from "@/models/interfaces";
 enum Paths {
   PasswordGenerator = "password-generator",
   NodeTree = "node-tree",
+  BandsDb = "https://bands-db.vercel.app/bands",
 }
 
 const ProjectsBody = () => {
@@ -53,6 +54,12 @@ const ProjectsBody = () => {
       title: "Node Tree",
       content: "Node tree",
       path: Paths.NodeTree,
+    },
+    {
+      id: 3,
+      title: "Bands DB",
+      content: "Bands DB",
+      path: Paths.BandsDb,
     },
   ];
 
