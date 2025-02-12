@@ -6,26 +6,26 @@ const useTheme = () => {
   const store = themeStore();
 
   const baseColors = {
-    white: { main: "#f2f2f2" },
-    black: { main: "#1A1A1A" },
-    gray: { main: "#595959" },
+    white: { main: "#F7F7F7" },
+    black: { main: "#333333" },
+    gray: { main: "#808080" },
   };
 
   const dark = {
     palette: {
       ...baseColors,
-      primary: { main: "#1A4958", weak: "#3E7185" },
-      secondary: { main: "#d1ffff", strong: "#0F9D6D" },
-      defaultBackground: { main: "#1A1A1A" },
+      primary: { main: "#333333", weak: "#444444" },
+      secondary: { main: "#F7F7F7", strong: "#CCCCCC" },
+      defaultBackground: { main: "#333333" },
     },
   };
 
   const light = {
     palette: {
       ...baseColors,
-      primary: { main: "#F5F5DC", weak: "#E0E0C6" },
-      secondary: { main: "#1A1A1A", strong: "#1B3E44" },
-      defaultBackground: { main: "#C9D2B5" },
+      primary: { main: "#F7F7F7", weak: "#CCCCCC" },
+      secondary: { main: "#333333", strong: "#444444" },
+      defaultBackground: { main: "#F7F7F7" },
     },
   };
 
