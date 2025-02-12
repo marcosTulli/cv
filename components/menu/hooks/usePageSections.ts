@@ -12,7 +12,6 @@ const usePageSections = () => {
     if (section === Sections.WorkExperience) return strings.scrollToWorkTooltip;
     if (section === Sections.Education) return strings.scrollToEducationTooltip;
     if (section === Sections.Skills) return strings.scrollToSkillsTooltip;
-    if (section === Sections.Projects) return strings.scrollToProjectsTooltip;
   };
 
   const pageSections = Object.keys(Sections)
