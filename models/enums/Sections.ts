@@ -4,4 +4,5 @@ export enum Sections {
   Education = "Education",
   Skills = "Skills",
   PrintableTemplate = "PrintableTemplate",
+  Projects = "Projects",
 }
