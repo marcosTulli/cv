@@ -10,6 +10,7 @@ import { IProject } from "@/models/interfaces";
 enum Paths {
   PasswordGenerator = "password-generator",
   NodeTree = "node-tree",
+  TicTacToe = "tictactoe",
   BandsDb = "https://bands-db.vercel.app/bands",
 }
 
@@ -48,18 +49,28 @@ const ProjectsBody = () => {
       title: "Password Generator",
       content: "Password generator",
       path: Paths.PasswordGenerator,
+      target: "_self",
     },
     {
       id: 2,
       title: "Node Tree",
       content: "Node tree",
       path: Paths.NodeTree,
+      target: "_self",
     },
     {
       id: 3,
       title: "Bands DB",
       content: "Bands DB",
       path: Paths.BandsDb,
+      target: "_blank",
+    },
+    {
+      id: 4,
+      title: "Tic Tac Toe",
+      content: "Tic Tac Toe",
+      path: Paths.TicTacToe,
+      target: "_self",
     },
   ];
 

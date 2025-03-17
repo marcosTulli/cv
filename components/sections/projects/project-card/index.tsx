@@ -29,7 +29,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
       }}
       className="carousel-card"
     >
-      <Link href={project.path} target="_blank">
+      <Link href={project.path} target={project.target}>
         <CardContent>
           <Typography
             variant="h5"
