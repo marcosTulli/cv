@@ -2,7 +2,6 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import styles from "./page.module.scss";
-import Page from "@/components/page";
 
 enum Players {
   X = "X",
