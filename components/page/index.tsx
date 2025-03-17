@@ -13,6 +13,7 @@ const Page: React.FC<PropsWithChildren> = ({ children }) => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        marginTop: "4rem",
       }}
     >
       {children}
