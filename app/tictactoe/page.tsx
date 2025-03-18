@@ -52,6 +52,9 @@ const TicTac: React.FC = () => {
     setWinner(null);
     setLockBoard(false);
     setIsTie(false);
+    if (turn === Players.O) {
+      changeTurn();
+    }
   };
 
   const checkSlot = ({ slot, player }: { slot: number; player: Slot }) => {
@@ -89,8 +92,8 @@ const TicTac: React.FC = () => {
       } else if (turn === Players.O) {
         checkSlot({ slot: num, player: Players.O });
       }
+      changeTurn();
     }
-    changeTurn();
   };
 
   React.useEffect(() => {
