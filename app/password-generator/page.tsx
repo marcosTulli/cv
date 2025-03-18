@@ -70,6 +70,7 @@ const PasswordGenerator: React.FC = () => {
               type="button"
               onClick={handleCopy}
               onMouseOut={resetTooltip}
+              variant="contained"
             >
               <ContentCopyIcon />
             </Button>
