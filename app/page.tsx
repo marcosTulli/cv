@@ -28,6 +28,9 @@ const sections = [
   { id: Sections.Skills, component: <Skills /> },
 ];
 
+const test = 'test'
+console.log(test)
+
 const Home = () => {
   const { downloadRef } = useDownload();
 
