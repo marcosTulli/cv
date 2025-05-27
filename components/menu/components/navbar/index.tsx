@@ -17,10 +17,10 @@ const NavBar: React.FC = () => {
     <AppBar
       component="nav"
       sx={{
-        alignItems: { xs: "left", sm: `${isHome ? "center" : "left"}` },
+        alignItems: { xs: "end", sm: `${isHome ? "center" : "left"}` },
       }}
     >
-      <Toolbar>
+      <Toolbar >
         <OpenSideBarButton />
         {isHome ? (
           <Box
