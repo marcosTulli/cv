@@ -16,6 +16,7 @@ const SideBar: React.FC<Props> = ({ window }) => {
             container={container}
             open={isSideBarOpen}
             onClose={toggleSideBar}
+            anchor='right'
             ModalProps={{ keepMounted: true }}
             sx={{
                 display: { xs: 'flex', sm: 'none' },
