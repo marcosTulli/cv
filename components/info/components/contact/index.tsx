@@ -4,10 +4,9 @@ import styles from "./index.module.scss";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { userStore } from "@/store";
-import { Box, Tooltip } from "@mui/material";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import { Box, Button, Tooltip } from "@mui/material";
 import { useContact } from "../../hooks";
+import ContactsSkeleton from "./ContactsSkeleton";
 
 interface IContactProps {
   isLoading: boolean;
@@ -15,6 +14,9 @@ interface IContactProps {
 const Contact: React.FC<IContactProps> = ({ isLoading }) => {
   const { user } = userStore();
   const { tooltipTitle, handleCopy, resetTooltip } = useContact();
+  const [isHover, setIsHover] = React.useState<boolean>(false);
+
+  const toggleman = ()=> { setIsHover((p)=> !p);};
 
   return (
     <Box
@@ -22,26 +24,26 @@ const Contact: React.FC<IContactProps> = ({ isLoading }) => {
       className={styles.contactInfoContainer}
     >
       {isLoading ? (
-        <Box>
-          <Box className={styles.contact}>
-            <Skeleton className={styles.icon} height={24} width={24} />
-            <Skeleton height={14} width={150} />
-          </Box>
-          <Box className={styles.contact}>
-            <Skeleton className={styles.icon} height={24} width={24} />
-            <Skeleton height={14} width={220} />
-          </Box>
-        </Box>
+        <ContactsSkeleton/>
       ) : (
-        <Box>
+        <Box >
           <Tooltip title={tooltipTitle} TransitionProps={{ timeout: 500 }}>
             <Box
               onClick={handleCopy}
               onMouseOut={resetTooltip}
               className={styles.contact}
+              onMouseEnter={toggleman}
+              onMouseLeave={toggleman}
+              sx={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}
             >
+              <Box display={'flex'} gap={'0.5rem'}>
               <LocalPhoneOutlinedIcon className={styles.icon} />
               <Box>{user.phone}</Box>
+              </Box>
+              {isHover && <Button 
+              
+              variant="contained"
+              onClick={()=> console.log('jeje')}sx={{ padding:'0', margin:'0' }}>+</Button>}
             </Box>
           </Tooltip>
           <Tooltip title={tooltipTitle} TransitionProps={{ timeout: 500 }}>
