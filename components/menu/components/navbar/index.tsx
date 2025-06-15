@@ -10,7 +10,6 @@ import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { IconButton, Tooltip } from "@mui/material";
 import OpenAdminDialogButton from "../admin-dialog/button";
-import { useUser } from "@/hooks/queries";
 
 const NavBar: React.FC = () => {
   const pathName = usePathname();
