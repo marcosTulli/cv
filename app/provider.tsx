@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { ThemeProvider } from "@mui/material";
 import { useTheme } from "@/hooks";
-import { Auth0Provider } from "@auth0/auth0-react";
 import AuthProvider from "./auth0-provider";
 
 const queryClient = new QueryClient({

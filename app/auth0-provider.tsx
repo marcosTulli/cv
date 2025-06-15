@@ -11,14 +11,14 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID!}
             authorizationParams={{
                 redirect_uri: typeof window !== "undefined" ? window.location.origin : "",
-                audience: process.env.NEXT_PUBLIC_AUTH0_AUDIENCE, // o
+                audience: process.env.NEXT_PUBLIC_AUTH0_AUDIENCE, 
             }}
             onRedirectCallback={() => router.push('/')}
         >
             {children}
         </Auth0Provider>
     );
-}
+};
 
 
-export default AuthProvider
+export default AuthProvider;
