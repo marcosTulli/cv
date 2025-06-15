@@ -12,7 +12,6 @@ import { useDownload } from "@/hooks";
 import Header from "@components/header";
 import { PrintableTemplate } from "@/components/pdf-version/PrintableTemplate";
 import { Sections } from "@/models/enums";
-import OpenAdminDialogButton from "@/components/menu/components/admin-dialog/button";
 import AdminDialog from "@/components/menu/components/admin-dialog/dialog";
 
 const HomeHeader = () => (
