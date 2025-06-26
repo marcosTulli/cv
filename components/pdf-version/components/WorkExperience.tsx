@@ -25,7 +25,7 @@ const WorkExperience: React.FC = () => {
   return (
     <Box className={styles.workExperience}>
       <Box className={styles.sectionTitle}>{strings.workExperience}</Box>
-      {experiences.map((experience) => (
+      {experiences?.map((experience) => (
         <div className={styles.experienceContainer} key={experience._id}>
           <div className={styles.companyInfo}>
             <Typography variant="h6" className={styles.companyName}>
@@ -39,7 +39,7 @@ const WorkExperience: React.FC = () => {
             </Typography>
           </div>
           <ul>
-            {experience.info.tasks.map((task) => (
+            {experience.info.tasks?.map((task) => (
               <li key={task._id} className={styles.task}>
                 <Typography variant="body1" className={styles.task}>
                   {task.task}

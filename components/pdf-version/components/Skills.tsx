@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
     <Box className={styles.skillsContainer}>
       <Typography className={styles.sectionTitle}>{strings.skills}</Typography>
       <Box component="ul" className={styles.skills}>
-        {data?.skills.map((skill) => (
+        {data?.map((skill) => (
           <Box component="li" key={skill._id} className={styles.skill}>
             {skill.formattedName}
           </Box>

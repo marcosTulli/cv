@@ -14,9 +14,8 @@ const Skills: React.FC = () => {
   const { strings } = languageStore();
   const { sectionRef } = useSectionRef({ sectionName: Sections.Skills });
   const { user, isLoadingUser } = userStore();
-  const { data: skillsData, isLoading: isLoadingSkills } = useSkills({
-    id: user._id,
-  });
+  const { data: skillsData, isLoading: isLoadingSkills } = useSkills({ id: user._id });
+
   const { handleLoad } = useIsLoadingSections();
 
   React.useEffect(() => {

@@ -48,7 +48,7 @@ const Header: React.FC = () => {
           {strings.languages}:
         </Typography>
         <ul className={styles.languagesContainer}>
-          {user.info.languages.map((language: ILanguage) => (
+          {user.info.languages?.map((language: ILanguage) => (
             <li key={language.language} className={styles.languageContainer}>
               <Typography variant="body2" className={styles.language}>
                 {` ${language.language}: ${language.level}`}
