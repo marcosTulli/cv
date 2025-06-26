@@ -38,7 +38,7 @@ const WorkExperience: React.FC = () => {
         isLoading={isLoadingWorkExperience || isLoadingUser}
       />
       <WorkExperienceBody
-        data={data?.experiences}
+        data={data}
         isLoading={isLoadingWorkExperience || isLoadingUser}
       />
     </Box>

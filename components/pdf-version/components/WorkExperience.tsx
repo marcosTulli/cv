@@ -10,7 +10,7 @@ const WorkExperience: React.FC = () => {
   const { user } = userStore();
   const { data } = useWorkExperience({ id: user._id, lang: currentLanguage });
   const experiences: IExperience[] = data
-    ? data.experiences
+    ? data
     : [
         {
           _id: "",
