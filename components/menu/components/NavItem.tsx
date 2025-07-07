@@ -14,18 +14,21 @@ const NavItem = ({
       sx={{
         display: "flex",
         gap: "0.5rem",
+        alignItems: "center",
       }}
     >
       <Box
         sx={{
           margin: "0",
           padding: "0",
-          display: { xs: "none", md: "block", lg: "block" },
+          display: { xs: "none", md: "flex", lg: "flex" },
         }}
       >
         {children}
       </Box>
-      <Typography>{label}</Typography>
+      <Typography fontSize={15} sx={{ padding: "0", margin: "0" }}>
+        {label}
+      </Typography>
     </Box>
   );
 };

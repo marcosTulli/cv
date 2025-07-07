@@ -42,18 +42,14 @@ const LanguageSelector: React.FC = () => {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClick}
-          sx={{
-            color: "secondary.main",
-            display: "flex",
-            justifyContent: "center",
-            gap: "0.5rem",
-          }}
+          sx={{ color: "secondary.main" }}
         >
           <NavItem label={"Language"}>
             <TranslateIcon />
           </NavItem>
         </Button>
       </Tooltip>
+
       <Menu
         id="language-selector-menu"
         aria-labelledby="language-selector-button"

@@ -21,7 +21,7 @@ const Download: React.FC = () => {
     <Tooltip title={strings.downloadAction}>
       <span>
         <Button
-          sx={{ color: "secondary.main", display: "flex", gap: "0.5rem" }}
+          sx={{ color: "secondary.main" }}
           disabled={isLoadingSections}
           onClick={handleClick}
         >
