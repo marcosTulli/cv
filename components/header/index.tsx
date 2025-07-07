@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 
   return (
     <Box
-      component={"section"}
+      component={"label"}
       ref={sectionRef}
       className={styles.headerContainer}
     >

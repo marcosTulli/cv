@@ -49,7 +49,7 @@ const LanguageSelector: React.FC = () => {
             gap: "0.5rem",
           }}
         >
-          <NavItem section={"Language"}>
+          <NavItem label={"Language"}>
             <TranslateIcon />
           </NavItem>
         </Button>

@@ -3,10 +3,10 @@ import * as React from "react";
 import { Box, Typography } from "@mui/material";
 
 const NavItem = ({
-  section,
+  label,
   children,
 }: {
-  section: string;
+  label: string;
   children: React.ReactNode;
 }) => {
   return (
@@ -25,7 +25,7 @@ const NavItem = ({
       >
         {children}
       </Box>
-      <Typography>{section}</Typography>
+      <Typography>{label}</Typography>
     </Box>
   );
 };

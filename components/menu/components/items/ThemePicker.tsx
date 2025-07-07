@@ -30,7 +30,7 @@ const ThemePicker: React.FC = () => {
           color={"secondary"}
           sx={{ display: "flex", gap: "0.5rem" }}
         >
-          <NavItem section={"Theme"}>
+          <NavItem label={"Theme"}>
             <ThemeIcon />
           </NavItem>
         </Button>

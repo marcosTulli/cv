@@ -12,23 +12,23 @@ interface IPageSectionProps {
 }
 
 const Home = () => (
-  <NavItem section={"Home"}>
+  <NavItem label={"Home"}>
     <HomeOutlinedIcon />
   </NavItem>
 );
 const Experience = () => (
-  <NavItem section={"Experience"}>
+  <NavItem label={"Experience"}>
     <WorkOutlineIcon />
   </NavItem>
 );
 
 const Education = () => (
-  <NavItem section={"Education"}>
+  <NavItem label={"Education"}>
     <SchoolIcon />
   </NavItem>
 );
 const Skills = () => (
-  <NavItem section={"Skills"}>
+  <NavItem label={"Skills"}>
     <ConstructionIcon />
   </NavItem>
 );

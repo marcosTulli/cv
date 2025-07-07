@@ -17,7 +17,11 @@ const NavBar: React.FC = () => {
     <AppBar
       component="nav"
       sx={{
-        alignItems: { xs: "end", sm: `${isHome ? "center" : "left"}` },
+        alignItems: {
+          paddingTop: "0.5rem",
+          xs: "end",
+          sm: `${isHome ? "center" : "left"}`,
+        },
       }}
     >
       <Toolbar>
