@@ -8,7 +8,7 @@ import OpenSideBarButton from "../items/OpenSideBarButton";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { IconButton, Tooltip } from "@mui/material";
+import { IconButton, Tooltip, Typography } from "@mui/material";
 
 const NavBar: React.FC = () => {
   const pathName = usePathname();
@@ -20,7 +20,7 @@ const NavBar: React.FC = () => {
         alignItems: { xs: "end", sm: `${isHome ? "center" : "left"}` },
       }}
     >
-      <Toolbar >
+      <Toolbar>
         <OpenSideBarButton />
         {isHome ? (
           <Box
@@ -31,6 +31,9 @@ const NavBar: React.FC = () => {
             }}
           >
             <PageSections />
+            <Typography sx={{ fontSize: "30px", paddingX: "1rem" }}>
+              |
+            </Typography>
             <Actions />
           </Box>
         ) : (
