@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "@mui/material";
+import { Box, Button, Tooltip, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import { useDownload, useIsLoadingSections } from "@/hooks";
@@ -10,6 +10,7 @@ const Download: React.FC = () => {
   const { strings } = languageStore();
   const { isSideBarOpen, toggleSideBar } = useSideBar();
   const { handleDownload } = useDownload();
+  const isMobile = useMediaQuery("(max-width: 500px)");
 
   const handleClick = () => {
     handleDownload();
@@ -19,14 +20,17 @@ const Download: React.FC = () => {
   return (
     <Tooltip title={strings.downloadAction}>
       <span>
-        {" "}
-        {/* This is to prevent browser error*/}
         <Button
-          sx={{ color: "secondary.main" }}
+          sx={{ color: "secondary.main", display: "flex", gap: "0.5rem" }}
           disabled={isLoadingSections}
           onClick={handleClick}
         >
-          <PictureAsPdfIcon />
+          {!isMobile && (
+            <Box sx={{ display: { xs: "none", md: "block", lg: "block" } }}>
+              <PictureAsPdfIcon />
+            </Box>
+          )}
+          <Typography>Download</Typography>
         </Button>
       </span>
     </Tooltip>

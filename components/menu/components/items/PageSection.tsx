@@ -5,61 +5,32 @@ import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import SchoolIcon from "@mui/icons-material/School";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import { Box, Typography } from "@mui/material";
+import NavItem from "../NavItem";
 
 interface IPageSectionProps {
   section: Sections;
 }
 
-const SectionItem = ({
-  section,
-  children,
-}: {
-  section: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: "0.5rem",
-      }}
-    >
-      <Box
-        sx={{
-          margin: "0",
-          padding: "0",
-          display: { xs: "none", md: "block", lg: "block" },
-        }}
-      >
-        {children}
-      </Box>
-      <Typography>{section}</Typography>
-    </Box>
-  );
-};
-
 const Home = () => (
-  <SectionItem section={"Home"}>
+  <NavItem section={"Home"}>
     <HomeOutlinedIcon />
-  </SectionItem>
+  </NavItem>
 );
 const Experience = () => (
-  <SectionItem section={"Experience"}>
+  <NavItem section={"Experience"}>
     <WorkOutlineIcon />
-  </SectionItem>
+  </NavItem>
 );
 
 const Education = () => (
-  <SectionItem section={"Education"}>
+  <NavItem section={"Education"}>
     <SchoolIcon />
-  </SectionItem>
+  </NavItem>
 );
 const Skills = () => (
-  <SectionItem section={"Skills"}>
+  <NavItem section={"Skills"}>
     <ConstructionIcon />
-  </SectionItem>
+  </NavItem>
 );
 
 const PageSection: React.FC<IPageSectionProps> = ({ section }) => {

@@ -3,13 +3,14 @@ import { usePageSections } from "../../hooks";
 import { Button, Tooltip } from "@mui/material";
 import { PageSection } from ".";
 import useSideBar from "../../hooks/useSidebar";
+import MenuContainer from "./MenuContainer";
 
 const PageSections: React.FC = () => {
   const { isSideBarOpen, toggleSideBar } = useSideBar();
   const { pageSections } = usePageSections();
 
   return (
-    <>
+    <MenuContainer>
       {pageSections.map((section) => {
         const handleClick = () => {
           isSideBarOpen && toggleSideBar();
@@ -24,7 +25,7 @@ const PageSections: React.FC = () => {
           </Tooltip>
         );
       })}
-    </>
+    </MenuContainer>
   );
 };
 

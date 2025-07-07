@@ -33,10 +33,9 @@ const SideBar: React.FC<Props> = ({ window }) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "end",
           justifyContent: "center",
           backgroundColor: "primary.main",
-          gap: "2rem",
+          gap: "8rem",
           height: "100%",
         }}
       >

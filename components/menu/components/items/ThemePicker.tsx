@@ -5,6 +5,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Themes } from "@/models/enums";
 import useSideBar from "../../hooks/useSidebar";
+import NavItem from "../NavItem";
 
 const ThemeIcon: React.FC = () => {
   const { selectedTheme } = themeStore();
@@ -24,8 +25,14 @@ const ThemePicker: React.FC = () => {
   return (
     <Tooltip title={strings.toggleThemeAction}>
       <Box sx={{ alignItems: "center", display: "flex" }}>
-        <Button onClick={handleClick} color={"secondary"}>
-          <ThemeIcon />
+        <Button
+          onClick={handleClick}
+          color={"secondary"}
+          sx={{ display: "flex", gap: "0.5rem" }}
+        >
+          <NavItem section={"Theme"}>
+            <ThemeIcon />
+          </NavItem>
         </Button>
       </Box>
     </Tooltip>

@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Box, Tooltip } from "@mui/material";
 import TranslateIcon from "@mui/icons-material/Translate";
 import useSideBar from "../../hooks/useSidebar";
+import NavItem from "../NavItem";
 
 const LanguageSelector: React.FC = () => {
   const { setLang } = languageStore();
@@ -41,9 +42,16 @@ const LanguageSelector: React.FC = () => {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClick}
-          sx={{ color: "secondary.main" }}
+          sx={{
+            color: "secondary.main",
+            display: "flex",
+            justifyContent: "center",
+            gap: "0.5rem",
+          }}
         >
-          <TranslateIcon />
+          <NavItem section={"Language"}>
+            <TranslateIcon />
+          </NavItem>
         </Button>
       </Tooltip>
       <Menu
