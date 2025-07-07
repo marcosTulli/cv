@@ -4,6 +4,7 @@ import { Themes } from "../models/enums";
 
 const useTheme = () => {
   const store = themeStore();
+    const black = '#1d2226';
 
   const baseColors = {
     white: { main: "#F7F7F7" },
@@ -14,9 +15,9 @@ const useTheme = () => {
   const dark = {
     palette: {
       ...baseColors,
-      primary: { main: "#333333", weak: "#444444" },
+      primary: { main: black, weak: "#444444" },
       secondary: { main: "#F7F7F7", strong: "#CCCCCC" },
-      defaultBackground: { main: "#333333" },
+      defaultBackground: { main: black },
     },
   };
 
