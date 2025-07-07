@@ -11,7 +11,7 @@ const Actions: React.FC = () => {
             <ThemePicker />
             <Download />
             <Box
-                sx={{ padding: '0px', margin: '0px', display: { lg: 'none' } }}>
+                sx={{ padding: '0px', margin: '0px', display: { lg: 'none', md:'none' } }}>
                 <OpenAdminDialogButton />
             </Box>
         </>
