@@ -12,6 +12,7 @@ enum Paths {
   NodeTree = "node-tree",
   TicTacToe = "tictactoe",
   BandsDb = "https://bands-db.vercel.app/bands",
+  CVAPI = "https://cv-service-cf36.onrender.com/api",
 }
 
 const ProjectsBody = () => {
@@ -70,6 +71,13 @@ const ProjectsBody = () => {
       title: "Tic Tac Toe",
       content: "Tic Tac Toe",
       path: Paths.TicTacToe,
+      target: "_self",
+    },
+    {
+      id: 5,
+      title: "CV API",
+      content: "CV API",
+      path: Paths.CVAPI,
       target: "_self",
     },
   ];
