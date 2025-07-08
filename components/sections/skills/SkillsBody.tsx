@@ -1,13 +1,13 @@
 import * as React from "react";
 import styles from "./Skills.module.scss";
 import Skill from "./skill/Skill";
-import { ISkills, ISkillsResponse } from "@/models/interfaces";
+import { ISkills  } from "@/models/interfaces";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Grid } from "@mui/material";
 
 interface ISkillsBody {
-  skillsData?: ISkillsResponse;
+  skillsData?: ISkills[];
   isLoading: boolean;
 }
 
@@ -27,7 +27,7 @@ const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
                 <Skeleton height={10} width={100} />
               </div>
             ))
-          : skillsData?.skills?.map((skill: ISkills) => (
+          : skillsData?.map((skill: ISkills) => (
               <div key={skill._id} className={styles.skill}>
                 <Skill skill={skill} />
               </div>

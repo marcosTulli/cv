@@ -13,6 +13,7 @@ import { IconButton, Tooltip } from "@mui/material";
 const NavBar: React.FC = () => {
   const pathName = usePathname();
   const isHome = pathName === "/";
+
   return (
     <AppBar
       component="nav"
@@ -20,19 +21,28 @@ const NavBar: React.FC = () => {
         alignItems: { xs: "end", sm: `${isHome ? "center" : "left"}` },
       }}
     >
-      <Toolbar >
+      <Toolbar
+        sx={{
+          width: "100%",
+          position: { xs: "static", sm: "relative" },
+        }}
+      >
         <OpenSideBarButton />
+
         {isHome ? (
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexWrap: "nowrap",
-              alignItems: "center",
-            }}
-          >
-            <PageSections />
-            <Actions />
-          </Box>
+          <>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                flexWrap: "nowrap",
+                alignItems: "center",
+                mx: "auto",
+              }}
+            >
+              <PageSections />
+              <Actions />
+            </Box>
+          </>
         ) : (
           <Tooltip title="Home">
             <IconButton color="inherit" edge="start">

@@ -31,7 +31,7 @@ const JobCard: React.FC<JobCardProps> = ({ experience }) => {
           : "Present"}
       </p>
       <ul className={styles.jobDescription}>
-        {experience.info.tasks.map((task) => {
+        {experience.info.tasks?.map((task) => {
           return <li key={task._id}>{task.task}</li>;
         })}
       </ul>

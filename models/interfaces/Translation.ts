@@ -52,5 +52,13 @@ export interface Translation {
   nameLabel: string;
   cancelLabel: string;
   acceptLabel: string;
-  editSwitchLabel: string;
+  editswitchlabel: string;
+  adminDialogTitle: string;
+  adminDialogContent: string;
+  adminDialogRoleLabel: string;
+  loginButtonLabel: string;
+  logoutButtonLabel: string;
+  closeDialogLabel: string;
+  admin: string;
+  guest: string
 }

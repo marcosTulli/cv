@@ -41,6 +41,15 @@ const es: Partial<Translation> = {
   nameLabel: "Nombre",
   acceptLabel: "Aceptar",
   cancelLabel: "Cancelar",
+  adminDialogTitle: "Perfil",
+  adminDialogContent: "Bienvenide",
+  adminDialogRoleLabel: "Rol",
+  loginButtonLabel: "Acceder",
+  logoutButtonLabel: "Cerrar sesión",
+  closeDialogLabel: "Cerrar",
+  admin: "Administrador",
+  guest: "Invitado"
+
 };
 
 export default es;
