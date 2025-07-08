@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { IconButton, Tooltip } from "@mui/material";
-import OpenAdminDialogButton from "../admin-dialog/button";
 
 const NavBar: React.FC = () => {
   const pathName = usePathname();
@@ -28,7 +27,6 @@ const NavBar: React.FC = () => {
           position: { xs: "static", sm: "relative" },
         }}
       >
-
         <OpenSideBarButton />
 
         {isHome ? (
@@ -43,16 +41,6 @@ const NavBar: React.FC = () => {
             >
               <PageSections />
               <Actions />
-            </Box>
-
-            <Box
-              sx={{
-                display: { xs: "none", sm: "block" },
-                position: "absolute",
-                right: 0,
-              }}
-            >
-              <OpenAdminDialogButton />
             </Box>
           </>
         ) : (
