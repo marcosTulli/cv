@@ -78,7 +78,7 @@ const ProjectsBody = () => {
       title: "CV API",
       content: "CV API",
       path: Paths.CVAPI,
-      target: "_self",
+      target: "_blank",
     },
   ];
 
