@@ -1,13 +1,13 @@
 "use client";
 import * as React from "react";
 import styles from "./index.module.scss";
-import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import { userStore } from "@/store";
 import { Box, Tooltip } from "@mui/material";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useContact } from "../../hooks";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 interface IContactProps {
   isLoading: boolean;
@@ -40,7 +40,7 @@ const Contact: React.FC<IContactProps> = ({ isLoading }) => {
               onMouseOut={resetTooltip}
               className={styles.contact}
             >
-              <LocalPhoneOutlinedIcon className={styles.icon} />
+              <WhatsAppIcon className={styles.icon} />
               <Box>{user.phone}</Box>
             </Box>
           </Tooltip>
