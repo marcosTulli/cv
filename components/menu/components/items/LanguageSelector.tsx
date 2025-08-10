@@ -1,13 +1,13 @@
-import * as React from "react";
-import { Language } from "@/models/enums";
-import { languageStore } from "@/store";
-import { userStore } from "@/store";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import { Box, Tooltip } from "@mui/material";
-import TranslateIcon from "@mui/icons-material/Translate";
-import useSideBar from "../../hooks/useSidebar";
+import * as React from 'react';
+import { Language } from '@/models/enums';
+import { languageStore } from '@/store';
+import { userStore } from '@/store';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { Box, Tooltip } from '@mui/material';
+import TranslateIcon from '@mui/icons-material/Translate';
+import useSideBar from '../../hooks/useSidebar';
 
 const LanguageSelector: React.FC = () => {
   const { setLang } = languageStore();
@@ -33,15 +33,15 @@ const LanguageSelector: React.FC = () => {
   };
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: 'relative' }}>
       <Tooltip title={strings.changeLanguageAction}>
         <Button
           id="language-selector-button"
-          aria-controls={open ? "language-selector-menu" : undefined}
+          aria-controls={open ? 'language-selector-menu' : undefined}
           aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
+          aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ color: "secondary.main" }}
+          sx={{ color: 'secondary.main' }}
         >
           <TranslateIcon />
         </Button>
@@ -53,25 +53,25 @@ const LanguageSelector: React.FC = () => {
         open={open}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
+          vertical: 'top',
+          horizontal: 'left',
         }}
         sx={{
-          marginTop: "1rem",
-          "& .MuiPaper-root": {
-            backgroundColor: "secondary.main",
-            color: "primary.main",
+          marginTop: '1rem',
+          '& .MuiPaper-root': {
+            backgroundColor: 'secondary.main',
+            color: 'primary.main',
           },
-          "& .MuiMenuItem-root": {
-            backgroundColor: "secondary.main",
-            color: "primary.main",
-            "&:hover": {
-              backgroundColor: "primary.main",
-              color: "secondary.main",
+          '& .MuiMenuItem-root': {
+            backgroundColor: 'secondary.main',
+            color: 'primary.main',
+            '&:hover': {
+              backgroundColor: 'primary.main',
+              color: 'secondary.main',
             },
           },
         }}
@@ -80,7 +80,7 @@ const LanguageSelector: React.FC = () => {
           <MenuItem
             key={index}
             onClick={() => handleLanguageChange(lang)}
-            sx={{ width: "100px" }}
+            sx={{ width: '100px' }}
           >
             {lang.toUpperCase()}
           </MenuItem>

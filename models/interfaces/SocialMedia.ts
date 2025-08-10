@@ -1,4 +1,4 @@
 export interface ISocialMedia {
-    display: string;
-    url: string;
+  display: string;
+  url: string;
 }

@@ -1,9 +1,9 @@
-import { TreeServicesInstance } from "@/services";
-import { useQuery } from "@tanstack/react-query";
+import { TreeServicesInstance } from '@/services';
+import { useQuery } from '@tanstack/react-query';
 
 const useRootNode = () => {
   const { data: rootNode, isLoading } = useQuery({
-    queryKey: ["rootNode"],
+    queryKey: ['rootNode'],
     queryFn: TreeServicesInstance.fetchRootNode,
   });
 

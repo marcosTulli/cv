@@ -1,8 +1,8 @@
 enum CharTypes {
-  lowerCase = "lowerCase",
-  upperCase = "upperCase",
-  numberString = "numberString",
-  specialChar = "sepcialChar",
+  lowerCase = 'lowerCase',
+  upperCase = 'upperCase',
+  numberString = 'numberString',
+  specialChar = 'sepcialChar',
 }
 
 const generateRandomCharacter = ({
@@ -29,7 +29,7 @@ const generateRandomCharacter = ({
       charPositions.max = 57;
       break;
     default:
-      throw new Error("missing chartype on generate ");
+      throw new Error('missing chartype on generate ');
   }
   const { min, max } = charPositions;
 
@@ -60,6 +60,6 @@ export const generateRandomString = ({ length }: { length: number }) => {
         generators[Math.floor(Math.random() * generators.length)];
       return randomGenerator();
     })
-    .join("");
+    .join('');
   return password;
 };

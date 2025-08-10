@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import { Box, Button, Typography } from "@mui/material";
-import styles from "./page.module.scss";
-import useTicTacToe from "./hooks/useTicTacToe";
+'use client';
+import React from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import styles from './page.module.scss';
+import useTicTacToe from './hooks/useTicTacToe';
 
 const TicTac: React.FC = () => {
   const { winner, isTie, grid, slots, handleReset, play } = useTicTacToe();
@@ -10,13 +10,13 @@ const TicTac: React.FC = () => {
   return (
     <Box
       sx={{
-        bgcolor: "defaultBackground.main",
-        paddingTop: "4rem",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        overflow: "auto",
+        bgcolor: 'defaultBackground.main',
+        paddingTop: '4rem',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        overflow: 'auto',
       }}
     >
       <div className={styles.container}>
@@ -24,26 +24,26 @@ const TicTac: React.FC = () => {
           id="title"
           component="header"
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: "2rem",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '2rem',
           }}
         >
-          <Typography variant="h2" sx={{ color: "secondary.main" }}>
+          <Typography variant="h2" sx={{ color: 'secondary.main' }}>
             Tic Tac Toe
           </Typography>
           <Typography
             variant="h3"
-            sx={{ color: "secondary.main", height: "19px", padding: "2rem" }}
+            sx={{ color: 'secondary.main', height: '19px', padding: '2rem' }}
           >
-            {winner ? `Winner is ${winner}` : ""}
+            {winner ? `Winner is ${winner}` : ''}
           </Typography>
           <Typography
             variant="h3"
-            sx={{ color: "secondary.main", height: "19px", padding: "2rem" }}
+            sx={{ color: 'secondary.main', height: '19px', padding: '2rem' }}
           >
-            {isTie ? `Tie` : ""}
+            {isTie ? `Tie` : ''}
           </Typography>
         </Box>
 

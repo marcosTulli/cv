@@ -1,13 +1,13 @@
-"use client";
-import React, { RefObject } from "react";
-import { useReactToPrint } from "react-to-print";
-import { downloadRefStore } from "@/store";
+'use client';
+import React, { RefObject } from 'react';
+import { useReactToPrint } from 'react-to-print';
+import { downloadRefStore } from '@/store';
 
 const useDownload = () => {
   const { downloadRef } = downloadRefStore.getState();
   const { setDownloadRef } = downloadRefStore();
   const printContent = () => {
-    if (downloadRef && typeof downloadRef === "object") {
+    if (downloadRef && typeof downloadRef === 'object') {
       return (downloadRef as RefObject<HTMLDivElement>).current;
     }
     return null;
@@ -23,7 +23,7 @@ const useDownload = () => {
 
   const handleDownload = useReactToPrint({
     content: printContent,
-    documentTitle: "Marcos Tulli CV",
+    documentTitle: 'Marcos Tulli CV',
   });
   return {
     downloadRef,

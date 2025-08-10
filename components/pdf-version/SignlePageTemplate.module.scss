@@ -1,180 +1,177 @@
 @import '../../styles/global.scss';
 
 $font-sizes: (
-    headerTitle: 26px,
-    sectionTitle: 22px,
-    large: 16px,
-    medium: 14px,
-    small: 12px
+  headerTitle: 26px,
+  sectionTitle: 22px,
+  large: 16px,
+  medium: 14px,
+  small: 12px,
 );
 
 .container {
-    font-family: $defaultCalibri;
-    width: 100%;
-    max-width: 210mm;
-    max-height: 297mm;
-    overflow: hidden;
+  font-family: $defaultCalibri;
+  width: 100%;
+  max-width: 210mm;
+  max-height: 297mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 2rem;
+
+  .header {
+    .sectionTitle {
+      font-size: map-get($font-sizes, headerTitle);
+    }
+  }
+
+  .sectionTitle {
+    font-size: map-get($font-sizes, sectionTitle);
+    padding-top: 0.2rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .candidateDescription {
+    font-size: map-get($font-sizes, sectionTitle);
+  }
+
+  .leftContainer,
+  .rightContainer {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 2rem;
+    gap: 0.5rem;
+  }
 
-    .header {
+  .leftContainer {
+    .contactInfo {
+      padding-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      width: 100%;
 
-        .sectionTitle {
-            font-size: map-get($font-sizes, headerTitle);
+      .icon,
+      .contactItem {
+        font-size: map-get($font-sizes, small);
+      }
+
+      .contactItem {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+    }
+
+    .languageTitle {
+      padding-top: 1rem;
+      font-size: map-get($font-sizes, medium);
+    }
+
+    .languagesContainer {
+      font-size: map-get($font-sizes, small);
+      padding: 0.5rem 0 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .languageContainer {
+        width: max-content;
+
+        .language {
+          padding: 0;
+          font-size: map-get($font-sizes, small);
         }
+      }
     }
 
-    .sectionTitle {
-        font-size: map-get($font-sizes, sectionTitle);
-        padding-top: 0.2rem;
-        padding-bottom: 0.4rem;
+    .education {
+      ul {
+        padding: 0 0 0 1rem;
+      }
+
+      .educationItem {
+        font-size: map-get($font-sizes, small);
+
+        .degree {
+          font-weight: 400;
+          font-size: map-get($font-sizes, medium);
+        }
+
+        .college {
+          font-size: map-get($font-sizes, small);
+        }
+      }
     }
 
-    .candidateDescription {
-        font-size: map-get($font-sizes, sectionTitle);
-    }
+    .skillsContainer {
+      ul {
+        padding: 0 0 0 1rem;
+      }
 
-    .leftContainer,
-    .rightContainer {
+      .skills {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        height: 290px;
+        flex-wrap: wrap;
+        column-count: 2;
+        margin: 0;
+
+        .skill {
+          padding-top: 2px;
+          font-size: map-get($font-sizes, small);
+          font-family: $defaultCalibri;
+          font-weight: 400;
+        }
+      }
     }
+  }
 
-    .leftContainer {
-        .contactInfo {
-            padding-top: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-            width: 100%;
+  .rightContainer {
+    .workExperience {
+      .experienceContainer {
+        padding-bottom: 1rem;
 
-            .icon,
-            .contactItem {
-                font-size: map-get($font-sizes, small);
-            }
-
-            .contactItem {
-                display: flex;
-                gap: 0.5rem;
-                align-items: center;
-            }
+        .companyName {
+          font-size: map-get($font-sizes, large);
+          font-weight: 500;
         }
 
-        .languageTitle {
-            padding-top: 1rem;
-            font-size: map-get($font-sizes, medium);
+        .positionAndPeriod {
+          font-size: map-get($font-sizes, medium);
         }
 
-        .languagesContainer {
-            font-size: map-get($font-sizes, small);
-            padding: 0.5rem 0 0 1rem;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-
-            .languageContainer {
-                width: max-content;
-
-                .language {
-                    padding: 0;
-                    font-size: map-get($font-sizes, small);
-                }
-            }
+        .companyInfo {
+          display: flex;
+          gap: 2rem;
+          justify-content: flex-start;
+          align-items: center;
+          padding-bottom: 0.5rem;
         }
 
-        .education {
-            ul {
-                padding: 0 0 0 1rem;
-            }
-
-            .educationItem {
-                font-size: map-get($font-sizes, small);
-
-                .degree {
-                    font-weight: 400;
-                    font-size: map-get($font-sizes, medium);
-                }
-
-                .college {
-                    font-size: map-get($font-sizes, small);
-                }
-            }
+        ul {
+          padding-left: 1rem;
         }
 
-        .skillsContainer {
-            ul {
-                padding: 0 0 0 1rem;
-            }
-
-            .skills {
-                display: flex;
-                flex-direction: column;
-                height: 290px;
-                flex-wrap: wrap;
-                column-count: 2;
-                margin: 0;
-
-                .skill {
-                    padding-top: 2px;
-                    font-size: map-get($font-sizes, small);
-                    font-family: $defaultCalibri;
-                    font-weight: 400;
-                }
-            }
+        .task {
+          padding-top: 2px;
+          font-size: map-get($font-sizes, small);
         }
+      }
     }
+  }
 
-    .rightContainer {
-        .workExperience {
-            .experienceContainer {
-                padding-bottom: 1rem;
-
-                .companyName {
-                    font-size: map-get($font-sizes, large);
-                    font-weight: 500;
-                }
-
-                .positionAndPeriod {
-                    font-size: map-get($font-sizes, medium);
-                }
-
-                .companyInfo {
-                    display: flex;
-                    gap: 2rem;
-                    justify-content: flex-start;
-                    align-items: center;
-                    padding-bottom: 0.5rem;
-
-
-                }
-
-                ul {
-                    padding-left: 1rem;
-                }
-
-                .task {
-                    padding-top: 2px;
-                    font-size: map-get($font-sizes, small);
-                }
-            }
-        }
+  @media print {
+    .container {
+      flex-direction: column;
+      page-break-inside: avoid;
+      page-break-after: avoid;
+      margin: 0;
+      max-height: 295mm;
+      max-width: 210mm;
+      overflow: hidden;
     }
+  }
 
-    @media print {
-        .container {
-            flex-direction: column;
-            page-break-inside: avoid;
-            page-break-after: avoid;
-            margin: 0;
-            max-height: 295mm;
-            max-width: 210mm;
-            overflow: hidden;
-        }
-    }
-
-    @page {
-        size: A4;
-    }
+  @page {
+    size: A4;
+  }
 }

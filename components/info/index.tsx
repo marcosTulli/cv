@@ -1,10 +1,10 @@
-"use client";
-import React from "react";
-import styles from "./index.module.scss";
-import { Social, Contact, Languages, ProfilePicture } from "./components";
-import { userStore } from "@/store";
-import { useIsLoadingSections } from "@/hooks";
-import { Box } from "@mui/material";
+'use client';
+import React from 'react';
+import styles from './index.module.scss';
+import { Social, Contact, Languages, ProfilePicture } from './components';
+import { userStore } from '@/store';
+import { useIsLoadingSections } from '@/hooks';
+import { Box } from '@mui/material';
 
 const Info: React.FC = () => {
   const { isLoadingUser } = userStore();
@@ -12,7 +12,7 @@ const Info: React.FC = () => {
   const isLoading = isLoadingUser || isLoadingSections;
 
   return (
-    <Box component={"section"} className={styles.info}>
+    <Box component={'section'} className={styles.info}>
       <Box className={styles.infoGrid}>
         <ProfilePicture isLoading={isLoading} />
         <Contact isLoading={isLoading} />

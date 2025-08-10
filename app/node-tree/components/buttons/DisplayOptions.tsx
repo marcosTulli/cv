@@ -1,13 +1,13 @@
-import React from "react";
-import { useNode } from "../../hooks";
-import ButtonComponent from "@/components/button";
-import { INodeProps } from "@/models/interfaces";
-import { MoreVert } from "@mui/icons-material";
+import React from 'react';
+import { useNode } from '../../hooks';
+import ButtonComponent from '@/components/button';
+import { INodeProps } from '@/models/interfaces';
+import { MoreVert } from '@mui/icons-material';
 
 const DisplayOptions: React.FC<INodeProps> = ({ node }) => {
   const { id } = node;
   const { toggleOptions, displayOptions, enableEdit } = useNode();
-  const isParent = id === "root";
+  const isParent = id === 'root';
 
   return (
     <ButtonComponent
@@ -16,7 +16,7 @@ const DisplayOptions: React.FC<INodeProps> = ({ node }) => {
       variant="text"
       title="Opciones"
     >
-      <MoreVert color="secondary" sx={{ fontSize: "15px" }} />
+      <MoreVert color="secondary" sx={{ fontSize: '15px' }} />
     </ButtonComponent>
   );
 };

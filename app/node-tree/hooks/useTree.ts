@@ -1,10 +1,10 @@
-import { generateRandomString } from "@/utils";
-import useDialogsStore from "../store/useDialogsStore";
-import { INode } from "@/models/interfaces/";
-import useRootNode from "./useRootNode";
-import useCreateNode from "./useCreateNode";
-import useRemoveNode from "./useRemoveNode";
-import useRevealChildren from "./useRevealChildren";
+import { generateRandomString } from '@/utils';
+import useDialogsStore from '../store/useDialogsStore';
+import { INode } from '@/models/interfaces/';
+import useRootNode from './useRootNode';
+import useCreateNode from './useCreateNode';
+import useRemoveNode from './useRemoveNode';
+import useRevealChildren from './useRevealChildren';
 
 const useTree = () => {
   const { closeCreateDialog, closeRemoveDialog } = useDialogsStore();

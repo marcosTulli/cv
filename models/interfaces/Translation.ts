@@ -60,5 +60,5 @@ export interface Translation {
   logoutButtonLabel: string;
   closeDialogLabel: string;
   admin: string;
-  guest: string
+  guest: string;
 }

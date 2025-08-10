@@ -1,25 +1,25 @@
 @import '../../../../styles/global.scss';
 
 .socialContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  p {
+    margin: 0;
+    padding: 1rem 0 1rem 0;
+  }
+
+  .socialItem {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    gap: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
 
-    p {
-        margin: 0;
-        padding: 1rem 0 1rem 0;
+    @include respond-to(md) {
+      padding-top: 0.5rem;
     }
-
-    .socialItem {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        text-decoration: none;
-        cursor: pointer;
-
-        @include respond-to(md) {
-            padding-top: 0.5rem;
-        }
-    }
+  }
 }

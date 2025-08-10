@@ -1,7 +1,9 @@
-$defaultCourier: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-$defaultCalibri: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$defaultCourier:
+  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$defaultCalibri:
+  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 :export {
-    defaultCourier: $defaultCourier;
-    defaultCalibri: $defaultCalibri
+  defaultCourier: $defaultCourier;
+  defaultCalibri: $defaultCalibri;
 }

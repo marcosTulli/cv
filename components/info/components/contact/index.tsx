@@ -1,13 +1,13 @@
-"use client";
-import * as React from "react";
-import styles from "./index.module.scss";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import { userStore } from "@/store";
-import { Box, Tooltip } from "@mui/material";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import { useContact } from "../../hooks";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+'use client';
+import * as React from 'react';
+import styles from './index.module.scss';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { userStore } from '@/store';
+import { Box, Tooltip } from '@mui/material';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { useContact } from '../../hooks';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 interface IContactProps {
   isLoading: boolean;
@@ -18,7 +18,7 @@ const Contact: React.FC<IContactProps> = ({ isLoading }) => {
 
   return (
     <Box
-      sx={{ color: "secondary.main" }}
+      sx={{ color: 'secondary.main' }}
       className={styles.contactInfoContainer}
     >
       {isLoading ? (

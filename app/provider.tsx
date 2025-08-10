@@ -1,16 +1,16 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 import {
   QueryCache,
   QueryClient,
   QueryClientProvider,
-} from "@tanstack/react-query";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { SkeletonTheme } from "react-loading-skeleton";
-import { ThemeProvider } from "@mui/material";
-import { useTheme } from "@/hooks";
-import AuthProvider from "./auth0-provider";
+} from '@tanstack/react-query';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import { ThemeProvider } from '@mui/material';
+import { useTheme } from '@/hooks';
+import AuthProvider from './auth0-provider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,7 +38,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
               rtl={false}
               pauseOnFocusLoss
               pauseOnHover={false}
-              theme={"dark"}
+              theme={'dark'}
             />
             {children}
           </SkeletonTheme>

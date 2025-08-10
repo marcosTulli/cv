@@ -1,9 +1,9 @@
-import { Button, Tooltip } from "@mui/material";
-import React from "react";
-import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
-import { useDownload, useIsLoadingSections } from "@/hooks";
-import { languageStore } from "@/store";
-import useSideBar from "../../hooks/useSidebar";
+import { Button, Tooltip } from '@mui/material';
+import React from 'react';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import { useDownload, useIsLoadingSections } from '@/hooks';
+import { languageStore } from '@/store';
+import useSideBar from '../../hooks/useSidebar';
 
 const Download: React.FC = () => {
   const { isLoadingSections } = useIsLoadingSections();
@@ -19,10 +19,10 @@ const Download: React.FC = () => {
   return (
     <Tooltip title={strings.downloadAction}>
       <span>
-        {" "}
+        {' '}
         {/* This is to prevent browser error*/}
         <Button
-          sx={{ color: "secondary.main" }}
+          sx={{ color: 'secondary.main' }}
           disabled={isLoadingSections}
           onClick={handleClick}
         >

@@ -1,7 +1,7 @@
-import useScroll from "@/components/menu/hooks/useScroll";
-import { Sections } from "@/models/enums";
-import { languageStore } from "@/store";
-import { Translation } from "@/models/interfaces";
+import useScroll from '@/components/menu/hooks/useScroll';
+import { Sections } from '@/models/enums';
+import { languageStore } from '@/store';
+import { Translation } from '@/models/interfaces';
 
 const usePageSections = () => {
   const { strings } = languageStore();

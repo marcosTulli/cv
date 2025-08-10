@@ -1,12 +1,12 @@
-"use client";
-import * as React from "react";
-import styles from "./index.module.scss";
-import { userStore } from "@/store";
-import Language from "./Language";
-import { Box } from "@mui/material";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import { ILanguage } from "@/models/interfaces";
+'use client';
+import * as React from 'react';
+import styles from './index.module.scss';
+import { userStore } from '@/store';
+import Language from './Language';
+import { Box } from '@mui/material';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { ILanguage } from '@/models/interfaces';
 
 interface ILanguagesProps {
   isLoading: boolean;

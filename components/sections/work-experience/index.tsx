@@ -1,14 +1,14 @@
-"use client";
-import React from "react";
-import styles from "./WorkExperience.module.scss";
-import WorkExperienceBody from "./WorkExperienceBody";
-import SectionHeader from "../section-header/SectionHeader";
-import { LoadableSections, Sections } from "@/models/enums";
-import useSectionRef from "../hooks/useSectionRef";
-import { languageStore, userStore } from "@/store";
-import { useWorkExperience } from "@/hooks/queries";
-import { useIsLoadingSections } from "@/hooks";
-import { Box } from "@mui/material";
+'use client';
+import React from 'react';
+import styles from './WorkExperience.module.scss';
+import WorkExperienceBody from './WorkExperienceBody';
+import SectionHeader from '../section-header/SectionHeader';
+import { LoadableSections, Sections } from '@/models/enums';
+import useSectionRef from '../hooks/useSectionRef';
+import { languageStore, userStore } from '@/store';
+import { useWorkExperience } from '@/hooks/queries';
+import { useIsLoadingSections } from '@/hooks';
+import { Box } from '@mui/material';
 
 const WorkExperience: React.FC = () => {
   const { strings, currentLanguage } = languageStore();

@@ -1,5 +1,5 @@
-import { Language } from "@/models/enums";
-import { ISocial, IUserInfo } from "@/models/interfaces";
+import { Language } from '@/models/enums';
+import { ISocial, IUserInfo } from '@/models/interfaces';
 
 export interface IUser {
   _id: string;

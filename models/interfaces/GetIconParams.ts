@@ -1,3 +1,3 @@
 export interface IGetIconParams {
-    fileKey: string;
+  fileKey: string;
 }

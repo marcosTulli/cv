@@ -1,7 +1,7 @@
-import React from "react";
-import { IExperience } from "@/models/interfaces";
-import styles from "./JobCard.module.scss";
-import { Box } from "@mui/material";
+import React from 'react';
+import { IExperience } from '@/models/interfaces';
+import styles from './JobCard.module.scss';
+import { Box } from '@mui/material';
 
 type JobCardProps = {
   experience: IExperience;
@@ -10,25 +10,25 @@ type JobCardProps = {
 
 const JobCard: React.FC<JobCardProps> = ({ experience }) => {
   return (
-    <Box className={styles.job} sx={{ color: "secondary.main" }}>
+    <Box className={styles.job} sx={{ color: 'secondary.main' }}>
       <Box
-        component={"div"}
+        component={'div'}
         sx={{
-          display: " flex",
-          flexDirection: "row",
-          gap: "1rem",
-          alignItems: "center",
+          display: ' flex',
+          flexDirection: 'row',
+          gap: '1rem',
+          alignItems: 'center',
         }}
       >
-        <Box component={"div"} className={styles.companyName}>
+        <Box component={'div'} className={styles.companyName}>
           {experience.companyName}
         </Box>
       </Box>
       <p className={styles.jobDetails}>
-        {experience.info.position} | {experience.activePeriod.startDate} -{" "}
+        {experience.info.position} | {experience.activePeriod.startDate} -{' '}
         {experience.activePeriod.endDate.length > 0
           ? experience.activePeriod.endDate
-          : "Present"}
+          : 'Present'}
       </p>
       <ul className={styles.jobDescription}>
         {experience.info.tasks?.map((task) => {

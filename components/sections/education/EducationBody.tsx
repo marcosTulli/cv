@@ -1,9 +1,9 @@
-import * as React from "react";
-import styles from "./Education.module.scss";
-import { IEducation } from "@/models/interfaces";
-import EducationCard from "./EducationCard";
-import EducationSkeleton from "./EducationSkeleton";
-import { Grid } from "@mui/material";
+import * as React from 'react';
+import styles from './Education.module.scss';
+import { IEducation } from '@/models/interfaces';
+import EducationCard from './EducationCard';
+import EducationSkeleton from './EducationSkeleton';
+import { Grid } from '@mui/material';
 
 interface IEdcuationBody {
   data?: IEducation[];
@@ -15,7 +15,7 @@ const EducationBody: React.FC<IEdcuationBody> = ({ data, isLoading }) => {
       container
       maxWidth="lg"
       spacing={1.5}
-      sx={{ color: "secondary.main" }}
+      sx={{ color: 'secondary.main' }}
       className={styles.gridContainer}
     >
       <div className={styles.educationGrid}>

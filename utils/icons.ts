@@ -1,4 +1,4 @@
 export const icons = {
-    width: 30,
-    height: 30,
+  width: 30,
+  height: 30,
 };

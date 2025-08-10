@@ -1,6 +1,6 @@
-import { sectionRefStore } from "@/store";
-import * as React from "react";
-import { Sections } from "@/models/enums";
+import { sectionRefStore } from '@/store';
+import * as React from 'react';
+import { Sections } from '@/models/enums';
 
 const useSectionRef = ({ sectionName }: { sectionName: Sections }) => {
   const sectionRef = React.useRef(null);

@@ -1,4 +1,3 @@
-
 export interface IGetSkillsParams {
-    id: string;
+  id: string;
 }

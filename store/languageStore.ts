@@ -1,8 +1,8 @@
-import { create } from "zustand";
-import { Translation } from "@/models/interfaces";
-import { Language } from "../models/enums";
-import es from "@/loc/strings-es";
-import en from "@/loc/strings-en";
+import { create } from 'zustand';
+import { Translation } from '@/models/interfaces';
+import { Language } from '../models/enums';
+import es from '@/loc/strings-es';
+import en from '@/loc/strings-en';
 
 interface ILanguage {
   currentLanguage: Language;

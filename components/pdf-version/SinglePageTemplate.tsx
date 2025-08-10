@@ -7,21 +7,20 @@ import Skills from './components/Skills';
 import WorkExperience from './components/WorkExperience';
 
 const SinglePageTemplate: React.FC = () => {
-
-    return (
-        <Container maxWidth="xl" className={styles.container}>
-            <Grid container spacing={2}>
-                <Grid item xs={4} className={styles.leftContainer}>
-                    <Header />
-                    <Education />
-                    <Skills />
-                </Grid>
-                <Grid item xs={8} className={styles.rightContainer}>
-                    <WorkExperience />
-                </Grid>
-            </Grid>
-        </Container>
-    );
+  return (
+    <Container maxWidth="xl" className={styles.container}>
+      <Grid container spacing={2}>
+        <Grid item xs={4} className={styles.leftContainer}>
+          <Header />
+          <Education />
+          <Skills />
+        </Grid>
+        <Grid item xs={8} className={styles.rightContainer}>
+          <WorkExperience />
+        </Grid>
+      </Grid>
+    </Container>
+  );
 };
 
 export default SinglePageTemplate;
