@@ -2,8 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
-    "sourceType": "module",
-    "extraFileExtensions": [".json"]
+    "sourceType": "module"
   },
   "plugins": [
     "@typescript-eslint"
@@ -20,5 +19,12 @@
       "error",
       "always"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {}
+    }
+  ]
 }
