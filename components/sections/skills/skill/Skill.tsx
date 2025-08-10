@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import { ISkills } from "@/models/interfaces";
-import Icon from "@/components/icon/Icon";
+'use client';
+import React from 'react';
+import { ISkills } from '@/models/interfaces';
+import Icon from '@/components/icon/Icon';
 
 interface ISkillProps {
   skill: ISkills;

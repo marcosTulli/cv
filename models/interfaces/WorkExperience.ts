@@ -1,4 +1,4 @@
-import { IExperience } from "@/models/interfaces";
+import { IExperience } from '@/models/interfaces';
 
 export interface IWorkExperience {
   _id: string;

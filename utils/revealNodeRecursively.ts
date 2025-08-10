@@ -1,4 +1,4 @@
-import { INode } from "@/models/interfaces";
+import { INode } from '@/models/interfaces';
 
 export const revealNodeRecursively = ({
   currentNode,
@@ -18,7 +18,7 @@ export const revealNodeRecursively = ({
     return {
       ...currentNode,
       children: currentNode.children.map((child) =>
-        revealNodeRecursively({ currentNode: child, id })
+        revealNodeRecursively({ currentNode: child, id }),
       ),
     };
   }

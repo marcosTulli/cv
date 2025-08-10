@@ -1,42 +1,38 @@
 @import '../../../styles/global.scss';
 
 .sectionHeader {
-    text-align: center;
-    display: flex;
-    margin: 0;
-    flex-direction: column;
-    align-content: center;
-    width: 100%;
+  text-align: center;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
 
+  .sectionTitle {
+    font-size: 2rem;
+  }
 
-    .sectionTitle {
-        font-size: 2rem;
-    }
+  .pageTitle {
+    font-size: 4rem;
+  }
 
-    .pageTitle {
-        font-size: 4rem;
+  .pageTitle,
+  .sectionTitle {
+    font-family: $defaultCalibri;
+    font-weight: bold;
+    padding: 1rem;
+  }
 
-    }
+  .headerDescription {
+    font-size: 2rem;
+    font-family: $defaultCourier;
+  }
 
-    .pageTitle,
-    .sectionTitle {
-        font-family: $defaultCalibri;
-        font-weight: bold;
-        padding: 1rem
-    }
-
-    .headerDescription {
-        font-size: 2rem;
-        font-family: $defaultCourier;
-    }
-
-    .sectionDescription {
-        font-family: $defaultCourier;
-        max-width: 900px;
-        margin: 0 auto;
-        padding-bottom: 2rem;
-        font-size: 1.125rem;
-    }
-
-
+  .sectionDescription {
+    font-family: $defaultCourier;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    font-size: 1.125rem;
+  }
 }

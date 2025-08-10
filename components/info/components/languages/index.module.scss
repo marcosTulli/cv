@@ -1,28 +1,26 @@
 @import '../../../../styles/global.scss';
 
 .languageContainer {
-    display: grid;
-    flex-grow: 1;
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+
+  .language {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.6rem 0 1rem 0;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  @include respond-to(md) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 0;
-
-    .language {
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-        align-items: center;
-        padding: 0.6rem 0 1rem 0;
-        margin: 0;
-        text-decoration: none;
-
-    }
-
-    @include respond-to(md) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 2fr);
-    }
-
+    grid-template-rows: repeat(2, 2fr);
+  }
 }

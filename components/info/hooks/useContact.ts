@@ -22,7 +22,7 @@ const useContact = () => {
   return {
     resetTooltip,
     handleCopy,
-    tooltipTitle
+    tooltipTitle,
   };
 };
 

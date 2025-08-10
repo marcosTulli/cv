@@ -1,20 +1,22 @@
-"use client";
-import React from "react";
-import styles from "./Skills.module.scss";
-import SkillsBody from "./SkillsBody";
-import SectionHeader from "../section-header/SectionHeader";
-import { LoadableSections, Sections } from "@/models/enums";
-import useSectionRef from "../hooks/useSectionRef";
-import { languageStore, userStore } from "@/store";
-import { useSkills } from "@/hooks/queries";
-import { useIsLoadingSections } from "@/hooks";
-import { Box } from "@mui/material";
+'use client';
+import React from 'react';
+import styles from './Skills.module.scss';
+import SkillsBody from './SkillsBody';
+import SectionHeader from '../section-header/SectionHeader';
+import { LoadableSections, Sections } from '@/models/enums';
+import useSectionRef from '../hooks/useSectionRef';
+import { languageStore, userStore } from '@/store';
+import { useSkills } from '@/hooks/queries';
+import { useIsLoadingSections } from '@/hooks';
+import { Box } from '@mui/material';
 
 const Skills: React.FC = () => {
   const { strings } = languageStore();
   const { sectionRef } = useSectionRef({ sectionName: Sections.Skills });
   const { user, isLoadingUser } = userStore();
-  const { data: skillsData, isLoading: isLoadingSkills } = useSkills({ id: user._id });
+  const { data: skillsData, isLoading: isLoadingSkills } = useSkills({
+    id: user._id,
+  });
 
   const { handleLoad } = useIsLoadingSections();
 

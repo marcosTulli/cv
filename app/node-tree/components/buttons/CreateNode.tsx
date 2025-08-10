@@ -1,9 +1,9 @@
-import React from "react";
-import { useNode } from "../../hooks";
-import AddIcon from "@mui/icons-material/Add";
-import ButtonComponent from "@/components/button/";
-import { INodeProps } from "@/models/interfaces";
-import { languageStore } from "@/store";
+import React from 'react';
+import { useNode } from '../../hooks';
+import AddIcon from '@mui/icons-material/Add';
+import ButtonComponent from '@/components/button/';
+import { INodeProps } from '@/models/interfaces';
+import { languageStore } from '@/store';
 
 const CreateActions: React.FC<INodeProps> = ({ node }) => {
   const { handleAddNodeClick, enableEdit } = useNode();
@@ -16,7 +16,7 @@ const CreateActions: React.FC<INodeProps> = ({ node }) => {
       variant="contained"
       title={strings.createNodeButtonTooltip as string}
     >
-      <AddIcon color="secondary" sx={{ fontSize: "12px" }} />
+      <AddIcon color="secondary" sx={{ fontSize: '12px' }} />
     </ButtonComponent>
   );
 };

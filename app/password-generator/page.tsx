@@ -14,7 +14,7 @@ const PasswordGenerator: React.FC = () => {
     generatePassword,
     handleInputChange,
     resetTooltip,
-    setTooltipTitle
+    setTooltipTitle,
   } = usePasswordGenerator();
 
   return (
@@ -25,11 +25,11 @@ const PasswordGenerator: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'start',
-        overflow: 'auto'
+        overflow: 'auto',
       }}
     >
       <Box
-        component='form'
+        component="form"
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -38,31 +38,31 @@ const PasswordGenerator: React.FC = () => {
           alignSelf: 'flex-start',
           ml: 2,
           mt: '8rem',
-          '& .MuiTextField-root': { m: 1, width: '25ch' }
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
         }}
         noValidate
-        autoComplete='off'
+        autoComplete="off"
         onSubmit={generatePassword}
       >
         <TextField
-          id='standard-number'
-          label='Length'
-          type='number'
-          variant='outlined'
+          id="standard-number"
+          label="Length"
+          type="number"
+          variant="outlined"
           focused
           onChange={(e) => handleInputChange(e)}
-          color='secondary'
+          color="secondary"
           sx={{
             input: {
               color: 'secondary.main',
               '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
                 appearance: 'none',
-                margin: 0
-              }
-            }
+                margin: 0,
+              },
+            },
           }}
         />
-        <Button variant={'contained'} type='submit' disabled={disableGenerate}>
+        <Button variant={'contained'} type="submit" disabled={disableGenerate}>
           Generate
         </Button>
 
@@ -73,9 +73,9 @@ const PasswordGenerator: React.FC = () => {
           >
             <Tooltip title={tooltipTitle}>
               <Button
-                type='button'
+                type="button"
                 onMouseOut={resetTooltip}
-                variant='contained'
+                variant="contained"
               >
                 <ContentCopyIcon />
               </Button>
@@ -91,7 +91,7 @@ const PasswordGenerator: React.FC = () => {
           color: 'secondary.main',
           mb: 2,
           p: '3rem',
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
         {password}

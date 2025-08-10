@@ -1,13 +1,13 @@
-import { ICreateNodeProps, INode } from "@/models/interfaces";
+import { ICreateNodeProps, INode } from '@/models/interfaces';
 import {
   addNodeRecursively,
   getLocalStorageData,
   removeNodeRecursively,
   revealNodeRecursively,
   setLocalStorageData,
-} from "@/utils";
+} from '@/utils';
 
-const LOCAL_STORAGE_KEY = "root";
+const LOCAL_STORAGE_KEY = 'root';
 
 class TreeServices {
   private initializeRootNode: () => INode;
@@ -21,8 +21,8 @@ class TreeServices {
   constructor() {
     this.initializeRootNode = () => {
       const defaultRootNode: INode = {
-        id: "root",
-        title: "Root",
+        id: 'root',
+        title: 'Root',
         children: [],
       };
       setLocalStorageData(LOCAL_STORAGE_KEY, defaultRootNode);

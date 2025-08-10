@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Switch, Typography } from "@mui/material";
-import { useNode } from "../../hooks";
+import React from 'react';
+import { Box, Switch, Typography } from '@mui/material';
+import { useNode } from '../../hooks';
 
 const Header: React.FC = () => {
   const { toggleEdit } = useNode();
@@ -9,12 +9,12 @@ const Header: React.FC = () => {
       id="title"
       component="header"
       sx={{
-        display: "flex",
-        alignItems: "center",
-        padding: "2rem",
+        display: 'flex',
+        alignItems: 'center',
+        padding: '2rem',
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <Typography component="label" color="secondary">
           Editar
         </Typography>

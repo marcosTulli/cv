@@ -1,11 +1,11 @@
-"use client";
-import * as React from "react";
-import { Sections } from "@/models/enums";
-import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
-import SchoolIcon from "@mui/icons-material/School";
-import ConstructionIcon from "@mui/icons-material/Construction";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import CodeIcon from "@mui/icons-material/Code";
+'use client';
+import * as React from 'react';
+import { Sections } from '@/models/enums';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import SchoolIcon from '@mui/icons-material/School';
+import ConstructionIcon from '@mui/icons-material/Construction';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import CodeIcon from '@mui/icons-material/Code';
 
 interface IPageSectionProps {
   section: Sections;

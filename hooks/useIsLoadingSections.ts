@@ -15,7 +15,7 @@ const useIsLoadingSections = () => {
 
   useEffect(() => {
     const allSectionsLoading = Object.values(sectionsLoadingState).every(
-      (section) => section[Object.keys(section)[0] as keyof TLoadingState]
+      (section) => section[Object.keys(section)[0] as keyof TLoadingState],
     );
     setIsLoadingSections(allSectionsLoading);
   }, [sectionsLoadingState]);

@@ -1,9 +1,9 @@
-"use client";
-import React from "react";
-import { Box } from "@mui/material";
-import { INodeProps } from "@/models/interfaces";
-import Parent from "./Parent";
-import Children from "./Children";
+'use client';
+import React from 'react';
+import { Box } from '@mui/material';
+import { INodeProps } from '@/models/interfaces';
+import Parent from './Parent';
+import Children from './Children';
 
 const Node: React.FC<INodeProps> = ({ node }) => {
   return (

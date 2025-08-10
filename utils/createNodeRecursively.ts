@@ -1,4 +1,4 @@
-import { INode } from "@/models/interfaces";
+import { INode } from '@/models/interfaces';
 
 interface IAddNodeProps {
   currentNode: INode;
@@ -20,7 +20,7 @@ export const addNodeRecursively = ({
   return {
     ...currentNode,
     children: currentNode.children.map((child) =>
-      addNodeRecursively({ currentNode: child, parentId, node })
+      addNodeRecursively({ currentNode: child, parentId, node }),
     ),
   };
 };

@@ -1,11 +1,11 @@
-import { sectionRefStore } from "@/store";
+import { sectionRefStore } from '@/store';
 
 const useScroll = () => {
   const scroll = (sectionName: string) => {
     const { sectionRef } = sectionRefStore.getState();
     const targetElement = sectionRef[sectionName];
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
+      targetElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
 

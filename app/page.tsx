@@ -4,7 +4,7 @@ import {
   Education,
   WorkExperience,
   Skills,
-  Projects
+  Projects,
 } from '@components/sections';
 import Info from '@components/info';
 import { Box } from '@mui/material';
@@ -26,7 +26,7 @@ const sections = [
   { id: Sections.Projects, component: <Projects /> },
   { id: Sections.WorkExperience, component: <WorkExperience /> },
   { id: Sections.Education, component: <Education /> },
-  { id: Sections.Skills, component: <Skills /> }
+  { id: Sections.Skills, component: <Skills /> },
 ];
 
 const Home = () => {
@@ -36,14 +36,15 @@ const Home = () => {
     <Box
       sx={{
         bgcolor: 'defaultBackground.main',
-        minWidth: '100%'
+        minWidth: '100%',
       }}
     >
       {sections.map((section, index) => (
         <Box
           key={section.id}
           sx={{
-            bgcolor: index % 2 === 1 ? 'primary.main' : 'defaultBackground.main'
+            bgcolor:
+              index % 2 === 1 ? 'primary.main' : 'defaultBackground.main',
           }}
         >
           {section.component}

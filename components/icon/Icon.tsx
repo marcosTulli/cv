@@ -1,5 +1,5 @@
-import React from "react";
-import { icons } from "@/utils";
+import React from 'react';
+import { icons } from '@/utils';
 
 interface IconProps {
   name: string;

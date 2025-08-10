@@ -1,9 +1,9 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
 enum Players {
-  X = "X",
-  O = "O",
+  X = 'X',
+  O = 'O',
 }
 
 type Slot = Players.X | Players.O | null;

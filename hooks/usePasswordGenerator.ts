@@ -19,7 +19,7 @@ function usePasswordGenerator() {
   };
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const value = parseInt(event.target.value, 10);
     setLengthInput(value);
@@ -38,7 +38,7 @@ function usePasswordGenerator() {
     disableGenerate,
     generatePassword,
     handleInputChange,
-    resetTooltip
+    resetTooltip,
   };
 }
 

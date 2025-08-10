@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { userService } from "@/services";
+import { useQuery } from '@tanstack/react-query';
+import { userService } from '@/services';
 
 const useUsers = () =>
   useQuery({
-    queryKey: ["users"],
+    queryKey: ['users'],
     queryFn: () => userService.getUsers(),
   });
 
