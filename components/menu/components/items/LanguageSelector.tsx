@@ -1,30 +1,29 @@
 import * as React from 'react';
 import { Language } from '@/models/enums';
-import { languageStore } from '@/store';
-import { userStore } from '@/store';
+import { languageStore, userStore, themeStore } from '@/store';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, Tooltip } from '@mui/material';
-import TranslateIcon from '@mui/icons-material/Translate';
+import PublicIcon from '@mui/icons-material/Public'; // 🌐 globe icon
 import useSideBar from '../../hooks/useSidebar';
 
 const LanguageSelector: React.FC = () => {
-  const { setLang } = languageStore();
+  const { setLang, strings } = languageStore();
   const { user } = userStore();
-  const { strings } = languageStore();
   const { isSideBarOpen, toggleSideBar } = useSideBar();
+  const { selectedTheme } = themeStore();
+
+  const isDark = selectedTheme === 'dark';
+  const menuBg = isDark ? '#1d2226' : '#F7F7F7';
+  const menuText = isDark ? '#F7F7F7' : '#333333';
+  const hoverBg = isDark ? '#444444' : '#CCCCCC';
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
   const handleLanguageChange = (language: Language) => {
     setLang(language);
@@ -41,37 +40,28 @@ const LanguageSelector: React.FC = () => {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ color: 'secondary.main' }}
+          sx={{ color: menuText }}
         >
-          <TranslateIcon />
+          <PublicIcon />
         </Button>
       </Tooltip>
+
       <Menu
         id="language-selector-menu"
-        aria-labelledby="language-selector-button"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         sx={{
-          marginTop: '1rem',
+          marginTop: '0.5rem',
           '& .MuiPaper-root': {
-            backgroundColor: 'secondary.main',
-            color: 'primary.main',
+            backgroundColor: menuBg,
+            color: menuText,
           },
           '& .MuiMenuItem-root': {
-            backgroundColor: 'secondary.main',
-            color: 'primary.main',
             '&:hover': {
-              backgroundColor: 'primary.main',
-              color: 'secondary.main',
+              backgroundColor: hoverBg,
             },
           },
         }}

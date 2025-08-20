@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 import styles from './index.module.scss';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -17,12 +16,13 @@ const ProfilePicture: React.FC<IProfilePictureProps> = ({ isLoading }) => {
       <Skeleton circle height={158.13} width={158.13} />
     </Box>
   ) : (
-    <Image
+    <img
       src="/profile.png"
       alt="profile picture"
       width={size}
       height={size}
       className={styles.profilePicture}
+      style={{ objectFit: 'cover', borderRadius: '50%' }}
     />
   );
 };
