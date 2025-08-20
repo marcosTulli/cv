@@ -1,10 +1,10 @@
-import * as React from "react";
-import styles from "./Skills.module.scss";
-import Skill from "./skill/Skill";
-import { ISkills  } from "@/models/interfaces";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import { Grid } from "@mui/material";
+import * as React from 'react';
+import styles from './Skills.module.scss';
+import Skill from './skill/Skill';
+import { ISkills } from '@/models/interfaces';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { Grid } from '@mui/material';
 
 interface ISkillsBody {
   skillsData?: ISkills[];
@@ -16,7 +16,7 @@ const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
     <Grid
       container
       maxWidth="lg"
-      sx={{ color: "secondary.main" }}
+      sx={{ color: 'secondary.main' }}
       className={styles.skillsGridContainer}
     >
       <div className={styles.skillGrid}>

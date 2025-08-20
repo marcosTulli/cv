@@ -1,12 +1,12 @@
-import { TreeServicesInstance } from "@/services/";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { TreeServicesInstance } from '@/services/';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const useRevealChildren = () => {
   const queryClient = useQueryClient();
   const { mutate: toggleRevealChildren } = useMutation({
     mutationFn: TreeServicesInstance.toggleRevealChildren,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["rootNode"] });
+      queryClient.invalidateQueries({ queryKey: ['rootNode'] });
     },
   });
 

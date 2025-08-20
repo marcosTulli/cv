@@ -1,4 +1,4 @@
-import { ILanguage } from "@/models/interfaces";
+import { ILanguage } from '@/models/interfaces';
 
 export interface IUserInfo {
   candidateTitle: string;

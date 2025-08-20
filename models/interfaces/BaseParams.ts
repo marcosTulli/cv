@@ -1,4 +1,4 @@
-import { Language } from "@/models/enums";
+import { Language } from '@/models/enums';
 
 export interface IBaseParams {
   lang: Language;

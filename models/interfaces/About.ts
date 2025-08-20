@@ -1,4 +1,4 @@
 export interface IAbout {
-    en: string;
-    sp: string;
+  en: string;
+  sp: string;
 }

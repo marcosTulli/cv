@@ -1,6 +1,6 @@
-import * as React from "react";
-import styles from "./Education.module.scss";
-import { IEducation } from "@/models/interfaces";
+import * as React from 'react';
+import styles from './Education.module.scss';
+import { IEducation } from '@/models/interfaces';
 
 interface IEducationCard {
   school: IEducation;

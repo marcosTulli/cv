@@ -1,11 +1,11 @@
-"use client";
-import React from "react";
-import { Button, Tooltip } from "@mui/material";
+'use client';
+import React from 'react';
+import { Button, Tooltip } from '@mui/material';
 
 interface IButtonComponentProps {
   onClick: () => void;
   display: boolean;
-  variant: "outlined" | "contained" | "text";
+  variant: 'outlined' | 'contained' | 'text';
   title: string;
 }
 const ButtonComponent: React.FC<
@@ -19,10 +19,10 @@ const ButtonComponent: React.FC<
           onClick={onClick}
           variant={variant}
           sx={{
-            minWidth: "2px",
-            minHeight: "2px",
-            p: "5px",
-            m: "0",
+            minWidth: '2px',
+            minHeight: '2px',
+            p: '5px',
+            m: '0',
           }}
         >
           {children}

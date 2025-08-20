@@ -1,9 +1,9 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import styles from "../SignlePageTemplate.module.scss";
-import { languageStore, userStore } from "@/store";
-import { useWorkExperience } from "@/hooks/queries";
-import { IExperience } from "@/models/interfaces";
+import React from 'react';
+import { Box, Typography } from '@mui/material';
+import styles from '../SignlePageTemplate.module.scss';
+import { languageStore, userStore } from '@/store';
+import { useWorkExperience } from '@/hooks/queries';
+import { IExperience } from '@/models/interfaces';
 
 const WorkExperience: React.FC = () => {
   const { currentLanguage, strings } = languageStore();
@@ -13,12 +13,12 @@ const WorkExperience: React.FC = () => {
     ? data
     : [
         {
-          _id: "",
-          activePeriod: { startDate: "", endDate: "" },
-          comapnyUrl: "",
-          companyLogo: "",
-          companyName: "",
-          info: { position: "", tasks: [{ _id: "", task: "" }] },
+          _id: '',
+          activePeriod: { startDate: '', endDate: '' },
+          comapnyUrl: '',
+          companyLogo: '',
+          companyName: '',
+          info: { position: '', tasks: [{ _id: '', task: '' }] },
         },
       ];
 
@@ -32,10 +32,10 @@ const WorkExperience: React.FC = () => {
               {experience.companyName}
             </Typography>
             <Typography variant="body1" className={styles.positionAndPeriod}>
-              {experience.info.position} | {experience.activePeriod.startDate} -{" "}
+              {experience.info.position} | {experience.activePeriod.startDate} -{' '}
               {experience.activePeriod.endDate.length > 0
                 ? experience.activePeriod.endDate
-                : "present"}
+                : 'present'}
             </Typography>
           </div>
           <ul>

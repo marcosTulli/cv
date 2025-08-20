@@ -1,4 +1,4 @@
-import { INode } from "@/models/interfaces";
+import { INode } from '@/models/interfaces';
 
 export const removeNodeRecursively = ({
   currentNode,

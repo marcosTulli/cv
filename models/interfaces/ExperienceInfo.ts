@@ -1,4 +1,4 @@
-import { ITask } from "@/models/interfaces";
+import { ITask } from '@/models/interfaces';
 
 export interface IExperienceInfo {
   position: string;

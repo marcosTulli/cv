@@ -3,5 +3,5 @@ export interface IProject {
   title: string;
   content: string;
   path: string;
-  target: "_blank" | "_self";
+  target: '_blank' | '_self';
 }

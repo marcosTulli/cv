@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React from "react";
-import { useEditModeStore, useNodeStore, useDialogsStore } from "../store";
-import { INode } from "@/models/interfaces";
+import React from 'react';
+import { useEditModeStore, useNodeStore, useDialogsStore } from '../store';
+import { INode } from '@/models/interfaces';
 
 const useNode = () => {
-  const [title, setTitle] = React.useState<string>("");
+  const [title, setTitle] = React.useState<string>('');
   const hasChildren = false;
   const disableSubmit = title.length === 0;
 
@@ -43,7 +43,7 @@ const useNode = () => {
   const handleCloseCreateDialog = () => {
     closeCreateDialog();
     clearSelectedNode();
-    setTitle("");
+    setTitle('');
   };
 
   const handleCloseRemoveDialog = () => {
@@ -52,7 +52,7 @@ const useNode = () => {
   };
 
   const handleInput = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setTitle(event.target.value);
   };

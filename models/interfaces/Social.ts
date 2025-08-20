@@ -1,4 +1,4 @@
-import { ISocialMedia } from "@/models/interfaces";
+import { ISocialMedia } from '@/models/interfaces';
 
 export interface ISocial {
   linkedin: ISocialMedia;

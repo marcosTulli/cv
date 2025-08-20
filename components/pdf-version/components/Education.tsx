@@ -1,8 +1,8 @@
-import React from "react";
-import { Typography } from "@mui/material";
-import styles from "../SignlePageTemplate.module.scss";
-import { useEducation } from "@/hooks/queries";
-import { languageStore, userStore } from "@/store";
+import React from 'react';
+import { Typography } from '@mui/material';
+import styles from '../SignlePageTemplate.module.scss';
+import { useEducation } from '@/hooks/queries';
+import { languageStore, userStore } from '@/store';
 
 const Education: React.FC = () => {
   const { strings, currentLanguage } = languageStore();

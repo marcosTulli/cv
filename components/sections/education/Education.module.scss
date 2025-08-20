@@ -1,68 +1,65 @@
 @import '../../../styles/global.scss';
 
 .container {
-    padding: 2rem 0 2rem 0;
+  padding: 2rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include respond-to(md) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .gridContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
 
     @include respond-to(md) {
-        padding-left: 2rem;
-        padding-right: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
 
-    .gridContainer {
-        display: flex;
-        justify-content: center;
-        padding-top: 2rem;
+    .educationGrid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: flex-start;
+      padding-bottom: 1rem;
+      column-gap: 8rem;
 
-        @include respond-to(md) {
-            padding-left: 2rem;
-            padding-right: 2rem;
+      @include respond-to(lg) {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+      }
 
-        }
-
-
-        .educationGrid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(2, 1fr);
-            justify-items: flex-start;
-            padding-bottom: 1rem;
-            column-gap: 8rem;
-
-            @include respond-to(lg) {
-                grid-template-columns: repeat(1, 1fr);
-                justify-items: center;
-            }
-
-            @include respond-to(md) {
-                grid-template-columns: repeat(1, 1fr);
-                justify-items: center;
-            }
-        }
-
-        .education {
-            padding: 0;
-            margin: 0;
-        }
-
-        .educationTitle {
-            font-family: $defaultCalibri;
-            margin: 0;
-
-            @include respond-to(md) {
-                text-align: center;
-            }
-        }
-
-        .educationDetails {
-            font-family: $defaultCourier;
-
-            @include respond-to(md) {
-                text-align: center;
-            }
-        }
+      @include respond-to(md) {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+      }
     }
 
+    .education {
+      padding: 0;
+      margin: 0;
+    }
+
+    .educationTitle {
+      font-family: $defaultCalibri;
+      margin: 0;
+
+      @include respond-to(md) {
+        text-align: center;
+      }
+    }
+
+    .educationDetails {
+      font-family: $defaultCourier;
+
+      @include respond-to(md) {
+        text-align: center;
+      }
+    }
+  }
 }

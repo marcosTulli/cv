@@ -1,9 +1,9 @@
-import { useIconKey, useIcons } from "@/hooks/queries";
-import React from "react";
-import { ILanguageProps } from "../components/languages/Language";
+import { useIconKey, useIcons } from '@/hooks/queries';
+import React from 'react';
+import { ILanguageProps } from '../components/languages/Language';
 
 const useLanguage = ({ language }: ILanguageProps) => {
-  const [fileKey, setFileKey] = React.useState("");
+  const [fileKey, setFileKey] = React.useState('');
   const { data: key } = useIconKey({ name: language.flag });
   const { data: icon } = useIcons({ fileKey });
   const iconLoaded = icon !== undefined;

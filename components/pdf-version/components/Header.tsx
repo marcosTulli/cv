@@ -1,13 +1,13 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import styles from "../SignlePageTemplate.module.scss";
-import { languageStore, userStore } from "@/store";
-import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import ProfilePicture from "../../info/components/profile-picture";
-import { ILanguage } from "@/models/interfaces";
+import React from 'react';
+import { Box, Typography } from '@mui/material';
+import styles from '../SignlePageTemplate.module.scss';
+import { languageStore, userStore } from '@/store';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import ProfilePicture from '../../info/components/profile-picture';
+import { ILanguage } from '@/models/interfaces';
 
 const Header: React.FC = () => {
   const { user } = userStore();
@@ -31,14 +31,14 @@ const Header: React.FC = () => {
         <Typography className={styles.contactItem}>
           <GitHubIcon
             className={styles.icon}
-            style={{ marginRight: "0.4rem" }}
+            style={{ marginRight: '0.4rem' }}
           />
           {user.network.linkedin.display}
         </Typography>
         <Typography className={styles.contactItem}>
           <LinkedInIcon
             className={styles.icon}
-            style={{ marginRight: "0.4rem" }}
+            style={{ marginRight: '0.4rem' }}
           />
           {user.network.github.display}
         </Typography>

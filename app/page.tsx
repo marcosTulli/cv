@@ -1,18 +1,18 @@
-"use client";
-import * as React from "react";
+'use client';
+import * as React from 'react';
 import {
   Education,
   WorkExperience,
   Skills,
   Projects,
-} from "@components/sections";
-import Info from "@components/info";
-import { Box } from "@mui/material";
-import { useDownload } from "@/hooks";
-import Header from "@components/header";
-import { PrintableTemplate } from "@/components/pdf-version/PrintableTemplate";
-import { Sections } from "@/models/enums";
-import AdminDialog from "@/components/menu/components/admin-dialog/dialog";
+} from '@components/sections';
+import Info from '@components/info';
+import { Box } from '@mui/material';
+import { useDownload } from '@/hooks';
+import Header from '@components/header';
+import { PrintableTemplate } from '@/components/pdf-version/PrintableTemplate';
+import { Sections } from '@/models/enums';
+import AdminDialog from '@/components/menu/components/admin-dialog/dialog';
 
 const HomeHeader = () => (
   <React.Fragment>
@@ -35,8 +35,8 @@ const Home = () => {
   return (
     <Box
       sx={{
-        bgcolor: "defaultBackground.main",
-        minWidth: "100%",
+        bgcolor: 'defaultBackground.main',
+        minWidth: '100%',
       }}
     >
       {sections.map((section, index) => (
@@ -44,13 +44,13 @@ const Home = () => {
           key={section.id}
           sx={{
             bgcolor:
-              index % 2 === 1 ? "primary.main" : "defaultBackground.main",
+              index % 2 === 1 ? 'primary.main' : 'defaultBackground.main',
           }}
         >
           {section.component}
         </Box>
       ))}
-      <PrintableTemplate ref={downloadRef} />
+      <PrintableTemplate ref={downloadRef as React.RefObject<HTMLDivElement>} />
       <AdminDialog />
     </Box>
   );

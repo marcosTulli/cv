@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { INode, INodeProps } from "@/models/interfaces";
+import { create } from 'zustand';
+import { INode, INodeProps } from '@/models/interfaces';
 
 interface INodeStore {
   isCollapsed: boolean;

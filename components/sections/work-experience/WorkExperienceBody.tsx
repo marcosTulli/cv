@@ -1,11 +1,11 @@
-"use client";
-import * as React from "react";
-import JobCard from "./job-card/JobCard";
-import styles from "./WorkExperience.module.scss";
-import { languageStore } from "@/store";
-import { IExperience } from "@/models/interfaces";
-import { Container, Grid } from "@mui/material";
-import JobCardSkeleton from "./job-card/SkeletonJobCard";
+'use client';
+import * as React from 'react';
+import JobCard from './job-card/JobCard';
+import styles from './WorkExperience.module.scss';
+import { languageStore } from '@/store';
+import { IExperience } from '@/models/interfaces';
+import { Container, Grid } from '@mui/material';
+import JobCardSkeleton from './job-card/SkeletonJobCard';
 
 interface IWorkExperienceBody {
   data?: IExperience[];
