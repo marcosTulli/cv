@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Container } from '@mui/material';
-import styles from './SignlePageTemplate.module.scss';
+import styles from './SinglePageTemplate.module.scss';
 import Header from './components/Header';
 import Education from './components/Education';
 import Skills from './components/Skills';

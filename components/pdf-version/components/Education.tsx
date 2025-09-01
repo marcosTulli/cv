@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import styles from '../SignlePageTemplate.module.scss';
+import styles from '../SinglePageTemplate.module.scss';
 import { useEducation } from '@/hooks/queries';
 import { languageStore, userStore } from '@/store';
 

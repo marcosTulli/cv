@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import styles from '../SignlePageTemplate.module.scss';
+import styles from '../SinglePageTemplate.module.scss';
 import { useSkills } from '@/hooks/queries';
 import { languageStore, userStore } from '@/store';
 

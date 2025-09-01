@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import styles from '../SignlePageTemplate.module.scss';
+import styles from '../SinglePageTemplate.module.scss';
 import { languageStore, userStore } from '@/store';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
