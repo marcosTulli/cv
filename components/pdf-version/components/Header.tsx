@@ -16,12 +16,12 @@ const Header: React.FC = () => {
         </div>
         <address className={styles.contactInfo}>
           <div className={styles.contactItem}>
-            <span className={styles.contactLabel}>WhatsApp:</span>
-            <span>{user.phone}</span>
-          </div>
-          <div className={styles.contactItem}>
             <span className={styles.contactLabel}>Email:</span>
             <span>{user.email}</span>
+          </div>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>WhatsApp:</span>
+            <span>{user.phone}</span>
           </div>
           <div className={styles.contactItem}>
             <span className={styles.contactLabel}>LinkedIn:</span>
