@@ -14,7 +14,7 @@ const es: Partial<Translation> = {
   workExperienceDescription:
     'Explora mi trayectoria profesional y los diversos roles que he desempeñado.',
   educationDescription:
-    'Explora mi trayectoria educativa y los t%C3%ADtulos que he obtenido.',
+    'Explora mi trayectoria educativa y los títulos que he obtenido.',
   email: 'Email',
   phone: 'Telefono',
   Projects: 'Proyectos',
