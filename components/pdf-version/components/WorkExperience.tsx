@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import styles from '../SinglePageTemplate.module.scss';
 import { languageStore, userStore } from '@/store';
 import { useWorkExperience } from '@/hooks/queries';
@@ -23,33 +23,38 @@ const WorkExperience: React.FC = () => {
       ];
 
   return (
-    <Box className={styles.workExperience}>
-      <Box className={styles.sectionTitle}>{strings.workExperience}</Box>
-      {experiences?.map((experience) => (
-        <div className={styles.experienceContainer} key={experience._id}>
-          <div className={styles.companyInfo}>
-            <Typography variant="h6" className={styles.companyName}>
-              {experience.companyName}
-            </Typography>
-            <Typography variant="body1" className={styles.positionAndPeriod}>
-              {experience.info.position} | {experience.activePeriod.startDate} -{' '}
-              {experience.activePeriod.endDate.length > 0
-                ? experience.activePeriod.endDate
-                : 'present'}
-            </Typography>
-          </div>
-          <ul>
-            {experience.info.tasks?.map((task) => (
-              <li key={task._id} className={styles.task}>
-                <Typography variant="body1" className={styles.task}>
-                  {task.task}
+    <section className={styles.section} aria-label="Work Experience">
+      <Typography component="h2" className={styles.sectionTitle}>{strings.workExperience}</Typography>
+      <div className={styles.experienceList}>
+        {experiences?.map((experience) => (
+          <article className={styles.experienceItem} key={experience._id}>
+            <header className={styles.experienceHeader}>
+              <div>
+                <Typography component="h3" className={styles.jobTitle}>
+                  {experience.info.position}
                 </Typography>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </Box>
+                <Typography className={styles.companyName}>
+                  {experience.companyName}
+                </Typography>
+              </div>
+              <span className={styles.datePeriod}>
+                {experience.activePeriod.startDate} -{' '}
+                {experience.activePeriod.endDate.length > 0
+                  ? experience.activePeriod.endDate
+                  : 'Present'}
+              </span>
+            </header>
+            <ul className={styles.taskList}>
+              {experience.info.tasks?.slice(0, 4).map((task) => (
+                <li key={task._id} className={styles.task}>
+                  {task.task}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 };
 

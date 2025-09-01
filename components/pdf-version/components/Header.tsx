@@ -1,63 +1,39 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import styles from '../SinglePageTemplate.module.scss';
-import { languageStore, userStore } from '@/store';
-import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import ProfilePicture from '../../info/components/profile-picture';
-import { ILanguage } from '@/models/interfaces';
+import { userStore } from '@/store';
 
 const Header: React.FC = () => {
   const { user } = userStore();
-  const { strings } = languageStore();
   return (
-    <div className={styles.header}>
-      <ProfilePicture isLoading={false} />
-      <Typography className={styles.sectionTitle}>{user.name}</Typography>
-      <Typography className={styles.candidateDescription}>
-        {user.info.candidateTitle}
-      </Typography>
-      <div className={styles.contactInfo}>
-        <Typography className={styles.contactItem}>
-          <LocalPhoneOutlinedIcon className={styles.icon} />
-          {user.email}
-        </Typography>
-        <Typography className={styles.contactItem}>
-          <EmailOutlinedIcon className={styles.icon} />
-          {user.phone}
-        </Typography>
-        <Typography className={styles.contactItem}>
-          <GitHubIcon
-            className={styles.icon}
-            style={{ marginRight: '0.4rem' }}
-          />
-          {user.network.linkedin.display}
-        </Typography>
-        <Typography className={styles.contactItem}>
-          <LinkedInIcon
-            className={styles.icon}
-            style={{ marginRight: '0.4rem' }}
-          />
-          {user.network.github.display}
-        </Typography>
+    <header className={styles.headerSection} role="banner">
+      <div className={styles.headerContent}>
+        <div className={styles.headerLeft}>
+          <Typography component="h1" className={styles.name}>{user.name}</Typography>
+          <Typography component="h2" className={styles.title}>
+            {user.info.candidateTitle}
+          </Typography>
+        </div>
+        <address className={styles.contactInfo}>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>WhatsApp:</span>
+            <span>{user.phone}</span>
+          </div>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>Email:</span>
+            <span>{user.email}</span>
+          </div>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>LinkedIn:</span>
+            <span>{user.network.linkedin.url}</span>
+          </div>
+          <div className={styles.contactItem}>
+            <span className={styles.contactLabel}>GitHub:</span>
+            <span>{user.network.github.url}</span>
+          </div>
+        </address>
       </div>
-      <Box>
-        <Typography className={styles.languageTitle}>
-          {strings.languages}:
-        </Typography>
-        <ul className={styles.languagesContainer}>
-          {user.info.languages?.map((language: ILanguage) => (
-            <li key={language.language} className={styles.languageContainer}>
-              <Typography variant="body2" className={styles.language}>
-                {` ${language.language}: ${language.level}`}
-              </Typography>
-            </li>
-          ))}
-        </ul>
-      </Box>
-    </div>
+    </header>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import styles from '../SinglePageTemplate.module.scss';
 import { useSkills } from '@/hooks/queries';
 import { languageStore, userStore } from '@/store';
@@ -9,16 +9,16 @@ const Skills: React.FC = () => {
   const { data } = useSkills({ id: user._id });
   const { strings } = languageStore();
   return (
-    <Box className={styles.skillsContainer}>
-      <Typography className={styles.sectionTitle}>{strings.skills}</Typography>
-      <Box component="ul" className={styles.skills}>
+    <section className={styles.section} aria-label="Skills">
+      <Typography component="h2" className={styles.sectionTitle}>{strings.skills}</Typography>
+      <div className={styles.skillsGrid}>
         {data?.map((skill) => (
-          <Box component="li" key={skill._id} className={styles.skill}>
+          <span key={skill._id} className={styles.skillBadge}>
             {skill.formattedName}
-          </Box>
+          </span>
         ))}
-      </Box>
-    </Box>
+      </div>
+    </section>
   );
 };
 
