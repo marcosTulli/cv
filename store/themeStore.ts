@@ -1,25 +1,27 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { Themes } from '../models/enums';
+
 interface ThemeState {
   selectedTheme: Themes;
   toggleTheme: () => void;
 }
 
-interface ITheme {
-  selectedTheme: Themes;
-}
-const initialState: ITheme = {
-  selectedTheme: Themes.dark,
-};
-
-const themeStore = create<ThemeState>((set) => ({
-  ...initialState,
-  toggleTheme: () =>
-    set((state) => {
-      const newTheme =
-        state.selectedTheme === Themes.light ? Themes.dark : Themes.light;
-      return { selectedTheme: newTheme };
+const themeStore = create<ThemeState>()(
+  persist(
+    (set) => ({
+      selectedTheme: Themes.dark,
+      toggleTheme: () =>
+        set((state) => {
+          const newTheme =
+            state.selectedTheme === Themes.light ? Themes.dark : Themes.light;
+          return { selectedTheme: newTheme };
+        }),
     }),
-}));
+    {
+      name: 'theme-storage',
+    }
+  )
+);
 
 export default themeStore;
