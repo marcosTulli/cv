@@ -23,7 +23,7 @@ const useDownload = () => {
 
   const handleDownload = useReactToPrint({
     content: printContent,
-    documentTitle: 'Marcos Tulli CV',
+    documentTitle: 'Marcos_Tulli_CV_2025',
   });
   return {
     downloadRef,

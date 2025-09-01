@@ -23,10 +23,10 @@ const HomeHeader = () => (
 
 const sections = [
   { id: Sections.Header, component: <HomeHeader /> },
-  { id: Sections.Projects, component: <Projects /> },
-  { id: Sections.WorkExperience, component: <WorkExperience /> },
-  { id: Sections.Education, component: <Education /> },
   { id: Sections.Skills, component: <Skills /> },
+  { id: Sections.WorkExperience, component: <WorkExperience /> },
+  { id: Sections.Projects, component: <Projects /> },
+  { id: Sections.Education, component: <Education /> },
 ];
 
 const Home = () => {

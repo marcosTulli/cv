@@ -1,25 +1,39 @@
 import React from 'react';
-import { Grid, Container } from '@mui/material';
-import styles from './SignlePageTemplate.module.scss';
+import styles from './SinglePageTemplate.module.scss';
 import Header from './components/Header';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import WorkExperience from './components/WorkExperience';
+import { languageStore, userStore } from '@/store';
+import { ILanguage } from '@/models/interfaces';
 
 const SinglePageTemplate: React.FC = () => {
+  const { user } = userStore();
+  const { strings } = languageStore();
+
   return (
-    <Container maxWidth="xl" className={styles.container}>
-      <Grid container spacing={2}>
-        <Grid item xs={4} className={styles.leftContainer}>
-          <Header />
-          <Education />
+    <div className={styles.container}>
+      <div className={styles.resumeWrapper}>
+        <Header />
+        
+        <div className={styles.contentSection}>
           <Skills />
-        </Grid>
-        <Grid item xs={8} className={styles.rightContainer}>
           <WorkExperience />
-        </Grid>
-      </Grid>
-    </Container>
+          <Education />
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>{strings.languages}</h2>
+            <div className={styles.languagesGrid}>
+              {user.info.languages?.map((language: ILanguage) => (
+                <div key={language.language} className={styles.languageItem}>
+                  <span className={styles.languageName}>{language.language}:</span>
+                  <span className={styles.languageLevel}>{language.level}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
   );
 };
 
