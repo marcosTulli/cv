@@ -8,10 +8,10 @@ const EducationSkeleton: React.FC = () => {
     <div className={styles.education}>
       <div className={styles.educationContent}>
         <h3 className={styles.educationTitle}>
-          <Skeleton width={200} height={15} />
+          <Skeleton width="70%" height={15} />
         </h3>
         <p className={styles.educationDetails}>
-          <Skeleton width={100} height={15} />
+          <Skeleton width="40%" height={15} />
         </p>
       </div>
     </div>

@@ -12,8 +12,8 @@ interface IProfilePictureProps {
 const ProfilePicture: React.FC<IProfilePictureProps> = ({ isLoading }) => {
   const size = 160;
   return isLoading ? (
-    <Box className={styles.profilePicture}>
-      <Skeleton circle height={158.13} width={158.13} />
+    <Box className={styles.profilePicture} sx={{ width: size, height: size }}>
+      <Skeleton circle height={size} width={size} />
     </Box>
   ) : (
     <img

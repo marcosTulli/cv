@@ -20,8 +20,8 @@ const Languages: React.FC<ILanguagesProps> = ({ isLoading }) => {
       {isLoading
         ? Array.from({ length: 4 }).map((_, index) => (
             <Box key={index} className={styles.language}>
-              <Skeleton height={22} width={26} />
-              <Skeleton height={14} width={57.61} />
+              <Skeleton height={30} width={30} circle />
+              <Skeleton height={12} width={45} />
             </Box>
           ))
         : user.info.languages?.map((language: ILanguage) => (

@@ -23,8 +23,8 @@ const SkillsBody: React.FC<ISkillsBody> = ({ skillsData, isLoading }) => {
         {isLoading
           ? Array.from({ length: 30 }).map((_, index) => (
               <div key={index} className={styles.skill}>
-                <Skeleton height={20} width={30} />
-                <Skeleton height={10} width={100} />
+                <Skeleton height={30} width={30} />
+                <Skeleton height={16} width={80} />
               </div>
             ))
           : skillsData?.map((skill: ISkills) => (

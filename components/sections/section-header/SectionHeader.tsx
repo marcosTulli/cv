@@ -26,21 +26,32 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({
         >
           {isLoading ? (
             <Skeleton
-              height={pageHeader ? 64 : 30}
-              width={pageHeader ? 350 : 300}
+              height={pageHeader ? 64 : 32}
+              width={pageHeader ? "45%" : "40%"}
+              style={{ fontSize: pageHeader ? '4rem' : '2rem' }}
             />
           ) : (
             title
           )}
         </div>
 
-        <p
-          className={`${
-            pageHeader ? styles.headerDescription : styles.sectionDescription
-          }`}
-        >
-          {isLoading ? <Skeleton height={25} width={250} /> : description}
-        </p>
+        {(description || isLoading) && (
+          <p
+            className={`${
+              pageHeader ? styles.headerDescription : styles.sectionDescription
+            }`}
+          >
+            {isLoading ? (
+              <Skeleton 
+                height={pageHeader ? 32 : 18} 
+                width={pageHeader ? "35%" : "60%"}
+                style={{ fontSize: pageHeader ? '2rem' : '1.125rem' }}
+              />
+            ) : (
+              description
+            )}
+          </p>
+        )}
       </Box>
     </Container>
   );
