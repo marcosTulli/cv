@@ -4,6 +4,7 @@ import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import { useDownload, useIsLoadingSections } from '@/hooks';
 import { languageStore } from '@/store';
 import useSideBar from '../../hooks/useSidebar';
+import { NavigationItem } from './NavigationItem';
 
 const Download: React.FC = () => {
   const { isLoadingSections } = useIsLoadingSections();
@@ -22,11 +23,14 @@ const Download: React.FC = () => {
         {' '}
         {/* This is to prevent browser error*/}
         <Button
-          sx={{ color: 'secondary.main' }}
+          sx={{ color: 'secondary.main', textTransform:'none' }}
           disabled={isLoadingSections}
           onClick={handleClick}
         >
+          <NavigationItem label={strings.downloadPdf as string}>
+
           <PictureAsPdfIcon />
+          </NavigationItem>
         </Button>
       </span>
     </Tooltip>

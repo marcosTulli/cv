@@ -49,6 +49,7 @@ const es: Partial<Translation> = {
   closeDialogLabel: 'Cerrar',
   admin: 'Administrador',
   guest: 'Invitado',
+  downloadPdf: 'Descargar en PDF',
 };
 
 export default es;
