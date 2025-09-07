@@ -19,12 +19,24 @@ const NavBar: React.FC = () => {
       component="nav"
       sx={{
         alignItems: { xs: 'end', sm: `${isHome ? 'center' : 'left'}` },
+        position: 'fixed',
+        top: { xs: 'auto', sm: 0 },
+        bottom: { xs: 0, sm: 'auto' },
+        left: 0,
+        right: 0,
+        '@media (min-width: 577px)': {
+          top: 0,
+          bottom: 'auto',
+        },
+        '@media (max-width: 576px)': {
+          top: 'auto',
+          bottom: 0,
+        },
       }}
     >
       <Toolbar
         sx={{
           width: '100%',
-          position: { xs: 'static', sm: 'relative' },
         }}
       >
         <OpenSideBarButton />
