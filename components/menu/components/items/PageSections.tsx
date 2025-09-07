@@ -1,9 +1,10 @@
 import React from 'react';
 import { usePageSections } from '../../hooks';
-import { Box, Button, Tooltip, Typography } from '@mui/material';
+import { Box, Button, Tooltip, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { PageSection } from '.';
 import useSideBar from '../../hooks/useSidebar';
 import { NavigationItem } from './NavigationItem';
+import { Sections } from '@/models/enums';
 
 const PageSections: React.FC = () => {
   const { isSideBarOpen, toggleSideBar } = useSideBar();

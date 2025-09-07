@@ -39,7 +39,17 @@ const NavBar: React.FC = () => {
           width: '100%',
         }}
       >
-        <OpenSideBarButton />
+            <Box
+              sx={{
+                display: { xs: 'flex', sm:'none', gap:'1rem' },
+                flexWrap: 'nowrap',
+                alignItems: 'center',
+                mx: 'auto',
+              }}
+            >
+              <PageSections />
+              <OpenSideBarButton />
+            </Box>
 
         {isHome ? (
           <>
