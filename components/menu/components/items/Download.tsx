@@ -1,20 +1,17 @@
 import { Button, Tooltip } from '@mui/material';
 import React from 'react';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import { useDownload, useIsLoadingSections } from '@/hooks';
 import { languageStore } from '@/store';
-import useSideBar from '../../hooks/useSidebar';
 import { NavigationItem } from './NavigationItem';
+import DownloadIcon from '@mui/icons-material/Download';
 
 const Download: React.FC = () => {
   const { isLoadingSections } = useIsLoadingSections();
   const { strings } = languageStore();
-  const { isSideBarOpen, toggleSideBar } = useSideBar();
   const { handleDownload } = useDownload();
 
   const handleClick = () => {
     handleDownload();
-    isSideBarOpen && toggleSideBar();
   };
 
   return (
@@ -29,7 +26,7 @@ const Download: React.FC = () => {
         >
           <NavigationItem label={strings.downloadPdf as string}>
 
-          <PictureAsPdfIcon />
+          <DownloadIcon />
           </NavigationItem>
         </Button>
       </span>

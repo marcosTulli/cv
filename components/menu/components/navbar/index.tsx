@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import { PageSections, Actions } from '../items';
-import OpenSideBarButton from '../items/OpenSideBarButton';
+import SpeedDialTrigger from '../items/SpeedDialTrigger';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -48,7 +48,7 @@ const NavBar: React.FC = () => {
               }}
             >
               <PageSections />
-              <OpenSideBarButton />
+              <SpeedDialTrigger />
             </Box>
 
         {isHome ? (

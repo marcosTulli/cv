@@ -4,8 +4,8 @@ import { Box, Button, Tooltip } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Themes } from '@/models/enums';
-import useSideBar from '../../hooks/useSidebar';
 import { NavigationItem } from './NavigationItem';
+import useActionsMenu from '../../hooks/useActionsMenu';
 
 const ThemeIcon: React.FC = () => {
   const { selectedTheme } = themeStore();
@@ -15,11 +15,9 @@ const ThemeIcon: React.FC = () => {
 const ThemePicker: React.FC = () => {
   const { toggleTheme } = themeStore();
   const { strings } = languageStore();
-  const { isSideBarOpen, toggleSideBar } = useSideBar();
 
   const handleClick = () => {
     toggleTheme();
-    isSideBarOpen && toggleSideBar();
   };
 
   return (
