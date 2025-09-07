@@ -5,11 +5,11 @@
   flex-direction: column;
   min-height: 100vh;
   height: 100%;
-  
+
   // Ensure footer is at the bottom and navbar positioning
   footer {
     flex-shrink: 0;
-    
+
     @include respond-to(sm) {
       margin-bottom: 56px; // Space for fixed bottom navbar on mobile
     }
@@ -21,12 +21,12 @@
   padding-top: 64px; // Account for fixed navbar on desktop
   display: flex;
   flex-direction: column;
-  
+
   @media (max-width: 576px) {
     padding-top: 0; // No top padding on mobile since navbar is at bottom
     padding-bottom: 0; // Remove bottom padding, handled by footer margin
   }
-  
+
   // Ensure main content fills available space
   & > div {
     flex: 1;

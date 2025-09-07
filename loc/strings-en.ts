@@ -50,7 +50,7 @@ const en: Partial<Translation> = {
   closeDialogLabel: 'Close',
   admin: 'Admin',
   guest: 'Guest',
-  downloadPdf:'Download as PDF'
+  downloadPdf: 'Download as PDF',
 };
 
 export default en;

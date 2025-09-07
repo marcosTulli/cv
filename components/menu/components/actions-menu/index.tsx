@@ -10,20 +10,19 @@ import { Language, Themes } from '@/models/enums';
 import useActionsMenu from '../../hooks/useActionsMenu';
 import { useDownload, useTheme } from '@/hooks';
 
-
-export function ActionsMenu () {
+export function ActionsMenu() {
   const { isActionsMenuOpen, toggleActionsMenu } = useActionsMenu();
   const { toggleTheme, selectedTheme } = themeStore();
   const { currentLanguage, setLang, strings } = languageStore();
-  const {handleDownload: download} = useDownload();
+  const { handleDownload: download } = useDownload();
   const { theme } = useTheme();
-  
+
   const handleClose = () => {
     if (isActionsMenuOpen) toggleActionsMenu();
   };
 
   const handleDownloadPDF = () => {
-    download()
+    download();
     handleClose();
   };
 
@@ -40,20 +39,20 @@ export function ActionsMenu () {
   const isDark = selectedTheme === Themes.dark;
 
   const actions = [
-    { 
-      icon: <LanguageIcon />, 
+    {
+      icon: <LanguageIcon />,
       name: currentLanguage === Language.EN ? 'Español' : 'English',
-      onClick: handleToggleLanguage 
+      onClick: handleToggleLanguage,
     },
-    { 
-      icon: isDark ? <LightModeIcon /> : <DarkModeIcon />, 
+    {
+      icon: isDark ? <LightModeIcon /> : <DarkModeIcon />,
       name: strings.toggleThemeAction || 'Toggle Theme',
-      onClick: handleToggleTheme 
+      onClick: handleToggleTheme,
     },
-    { 
-      icon: <DownloadIcon />, 
+    {
+      icon: <DownloadIcon />,
       name: strings.downloadAction || 'Download PDF',
-      onClick: handleDownloadPDF 
+      onClick: handleDownloadPDF,
     },
   ];
 
@@ -123,10 +122,7 @@ export function ActionsMenu () {
             >
               {action.name}
             </Box>
-            <Fab
-              size="small"
-              onClick={action.onClick}
-            >
+            <Fab size="small" onClick={action.onClick}>
               {action.icon}
             </Fab>
           </Box>

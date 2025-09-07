@@ -5,7 +5,6 @@ import { Button } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import { useAuth0 } from '@auth0/auth0-react';
 import Image from 'next/image';
-import useActionsMenu from '@/components/menu/hooks/useActionsMenu';
 
 const OpenAdminDialogButton: React.FC = () => {
   const { toggle } = useAdminDialogStore();

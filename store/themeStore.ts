@@ -20,8 +20,8 @@ const themeStore = create<ThemeState>()(
     }),
     {
       name: 'theme-storage',
-    }
-  )
+    },
+  ),
 );
 
 export default themeStore;
