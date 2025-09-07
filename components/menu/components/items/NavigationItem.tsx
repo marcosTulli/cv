@@ -5,7 +5,10 @@ interface NavigationItemProps {
   children: React.ReactNode;
   label: string;
 }
-export const NavigationItem: React.FC<NavigationItemProps> = ({ children, label }) => {
+export const NavigationItem: React.FC<NavigationItemProps> = ({
+  children,
+  label,
+}) => {
   return (
     <Box>
       <Typography

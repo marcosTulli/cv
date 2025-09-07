@@ -24,7 +24,11 @@ const JobCard: React.FC<JobCardProps> = ({ experience }) => {
         </Typography>
       </Box>
 
-      <Typography variant="body2" className={styles.jobDetails} sx={{ mt: 0.5 }}>
+      <Typography
+        variant="body2"
+        className={styles.jobDetails}
+        sx={{ mt: 0.5 }}
+      >
         {experience.info.position} | {experience.activePeriod.startDate} -{' '}
         {experience.activePeriod.endDate.length > 0
           ? experience.activePeriod.endDate
@@ -34,16 +38,14 @@ const JobCard: React.FC<JobCardProps> = ({ experience }) => {
       <List
         component="ul"
         sx={{
-          listStyleType: 'disc', 
+          listStyleType: 'disc',
           '& .MuiListItem-root': {
             display: 'list-item',
           },
         }}
       >
         {experience.info.tasks?.map((task) => (
-          <ListItem key={task._id}>
-            {task.task}
-          </ListItem>
+          <ListItem key={task._id}>{task.task}</ListItem>
         ))}
       </List>
     </Box>

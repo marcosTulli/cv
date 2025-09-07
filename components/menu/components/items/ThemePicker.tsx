@@ -5,7 +5,6 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Themes } from '@/models/enums';
 import { NavigationItem } from './NavigationItem';
-import useActionsMenu from '../../hooks/useActionsMenu';
 
 const ThemeIcon: React.FC = () => {
   const { selectedTheme } = themeStore();
@@ -23,9 +22,13 @@ const ThemePicker: React.FC = () => {
   return (
     <Tooltip title={strings.toggleThemeAction}>
       <Box sx={{ alignItems: 'center', display: 'flex' }}>
-        <Button onClick={handleClick} color={'secondary'} sx={{textTransform:'none'}} >
+        <Button
+          onClick={handleClick}
+          color={'secondary'}
+          sx={{ textTransform: 'none' }}
+        >
           <NavigationItem label={strings.toggleThemeAction as string}>
-          <ThemeIcon />
+            <ThemeIcon />
           </NavigationItem>
         </Button>
       </Box>

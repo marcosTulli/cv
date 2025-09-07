@@ -39,23 +39,23 @@ const NavBar: React.FC = () => {
           width: '100%',
         }}
       >
-            <Box
-              sx={{
-                display: { xs: 'flex', sm:'none', gap:'1rem' },
-                flexWrap: 'nowrap',
-                alignItems: 'center',
-                mx: 'auto',
-              }}
-            >
-              <PageSections />
-              <SpeedDialTrigger />
-            </Box>
+        <Box
+          sx={{
+            display: { xs: 'flex', sm: 'none', gap: '1rem' },
+            flexWrap: 'nowrap',
+            alignItems: 'center',
+            mx: 'auto',
+          }}
+        >
+          <PageSections />
+          <SpeedDialTrigger />
+        </Box>
 
         {isHome ? (
           <>
             <Box
               sx={{
-                display: { xs: 'none', sm: 'flex', gap:'1rem' },
+                display: { xs: 'none', sm: 'flex', gap: '1rem' },
                 flexWrap: 'nowrap',
                 alignItems: 'center',
                 mx: 'auto',

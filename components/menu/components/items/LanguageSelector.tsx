@@ -7,7 +7,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { Box, Tooltip } from '@mui/material';
 import PublicIcon from '@mui/icons-material/Public';
 import { NavigationItem } from './NavigationItem';
-import useActionsMenu from '../../hooks/useActionsMenu';
 
 const LanguageSelector: React.FC = () => {
   const { setLang, strings } = languageStore();
@@ -22,7 +21,8 @@ const LanguageSelector: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) =>
+    setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
   const handleLanguageChange = (language: Language) => {
@@ -32,7 +32,6 @@ const LanguageSelector: React.FC = () => {
 
   return (
     <Box sx={{ position: 'relative' }}>
-
       <Tooltip title={strings.changeLanguageAction}>
         <Button
           id="language-selector-button"
@@ -40,10 +39,10 @@ const LanguageSelector: React.FC = () => {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ color: menuText, textTransform:'none' }}
+          sx={{ color: menuText, textTransform: 'none' }}
         >
           <NavigationItem label={strings.languages as string}>
-          <PublicIcon />
+            <PublicIcon />
           </NavigationItem>
         </Button>
       </Tooltip>

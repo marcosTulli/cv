@@ -13,7 +13,11 @@ const TOOLTIP_MAP: Partial<Record<Sections, keyof Translation>> = {
   [Sections.Projects]: 'scrollToProjectsTooltip',
 };
 
-const MOBILE_SECTIONS = [Sections.Header, Sections.WorkExperience, Sections.Skills];
+const MOBILE_SECTIONS = [
+  Sections.Header,
+  Sections.WorkExperience,
+  Sections.Skills,
+];
 const EXCLUDED_SECTIONS = [Sections.Projects, Sections.PrintableTemplate];
 
 const usePageSections = () => {
@@ -27,14 +31,15 @@ const usePageSections = () => {
       const tooltipKey = TOOLTIP_MAP[section];
       return tooltipKey ? strings[tooltipKey] : undefined;
     },
-    [strings]
+    [strings],
   );
 
   const pageSections = useMemo(() => {
     const allSections = Object.values(Sections)
       .filter((section) => !EXCLUDED_SECTIONS.includes(section))
       .map((section) => {
-        const camelCasedLabel = section.charAt(0).toLowerCase() + section.slice(1);
+        const camelCasedLabel =
+          section.charAt(0).toLowerCase() + section.slice(1);
         return {
           name: section,
           onClick: () => scroll(section),
@@ -43,8 +48,8 @@ const usePageSections = () => {
         };
       });
 
-    return isMobile 
-      ? allSections.filter(s => MOBILE_SECTIONS.includes(s.name))
+    return isMobile
+      ? allSections.filter((s) => MOBILE_SECTIONS.includes(s.name))
       : allSections;
   }, [strings, scroll, getTooltip, isMobile]);
 

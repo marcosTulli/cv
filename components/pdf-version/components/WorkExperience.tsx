@@ -24,7 +24,9 @@ const WorkExperience: React.FC = () => {
 
   return (
     <section className={styles.section} aria-label="Work Experience">
-      <Typography component="h2" className={styles.sectionTitle}>{strings.workExperience}</Typography>
+      <Typography component="h2" className={styles.sectionTitle}>
+        {strings.workExperience}
+      </Typography>
       <div className={styles.experienceList}>
         {experiences?.map((experience) => (
           <article className={styles.experienceItem} key={experience._id}>

@@ -9,7 +9,9 @@ const Header: React.FC = () => {
     <header className={styles.headerSection} role="banner">
       <div className={styles.headerContent}>
         <div className={styles.headerLeft}>
-          <Typography component="h1" className={styles.name}>{user.name}</Typography>
+          <Typography component="h1" className={styles.name}>
+            {user.name}
+          </Typography>
           <Typography component="h2" className={styles.title}>
             {user.info.candidateTitle}
           </Typography>

@@ -20,13 +20,12 @@ const Download: React.FC = () => {
         {' '}
         {/* This is to prevent browser error*/}
         <Button
-          sx={{ color: 'secondary.main', textTransform:'none' }}
+          sx={{ color: 'secondary.main', textTransform: 'none' }}
           disabled={isLoadingSections}
           onClick={handleClick}
         >
           <NavigationItem label={strings.downloadPdf as string}>
-
-          <DownloadIcon />
+            <DownloadIcon />
           </NavigationItem>
         </Button>
       </span>

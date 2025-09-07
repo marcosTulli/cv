@@ -10,7 +10,9 @@ const Skills: React.FC = () => {
   const { strings } = languageStore();
   return (
     <section className={styles.section} aria-label="Skills">
-      <Typography component="h2" className={styles.sectionTitle}>{strings.skills}</Typography>
+      <Typography component="h2" className={styles.sectionTitle}>
+        {strings.skills}
+      </Typography>
       <div className={styles.skillsGrid}>
         {data?.map((skill) => (
           <span key={skill._id} className={styles.skillBadge}>

@@ -11,7 +11,7 @@ interface ILanguage {
   setLang: (newLang: Language) => void;
 }
 
-const getStrings = (lang: Language) => lang === Language.EN ? en : es;
+const getStrings = (lang: Language) => (lang === Language.EN ? en : es);
 
 const languageStore = create<ILanguage>()(
   persist(
@@ -31,8 +31,8 @@ const languageStore = create<ILanguage>()(
           state.strings = getStrings(state.currentLanguage);
         }
       },
-    }
-  )
+    },
+  ),
 );
 
 export default languageStore;

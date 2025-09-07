@@ -5,10 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Box } from '@mui/material';
 
-import { useMediaQuery } from '@mui/material';
-
 const JobCardSkeleton: React.FC = () => {
-  const isMobile = useMediaQuery('(max-width: 500px)');
   return (
     <Box className={styles.job} sx={{ color: 'secondary.main' }}>
       <Box component={'h3'} className={styles.jobTitle}>
