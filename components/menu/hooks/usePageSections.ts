@@ -1,35 +1,52 @@
+import { useMemo, useCallback } from 'react';
 import useScroll from '@/components/menu/hooks/useScroll';
 import { Sections } from '@/models/enums';
 import { languageStore } from '@/store';
 import { Translation } from '@/models/interfaces';
+import { useMediaQuery, useTheme } from '@mui/material';
+
+const TOOLTIP_MAP: Partial<Record<Sections, keyof Translation>> = {
+  [Sections.Header]: 'scrollToHomeTooltip',
+  [Sections.WorkExperience]: 'scrollToWorkTooltip',
+  [Sections.Education]: 'scrollToEducationTooltip',
+  [Sections.Skills]: 'scrollToSkillsTooltip',
+  [Sections.Projects]: 'scrollToProjectsTooltip',
+};
+
+const MOBILE_SECTIONS = [Sections.Header, Sections.WorkExperience, Sections.Skills];
+const EXCLUDED_SECTIONS = [Sections.Projects, Sections.PrintableTemplate];
 
 const usePageSections = () => {
   const { strings } = languageStore();
   const { scroll } = useScroll();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleTooltips = (section: Sections) => {
-    if (section === Sections.Header) return strings.scrollToHomeTooltip;
-    if (section === Sections.WorkExperience) return strings.scrollToWorkTooltip;
-    if (section === Sections.Education) return strings.scrollToEducationTooltip;
-    if (section === Sections.Skills) return strings.scrollToSkillsTooltip;
-  };
+  const getTooltip = useCallback(
+    (section: Sections) => {
+      const tooltipKey = TOOLTIP_MAP[section];
+      return tooltipKey ? strings[tooltipKey] : undefined;
+    },
+    [strings]
+  );
 
-  const pageSections = Object.keys(Sections)
-    .filter((section) => {
-      return (
-        section !== Sections.Projects && section !== Sections.PrintableTemplate
-      );
-    })
-    .map((section) => {
-      const camelCasedLabel =
-        section.charAt(0).toLowerCase() + section.slice(1);
-      return {
-        name: section as Sections,
-        onClick: () => scroll(Sections[section as Sections]),
-        title: handleTooltips(section as Sections),
-        label: strings[camelCasedLabel as keyof Translation],
-      };
-    });
+  const pageSections = useMemo(() => {
+    const allSections = Object.values(Sections)
+      .filter((section) => !EXCLUDED_SECTIONS.includes(section))
+      .map((section) => {
+        const camelCasedLabel = section.charAt(0).toLowerCase() + section.slice(1);
+        return {
+          name: section,
+          onClick: () => scroll(section),
+          title: getTooltip(section),
+          label: strings[camelCasedLabel as keyof Translation],
+        };
+      });
+
+    return isMobile 
+      ? allSections.filter(s => MOBILE_SECTIONS.includes(s.name))
+      : allSections;
+  }, [strings, scroll, getTooltip, isMobile]);
 
   return { pageSections };
 };

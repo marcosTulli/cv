@@ -61,4 +61,5 @@ export interface Translation {
   closeDialogLabel: string;
   admin: string;
   guest: string;
+  downloadPdf: string
 }

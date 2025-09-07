@@ -12,16 +12,16 @@ const JobCardSkeleton: React.FC = () => {
   return (
     <Box className={styles.job} sx={{ color: 'secondary.main' }}>
       <Box component={'h3'} className={styles.jobTitle}>
-        <Skeleton height={24} width={200} />
+        <Skeleton height={24} width="80%" />
       </Box>
       <p className={styles.jobDetails}>
-        <Skeleton height={18} width={150} />
+        <Skeleton height={18} width="60%" />
       </p>
       <ul className={styles.jobDescription}>
         {Array.from({ length: 14 }).map((_, i) => {
           return (
             <Box sx={{ padding: 0 }} key={i}>
-              <Skeleton height={8} width={isMobile ? 300 : 400} />
+              <Skeleton height={8} width="100%" />
             </Box>
           );
         })}

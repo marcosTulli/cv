@@ -5,13 +5,13 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, Tooltip } from '@mui/material';
-import PublicIcon from '@mui/icons-material/Public'; // 🌐 globe icon
-import useSideBar from '../../hooks/useSidebar';
+import PublicIcon from '@mui/icons-material/Public';
+import { NavigationItem } from './NavigationItem';
+import useActionsMenu from '../../hooks/useActionsMenu';
 
 const LanguageSelector: React.FC = () => {
   const { setLang, strings } = languageStore();
   const { user } = userStore();
-  const { isSideBarOpen, toggleSideBar } = useSideBar();
   const { selectedTheme } = themeStore();
 
   const isDark = selectedTheme === 'dark';
@@ -28,11 +28,11 @@ const LanguageSelector: React.FC = () => {
   const handleLanguageChange = (language: Language) => {
     setLang(language);
     handleClose();
-    isSideBarOpen && toggleSideBar();
   };
 
   return (
     <Box sx={{ position: 'relative' }}>
+
       <Tooltip title={strings.changeLanguageAction}>
         <Button
           id="language-selector-button"
@@ -40,9 +40,11 @@ const LanguageSelector: React.FC = () => {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ color: menuText }}
+          sx={{ color: menuText, textTransform:'none' }}
         >
+          <NavigationItem label={strings.languages as string}>
           <PublicIcon />
+          </NavigationItem>
         </Button>
       </Tooltip>
 

@@ -1,25 +1,25 @@
 import React from 'react';
 import { usePageSections } from '../../hooks';
-import { Button, Tooltip } from '@mui/material';
+import {  Button, Tooltip } from '@mui/material';
 import { PageSection } from '.';
-import useSideBar from '../../hooks/useSidebar';
+import { NavigationItem } from './NavigationItem';
 
 const PageSections: React.FC = () => {
-  const { isSideBarOpen, toggleSideBar } = useSideBar();
   const { pageSections } = usePageSections();
 
   return (
     <>
       {pageSections.map((section) => {
         const handleClick = () => {
-          isSideBarOpen && toggleSideBar();
           section.onClick();
         };
 
         return (
           <Tooltip key={section.title} title={section.title}>
-            <Button sx={{ color: 'secondary.main' }} onClick={handleClick}>
-              <PageSection section={section.name} />
+            <Button type='button' sx={{ color: 'secondary.main', textTransform:'none' }} onClick={handleClick}>
+              <NavigationItem label={section.label as string}>
+                  <PageSection section={section.name} />
+              </NavigationItem>
             </Button>
           </Tooltip>
         );

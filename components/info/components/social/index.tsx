@@ -16,13 +16,13 @@ const Social: React.FC<ISocialProps> = ({ isLoading }) => {
 
   return isLoading ? (
     <Box className={styles.socialContainer}>
-      <Box className={styles.socialItem} height={56}>
-        <Skeleton className={styles.icon} height={24} width={24} />
-        <Skeleton height={14} width={150} />
+      <Box className={styles.socialItem}>
+        <Skeleton className={styles.icon} height={24} width={24} circle />
+        <Skeleton height={16} width={100} />
       </Box>
-      <Box className={styles.socialItem} height={56}>
-        <Skeleton className={styles.icon} height={24} width={24} />
-        <Skeleton height={14} width={130} />
+      <Box className={styles.socialItem}>
+        <Skeleton className={styles.icon} height={24} width={24} circle />
+        <Skeleton height={16} width={90} />
       </Box>
     </Box>
   ) : (

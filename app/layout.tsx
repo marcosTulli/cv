@@ -3,6 +3,7 @@ import '@/styles/_reset.scss';
 import { Providers } from './provider';
 import Footer from '@/components/footer';
 import Menu from '@/components/menu';
+import styles from './layout.module.scss';
 
 export const metadata: Metadata = {
   title: 'Marcos Tulli',
@@ -18,13 +19,13 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <body>
         <Providers>
-          <header>
+          <div className={styles.layoutContainer}>
             <Menu />
-          </header>
-          <main className="flex-grow">{children}</main>
-          <footer>
-            <Footer />
-          </footer>
+            <main className={styles.mainContent}>{children}</main>
+            <footer>
+              <Footer />
+            </footer>
+          </div>
         </Providers>
       </body>
     </html>

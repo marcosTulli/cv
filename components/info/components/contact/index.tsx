@@ -24,12 +24,12 @@ const Contact: React.FC<IContactProps> = ({ isLoading }) => {
       {isLoading ? (
         <Box>
           <Box className={styles.contact}>
-            <Skeleton className={styles.icon} height={24} width={24} />
-            <Skeleton height={14} width={150} />
+            <Skeleton className={styles.icon} height={24} width={24} circle />
+            <Skeleton height={16} width={120} />
           </Box>
           <Box className={styles.contact}>
-            <Skeleton className={styles.icon} height={24} width={24} />
-            <Skeleton height={14} width={220} />
+            <Skeleton className={styles.icon} height={24} width={24} circle />
+            <Skeleton height={16} width={180} />
           </Box>
         </Box>
       ) : (

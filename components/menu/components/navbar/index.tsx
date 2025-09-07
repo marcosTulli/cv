@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import { PageSections, Actions } from '../items';
-import OpenSideBarButton from '../items/OpenSideBarButton';
+import SpeedDialTrigger from '../items/SpeedDialTrigger';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -19,21 +19,43 @@ const NavBar: React.FC = () => {
       component="nav"
       sx={{
         alignItems: { xs: 'end', sm: `${isHome ? 'center' : 'left'}` },
+        position: 'fixed',
+        top: { xs: 'auto', sm: 0 },
+        bottom: { xs: 0, sm: 'auto' },
+        left: 0,
+        right: 0,
+        '@media (min-width: 577px)': {
+          top: 0,
+          bottom: 'auto',
+        },
+        '@media (max-width: 576px)': {
+          top: 'auto',
+          bottom: 0,
+        },
       }}
     >
       <Toolbar
         sx={{
           width: '100%',
-          position: { xs: 'static', sm: 'relative' },
         }}
       >
-        <OpenSideBarButton />
+            <Box
+              sx={{
+                display: { xs: 'flex', sm:'none', gap:'1rem' },
+                flexWrap: 'nowrap',
+                alignItems: 'center',
+                mx: 'auto',
+              }}
+            >
+              <PageSections />
+              <SpeedDialTrigger />
+            </Box>
 
         {isHome ? (
           <>
             <Box
               sx={{
-                display: { xs: 'none', sm: 'flex' },
+                display: { xs: 'none', sm: 'flex', gap:'1rem' },
                 flexWrap: 'nowrap',
                 alignItems: 'center',
                 mx: 'auto',
