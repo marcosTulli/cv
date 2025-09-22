@@ -28,11 +28,16 @@ const SinglePageTemplate: React.FC = () => {
                 <h2 className={styles.sectionTitle}>{strings.languages}</h2>
                 <div className={styles.languagesGrid}>
                   {user.info.languages?.map((language: ILanguage) => (
-                    <div key={language.language} className={styles.languageItem}>
+                    <div
+                      key={language.language}
+                      className={styles.languageItem}
+                    >
                       <span className={styles.languageName}>
                         {language.language}:
                       </span>
-                      <span className={styles.languageLevel}>{language.level}</span>
+                      <span className={styles.languageLevel}>
+                        {language.level}
+                      </span>
                     </div>
                   ))}
                 </div>

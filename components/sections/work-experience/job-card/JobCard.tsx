@@ -9,9 +9,8 @@ type JobCardProps = {
   language: string;
 };
 
-
 const JobCard: React.FC<JobCardProps> = ({ experience }) => {
-  const {  strings } = languageStore();
+  const { strings } = languageStore();
   return (
     <Box className={styles.job} sx={{ color: 'secondary.main' }}>
       <Box
@@ -35,7 +34,7 @@ const JobCard: React.FC<JobCardProps> = ({ experience }) => {
         {experience.info.position} | {experience.activePeriod.startDate} -{' '}
         {experience.activePeriod.endDate.length > 0
           ? experience.activePeriod.endDate
-          : strings.activelyWorkingLabel }
+          : strings.activelyWorkingLabel}
       </Typography>
 
       <List
