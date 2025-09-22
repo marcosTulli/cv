@@ -17,6 +17,7 @@ const WorkExperience: React.FC = () => {
     id: user._id,
     lang: currentLanguage,
   });
+
   const { sectionRef } = useSectionRef({
     sectionName: Sections.WorkExperience,
   });
