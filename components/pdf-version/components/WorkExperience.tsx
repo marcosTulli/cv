@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import styles from '../SinglePageTemplate.module.scss';
 import { languageStore, userStore } from '@/store';
 import { useWorkExperience } from '@/hooks/queries';
@@ -31,19 +31,19 @@ const WorkExperience: React.FC = () => {
         {experiences?.map((experience) => (
           <article className={styles.experienceItem} key={experience._id}>
             <header className={styles.experienceHeader}>
-              <div>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, alignItems:'center' }}>
                 <Typography component="h3" className={styles.jobTitle}>
                   {experience.info.position}
                 </Typography>
                 <Typography className={styles.companyName}>
                   {experience.companyName}
                 </Typography>
-              </div>
+              </Box>
               <span className={styles.datePeriod}>
                 {experience.activePeriod.startDate} -{' '}
                 {experience.activePeriod.endDate.length > 0
                   ? experience.activePeriod.endDate
-                  : 'Present'}
+                  : strings.activelyWorkingLabel  }
               </span>
             </header>
             <ul className={styles.taskList}>

@@ -62,4 +62,5 @@ export interface Translation {
   admin: string;
   guest: string;
   downloadPdf: string;
+  activelyWorkingLabel: string;
 }

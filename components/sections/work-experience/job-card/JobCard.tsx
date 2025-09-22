@@ -2,13 +2,16 @@ import React from 'react';
 import { IExperience } from '@/models/interfaces';
 import styles from './JobCard.module.scss';
 import { Box, List, ListItem, Typography } from '@mui/material';
+import { languageStore } from '@/store';
 
 type JobCardProps = {
   experience: IExperience;
   language: string;
 };
 
+
 const JobCard: React.FC<JobCardProps> = ({ experience }) => {
+  const {  strings } = languageStore();
   return (
     <Box className={styles.job} sx={{ color: 'secondary.main' }}>
       <Box
@@ -32,7 +35,7 @@ const JobCard: React.FC<JobCardProps> = ({ experience }) => {
         {experience.info.position} | {experience.activePeriod.startDate} -{' '}
         {experience.activePeriod.endDate.length > 0
           ? experience.activePeriod.endDate
-          : 'Present'}
+          : strings.activelyWorkingLabel }
       </Typography>
 
       <List

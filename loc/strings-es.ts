@@ -50,6 +50,7 @@ const es: Partial<Translation> = {
   admin: 'Administrador',
   guest: 'Invitado',
   downloadPdf: 'Descargar en PDF',
+  activelyWorkingLabel: 'Actual',
 };
 
 export default es;
