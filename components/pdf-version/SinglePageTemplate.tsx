@@ -19,20 +19,26 @@ const SinglePageTemplate: React.FC = () => {
         <div className={styles.contentSection}>
           <Skills />
           <WorkExperience />
-          <Education />
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>{strings.languages}</h2>
-            <div className={styles.languagesGrid}>
-              {user.info.languages?.map((language: ILanguage) => (
-                <div key={language.language} className={styles.languageItem}>
-                  <span className={styles.languageName}>
-                    {language.language}:
-                  </span>
-                  <span className={styles.languageLevel}>{language.level}</span>
-                </div>
-              ))}
+          <div className={styles.bottomRow}>
+            <div className={styles.educationSection}>
+              <Education />
             </div>
-          </section>
+            <div className={styles.languagesSection}>
+              <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>{strings.languages}</h2>
+                <div className={styles.languagesGrid}>
+                  {user.info.languages?.map((language: ILanguage) => (
+                    <div key={language.language} className={styles.languageItem}>
+                      <span className={styles.languageName}>
+                        {language.language}:
+                      </span>
+                      <span className={styles.languageLevel}>{language.level}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+          </div>
         </div>
       </div>
     </div>

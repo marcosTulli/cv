@@ -31,7 +31,7 @@ const WorkExperience: React.FC = () => {
         {experiences?.map((experience) => (
           <article className={styles.experienceItem} key={experience._id}>
             <header className={styles.experienceHeader}>
-              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, alignItems:'center' }}>
                 <Typography component="h3" className={styles.jobTitle}>
                   {experience.info.position}
                 </Typography>
