@@ -43,7 +43,7 @@ const WorkExperience: React.FC = () => {
                 {experience.activePeriod.startDate} -{' '}
                 {experience.activePeriod.endDate.length > 0
                   ? experience.activePeriod.endDate
-                  : 'Present'}
+                  : strings.activelyWorkingLabel  }
               </span>
             </header>
             <ul className={styles.taskList}>
