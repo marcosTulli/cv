@@ -139,8 +139,9 @@
 
     .taskList {
       list-style: disc;
-      list-style-position: inside;
-      margin-left: 0.25rem;
+      list-style-position: outside;
+      margin-left: 1rem;
+      padding-left: 0;
 
       .task {
         font-size: 0.78rem;
