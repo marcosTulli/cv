@@ -51,6 +51,7 @@ const es: Partial<Translation> = {
   guest: 'Invitado',
   downloadPdf: 'Descargar en PDF',
   activelyWorkingLabel: 'Actual',
+  header:'Inicio'
 };
 
 export default es;
