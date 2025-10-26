@@ -10,7 +10,8 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
   label,
 }) => {
   return (
-    <Box>
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      {children}
       <Typography
         display={{
           xs: 'none',
@@ -20,7 +21,6 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
       >
         {label}
       </Typography>
-      <Box display={{ sm: 'flex', md: 'none' }}>{children}</Box>
     </Box>
   );
 };
