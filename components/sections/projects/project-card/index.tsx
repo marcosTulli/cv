@@ -1,45 +1,47 @@
 'use client';
 import * as React from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, Typography, Box } from '@mui/material';
 import Link from 'next/link';
+import Image from 'next/image';
 import { IProject } from '@/models/interfaces';
+import styles from './ProjectCard.module.scss';
 
 interface IProjectCardProps {
   project: IProject;
 }
+
 const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
   return (
     <Card
-      key={project.id}
+      className={styles.card}
       sx={{
         bgcolor: 'primary.main',
         color: 'secondary.main',
-        borderRadius: '1rem',
-        boxShadow: '4px 4px 5px 4px rgba(0, 0, 0, 0.5)',
-        margin: '1rem',
-        height: '100px',
-        display: 'flex',
-        justifyContent: 'center',
-        maxWidth: '300px',
-        cursor: 'pointer',
-        alignItems: 'center',
-        ':hover': {
-          bgcolor: 'primary.weak',
-        },
       }}
-      className="carousel-card"
     >
-      <Link href={project.path} target={project.target}>
-        <CardContent>
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 'bold',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
+      <Link
+        href={project.path}
+        target={project.target}
+        className={styles.cardLink}
+      >
+        {project.thumbnail && (
+          <Box className={styles.thumbnailContainer}>
+            <Image
+              src={project.thumbnail}
+              alt={project.title}
+              fill
+              className={styles.thumbnail}
+              sizes="(max-width: 600px) 100vw, 300px"
+            />
+            <Box className={styles.overlay}>
+              <Typography variant="body2" className={styles.overlayText}>
+                View Project
+              </Typography>
+            </Box>
+          </Box>
+        )}
+        <CardContent className={styles.content}>
+          <Typography variant="h6" className={styles.title}>
             {project.title}
           </Typography>
         </CardContent>

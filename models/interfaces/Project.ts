@@ -4,4 +4,5 @@ export interface IProject {
   content: string;
   path: string;
   target: '_blank' | '_self';
+  thumbnail?: string;
 }
