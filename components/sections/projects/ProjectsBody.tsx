@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Box } from '@mui/material';
 import ProjectCard from './project-card';
 import { IProject } from '@/models/interfaces';
+import styles from './Projects.module.scss';
 
 enum Paths {
   PasswordGenerator = 'password-generator',
@@ -15,6 +16,14 @@ enum Paths {
   CVAPI = 'https://cv-service-cf36.onrender.com/api',
 }
 
+enum Thumbnails {
+  PasswordGenerator = '/projects/password-generator.png',
+  NodeTree = '/projects/node-tree.png',
+  TicTacToe = '/projects/tictactoe.png',
+  BandsDb = '/projects/bands-db.png',
+  CVAPI = '/projects/cv-api.png',
+}
+
 const ProjectsBody = () => {
   const settings = {
     infinite: true,
@@ -22,8 +31,13 @@ const ProjectsBody = () => {
     swipeToSlide: true,
     draggable: true,
     arrows: false,
-    speed: 200,
+    dots: true,
+    dotsClass: `slick-dots ${styles.dots}`,
+    speed: 300,
     slidesToShow: 3,
+    slidesToScroll: 1,
+    touchThreshold: 10,
+    cssEase: 'ease-out',
     responsive: [
       {
         breakpoint: 1024,
@@ -31,7 +45,7 @@ const ProjectsBody = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: false,
+          dots: true,
         },
       },
       {
@@ -39,6 +53,7 @@ const ProjectsBody = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: true,
         },
       },
     ],
@@ -51,6 +66,7 @@ const ProjectsBody = () => {
       content: 'Password generator',
       path: Paths.PasswordGenerator,
       target: '_self',
+      thumbnail: Thumbnails.PasswordGenerator,
     },
     {
       id: 2,
@@ -58,6 +74,7 @@ const ProjectsBody = () => {
       content: 'Node tree',
       path: Paths.NodeTree,
       target: '_self',
+      thumbnail: Thumbnails.NodeTree,
     },
     {
       id: 3,
@@ -65,6 +82,7 @@ const ProjectsBody = () => {
       content: 'Bands DB',
       path: Paths.BandsDb,
       target: '_blank',
+      thumbnail: Thumbnails.BandsDb,
     },
     {
       id: 4,
@@ -72,6 +90,7 @@ const ProjectsBody = () => {
       content: 'Tic Tac Toe',
       path: Paths.TicTacToe,
       target: '_self',
+      thumbnail: Thumbnails.TicTacToe,
     },
     {
       id: 5,
@@ -79,12 +98,13 @@ const ProjectsBody = () => {
       content: 'CV API',
       path: Paths.CVAPI,
       target: '_blank',
+      thumbnail: Thumbnails.CVAPI,
     },
   ];
 
   return (
     <Box
-      sx={{ maxWidth: '90%', margin: 'auto', height: '100%' }}
+      sx={{ maxWidth: '90%', margin: 'auto', height: '100%', pb: 4 }}
       className="slider-container"
     >
       <Slider {...settings}>

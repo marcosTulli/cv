@@ -10,3 +10,24 @@
     padding: 2rem 0.5rem 2rem 0.5rem;
   }
 }
+
+.dots {
+  bottom: -30px;
+
+  li {
+    margin: 0 4px;
+
+    button {
+      &::before {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        opacity: 1;
+      }
+    }
+
+    &.slick-active button::before {
+      color: #fff;
+      opacity: 1;
+    }
+  }
+}
