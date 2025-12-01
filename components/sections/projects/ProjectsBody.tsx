@@ -3,10 +3,53 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Box } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import ProjectCard from './project-card';
 import { IProject } from '@/models/interfaces';
 import styles from './Projects.module.scss';
+
+interface ArrowProps {
+  onClick?: () => void;
+}
+
+const NextArrow: React.FC<ArrowProps> = ({ onClick }) => (
+  <IconButton
+    onClick={onClick}
+    className={styles.arrow}
+    sx={{
+      position: 'absolute',
+      right: { xs: -5, sm: -20, md: -40 },
+      top: '50%',
+      transform: 'translateY(-50%)',
+      zIndex: 2,
+      color: 'secondary.main',
+      bgcolor: 'rgba(0,0,0,0.3)',
+      '&:hover': { bgcolor: 'rgba(0,0,0,0.5)' },
+    }}
+  >
+    <ChevronRight fontSize="large" />
+  </IconButton>
+);
+
+const PrevArrow: React.FC<ArrowProps> = ({ onClick }) => (
+  <IconButton
+    onClick={onClick}
+    className={styles.arrow}
+    sx={{
+      position: 'absolute',
+      left: { xs: -5, sm: -20, md: -40 },
+      top: '50%',
+      transform: 'translateY(-50%)',
+      zIndex: 2,
+      color: 'secondary.main',
+      bgcolor: 'rgba(0,0,0,0.3)',
+      '&:hover': { bgcolor: 'rgba(0,0,0,0.5)' },
+    }}
+  >
+    <ChevronLeft fontSize="large" />
+  </IconButton>
+);
 
 enum Paths {
   PasswordGenerator = 'password-generator',
@@ -14,6 +57,7 @@ enum Paths {
   TicTacToe = 'tictactoe',
   BandsDb = 'https://bands-db.vercel.app/bands',
   CVAPI = 'https://cv-service-cf36.onrender.com/api',
+  PatientManager = 'https://mt-patientmanagement.vercel.app/',
 }
 
 enum Thumbnails {
@@ -22,6 +66,7 @@ enum Thumbnails {
   TicTacToe = '/projects/tictactoe.png',
   BandsDb = '/projects/bands-db.png',
   CVAPI = '/projects/cv-api.png',
+  PatientManager = '/projects/patient-manager.png',
 }
 
 const ProjectsBody = () => {
@@ -30,14 +75,15 @@ const ProjectsBody = () => {
     className: 'center',
     swipeToSlide: true,
     draggable: true,
-    arrows: false,
-    dots: true,
-    dotsClass: `slick-dots ${styles.dots}`,
+    arrows: true,
+    dots: false,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
     touchThreshold: 10,
     cssEase: 'ease-out',
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -45,7 +91,6 @@ const ProjectsBody = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -53,7 +98,6 @@ const ProjectsBody = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
         },
       },
     ],
@@ -99,6 +143,14 @@ const ProjectsBody = () => {
       path: Paths.CVAPI,
       target: '_blank',
       thumbnail: Thumbnails.CVAPI,
+    },
+    {
+      id: 6,
+      title: 'Patient Manager',
+      content: 'Patient Manager',
+      path: Paths.PatientManager,
+      target: '_blank',
+      thumbnail: Thumbnails.PatientManager,
     },
   ];
 

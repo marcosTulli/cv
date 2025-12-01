@@ -11,23 +11,11 @@
   }
 }
 
-.dots {
-  bottom: -30px;
+.arrow {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
 
-  li {
-    margin: 0 4px;
-
-    button {
-      &::before {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.5);
-        opacity: 1;
-      }
-    }
-
-    &.slick-active button::before {
-      color: #fff;
-      opacity: 1;
-    }
+  &:hover {
+    opacity: 1;
   }
 }
