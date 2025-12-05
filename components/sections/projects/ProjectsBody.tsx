@@ -58,6 +58,7 @@ enum Paths {
   BandsDb = 'https://bands-db.vercel.app/bands',
   CVAPI = 'https://cv-service-cf36.onrender.com/api',
   PatientManager = 'https://mt-patientmanagement.vercel.app/',
+  AdminDashboard = 'https://mtadmin.vercel.app/',
 }
 
 enum Thumbnails {
@@ -67,6 +68,7 @@ enum Thumbnails {
   BandsDb = '/projects/bands-db.png',
   CVAPI = '/projects/cv-api.png',
   PatientManager = '/projects/patient-manager.png',
+  AdminDashboard = '/projects/admin-dashboard.png',
 }
 
 const ProjectsBody = () => {
@@ -151,6 +153,14 @@ const ProjectsBody = () => {
       path: Paths.PatientManager,
       target: '_blank',
       thumbnail: Thumbnails.PatientManager,
+    },
+    {
+      id: 7,
+      title: 'Admin Dashboard',
+      content: 'Admin Dashboard',
+      path: Paths.AdminDashboard,
+      target: '_blank',
+      thumbnail: Thumbnails.AdminDashboard,
     },
   ];
 
