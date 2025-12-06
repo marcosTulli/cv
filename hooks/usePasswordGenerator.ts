@@ -3,42 +3,46 @@ import { generateRandomString } from '@/utils';
 
 function usePasswordGenerator() {
   const [password, setPassword] = React.useState<string>('');
-  const [lengthInput, setLengthInput] = React.useState<number>(0);
-  const tooltipDefault = 'Click to copy';
-  const [tooltipTitle, setTooltipTitle] =
-    React.useState<string>(tooltipDefault);
-  const [displayCopyButton, setDisplayCopyButton] =
-    React.useState<boolean>(false);
-  const disableGenerate = lengthInput === 0;
+  const [lengthInput, setLengthInput] = React.useState<number>(16);
+  const [displayCopyButton, setDisplayCopyButton] = React.useState<boolean>(false);
 
-  const generatePassword = (event: React.FormEvent) => {
-    event.preventDefault();
-    const randomPassword = generateRandomString({ length: lengthInput });
+  const [includeUppercase, setIncludeUppercase] = React.useState<boolean>(true);
+  const [includeLowercase, setIncludeLowercase] = React.useState<boolean>(true);
+  const [includeNumbers, setIncludeNumbers] = React.useState<boolean>(true);
+  const [includeSymbols, setIncludeSymbols] = React.useState<boolean>(true);
+
+  const hasAtLeastOneOption =
+    includeUppercase || includeLowercase || includeNumbers || includeSymbols;
+  const disableGenerate = lengthInput < 4 || !hasAtLeastOneOption;
+
+  const generatePassword = (event?: React.FormEvent) => {
+    event?.preventDefault();
+    const randomPassword = generateRandomString({
+      length: lengthInput,
+      includeUppercase,
+      includeLowercase,
+      includeNumbers,
+      includeSymbols,
+    });
     setPassword(randomPassword);
     setDisplayCopyButton(true);
-  };
-
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const value = parseInt(event.target.value, 10);
-    setLengthInput(value);
-  };
-
-  const resetTooltip = () => {
-    setTooltipTitle(tooltipDefault);
   };
 
   return {
     password,
     lengthInput,
-    tooltipTitle,
-    setTooltipTitle,
+    setLengthInput,
     displayCopyButton,
     disableGenerate,
     generatePassword,
-    handleInputChange,
-    resetTooltip,
+    includeUppercase,
+    setIncludeUppercase,
+    includeLowercase,
+    setIncludeLowercase,
+    includeNumbers,
+    setIncludeNumbers,
+    includeSymbols,
+    setIncludeSymbols,
   };
 }
 
