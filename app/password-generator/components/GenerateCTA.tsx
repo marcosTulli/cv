@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { Button } from '@mui/material';
-import { usePasswordGenerator } from '@/hooks';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { useGeneratePassword } from '../hooks/useGeneratePassword';
 

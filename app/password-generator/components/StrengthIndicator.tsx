@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { Box, Stack, Typography, Fade } from '@mui/material';
-import { usePasswordGenerator } from '@/hooks';
 import { useGeneratePassword } from '../hooks/useGeneratePassword';
 
 export const StrengthIndicator: React.FC = () => {
