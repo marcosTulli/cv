@@ -2,12 +2,14 @@
 import React from 'react';
 import { Box, Stack, Typography, Fade } from '@mui/material';
 import { useGeneratePassword } from '../hooks/useGeneratePassword';
+import { usePasswordConfig } from '../hooks';
 
 export const StrengthIndicator: React.FC = () => {
-  const {length: lengthInput, getStrengthLabel, strengthColor} = useGeneratePassword()
+  const { getStrengthLabel, strengthColor} = useGeneratePassword()
+  const { length } = usePasswordConfig()
 
   return (
-          <Fade in={lengthInput > 0}>
+          <Fade in={length > 0}>
             <Box sx={{ mb: 3 }}>
               <Stack
                 direction="row"
@@ -30,7 +32,7 @@ export const StrengthIndicator: React.FC = () => {
                     fontSize: { xs: '0.8rem', sm: '0.875rem' },
                   }}
                 >
-                  {getStrengthLabel(lengthInput)}
+                  {getStrengthLabel(length)}
                 </Typography>
               </Stack>
               <Box
@@ -44,7 +46,7 @@ export const StrengthIndicator: React.FC = () => {
                 <Box
                   sx={{
                     height: '100%',
-                    width: `${Math.min((lengthInput / 32) * 100, 100)}%`,
+                    width: `${Math.min((length / 32) * 100, 100)}%`,
                     bgcolor: strengthColor,
                     borderRadius: 3,
                     transition: 'all 0.3s ease',

@@ -2,9 +2,10 @@
 import React from 'react';
 import { Box, Slider, Stack, Typography } from '@mui/material';
 import { useGeneratePassword } from '../hooks/useGeneratePassword';
+import { usePasswordConfig } from '../hooks';
 
 export const LengthSlider: React.FC = () => {
-  const {length, setLength} = useGeneratePassword();
+  const {length, handleLength} = usePasswordConfig();
 
   return (
         <Box sx={{ mb: 3 }}>
@@ -46,7 +47,7 @@ export const LengthSlider: React.FC = () => {
           </Stack>
           <Slider
             value={length}
-            onChange={(_, value) => setLength(value as number)}
+            onChange={(_, value) => handleLength(value as number)}
             min={4}
             max={32}
             sx={{

@@ -7,12 +7,10 @@ import {
   FormControlLabel,
   FormGroup,
 } from '@mui/material';
-import { useGeneratePassword } from '../hooks/useGeneratePassword';
-import { PasswordConfigKeys } from '../store/passwordConfigStore';
+import { usePasswordConfig } from '../hooks';
 
 export const CharConfig: React.FC = () => {
-  const { passwordConfig, setWithLowercase, setWithNumbers, setWithSymbols, setWithUppercase } = useGeneratePassword();
-  const {  withNumbers, withLowercase, withSymbols, withUppercase} = passwordConfig;
+  const {charConfig} = usePasswordConfig()
 
   return (
           <Box sx={{ mb: 3 }}>
@@ -33,12 +31,7 @@ export const CharConfig: React.FC = () => {
                 gap: 1,
               }}
             >
-              {[
-                { label: 'Uppercase (A-Z)', key:PasswordConfigKeys.withUppercase, checked: withUppercase, setter: setWithUppercase },
-                { label: 'Lowercase (a-z)', key:PasswordConfigKeys.withLowercase,checked: withLowercase, setter: setWithLowercase },
-                { label: 'Numbers (0-9)', key:PasswordConfigKeys.withNumbers, checked: withNumbers, setter: setWithNumbers },
-                { label: 'Symbols (!@#$)', key:PasswordConfigKeys.withSymbols ,checked: withSymbols, setter: setWithSymbols },
-              ].map((option) => (
+              {charConfig.map((option) => (
                 <FormControlLabel
                   key={option.key}
                   control={

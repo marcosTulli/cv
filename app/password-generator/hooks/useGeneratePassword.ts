@@ -6,13 +6,7 @@ import { passwordGenUIStore } from "../store/passwordGenUiStore"
 import passwordStore from "../store/passwordStore"
 
 export function useGeneratePassword() {
-  const {passwordConfig, setLength, 
- setWithUppercase,
- setWithLowercase,
- setWithNumbers,
- setWithSymbols,
-
-  } = passwordConfigStore()
+  const { passwordConfig } = passwordConfigStore()
   const {password, setPassword} = passwordStore()
   const { length, withNumbers, withLowercase, withSymbols, withUppercase} = passwordConfig
   const {passwordCopied, showSnackbar, displayCopyPassword, togglePasswordCoppied, toggleShowSnackBar, toggleDisplayCopyPassword} = passwordGenUIStore()
@@ -46,8 +40,7 @@ const getStrengthLabel = (length: number) => {
   };
 
 
-  const generatePassword = (event?: React.FormEvent) => {
-    event?.preventDefault();
+  const generatePassword = () => {
     const randomPassword = generateRandomString({
       length: length,
       includeUppercase: withUppercase,
@@ -59,9 +52,9 @@ const getStrengthLabel = (length: number) => {
     !displayCopyPassword && toggleDisplayCopyPassword();
   };
 
+
   return {
     password,
-    length,
     passwordCopied,
     showSnackbar,
     disableGenerate,
@@ -72,11 +65,6 @@ const getStrengthLabel = (length: number) => {
     toggleShowSnackBar,
     handleCopy,
     generatePassword,
-   setWithUppercase,
-    setWithLowercase,
-    setWithNumbers,
-    setWithSymbols,
-    setLength,
   }
 }
 

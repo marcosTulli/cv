@@ -10,6 +10,7 @@ export const GenerateCTA: React.FC = () => {
   return (
           <Button
             variant="contained"
+            type='button'
             fullWidth
             onClick={generatePassword}
             disabled={disableGenerate}
