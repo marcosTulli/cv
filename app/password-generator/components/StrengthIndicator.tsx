@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
 import { Box, Stack, Typography, Fade } from '@mui/material';
-import { useGeneratePassword } from '../hooks/useGeneratePassword';
 import { usePasswordConfig } from '../hooks';
+import { usePasswordGeneratorComponent } from '../hooks/usePasswordGeneratorComponent';
 
 export const StrengthIndicator: React.FC = () => {
-  const { getStrengthLabel, strengthColor} = useGeneratePassword()
+  const {  strengthColor, strengthLabel} = usePasswordGeneratorComponent()
   const { length } = usePasswordConfig()
 
   return (
@@ -32,7 +32,7 @@ export const StrengthIndicator: React.FC = () => {
                     fontSize: { xs: '0.8rem', sm: '0.875rem' },
                   }}
                 >
-                  {getStrengthLabel(length)}
+                  {strengthLabel}
                 </Typography>
               </Stack>
               <Box

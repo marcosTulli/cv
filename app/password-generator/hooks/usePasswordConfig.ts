@@ -1,7 +1,7 @@
 'use client';
 import { useMemo } from 'react';
-import { useGeneratePassword } from '../hooks/useGeneratePassword';
-import passwordConfigStore, { PasswordConfigKeys } from '../store/passwordConfigStore';
+import { PasswordConfigKeys } from '../utils';
+import { passwordConfigStore } from '../store';
 
 export function usePasswordConfig() {
   const { passwordConfig, updateConfig } = passwordConfigStore();

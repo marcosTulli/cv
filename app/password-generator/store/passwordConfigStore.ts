@@ -1,12 +1,6 @@
 import { create } from 'zustand';
+import { PasswordConfigKeys } from '../utils';
 
-export enum PasswordConfigKeys { 
- length= "length",
- withUppercase= "withUppercase",
- withLowercase= "withLowercase",
- withNumbers= "withNumbers",
- withSymbols= "withSymbols",
-}
 
 interface PasswordConfig { 
   [PasswordConfigKeys.length]: number;
@@ -21,13 +15,13 @@ interface PasswordConfigState {
   updateConfig: (key: PasswordConfigKeys, value: boolean | number) => void;
 }
 
-const PasswordConfigInitialState = { 
+const PasswordConfigInitialState: PasswordConfig = { 
   length: 8,
   withUppercase: true,
   withLowercase: false,
   withNumbers: false,
   withSymbols: false,
-} as const;
+};
 
 export const passwordConfigStore = create<PasswordConfigState>()((set) => ({
   passwordConfig: PasswordConfigInitialState,
@@ -37,8 +31,7 @@ export const passwordConfigStore = create<PasswordConfigState>()((set) => ({
       passwordConfig: {
         ...state.passwordConfig,
         [key]: value,
-      },
+  },
     })),
 }));
 
-export default passwordConfigStore;

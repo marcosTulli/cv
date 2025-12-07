@@ -5,9 +5,11 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { useGeneratePassword } from '../hooks/useGeneratePassword';
+import { usePasswordGeneratorComponent } from '../hooks/usePasswordGeneratorComponent';
 
 export const Display: React.FC = () => {
-  const { password, handleCopy, passwordCopied: copied , displayCopyPassword } = useGeneratePassword();
+  const { password } = useGeneratePassword();
+  const { handleCopy, displayCopyPassword, passwordCopied: copied } = usePasswordGeneratorComponent()
 
   return (
 
