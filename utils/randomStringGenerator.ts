@@ -2,7 +2,7 @@ const CHAR_SETS = {
   lowercase: 'abcdefghijklmnopqrstuvwxyz',
   uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   numbers: '0123456789',
-  symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?',
+  symbols: '!@#$%?',
 };
 
 export interface PasswordOptions {
