@@ -4,8 +4,7 @@ import { Box, IconButton, Typography } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { useGeneratePassword } from '../hooks/useGeneratePassword';
-import { usePasswordGeneratorComponent } from '../hooks/usePasswordGeneratorComponent';
+import { useGeneratePassword, usePasswordGeneratorComponent } from '../hooks';
 
 export const Display: React.FC = () => {
   const { password } = useGeneratePassword();

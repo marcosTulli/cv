@@ -2,10 +2,10 @@
 import React from 'react';
 import { Box, Snackbar } from '@mui/material';
 import { Display, GenerateCTA, Header, PasswordConfiguration, StrengthIndicator, Wrapper } from './components';
-import { useGeneratePassword } from './hooks/useGeneratePassword';
+import { usePasswordGeneratorComponent } from './hooks';
 
 const PasswordGenerator: React.FC = () => {
-  const {showSnackbar, toggleShowSnackBar } = useGeneratePassword();
+  const {showSnackbar, toggleShowSnackBar } = usePasswordGeneratorComponent();
   return (
     <Box
       sx={{

@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 import { Box, Stack, Typography, Fade } from '@mui/material';
-import { usePasswordConfig } from '../hooks';
-import { usePasswordGeneratorComponent } from '../hooks/usePasswordGeneratorComponent';
+import { usePasswordConfig, usePasswordGeneratorComponent } from '../hooks';
 
 export const StrengthIndicator: React.FC = () => {
   const {  strengthColor, strengthLabel} = usePasswordGeneratorComponent()
