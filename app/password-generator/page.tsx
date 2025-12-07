@@ -1,101 +1,47 @@
 'use client';
 import React from 'react';
-import { Box, Button, TextField, Tooltip, Typography } from '@mui/material';
-import { usePasswordGenerator } from '@/hooks';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import { Box, Snackbar } from '@mui/material';
+import { Display, GenerateCTA, Header, PasswordConfiguration, StrengthIndicator, Wrapper } from './components';
+import { usePasswordGeneratorComponent } from './hooks';
 
 const PasswordGenerator: React.FC = () => {
-  const {
-    password,
-    tooltipTitle,
-    displayCopyButton,
-    disableGenerate,
-    generatePassword,
-    handleInputChange,
-    resetTooltip,
-    setTooltipTitle,
-  } = usePasswordGenerator();
-
+  const {showSnackbar, toggleShowSnackBar } = usePasswordGeneratorComponent();
   return (
     <Box
       sx={{
-        bgcolor: 'defaultBackground.main',
+        bgcolor: 'primary.main',
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'start',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: { xs: 2, sm: 3, md: 4 },
         overflow: 'auto',
       }}
     >
-      <Box
-        component="form"
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '2rem',
-          flexWrap: 'wrap',
-          alignSelf: 'flex-start',
-          ml: 2,
-          mt: '8rem',
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-        onSubmit={generatePassword}
-      >
-        <TextField
-          id="standard-number"
-          label="Length"
-          type="number"
-          variant="outlined"
-          focused
-          onChange={(e) => handleInputChange(e)}
-          color="secondary"
-          sx={{
-            input: {
-              color: 'secondary.main',
-              '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
-                appearance: 'none',
-                margin: 0,
-              },
-            },
-          }}
-        />
-        <Button variant={'contained'} type="submit" disabled={disableGenerate}>
-          Generate
-        </Button>
+      <Wrapper>
+        <Header/>
+        <Box sx={{ p: { xs: 2.5, sm: 3 } }}>
+          <Display/>
+          <PasswordConfiguration/>
+          <StrengthIndicator/>
+          <GenerateCTA/>
+        </Box>
+      </Wrapper>
 
-        {displayCopyButton && (
-          <CopyToClipboard
-            text={password}
-            onCopy={() => setTooltipTitle('Password copied to clipboard!')}
-          >
-            <Tooltip title={tooltipTitle}>
-              <Button
-                type="button"
-                onMouseOut={resetTooltip}
-                variant="contained"
-              >
-                <ContentCopyIcon />
-              </Button>
-            </Tooltip>
-          </CopyToClipboard>
-        )}
-      </Box>
-      <Typography
+      <Snackbar
+        open={showSnackbar}
+        autoHideDuration={2000}
+        onClose={toggleShowSnackBar}
+        message="Password copied to clipboard!"
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         sx={{
-          wordBreak: 'break-word',
-          overflowWrap: 'break-word',
-          width: '100%',
-          color: 'secondary.main',
-          mb: 2,
-          p: '3rem',
-          textAlign: 'center',
+          '& .MuiSnackbarContent-root': {
+            bgcolor: '#22c55e',
+            fontWeight: 500,
+          },
         }}
-      >
-        {password}
-      </Typography>
+      />
     </Box>
   );
 };
