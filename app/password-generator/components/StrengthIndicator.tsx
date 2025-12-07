@@ -4,8 +4,8 @@ import { Box, Stack, Typography, Fade } from '@mui/material';
 import { usePasswordConfig, usePasswordGeneratorComponent } from '../hooks';
 
 export const StrengthIndicator: React.FC = () => {
-  const {  strengthColor, strengthLabel} = usePasswordGeneratorComponent()
-  const { length } = usePasswordConfig()
+  const {  strengthColor, strengthLabel} = usePasswordGeneratorComponent();
+  const { length } = usePasswordConfig();
 
   return (
           <Fade in={length > 0}>

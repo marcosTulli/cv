@@ -1,3 +1,3 @@
-export * from './useGeneratePassword'
-export * from './usePasswordConfig'
-export * from './usePasswordGeneratorComponent'
+export * from './useGeneratePassword';
+export * from './usePasswordConfig';
+export * from './usePasswordGeneratorComponent';

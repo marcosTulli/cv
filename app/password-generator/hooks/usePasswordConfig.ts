@@ -27,6 +27,7 @@ export function usePasswordConfig() {
           checked: passwordConfig[key] as boolean,
           setter: (value: boolean) => updateConfig(key, value),
         })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [passwordConfig]
   );
 

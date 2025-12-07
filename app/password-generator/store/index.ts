@@ -1,3 +1,3 @@
-export * from './passwordConfigStore'
-export * from './passwordGenUiStore'
-export * from './passwordStore'
+export * from './passwordConfigStore';
+export * from './passwordGenUiStore';
+export * from './passwordStore';

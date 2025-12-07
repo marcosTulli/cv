@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { Box, Slider, Stack, Typography } from '@mui/material';
-import { useGeneratePassword } from '../hooks/useGeneratePassword';
 import { usePasswordConfig } from '../hooks';
 
 export const LengthSlider: React.FC = () => {

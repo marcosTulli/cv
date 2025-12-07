@@ -8,7 +8,7 @@ import { useGeneratePassword, usePasswordGeneratorComponent } from '../hooks';
 
 export const Display: React.FC = () => {
   const { password } = useGeneratePassword();
-  const { handleCopy, displayCopyPassword, passwordCopied: copied } = usePasswordGeneratorComponent()
+  const { handleCopy, displayCopyPassword, passwordCopied: copied } = usePasswordGeneratorComponent();
 
   return (
 

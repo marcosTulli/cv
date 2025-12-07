@@ -1,7 +1,7 @@
-'use client'
-import React from 'react'
-import { LengthSlider } from './LengthSlider'
-import { CharConfig } from './CharConfig'
+'use client';
+import React from 'react';
+import { LengthSlider } from './LengthSlider';
+import { CharConfig } from './CharConfig';
 
 export const PasswordConfiguration:React.FC = () => {
   return (
@@ -9,6 +9,6 @@ export const PasswordConfiguration:React.FC = () => {
     <LengthSlider/>
     <CharConfig/>
     </>
-  )
-}
+  );
+};
 
