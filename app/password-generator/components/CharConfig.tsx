@@ -10,7 +10,7 @@ import {
 import { usePasswordConfig } from '../hooks';
 
 export const CharConfig: React.FC = () => {
-  const {charConfig} = usePasswordConfig()
+  const {charConfig} = usePasswordConfig();
 
   return (
           <Box sx={{ mb: 3 }}>

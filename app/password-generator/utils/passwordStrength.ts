@@ -5,5 +5,5 @@ export enum PasswordStrength {
   strong = "strong"
 }
 
-export const {weak, fair, strong} = PasswordStrength
+export const {weak, fair, strong} = PasswordStrength;
 

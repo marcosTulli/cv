@@ -5,7 +5,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { useGeneratePassword } from '../hooks/useGeneratePassword';
 
 export const GenerateCTA: React.FC = () => {
-  const {generatePassword, disableGenerate} = useGeneratePassword()
+  const {generatePassword, disableGenerate} = useGeneratePassword();
 
   return (
           <Button
