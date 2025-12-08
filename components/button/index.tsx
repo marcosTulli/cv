@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Button, Tooltip, Fade } from '@mui/material';
+import { Button, Tooltip } from '@mui/material';
 
 interface IButtonComponentProps {
   onClick: () => void;
