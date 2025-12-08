@@ -1,3 +1,3 @@
 import { IBaseParams } from '@/models/interfaces';
 
-export interface IGetWorkDataParams extends IBaseParams {}
+export type IGetWorkDataParams = IBaseParams;

@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { IUser } from '@/models/interfaces';
 import { languageStore, userStore } from '@/store';
 import useIsLoadingSections from '../useIsLoadingSections';
 import React from 'react';
@@ -16,7 +15,7 @@ const useUser = () => {
   const queryFn = () => userService.getUserById({ lang, id });
 
   const { user: auth0User } = useAuth0();
-  const rolesLoaction = `${process.env.NEXT_PUBLIC_AUTH0_DOMAIN}/roles` || '';
+  const rolesLoaction = '';
   const roles: Roles = auth0User?.[rolesLoaction] || [];
   const isAdmin = roles?.includes(Roles.admin);
 
@@ -37,7 +36,7 @@ const useUser = () => {
   React.useEffect(() => {
     if (lang) {
       if (user !== undefined) {
-        setUser(user as IUser);
+        setUser(user);
       }
     }
   }, [user, lang, isLoadingUser]);

@@ -8,8 +8,7 @@ interface IDownloadRefStore {
 
 export const store = create<IDownloadRefStore>((set) => ({
   downloadRef: { current: null },
-  setDownloadRef: (element: LegacyRef<HTMLDivElement> | null) =>
-    set({ downloadRef: element }),
+  setDownloadRef: (element: LegacyRef<HTMLDivElement> | null) => set({ downloadRef: element }),
 }));
 
 export default store;

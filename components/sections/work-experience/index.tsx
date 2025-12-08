@@ -28,7 +28,6 @@ const WorkExperience: React.FC = () => {
       sectionName: LoadableSections.isLoadingWorkExperience,
       isLoading: isLoadingWorkExperience,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoadingWorkExperience]);
 
   return (
@@ -38,10 +37,7 @@ const WorkExperience: React.FC = () => {
         description={strings.workExperienceDescription}
         isLoading={isLoadingWorkExperience || isLoadingUser}
       />
-      <WorkExperienceBody
-        data={data}
-        isLoading={isLoadingWorkExperience || isLoadingUser}
-      />
+      <WorkExperienceBody data={data} isLoading={isLoadingWorkExperience || isLoadingUser} />
     </Box>
   );
 };

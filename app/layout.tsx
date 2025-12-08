@@ -10,14 +10,10 @@ export const metadata: Metadata = {
   description: 'Marcos Tulli CV',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning>
-      <body>
+      <body suppressHydrationWarning>
         <Providers>
           <div className={styles.layoutContainer}>
             <Menu />

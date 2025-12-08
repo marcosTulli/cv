@@ -24,13 +24,10 @@ const initialState = {
 const useNodeStore = create<INodeStore>()((set) => ({
   ...initialState,
   toggleReveal: () => set((state) => ({ isCollapsed: !state.isCollapsed })),
-  toggleOptions: () =>
-    set((state) => ({ displayOptions: !state.displayOptions })),
-  setSelectedNode: ({ node }: INodeProps) =>
-    set(() => ({ selectedNode: node })),
+  toggleOptions: () => set((state) => ({ displayOptions: !state.displayOptions })),
+  setSelectedNode: ({ node }: INodeProps) => set(() => ({ selectedNode: node })),
   clearSelectedNode: () => set(() => ({ selectedNode: null })),
-  setCurrentNodeOnHover: ({ node }: INodeProps) =>
-    set(() => ({ currentNodeOnHover: node })),
+  setCurrentNodeOnHover: ({ node }: INodeProps) => set(() => ({ currentNodeOnHover: node })),
   clearCurrentNodeOnHover: () => set(() => ({ currentNodeOnHover: null })),
 }));
 

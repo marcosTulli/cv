@@ -26,7 +26,6 @@ const Education: React.FC = () => {
       sectionName: LoadableSections.isLoadingEducation,
       isLoading: isLoadingEducation,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoadingEducation]);
 
   return (
@@ -36,10 +35,7 @@ const Education: React.FC = () => {
         description={strings.educationDescription}
         isLoading={isLoadingUser || isLoadingEducation}
       />
-      <EducationBody
-        data={education}
-        isLoading={isLoadingUser || isLoadingEducation}
-      />
+      <EducationBody data={education} isLoading={isLoadingUser || isLoadingEducation} />
     </Box>
   );
 };

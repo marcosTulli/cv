@@ -1,8 +1,8 @@
 {
-  "semi": true,
+  "printWidth": 100,
   "singleQuote": true,
   "trailingComma": "all",
-  "printWidth": 80,
   "tabWidth": 2,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "bracketSpacing": true
 }

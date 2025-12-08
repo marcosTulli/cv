@@ -21,9 +21,7 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({
   return (
     <Container className={styles.sectionHeader}>
       <Box sx={{ color: 'secondary.main' }}>
-        <div
-          className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`}
-        >
+        <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`}>
           {isLoading ? (
             <Skeleton
               height={pageHeader ? 64 : 32}
@@ -36,11 +34,7 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({
         </div>
 
         {(description || isLoading) && (
-          <p
-            className={`${
-              pageHeader ? styles.headerDescription : styles.sectionDescription
-            }`}
-          >
+          <p className={`${pageHeader ? styles.headerDescription : styles.sectionDescription}`}>
             {isLoading ? (
               <Skeleton
                 height={pageHeader ? 32 : 18}

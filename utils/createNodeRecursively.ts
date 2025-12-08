@@ -6,11 +6,7 @@ interface IAddNodeProps {
   node: INode;
 }
 
-export const addNodeRecursively = ({
-  currentNode,
-  parentId,
-  node,
-}: IAddNodeProps): INode => {
+export const addNodeRecursively = ({ currentNode, parentId, node }: IAddNodeProps): INode => {
   if (currentNode.id === parentId) {
     return {
       ...currentNode,

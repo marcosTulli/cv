@@ -10,21 +10,23 @@ const RevealActions: React.FC<INodeProps> = ({ node }) => {
   const { toggleRevealChildren } = useRevealChildren();
   const { strings } = languageStore();
 
+  const iconStyles = {
+    width: '20px',
+    color: '#667eea',
+    transition: 'transform 0.2s ease',
+  };
+
   return (
     <ButtonComponent
       onClick={() => toggleRevealChildren({ nodeId: node.id })}
       display={true}
       variant="text"
-      title={`${
-        node.revealChildren
-          ? strings.collapseNodeToolTip
-          : strings.revealNodeTooltip
-      }`}
+      title={`${node.revealChildren ? strings.collapseNodeToolTip : strings.revealNodeTooltip}`}
     >
       {node.revealChildren ? (
-        <ExpandLessIcon color="secondary" sx={{ width: '20px' }} />
+        <ExpandLessIcon sx={iconStyles} />
       ) : (
-        <ExpandMoreIcon color="secondary" sx={{ width: '20px' }} />
+        <ExpandMoreIcon sx={iconStyles} />
       )}
     </ButtonComponent>
   );

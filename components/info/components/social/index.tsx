@@ -35,10 +35,7 @@ const Social: React.FC<ISocialProps> = ({ isLoading }) => {
         target="_blank"
         title={user.network.linkedin.url}
       >
-        <LinkedInIcon
-          className={styles.icon}
-          style={{ marginRight: '0.4rem' }}
-        />
+        <LinkedInIcon className={styles.icon} style={{ marginRight: '0.4rem' }} />
         <p>{user.network.linkedin.display}</p>
       </Box>
       <Box

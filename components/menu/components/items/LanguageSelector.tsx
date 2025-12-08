@@ -21,8 +21,7 @@ const LanguageSelector: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) =>
-    setAnchorEl(event.currentTarget);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
   const handleLanguageChange = (language: Language) => {
@@ -68,11 +67,7 @@ const LanguageSelector: React.FC = () => {
         }}
       >
         {user?.availableLanguages.map((lang, index) => (
-          <MenuItem
-            key={index}
-            onClick={() => handleLanguageChange(lang)}
-            sx={{ width: '100px' }}
-          >
+          <MenuItem key={index} onClick={() => handleLanguageChange(lang)} sx={{ width: '100px' }}>
             {lang.toUpperCase()}
           </MenuItem>
         ))}

@@ -12,10 +12,8 @@ const en: Partial<Translation> = {
   dropdownOptionsClone: 'View code',
   skillsDescription:
     'I possess a diverse set of skills that enable me to deliver high-quality work.',
-  workExperienceDescription:
-    'Explore my professional journey and the diverse roles I have held.',
-  educationDescription:
-    'Explore my educational journey and the degrees I have obtained.',
+  workExperienceDescription: 'Explore my professional journey and the diverse roles I have held.',
+  educationDescription: 'Explore my educational journey and the degrees I have obtained.',
   Projects: 'Projects',
   email: 'Email',
   phone: 'Telephone',
@@ -52,7 +50,7 @@ const en: Partial<Translation> = {
   guest: 'Guest',
   downloadPdf: 'Download as PDF',
   activelyWorkingLabel: 'Present',
-  header: 'Home'
+  header: 'Home',
 };
 
 export default en;

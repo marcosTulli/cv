@@ -22,11 +22,7 @@ const ThemePicker: React.FC = () => {
   return (
     <Tooltip title={strings.toggleThemeAction}>
       <Box sx={{ alignItems: 'center', display: 'flex' }}>
-        <Button
-          onClick={handleClick}
-          color={'secondary'}
-          sx={{ textTransform: 'none' }}
-        >
+        <Button onClick={handleClick} color={'secondary'} sx={{ textTransform: 'none' }}>
           <NavigationItem label={strings.toggleThemeAction as string}>
             <ThemeIcon />
           </NavigationItem>

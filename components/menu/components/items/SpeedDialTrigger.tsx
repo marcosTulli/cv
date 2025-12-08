@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import useActionsMenu from '../../hooks/useActionsMenu';
+import { useActionsMenu } from '../../hooks/useActionsMenu';
 
 const SpeedDialTrigger: React.FC = () => {
   const { isActionsMenuOpen, toggleActionsMenu } = useActionsMenu();

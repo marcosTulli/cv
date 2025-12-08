@@ -1,12 +1,3 @@
-import {
-  IGetEducationParams,
-  IGetUsersParams,
-  IGetWorkDataParams,
-  IGetSkillsParams,
-} from '../interfaces';
+import { IGetEducationParams, IGetSkillsParams } from '../interfaces';
 
-export type TAxiosGetParams =
-  | IGetEducationParams
-  | IGetUsersParams
-  | IGetWorkDataParams
-  | IGetSkillsParams;
+export type TAxiosGetParams = IGetEducationParams | IGetSkillsParams;

@@ -2,25 +2,27 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { INodeProps } from '@/models/interfaces';
 import { RevealChildren } from '../buttons';
-import { useNode } from '../../hooks';
+import { useNode, useIsMobile } from '../../hooks';
 
 const RevealActions: React.FC<INodeProps> = ({ node }) => {
   const { currentNodeOnHover } = useNode();
+  const isMobile = useIsMobile();
+  const hasChildren = node.children.length > 0;
+  const isHovered = currentNodeOnHover?.id === node.id;
+  const showButton = isMobile ? hasChildren : hasChildren && isHovered;
+
   return (
     <Box
       sx={{
         display: 'flex',
-        height: '30px',
-        gap: '0.8rem',
-        paddingLeft: '1rem',
-        mt: '2px',
+        width: '32px',
+        height: '32px',
+        alignItems: 'center',
+        justifyContent: 'center',
+        mr: 0.5,
       }}
     >
-      {node.children.length && currentNodeOnHover?.id === node.id ? (
-        <RevealChildren node={node} />
-      ) : (
-        <Box sx={{ width: '30px', height: '30px', display: 'flex' }} />
-      )}
+      {showButton && <RevealChildren node={node} />}
     </Box>
   );
 };

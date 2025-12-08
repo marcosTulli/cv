@@ -13,15 +13,7 @@ const useTree = () => {
   const { removeNode } = useRemoveNode();
   const { toggleRevealChildren } = useRevealChildren();
 
-  const create = ({
-    title,
-    node,
-    rootNode,
-  }: {
-    title: string;
-    node: INode;
-    rootNode: INode;
-  }) => {
+  const create = ({ title, node, rootNode }: { title: string; node: INode; rootNode: INode }) => {
     const id = generateRandomString({ length: 20 });
     const newNode: INode = { id, title, children: [], revealChildren: false };
     createNode({ newNode, parentId: node.id, rootNode });

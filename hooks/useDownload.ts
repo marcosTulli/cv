@@ -1,5 +1,5 @@
 'use client';
-import React, { RefObject } from 'react';
+import React from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { downloadRefStore } from '@/store';
 
@@ -8,7 +8,7 @@ const useDownload = () => {
   const { setDownloadRef } = downloadRefStore();
   const printContent = () => {
     if (downloadRef && typeof downloadRef === 'object') {
-      return (downloadRef as RefObject<HTMLDivElement>).current;
+      return downloadRef.current;
     }
     return null;
   };
@@ -18,7 +18,6 @@ const useDownload = () => {
     return () => {
       setDownloadRef(null);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDownload = useReactToPrint({

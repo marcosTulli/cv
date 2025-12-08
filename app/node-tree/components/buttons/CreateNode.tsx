@@ -16,7 +16,7 @@ const CreateActions: React.FC<INodeProps> = ({ node }) => {
       variant="contained"
       title={strings.createNodeButtonTooltip as string}
     >
-      <AddIcon color="secondary" sx={{ fontSize: '12px' }} />
+      <AddIcon color="secondary" sx={{ fontSize: { xs: '10px', sm: '12px' } }} />
     </ButtonComponent>
   );
 };

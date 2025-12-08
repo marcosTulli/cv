@@ -7,8 +7,8 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { languageStore, themeStore } from '@/store';
 import { Language, Themes } from '@/models/enums';
-import useActionsMenu from '../../hooks/useActionsMenu';
 import { useDownload, useTheme } from '@/hooks';
+import { useActionsMenu } from '../../hooks/useActionsMenu';
 
 export function ActionsMenu() {
   const { isActionsMenuOpen, toggleActionsMenu } = useActionsMenu();
@@ -117,7 +117,7 @@ export function ActionsMenu() {
                 boxShadow: 2,
                 whiteSpace: 'nowrap',
                 fontSize: '0.875rem',
-                border: `1px solid ${theme.palette.primary}`,
+                border: `1px solid ${theme.palette.primary.dark}`,
               }}
             >
               {action.name}

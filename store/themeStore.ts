@@ -13,8 +13,7 @@ const themeStore = create<ThemeState>()(
       selectedTheme: Themes.dark,
       toggleTheme: () =>
         set((state) => {
-          const newTheme =
-            state.selectedTheme === Themes.light ? Themes.dark : Themes.light;
+          const newTheme = state.selectedTheme === Themes.light ? Themes.dark : Themes.light;
           return { selectedTheme: newTheme };
         }),
     }),

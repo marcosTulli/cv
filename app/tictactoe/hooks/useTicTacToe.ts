@@ -99,7 +99,6 @@ const useTicTacToe = () => {
 
   React.useEffect(() => {
     checkWin(slots);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slots]);
 
   return { slots, winner, isTie, grid, play, handleReset };

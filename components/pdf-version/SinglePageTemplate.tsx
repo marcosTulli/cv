@@ -29,9 +29,7 @@ const SinglePageTemplate: React.FC = () => {
                 <div className={styles.languagesGrid}>
                   {user.info.languages?.map((language: ILanguage) => (
                     <div key={language.language} className={styles.languageItem}>
-                      <span className={styles.languageName}>
-                        {language.language}:
-                      </span>
+                      <span className={styles.languageName}>{language.language}:</span>
                       <span className={styles.languageLevel}>{language.level}</span>
                     </div>
                   ))}

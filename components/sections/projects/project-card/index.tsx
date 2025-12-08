@@ -19,11 +19,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({ project }) => {
         color: 'secondary.main',
       }}
     >
-      <Link
-        href={project.path}
-        target={project.target}
-        className={styles.cardLink}
-      >
+      <Link href={project.path} target={project.target} className={styles.cardLink}>
         {project.thumbnail && (
           <Box className={styles.thumbnailContainer}>
             <Image

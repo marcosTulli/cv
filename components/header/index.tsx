@@ -16,11 +16,7 @@ const Header: React.FC = () => {
   const { isLoadingSections } = useIsLoadingSections();
 
   return (
-    <Box
-      component={'section'}
-      ref={sectionRef}
-      className={styles.headerContainer}
-    >
+    <Box component={'section'} ref={sectionRef} className={styles.headerContainer}>
       <SectionHeader
         title={user?.name}
         description={user?.info.candidateTitle}

@@ -13,11 +13,7 @@ const Footer = () => {
         sx={{ bgcolor: 'defaultBackground.main' }}
         className={styles.footer}
       >
-        <Box
-          sx={{ color: 'secondary.main' }}
-          component={'p'}
-          className={styles.footerText}
-        >
+        <Box sx={{ color: 'secondary.main' }} component={'p'} className={styles.footerText}>
           © 2024 {user.name} CV.
         </Box>
       </Box>

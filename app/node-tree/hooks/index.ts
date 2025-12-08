@@ -3,3 +3,4 @@ export { default as useTree } from './useTree';
 export { default as useRemoveNode } from './useRemoveNode';
 export { default as useCreateNode } from './useCreateNode';
 export { default as useRevealChildren } from './useRevealChildren';
+export { default as useIsMobile } from './useIsMobile';
