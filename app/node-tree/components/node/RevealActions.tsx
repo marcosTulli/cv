@@ -1,26 +1,31 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Fade } from '@mui/material';
 import { INodeProps } from '@/models/interfaces';
 import { RevealChildren } from '../buttons';
 import { useNode } from '../../hooks';
 
 const RevealActions: React.FC<INodeProps> = ({ node }) => {
   const { currentNodeOnHover } = useNode();
+  const hasChildren = node.children.length > 0;
+  const isHovered = currentNodeOnHover?.id === node.id;
+  const showButton = hasChildren && isHovered;
+
   return (
     <Box
       sx={{
         display: 'flex',
-        height: '30px',
-        gap: '0.8rem',
-        paddingLeft: '1rem',
-        mt: '2px',
+        width: '32px',
+        height: '32px',
+        alignItems: 'center',
+        justifyContent: 'center',
+        mr: 0.5,
       }}
     >
-      {node.children.length && currentNodeOnHover?.id === node.id ? (
-        <RevealChildren node={node} />
-      ) : (
-        <Box sx={{ width: '30px', height: '30px', display: 'flex' }} />
-      )}
+      <Fade in={showButton} timeout={150}>
+        <Box sx={{ display: showButton ? 'flex' : 'none' }}>
+          <RevealChildren node={node} />
+        </Box>
+      </Fade>
     </Box>
   );
 };

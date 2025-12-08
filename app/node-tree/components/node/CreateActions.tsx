@@ -1,10 +1,9 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Fade } from '@mui/material';
 import { CreateNode, RemoveNode } from '../buttons';
 import { INodeProps } from '@/models/interfaces';
 import { useNode } from '../../hooks';
 
-// TODO: Rename this
 const CreateActions: React.FC<INodeProps> = ({ node }) => {
   const { currentNodeOnHover: hoverNode } = useNode();
   const { id: hoverId } = hoverNode || { id: '' };
@@ -12,12 +11,19 @@ const CreateActions: React.FC<INodeProps> = ({ node }) => {
   const display = hoverId === parentId;
 
   return (
-    display && (
-      <Box sx={{ display: 'flex', gap: '0.8rem', paddingLeft: '1rem' }}>
+    <Fade in={display} timeout={150}>
+      <Box
+        sx={{
+          display: display ? 'flex' : 'none',
+          gap: 1,
+          pl: 1.5,
+          alignItems: 'center',
+        }}
+      >
         <RemoveNode node={node} />
         <CreateNode node={node} />
       </Box>
-    )
+    </Fade>
   );
 };
 
