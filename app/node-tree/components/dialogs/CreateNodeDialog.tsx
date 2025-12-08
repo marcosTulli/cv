@@ -80,12 +80,12 @@ const CreateNodeDialog: React.FC<ICreateNodeDialogProps> = ({ node }) => {
           type="text"
           variant="outlined"
           onChange={handleInput}
-          inputProps={{ maxLength: 30 }}
+          inputProps={{ maxLength: 20 }}
           helperText={`${title.length}/30`}
           FormHelperTextProps={{
             sx: {
               textAlign: 'right',
-              color: title.length >= 25 ? '#f59e0b' : 'secondary.main',
+              color: title.length >= 18 ? '#f59e0b' : 'secondary.main',
               opacity: 0.7,
               fontSize: '0.75rem',
             },
