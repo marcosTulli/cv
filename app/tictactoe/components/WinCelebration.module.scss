@@ -1,0 +1,155 @@
+@import '../../../styles/global.scss';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.modal {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 24px;
+  padding: 3rem 4rem;
+  text-align: center;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5),
+              0 0 60px rgba(102, 126, 234, 0.3);
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 1001;
+
+  @media (max-width: 480px) {
+    padding: 2rem;
+    margin: 1rem;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.trophy {
+  font-size: 5rem;
+  animation: bounce 1s ease infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  color: $defaultWhite;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+}
+
+.playerX {
+  color: $coral;
+  text-shadow: 0 0 20px rgba($coral, 0.5);
+}
+
+.playerO {
+  color: $teal;
+  text-shadow: 0 0 20px rgba($teal, 0.5);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: $defaultGray;
+  margin: 0 0 2rem 0;
+}
+
+.playAgain {
+  background: linear-gradient(135deg, $coral 0%, $terracotta 100%);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba($coral, 0.4);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba($coral, 0.6);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.flyingEmoji {
+  position: absolute;
+  font-size: 2.5rem;
+  bottom: -50px;
+  animation: flyUp linear forwards;
+  pointer-events: none;
+  z-index: 999;
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+}
+
+.winnerX {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: $coral;
+  text-shadow: 0 0 30px rgba($coral, 0.9), 0 0 60px rgba($coral, 0.5);
+  font-family: system-ui, -apple-system, sans-serif;
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
+}
+
+.winnerO {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: $teal;
+  text-shadow: 0 0 30px rgba($teal, 0.9), 0 0 60px rgba($teal, 0.5);
+  font-family: system-ui, -apple-system, sans-serif;
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes flyUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}

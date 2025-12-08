@@ -101,7 +101,7 @@ const useTicTacToe = () => {
     checkWin(slots);
   }, [slots]);
 
-  return { slots, winner, isTie, grid, play, handleReset };
+  return { slots, winner, isTie, grid, play, handleReset, turn };
 };
 
 export default useTicTacToe;
