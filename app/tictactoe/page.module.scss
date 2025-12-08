@@ -6,19 +6,152 @@
   display: flex;
   align-items: center;
 
+  .title {
+    color: $defaultWhite;
+    font-weight: 700;
+    text-shadow: 0 0 30px rgba($teal, 0.3);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .turnIndicator {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 480px) {
+      gap: 0.75rem;
+    }
+  }
+
+  .playerCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    background: rgba($coral, 0.1);
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    min-width: 100px;
+
+    @media (max-width: 480px) {
+      padding: 0.75rem 1rem;
+      min-width: 80px;
+    }
+
+    &.active {
+      border-color: $coral;
+      background: rgba($coral, 0.2);
+      box-shadow: 0 0 25px rgba($coral, 0.4);
+      transform: scale(1.05);
+    }
+
+    .playerSymbol {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $coral;
+
+      @media (max-width: 480px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .playerLabel {
+      font-size: 0.75rem;
+      color: $defaultGray;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.25rem;
+    }
+  }
+
+  .playerCardO {
+    background: rgba($teal, 0.1);
+
+    &.active {
+      border-color: $teal;
+      background: rgba($teal, 0.2);
+      box-shadow: 0 0 25px rgba($teal, 0.4);
+    }
+
+    .playerSymbol {
+      color: $teal;
+    }
+  }
+
+  .vsText {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $defaultGray;
+  }
+
+  .currentTurn {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    background: rgba($defaultWhite, 0.05);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .turnX {
+    color: $coral;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .turnO {
+    color: $teal;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .tieMessage {
+    font-size: 1.5rem;
+    color: $yellow;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    animation: shake 0.5s ease-in-out;
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
   .board {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     padding-top: 1rem;
     margin: auto;
     width: 100%;
     max-width: 564px;
+    perspective: 1000px;
 
     .row {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
 
     .boxes {
@@ -26,13 +159,28 @@
       color: $defaultWhite;
       justify-content: center;
       align-items: center;
-      background-color: $defaultBlack;
-      border: 4px solid $defaultBlack;
-      border-radius: 12px;
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+      border: 3px solid rgba($defaultWhite, 0.1);
+      border-radius: 16px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      width: 160px;
+      height: 160px;
+      position: relative;
+      overflow: hidden;
 
-      width: 180px;
-      height: 180px;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba($defaultWhite, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
 
       @media (max-width: 768px) {
         width: 120px;
@@ -42,12 +190,85 @@
       @media (max-width: 480px) {
         width: 90px;
         height: 90px;
-        border-radius: 8px;
+        border-radius: 12px;
+      }
+
+      &.empty:hover {
+        border-color: rgba($defaultWhite, 0.3);
+        transform: scale(1.02);
+      }
+
+      &.filled {
+        cursor: default;
+      }
+
+      .symbol {
+        font-size: 4rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+
+        @media (max-width: 768px) {
+          font-size: 3rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 2.25rem;
+        }
+      }
+    }
+
+    .playerX {
+      border-color: rgba($coral, 0.5);
+      box-shadow:
+        0 0 20px rgba($coral, 0.2),
+        inset 0 0 30px rgba($coral, 0.1);
+
+      .symbol {
+        color: $coral;
+        text-shadow: 0 0 20px rgba($coral, 0.8);
+        animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+    }
+
+    .playerO {
+      border-color: rgba($teal, 0.5);
+      box-shadow:
+        0 0 20px rgba($teal, 0.2),
+        inset 0 0 30px rgba($teal, 0.1);
+
+      .symbol {
+        color: $teal;
+        text-shadow: 0 0 20px rgba($teal, 0.8);
+        animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
       }
     }
   }
 
   .reset {
     margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background: linear-gradient(135deg, $slateBlue 0%, $indigo 100%);
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba($slateBlue, 0.4);
+    }
   }
 }
