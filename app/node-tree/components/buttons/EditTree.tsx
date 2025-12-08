@@ -7,7 +7,7 @@ export const EditTree: React.FC = () => {
   const { toggleEdit, enableEdit } = useNode();
 
   return (
-    <TreeControl label={'edit'}>
+    <TreeControl label={'Edit'}>
       <Switch
         checked={enableEdit}
         onChange={toggleEdit}

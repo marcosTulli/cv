@@ -20,6 +20,7 @@ export const TreeControl: React.FC<TreeControlProps> = ({ label, children }) => 
     >
       <Typography
         component="label"
+        display={{ xs: 'none', sm: 'block' }}
         sx={{
           color: 'white',
           fontSize: { xs: '0.85rem', sm: '0.9rem' },

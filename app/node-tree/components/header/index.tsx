@@ -1,10 +1,9 @@
 import React from 'react';
-import { Box, Switch, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import { useNode } from '../../hooks';
+import { EditTree } from '../buttons/EditTree';
 
 const Header: React.FC = () => {
-  const { toggleEdit, enableEdit } = useNode();
   return (
     <Box
       id="title"
@@ -22,6 +21,7 @@ const Header: React.FC = () => {
         <Typography
           variant="h5"
           sx={{
+            display: { xs: 'none', sm: 'block' },
             fontWeight: 700,
             color: 'white',
             fontSize: { xs: '1.25rem', sm: '1.5rem' },
@@ -30,44 +30,7 @@ const Header: React.FC = () => {
           {'Node Tree'}
         </Typography>
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 1,
-          bgcolor: 'rgba(255, 255, 255, 0.15)',
-          borderRadius: 2,
-          px: 1.5,
-          py: 0.5,
-        }}
-      >
-        <Typography
-          component="label"
-          sx={{
-            color: 'white',
-            fontSize: { xs: '0.85rem', sm: '0.9rem' },
-            fontWeight: 500,
-          }}
-        >
-          Edit
-        </Typography>
-        <Switch
-          checked={enableEdit}
-          onChange={toggleEdit}
-          size="small"
-          sx={{
-            '& .MuiSwitch-switchBase.Mui-checked': {
-              color: 'white',
-            },
-            '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-              backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            },
-            '& .MuiSwitch-track': {
-              backgroundColor: 'rgba(255, 255, 255, 0.3)',
-            },
-          }}
-        />
-      </Box>
+      <EditTree />
     </Box>
   );
 };
