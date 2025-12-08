@@ -96,7 +96,8 @@
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     50% {
@@ -125,9 +126,16 @@
   }
 
   @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
   }
 
   .board {
@@ -211,7 +219,9 @@
 
     .playerX {
       border-color: rgba($coral, 0.5);
-      box-shadow: 0 0 20px rgba($coral, 0.2), inset 0 0 30px rgba($coral, 0.1);
+      box-shadow:
+        0 0 20px rgba($coral, 0.2),
+        inset 0 0 30px rgba($coral, 0.1);
 
       .symbol {
         color: $coral;
@@ -222,7 +232,9 @@
 
     .playerO {
       border-color: rgba($teal, 0.5);
-      box-shadow: 0 0 20px rgba($teal, 0.2), inset 0 0 30px rgba($teal, 0.1);
+      box-shadow:
+        0 0 20px rgba($teal, 0.2),
+        inset 0 0 30px rgba($teal, 0.1);
 
       .symbol {
         color: $teal;
