@@ -6,8 +6,7 @@ import RevealActions from './RevealActions';
 import { useNode } from '../../hooks';
 
 const Parent: React.FC<INodeProps> = ({ node }) => {
-  const { setCurrentNodeOnHover, clearCurrentNodeOnHover, currentNodeOnHover } =
-    useNode();
+  const { setCurrentNodeOnHover, clearCurrentNodeOnHover, currentNodeOnHover } = useNode();
   const isHovered = currentNodeOnHover?.id === node.id;
   const isRoot = node.id === 'root';
 

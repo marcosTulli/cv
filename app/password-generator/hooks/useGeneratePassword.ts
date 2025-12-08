@@ -1,12 +1,13 @@
 'use client';
-import { generateRandomString } from "@/utils";
-import { passwordConfigStore, passwordGenUIStore, passwordStore } from "../store";
+import { generateRandomString } from '@/utils';
+import { passwordConfigStore, passwordGenUIStore, passwordStore } from '../store';
 
 export function useGeneratePassword() {
-  const { passwordConfig  } = passwordConfigStore();
+  const { passwordConfig } = passwordConfigStore();
   const { password, setPassword } = passwordStore();
-  const { length, withNumbers, withLowercase, withSymbols, withUppercase} = passwordConfig;
-  const { displayCopyPassword, toggleShowSnackBar, toggleDisplayCopyPassword} = passwordGenUIStore();
+  const { length, withNumbers, withLowercase, withSymbols, withUppercase } = passwordConfig;
+  const { displayCopyPassword, toggleShowSnackBar, toggleDisplayCopyPassword } =
+    passwordGenUIStore();
 
   const generatePassword = () => {
     const randomPassword = generateRandomString({
@@ -17,9 +18,10 @@ export function useGeneratePassword() {
       includeSymbols: withSymbols,
     });
     setPassword(randomPassword);
-    !displayCopyPassword && toggleDisplayCopyPassword();
+    if (!displayCopyPassword) {
+      toggleDisplayCopyPassword();
+    }
   };
-
 
   return {
     password,
@@ -28,4 +30,3 @@ export function useGeneratePassword() {
     generatePassword,
   };
 }
-

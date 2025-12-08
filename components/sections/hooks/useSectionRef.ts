@@ -11,7 +11,6 @@ const useSectionRef = ({ sectionName }: { sectionName: Sections }) => {
     return () => {
       setSection(sectionName, null);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return { sectionRef };
 };

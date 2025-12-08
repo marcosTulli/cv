@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import styles from './index.module.scss';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -16,7 +17,7 @@ const ProfilePicture: React.FC<IProfilePictureProps> = ({ isLoading }) => {
       <Skeleton circle height={size} width={size} />
     </Box>
   ) : (
-    <img
+    <Image
       src="/profile.png"
       alt="profile picture"
       width={size}

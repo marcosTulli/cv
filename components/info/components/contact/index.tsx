@@ -17,10 +17,7 @@ const Contact: React.FC<IContactProps> = ({ isLoading }) => {
   const { tooltipTitle, handleCopy, resetTooltip } = useContact();
 
   return (
-    <Box
-      sx={{ color: 'secondary.main' }}
-      className={styles.contactInfoContainer}
-    >
+    <Box sx={{ color: 'secondary.main' }} className={styles.contactInfoContainer}>
       {isLoading ? (
         <Box>
           <Box className={styles.contact}>
@@ -35,21 +32,13 @@ const Contact: React.FC<IContactProps> = ({ isLoading }) => {
       ) : (
         <Box>
           <Tooltip title={tooltipTitle} TransitionProps={{ timeout: 500 }}>
-            <Box
-              onClick={handleCopy}
-              onMouseOut={resetTooltip}
-              className={styles.contact}
-            >
+            <Box onClick={handleCopy} onMouseOut={resetTooltip} className={styles.contact}>
               <WhatsAppIcon className={styles.icon} />
               <Box>{user.phone}</Box>
             </Box>
           </Tooltip>
           <Tooltip title={tooltipTitle} TransitionProps={{ timeout: 500 }}>
-            <Box
-              className={styles.contact}
-              onClick={handleCopy}
-              onMouseOut={resetTooltip}
-            >
+            <Box className={styles.contact} onClick={handleCopy} onMouseOut={resetTooltip}>
               <EmailOutlinedIcon className={styles.icon} />
               <Box>{user.email}</Box>
             </Box>

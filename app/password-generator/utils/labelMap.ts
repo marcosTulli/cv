@@ -1,7 +1,7 @@
-import { fair, strong, weak } from "./passwordStrength";
+import { fair, strong, weak } from './passwordStrength';
 
- export const passwordStrengthLabelMap = {
+export const passwordStrengthLabelMap = {
   [weak]: 'Weak',
   [fair]: 'Fair',
-  [strong]: 'Strong'
-  };
+  [strong]: 'Strong',
+};

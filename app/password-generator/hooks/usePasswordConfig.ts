@@ -5,8 +5,13 @@ import { passwordConfigStore } from '../store';
 
 export function usePasswordConfig() {
   const { passwordConfig, updateConfig } = passwordConfigStore();
-  const { withNumbers, withLowercase, withSymbols, withUppercase, length: lengthKey } =
-    PasswordConfigKeys;
+  const {
+    withNumbers,
+    withLowercase,
+    withSymbols,
+    withUppercase,
+    length: lengthKey,
+  } = PasswordConfigKeys;
 
   const excluded = [lengthKey];
 
@@ -27,12 +32,11 @@ export function usePasswordConfig() {
           checked: passwordConfig[key] as boolean,
           setter: (value: boolean) => updateConfig(key, value),
         })),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [passwordConfig]
+
+    [passwordConfig],
   );
 
-  const handleLength = (value: number) =>
-    updateConfig(PasswordConfigKeys.length, value);
+  const handleLength = (value: number) => updateConfig(PasswordConfigKeys.length, value);
 
   return { charConfig, length: passwordConfig.length, handleLength };
 }

@@ -1,11 +1,18 @@
 'use client';
 import React from 'react';
 import { Box, Snackbar } from '@mui/material';
-import { Display, GenerateCTA, Header, PasswordConfiguration, StrengthIndicator, Wrapper } from './components';
+import {
+  Display,
+  GenerateCTA,
+  Header,
+  PasswordConfiguration,
+  StrengthIndicator,
+  Wrapper,
+} from './components';
 import { usePasswordGeneratorComponent } from './hooks';
 
 const PasswordGenerator: React.FC = () => {
-  const {showSnackbar, toggleShowSnackBar } = usePasswordGeneratorComponent();
+  const { showSnackbar, toggleShowSnackBar } = usePasswordGeneratorComponent();
   return (
     <Box
       sx={{
@@ -20,12 +27,12 @@ const PasswordGenerator: React.FC = () => {
       }}
     >
       <Wrapper>
-        <Header/>
+        <Header />
         <Box sx={{ p: { xs: 2.5, sm: 3 } }}>
-          <Display/>
-          <PasswordConfiguration/>
-          <StrengthIndicator/>
-          <GenerateCTA/>
+          <Display />
+          <PasswordConfiguration />
+          <StrengthIndicator />
+          <GenerateCTA />
         </Box>
       </Wrapper>
 

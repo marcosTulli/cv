@@ -1,9 +1,7 @@
-
-export enum PasswordStrength { 
-  weak = "weak",
-  fair = "fair",
-  strong = "strong"
+export enum PasswordStrength {
+  weak = 'weak',
+  fair = 'fair',
+  strong = 'strong',
 }
 
-export const {weak, fair, strong} = PasswordStrength;
-
+export const { weak, fair, strong } = PasswordStrength;

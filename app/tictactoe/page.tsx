@@ -53,11 +53,7 @@ const TicTac: React.FC = () => {
               {row.flatMap((_, slotIndex) => {
                 const realIndex = rowIndex * 3 + slotIndex;
                 return (
-                  <div
-                    key={realIndex}
-                    className={styles.boxes}
-                    onClick={() => play(realIndex)}
-                  >
+                  <div key={realIndex} className={styles.boxes} onClick={() => play(realIndex)}>
                     <Typography variant="h2">{slots[realIndex]}</Typography>
                   </div>
                 );
@@ -66,11 +62,7 @@ const TicTac: React.FC = () => {
           ))}
         </div>
 
-        <Button
-          variant="contained"
-          onClick={handleReset}
-          className={styles.reset}
-        >
+        <Button variant="contained" onClick={handleReset} className={styles.reset}>
           Reset
         </Button>
       </div>

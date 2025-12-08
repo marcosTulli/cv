@@ -49,7 +49,7 @@ class DataProvider {
       },
       headers: this.blobHeaders,
     });
-    return response.data as Blob;
+    return response.data;
   }
 }
 const DataProviderInstance = new DataProvider();

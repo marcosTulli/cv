@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 import SinglePageTemplate from './SinglePageTemplate';
 import { Box } from '@mui/material';
 
+// eslint-disable-next-line no-empty-pattern
 const PrintableTemplate = forwardRef<HTMLDivElement>(({}, ref) => {
   return (
     <div hidden>
@@ -21,6 +22,5 @@ const PrintableTemplate = forwardRef<HTMLDivElement>(({}, ref) => {
     </div>
   );
 });
-PrintableTemplate.displayName = 'PrintableTemplate';
 
 export { PrintableTemplate };

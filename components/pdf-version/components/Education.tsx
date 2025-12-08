@@ -21,9 +21,7 @@ const Education: React.FC = () => {
         {educationData?.map((education) => (
           <div className={styles.educationItem} key={education.id}>
             <Typography className={styles.degree}>{education.title}</Typography>
-            <Typography className={styles.institution}>
-              {education.content}
-            </Typography>
+            <Typography className={styles.institution}>{education.content}</Typography>
           </div>
         ))}
       </div>

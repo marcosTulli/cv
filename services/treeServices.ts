@@ -30,9 +30,7 @@ class TreeServices {
     };
 
     this.getRootNode = () => {
-      return (
-        getLocalStorageData(LOCAL_STORAGE_KEY) || this.initializeRootNode()
-      );
+      return getLocalStorageData(LOCAL_STORAGE_KEY) || this.initializeRootNode();
     };
 
     this.updateRootNode = (rootNode: INode) => {
@@ -40,11 +38,7 @@ class TreeServices {
       return rootNode;
     };
 
-    this.createNode = async ({
-      parentId,
-      newNode,
-      rootNode,
-    }: ICreateNodeProps): Promise<INode> => {
+    this.createNode = async ({ parentId, newNode, rootNode }: ICreateNodeProps): Promise<INode> => {
       const updatedRootNode = addNodeRecursively({
         currentNode: rootNode,
         node: newNode,
@@ -57,11 +51,7 @@ class TreeServices {
       return this.getRootNode();
     };
 
-    this.removeNode = async ({
-      nodeId,
-    }: {
-      nodeId: string;
-    }): Promise<INode> => {
+    this.removeNode = async ({ nodeId }: { nodeId: string }): Promise<INode> => {
       const rootNode = this.getRootNode();
       const updatedRootNode = removeNodeRecursively({
         currentNode: rootNode,
@@ -70,11 +60,7 @@ class TreeServices {
       return this.updateRootNode(updatedRootNode);
     };
 
-    this.toggleRevealChildren = async ({
-      nodeId,
-    }: {
-      nodeId: string;
-    }): Promise<INode> => {
+    this.toggleRevealChildren = async ({ nodeId }: { nodeId: string }): Promise<INode> => {
       const rootNode = this.getRootNode();
       const updatedRootNode = revealNodeRecursively({
         currentNode: rootNode,

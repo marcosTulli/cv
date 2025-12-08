@@ -9,8 +9,7 @@ interface IUseIsLoadingSections {
 }
 
 const useIsLoadingSections = () => {
-  const { sectionsLoadingState, setSectionsLoadingState } =
-    sectionsLoadingStateStore();
+  const { sectionsLoadingState, setSectionsLoadingState } = sectionsLoadingStateStore();
   const [isLoadingSections, setIsLoadingSections] = useState(true);
 
   useEffect(() => {

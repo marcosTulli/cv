@@ -31,19 +31,17 @@ const WorkExperience: React.FC = () => {
         {experiences?.map((experience) => (
           <article className={styles.experienceItem} key={experience._id}>
             <header className={styles.experienceHeader}>
-              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, alignItems:'center' }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, alignItems: 'center' }}>
                 <Typography component="h3" className={styles.jobTitle}>
                   {experience.info.position}
                 </Typography>
-                <Typography className={styles.companyName}>
-                  {experience.companyName}
-                </Typography>
+                <Typography className={styles.companyName}>{experience.companyName}</Typography>
               </Box>
               <span className={styles.datePeriod}>
                 {experience.activePeriod.startDate} -{' '}
                 {experience.activePeriod.endDate.length > 0
                   ? experience.activePeriod.endDate
-                  : strings.activelyWorkingLabel  }
+                  : strings.activelyWorkingLabel}
               </span>
             </header>
             <ul className={styles.taskList}>

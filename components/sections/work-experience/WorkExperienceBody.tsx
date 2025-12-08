@@ -12,10 +12,7 @@ interface IWorkExperienceBody {
   isLoading: boolean;
 }
 
-const WorkExperienceBody: React.FC<IWorkExperienceBody> = ({
-  data,
-  isLoading,
-}) => {
+const WorkExperienceBody: React.FC<IWorkExperienceBody> = ({ data, isLoading }) => {
   const { currentLanguage } = languageStore();
 
   return (

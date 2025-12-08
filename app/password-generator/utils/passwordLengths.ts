@@ -1,5 +1,5 @@
-export const passwordLengths = { 
+export const passwordLengths = {
   weak: 8,
-  fair: 12, 
-  strong: 16
+  fair: 12,
+  strong: 16,
 };

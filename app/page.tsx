@@ -1,11 +1,6 @@
 'use client';
 import * as React from 'react';
-import {
-  Education,
-  WorkExperience,
-  Skills,
-  Projects,
-} from '@components/sections';
+import { Education, WorkExperience, Skills, Projects } from '@components/sections';
 import Info from '@components/info';
 import { Box } from '@mui/material';
 import { useDownload } from '@/hooks';
@@ -43,8 +38,7 @@ const Home = () => {
         <Box
           key={section.id}
           sx={{
-            bgcolor:
-              index % 2 === 1 ? 'primary.main' : 'defaultBackground.main',
+            bgcolor: index % 2 === 1 ? 'primary.main' : 'defaultBackground.main',
           }}
         >
           {section.component}

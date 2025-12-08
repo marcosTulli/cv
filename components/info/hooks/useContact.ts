@@ -2,8 +2,7 @@ import React from 'react';
 
 const useContact = () => {
   const tooltipDefault = 'Click to copy';
-  const [tooltipTitle, setTooltipTitle] =
-    React.useState<string>(tooltipDefault);
+  const [tooltipTitle, setTooltipTitle] = React.useState<string>(tooltipDefault);
 
   const handleCopy = async (event: React.MouseEvent<HTMLElement>) => {
     const value = (event.currentTarget.textContent || '').trim();

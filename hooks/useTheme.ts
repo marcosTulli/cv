@@ -17,7 +17,7 @@ const useTheme = () => {
       ...baseColors,
       primary: { main: black, weak: '#444444', contrastText: baseColors.white.main },
       secondary: { main: '#F7F7F7', strong: '#CCCCCC' },
-      defaultBackground: { main: black, paper:'#13111bff'  },
+      defaultBackground: { main: black, paper: '#13111bff' },
     },
   };
 
@@ -26,7 +26,7 @@ const useTheme = () => {
       ...baseColors,
       primary: { main: '#F7F7F7', weak: '#CCCCCC', contrastText: baseColors.black.main },
       secondary: { main: '#333333', strong: '#444444' },
-      defaultBackground: { main: '#F7F7F7', paper:'#eeeffcff' },
+      defaultBackground: { main: '#F7F7F7', paper: '#eeeffcff' },
     },
   };
 

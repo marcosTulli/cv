@@ -20,8 +20,7 @@ export default function AdminDialog() {
   const { isOpen, toggle } = useAdminDialogStore();
   const theme = useTheme(); // Uses MUI theme from ThemeProvider
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
-    useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
   const { isAdmin } = useUser();
   const handleLogin = () => loginWithRedirect();
   const { strings } = languageStore();
@@ -39,9 +38,7 @@ export default function AdminDialog() {
         },
       }}
     >
-      <DialogTitle sx={{ fontSize: '2rem' }}>
-        {strings.adminDialogTitle}
-      </DialogTitle>
+      <DialogTitle sx={{ fontSize: '2rem' }}>{strings.adminDialogTitle}</DialogTitle>
 
       <DialogContent>
         {!isLoading && isAuthenticated ? (
@@ -49,17 +46,13 @@ export default function AdminDialog() {
             <Typography sx={{ fontSize: '1.5rem' }}>
               {strings.adminDialogContent} {user?.name}
             </Typography>
-            <Typography
-              sx={{ fontSize: '1rem', display: 'flex', gap: '0.5rem' }}
-            >
+            <Typography sx={{ fontSize: '1rem', display: 'flex', gap: '0.5rem' }}>
               <p>{strings.adminDialogRoleLabel}: </p>
               {isAdmin ? strings.admin : strings.guest}
             </Typography>
             <Button
               variant="contained"
-              onClick={() =>
-                logout({ logoutParams: { returnTo: window.location.origin } })
-              }
+              onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
             >
               {strings.logoutButtonLabel}
             </Button>

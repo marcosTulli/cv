@@ -19,8 +19,7 @@ interface ICreateNodeDialogProps {
 
 const CreateNodeDialog: React.FC<ICreateNodeDialogProps> = ({ node }) => {
   const { isOpenCreateDialog } = useDialogsStore();
-  const { handleCloseCreateDialog, handleInput, title, disableSubmit } =
-    useNode();
+  const { handleCloseCreateDialog, handleInput, title, disableSubmit } = useNode();
   const { rootNode } = useRootNode();
   const { create } = useTree();
   const { strings } = languageStore();

@@ -21,12 +21,8 @@ const useNode = () => {
     clearCurrentNodeOnHover,
   } = useNodeStore();
 
-  const {
-    openCreateDialog,
-    openRemoveDialog,
-    closeCreateDialog,
-    closeRemoveDialog,
-  } = useDialogsStore();
+  const { openCreateDialog, openRemoveDialog, closeCreateDialog, closeRemoveDialog } =
+    useDialogsStore();
 
   const handleAddNodeClick = ({ node }: { node: INode }) => {
     openCreateDialog();
@@ -51,9 +47,7 @@ const useNode = () => {
     clearSelectedNode();
   };
 
-  const handleInput = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setTitle(event.target.value);
   };
 

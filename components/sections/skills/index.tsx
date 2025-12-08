@@ -25,7 +25,6 @@ const Skills: React.FC = () => {
       sectionName: LoadableSections.isLoadingSkills,
       isLoading: isLoadingSkills,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoadingSkills]);
 
   return (
@@ -35,10 +34,7 @@ const Skills: React.FC = () => {
         description={strings.skillsDescription}
         isLoading={isLoadingUser || isLoadingSkills}
       />
-      <SkillsBody
-        skillsData={skillsData}
-        isLoading={isLoadingUser || isLoadingSkills}
-      />
+      <SkillsBody skillsData={skillsData} isLoading={isLoadingUser || isLoadingSkills} />
     </Box>
   );
 };

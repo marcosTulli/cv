@@ -8,9 +8,13 @@ interface IButtonComponentProps {
   variant: 'outlined' | 'contained' | 'text';
   title: string;
 }
-const ButtonComponent: React.FC<
-  React.PropsWithChildren & IButtonComponentProps
-> = ({ children, onClick, display, variant, title }) => {
+const ButtonComponent: React.FC<React.PropsWithChildren & IButtonComponentProps> = ({
+  children,
+  onClick,
+  display,
+  variant,
+  title,
+}) => {
   const getVariantStyles = () => {
     if (variant === 'contained') {
       return {

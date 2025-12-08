@@ -21,11 +21,7 @@ const RevealActions: React.FC<INodeProps> = ({ node }) => {
       onClick={() => toggleRevealChildren({ nodeId: node.id })}
       display={true}
       variant="text"
-      title={`${
-        node.revealChildren
-          ? strings.collapseNodeToolTip
-          : strings.revealNodeTooltip
-      }`}
+      title={`${node.revealChildren ? strings.collapseNodeToolTip : strings.revealNodeTooltip}`}
     >
       {node.revealChildren ? (
         <ExpandLessIcon sx={iconStyles} />

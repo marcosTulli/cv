@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 
 interface PasswordGenUIState {
@@ -10,17 +9,19 @@ interface PasswordGenUIState {
   toggleDisplayCopyPassword: () => void;
 }
 
-const PasswordGenUIInitialState: Pick<PasswordGenUIState, 'passwordCopied' |'showSnackbar' | 'displayCopyPassword'> = { 
+const PasswordGenUIInitialState: Pick<
+  PasswordGenUIState,
+  'passwordCopied' | 'showSnackbar' | 'displayCopyPassword'
+> = {
   passwordCopied: false,
   showSnackbar: false,
-  displayCopyPassword: false
+  displayCopyPassword: false,
 };
 
 export const passwordGenUIStore = create<PasswordGenUIState>()((set) => ({
   ...PasswordGenUIInitialState,
   togglePasswordCoppied: () => set((state) => ({ passwordCopied: !state.passwordCopied })),
   toggleShowSnackBar: () => set((state) => ({ showSnackbar: !state.showSnackbar })),
-  toggleDisplayCopyPassword: () => set((state) => ({ displayCopyPassword: !state.displayCopyPassword })),
+  toggleDisplayCopyPassword: () =>
+    set((state) => ({ displayCopyPassword: !state.displayCopyPassword })),
 }));
-
-
