@@ -2,13 +2,14 @@ import React from 'react';
 import { Box, Fade } from '@mui/material';
 import { INodeProps } from '@/models/interfaces';
 import { RevealChildren } from '../buttons';
-import { useNode } from '../../hooks';
+import { useNode, useIsMobile } from '../../hooks';
 
 const RevealActions: React.FC<INodeProps> = ({ node }) => {
   const { currentNodeOnHover } = useNode();
+  const isMobile = useIsMobile();
   const hasChildren = node.children.length > 0;
   const isHovered = currentNodeOnHover?.id === node.id;
-  const showButton = hasChildren && isHovered;
+  const showButton = isMobile ? hasChildren : hasChildren && isHovered;
 
   return (
     <Box

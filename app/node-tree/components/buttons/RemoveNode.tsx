@@ -18,7 +18,7 @@ const RemoveNode: React.FC<INodeProps> = ({ node }) => {
       variant={'outlined'}
       title={strings.removeNodeButtonTooltip as string}
     >
-      <RemoveIcon color="secondary" sx={{ fontSize: '12px' }} />
+      <RemoveIcon color="secondary" sx={{ fontSize: { xs: '10px', sm: '12px' } }} />
     </ButtonComponent>
   );
 };

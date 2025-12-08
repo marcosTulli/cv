@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
         }}
       >
         <Header />
-        <Box sx={{ p: { xs: 2, sm: 3 } }}>
+        <Box sx={{ p: { xs: 2, sm: 3 }, overflowX: 'auto' }}>
           {isLoading ? (
             <Box
               sx={{
