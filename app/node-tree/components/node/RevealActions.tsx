@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Fade } from '@mui/material';
+import { Box } from '@mui/material';
 import { INodeProps } from '@/models/interfaces';
 import { RevealChildren } from '../buttons';
 import { useNode, useIsMobile } from '../../hooks';
@@ -22,11 +22,7 @@ const RevealActions: React.FC<INodeProps> = ({ node }) => {
         mr: 0.5,
       }}
     >
-      <Fade in={showButton} timeout={150}>
-        <Box sx={{ display: showButton ? 'flex' : 'none' }}>
-          <RevealChildren node={node} />
-        </Box>
-      </Fade>
+      {showButton && <RevealChildren node={node} />}
     </Box>
   );
 };

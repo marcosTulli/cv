@@ -2,6 +2,7 @@
 import React from 'react';
 import { useEditModeStore, useNodeStore, useDialogsStore } from '../store';
 import { INode } from '@/models/interfaces';
+import { useClearTree } from './useClearTree';
 
 const useNode = () => {
   const [title, setTitle] = React.useState<string>('');
@@ -21,8 +22,21 @@ const useNode = () => {
     clearCurrentNodeOnHover,
   } = useNodeStore();
 
-  const { openCreateDialog, openRemoveDialog, closeCreateDialog, closeRemoveDialog } =
-    useDialogsStore();
+  const {
+    openCreateDialog,
+    openRemoveDialog,
+    closeCreateDialog,
+    closeRemoveDialog,
+    openClearTreeDialog,
+    closeClearTreeDialog,
+  } = useDialogsStore();
+
+  const { clearTree: clearTreeMutation } = useClearTree();
+
+  const clearTree = () => {
+    clearTreeMutation();
+    closeClearTreeDialog();
+  };
 
   const handleAddNodeClick = ({ node }: { node: INode }) => {
     openCreateDialog();
@@ -62,11 +76,14 @@ const useNode = () => {
     clearCurrentNodeOnHover,
     setCurrentNodeOnHover,
     toggleOptions,
+    openClearTreeDialog,
+    closeClearTreeDialog,
     handleAddNodeClick,
     handleRemoveNodeClick,
     handleCloseRemoveDialog,
     handleCloseCreateDialog,
     handleInput,
+    clearTree,
     toggleEdit,
   };
 };

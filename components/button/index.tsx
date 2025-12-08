@@ -60,28 +60,30 @@ const ButtonComponent: React.FC<React.PropsWithChildren & IButtonComponentProps>
     return null;
   }
 
+  const button = (
+    <Button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      variant={variant}
+      sx={{
+        minWidth: { xs: '22px', sm: '28px' },
+        minHeight: { xs: '22px', sm: '28px' },
+        p: { xs: '4px', sm: '6px' },
+        m: '0',
+        borderRadius: 1.5,
+        transition: 'all 0.2s ease',
+        ...getVariantStyles(),
+      }}
+    >
+      {children}
+    </Button>
+  );
+
   return (
-    <Fade in={display} timeout={200}>
-      <Tooltip title={title} arrow>
-        <Button
-          type="button"
-          onClick={onClick}
-          disabled={disabled}
-          variant={variant}
-          sx={{
-            minWidth: { xs: '22px', sm: '28px' },
-            minHeight: { xs: '22px', sm: '28px' },
-            p: { xs: '4px', sm: '6px' },
-            m: '0',
-            borderRadius: 1.5,
-            transition: 'all 0.2s ease',
-            ...getVariantStyles(),
-          }}
-        >
-          {children}
-        </Button>
-      </Tooltip>
-    </Fade>
+    <Tooltip title={title} arrow>
+      <span style={{ display: 'inline-flex' }}>{button}</span>
+    </Tooltip>
   );
 };
 

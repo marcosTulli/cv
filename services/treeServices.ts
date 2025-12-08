@@ -17,6 +17,7 @@ class TreeServices {
   public fetchRootNode: () => Promise<INode>;
   public removeNode: (props: { nodeId: string }) => Promise<INode>;
   public toggleRevealChildren: (props: { nodeId: string }) => Promise<INode>;
+  public clearTree: () => Promise<void>;
 
   constructor() {
     this.initializeRootNode = () => {
@@ -27,6 +28,11 @@ class TreeServices {
       };
       setLocalStorageData(LOCAL_STORAGE_KEY, defaultRootNode);
       return defaultRootNode;
+    };
+
+    this.clearTree = () => {
+      this.initializeRootNode();
+      return Promise.resolve();
     };
 
     this.getRootNode = () => {

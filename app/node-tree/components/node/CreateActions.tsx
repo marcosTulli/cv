@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Fade } from '@mui/material';
+import { Box } from '@mui/material';
 import { CreateNode, RemoveNode } from '../buttons';
 import { INodeProps } from '@/models/interfaces';
 import { useNode, useIsMobile } from '../../hooks';
@@ -15,20 +15,22 @@ const CreateActions: React.FC<INodeProps> = ({ node }) => {
   const isHovered = hoverId === parentId;
   const display = isMobile ? enableEdit : isHovered;
 
+  if (!display) {
+    return null;
+  }
+
   return (
-    <Fade in={display} timeout={150}>
-      <Box
-        sx={{
-          display: display ? 'flex' : 'none',
-          gap: 1,
-          pl: 1.5,
-          alignItems: 'center',
-        }}
-      >
-        <RemoveNode node={node} />
-        <CreateNode node={node} />
-      </Box>
-    </Fade>
+    <Box
+      sx={{
+        display: 'flex',
+        gap: 1,
+        pl: 1.5,
+        alignItems: 'center',
+      }}
+    >
+      <RemoveNode node={node} />
+      <CreateNode node={node} />
+    </Box>
   );
 };
 

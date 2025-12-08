@@ -33,13 +33,17 @@ const CreateNodeDialog: React.FC<ICreateNodeDialogProps> = ({ node }) => {
       }}
       open={isOpenCreateDialog}
       onClose={handleCloseCreateDialog}
+      fullWidth
+      maxWidth="xs"
       PaperProps={{
         sx: {
           borderRadius: 3,
           bgcolor: 'defaultBackground.paper',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.08)',
-          minWidth: { xs: '90%', sm: 400 },
+          m: { xs: 2, sm: 3 },
+          width: { xs: 'calc(100% - 32px)', sm: 400 },
+          maxWidth: { xs: 'calc(100% - 32px)', sm: 400 },
         },
       }}
     >
@@ -48,11 +52,11 @@ const CreateNodeDialog: React.FC<ICreateNodeDialogProps> = ({ node }) => {
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
           p: 2,
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           gap: 1,
         }}
       >
-        <AddIcon sx={{ color: 'white', fontSize: 24 }} />
+        <AddIcon sx={{ color: 'white', fontSize: 24, flexShrink: 0, mt: 0.25 }} />
         <DialogTitle
           sx={{
             p: 0,

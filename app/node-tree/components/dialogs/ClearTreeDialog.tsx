@@ -5,26 +5,19 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useNode, useTree } from '../../hooks';
-import { INode } from '@/models/interfaces';
 import { useDialogsStore } from '../../store';
-import { languageStore } from '@/store';
 import { Box } from '@mui/material';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import { useNode } from '../../hooks';
 
-interface IRemoveNodeDialogProps {
-  node: INode;
-}
-const RemoveNodeDialog: React.FC<IRemoveNodeDialogProps> = ({ node }) => {
-  const { isOpenRemoveDialog } = useDialogsStore();
-  const { remove } = useTree();
-  const { handleCloseRemoveDialog } = useNode();
-  const { strings } = languageStore();
+export const ClearTreeDialog: React.FC = () => {
+  const { isOpenClearTreeDialog, closeClearTreeDialog } = useDialogsStore();
+  const { clearTree } = useNode();
 
   return (
     <Dialog
-      open={isOpenRemoveDialog}
-      onClose={handleCloseRemoveDialog}
+      open={isOpenClearTreeDialog}
+      onClose={closeClearTreeDialog}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       fullWidth
@@ -46,7 +39,7 @@ const RemoveNodeDialog: React.FC<IRemoveNodeDialogProps> = ({ node }) => {
           background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
           p: 2,
           display: 'flex',
-          alignItems: 'flex-start',
+          alignItems: 'center',
           gap: 1,
         }}
       >
@@ -60,7 +53,7 @@ const RemoveNodeDialog: React.FC<IRemoveNodeDialogProps> = ({ node }) => {
             fontSize: { xs: '1rem', sm: '1.1rem' },
           }}
         >
-          {strings.removeNodeDialogTitle}
+          Clear Tree
         </DialogTitle>
       </Box>
       <DialogContent sx={{ pt: 3, pb: 2 }}>
@@ -68,12 +61,12 @@ const RemoveNodeDialog: React.FC<IRemoveNodeDialogProps> = ({ node }) => {
           id="alert-dialog-description"
           sx={{ color: 'secondary.main', opacity: 0.9 }}
         >
-          {strings.removeNodeConfirmation}
+          Are you sure you want to remove all nodes?
         </DialogContentText>
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 2.5, gap: 1 }}>
         <Button
-          onClick={handleCloseRemoveDialog}
+          onClick={closeClearTreeDialog}
           sx={{
             fontSize: '0.85rem',
             color: 'secondary.main',
@@ -82,11 +75,11 @@ const RemoveNodeDialog: React.FC<IRemoveNodeDialogProps> = ({ node }) => {
             },
           }}
         >
-          {strings.cancelLabel}
+          Cancel
         </Button>
         <Button
           variant="contained"
-          onClick={() => remove(node.id)}
+          onClick={clearTree}
           autoFocus
           sx={{
             fontSize: '0.85rem',
@@ -100,10 +93,9 @@ const RemoveNodeDialog: React.FC<IRemoveNodeDialogProps> = ({ node }) => {
             },
           }}
         >
-          {strings.acceptLabel}
+          Clear
         </Button>
       </DialogActions>
     </Dialog>
   );
 };
-export default RemoveNodeDialog;
