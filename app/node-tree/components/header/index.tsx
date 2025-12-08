@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import { EditTree } from '../buttons/EditTree';
+import { ClearTree } from '../buttons/ClearTree';
 
 const Header: React.FC = () => {
   return (
@@ -30,7 +31,10 @@ const Header: React.FC = () => {
           {'Node Tree'}
         </Typography>
       </Box>
-      <EditTree />
+      <Box id="tree-controls" sx={{ display: 'flex', gap: 1 }}>
+        <EditTree />
+        <ClearTree />
+      </Box>
     </Box>
   );
 };

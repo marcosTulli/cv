@@ -6,6 +6,7 @@ interface IButtonComponentProps {
   onClick: () => void;
   display: boolean;
   variant: 'outlined' | 'contained' | 'text';
+  disabled?: boolean;
   title: string;
 }
 const ButtonComponent: React.FC<React.PropsWithChildren & IButtonComponentProps> = ({
@@ -13,6 +14,7 @@ const ButtonComponent: React.FC<React.PropsWithChildren & IButtonComponentProps>
   onClick,
   display,
   variant,
+  disabled,
   title,
 }) => {
   const getVariantStyles = () => {
@@ -64,6 +66,7 @@ const ButtonComponent: React.FC<React.PropsWithChildren & IButtonComponentProps>
         <Button
           type="button"
           onClick={onClick}
+          disabled={disabled}
           variant={variant}
           sx={{
             minWidth: { xs: '22px', sm: '28px' },
