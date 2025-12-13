@@ -29,7 +29,7 @@
     "bcrypt-ts": "^5.0.2",
     "bcryptjs": "^2.4.3",
     "clipboard": "^2.0.11",
-    "next": "^14.2.5",
+    "next": "^14.2.35",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
