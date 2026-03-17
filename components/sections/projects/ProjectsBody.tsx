@@ -59,6 +59,7 @@ enum Paths {
   CVAPI = 'https://cv-service-cf36.onrender.com/api',
   PatientManager = 'https://mt-patientmanagement.vercel.app/',
   AdminDashboard = 'https://mtadmin.vercel.app/',
+  Abbaco = 'https://bonds.mercapabbaco.com/bond-analysis/BYMA/AL30',
 }
 
 enum Thumbnails {
@@ -69,6 +70,7 @@ enum Thumbnails {
   CVAPI = '/projects/cv-api.png',
   PatientManager = '/projects/patient-manager.png',
   AdminDashboard = '/projects/admin-dashboard.png',
+  Abbaco = '/projects/abbaco.png',
 }
 
 const ProjectsBody = () => {
@@ -161,6 +163,14 @@ const ProjectsBody = () => {
       path: Paths.AdminDashboard,
       target: '_blank',
       thumbnail: Thumbnails.AdminDashboard,
+    },
+    {
+      id: 8,
+      title: 'Abbaco',
+      content: 'Bond Analysis',
+      path: Paths.Abbaco,
+      target: '_blank',
+      thumbnail: Thumbnails.Abbaco,
     },
   ];
 
