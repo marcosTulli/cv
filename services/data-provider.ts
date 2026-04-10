@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { TAxiosGetParams } from '../models/types';
 import { IGetIconParams } from '@/models/interfaces';
+import { authStore } from '@/store';
 
 const cvApiKey = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
@@ -29,6 +30,23 @@ class DataProvider {
         },
       },
       headers: this.jsonHeaders,
+    });
+    return response.data;
+  }
+
+  private authHeaders(): Record<string, string> {
+    const token = authStore.getState().accessToken;
+    return token ? { ...this.jsonHeaders, Authorization: `Bearer ${token}` } : this.jsonHeaders;
+  }
+
+  public async post<T>(
+    location: string,
+    body: Record<string, unknown> = {},
+    options: AxiosRequestConfig = {},
+  ): Promise<T> {
+    const response = await axios.post(baseUrl + location, body, {
+      ...options,
+      headers: this.authHeaders(),
     });
     return response.data;
   }
