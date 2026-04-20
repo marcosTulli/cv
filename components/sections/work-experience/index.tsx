@@ -7,8 +7,9 @@ import { LoadableSections, Sections } from '@/models/enums';
 import useSectionRef from '../hooks/useSectionRef';
 import { languageStore, userStore } from '@/store';
 import { useWorkExperience } from '@/hooks/queries';
-import { useIsLoadingSections } from '@/hooks';
-import { Box } from '@mui/material';
+import { useAuth, useIsLoadingSections, useUi } from '@/hooks';
+import { Box, Button, Tooltip } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 const WorkExperience: React.FC = () => {
   const { strings, currentLanguage } = languageStore();
@@ -17,6 +18,9 @@ const WorkExperience: React.FC = () => {
     id: user._id,
     lang: currentLanguage,
   });
+  const { isEditMode, openExperienceDialog } = useUi();
+  const { isAdmin } = useAuth();
+  const showAdd = isEditMode && isAdmin;
 
   const { sectionRef } = useSectionRef({
     sectionName: Sections.WorkExperience,
@@ -32,11 +36,36 @@ const WorkExperience: React.FC = () => {
 
   return (
     <Box component="section" ref={sectionRef} className={styles.section}>
-      <SectionHeader
-        title={strings.workExperience}
-        description={strings.workExperienceDescription}
-        isLoading={isLoadingWorkExperience || isLoadingUser}
-      />
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ flex: 1 }}>
+          <SectionHeader
+            title={strings.workExperience}
+            description={strings.workExperienceDescription}
+            isLoading={isLoadingWorkExperience || isLoadingUser}
+          />
+        </Box>
+        {showAdd && (
+          <Tooltip title={strings.addExperienceTitle}>
+            <Button
+              onClick={() => openExperienceDialog('add')}
+              variant="contained"
+              startIcon={<AddIcon />}
+              sx={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                borderRadius: 2,
+                textTransform: 'none',
+                fontSize: '0.85rem',
+                flexShrink: 0,
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%)',
+                },
+              }}
+            >
+              {strings.addLabel}
+            </Button>
+          </Tooltip>
+        )}
+      </Box>
       <WorkExperienceBody data={data} isLoading={isLoadingWorkExperience || isLoadingUser} />
     </Box>
   );

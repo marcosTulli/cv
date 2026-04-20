@@ -61,6 +61,22 @@ const es: Partial<Translation> = {
   networkUpdatedError: 'No se pudo actualizar la red',
   invalidUrlError: 'URL inválida',
   requiredFieldError: 'Requerido',
+  addExperienceTitle: 'Agregar experiencia',
+  editExperienceTitle: 'Editar experiencia',
+  deleteExperienceTitle: 'Eliminar experiencia',
+  deleteExperienceConfirmation: '¿Seguro que desea eliminar esta experiencia?',
+  companyNameLabel: 'Nombre de empresa',
+  positionLabel: 'Puesto',
+  startDateLabel: 'Fecha de inicio',
+  endDateLabel: 'Fecha de fin',
+  experienceAddedSuccess: 'Experiencia agregada',
+  experienceUpdatedSuccess: 'Experiencia actualizada',
+  experienceDeletedSuccess: 'Experiencia eliminada',
+  experienceError: 'Algo salió mal',
+  addLabel: 'Agregar',
+  deleteLabel: 'Eliminar',
+  tasksLabel: 'Tareas',
+  addTaskLabel: 'Agregar tarea',
 };
 
 export default es;

@@ -61,6 +61,22 @@ const en: Partial<Translation> = {
   networkUpdatedError: 'Could not update network',
   invalidUrlError: 'Invalid URL',
   requiredFieldError: 'Required',
+  addExperienceTitle: 'Add experience',
+  editExperienceTitle: 'Edit experience',
+  deleteExperienceTitle: 'Delete experience',
+  deleteExperienceConfirmation: 'Are you sure you want to delete this experience?',
+  companyNameLabel: 'Company name',
+  positionLabel: 'Position',
+  startDateLabel: 'Start date',
+  endDateLabel: 'End date',
+  experienceAddedSuccess: 'Experience added',
+  experienceUpdatedSuccess: 'Experience updated',
+  experienceDeletedSuccess: 'Experience deleted',
+  experienceError: 'Something went wrong',
+  addLabel: 'Add',
+  deleteLabel: 'Delete',
+  tasksLabel: 'Tasks',
+  addTaskLabel: 'Add task',
 };
 
 export default en;

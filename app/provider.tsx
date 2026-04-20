@@ -8,6 +8,8 @@ import { ThemeProvider } from '@mui/material';
 import { useTheme } from '@/hooks';
 import AuthProvider from './auth0-provider';
 import EditFieldModal from '@/components/edit-field-modal';
+import ExperienceFormModal from '@/components/experience-form-modal';
+import DeleteExperienceDialog from '@/components/delete-experience-dialog';
 import GlobalSnackbar from '@/components/global-snackbar';
 
 const queryClient = new QueryClient({
@@ -40,6 +42,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
             />
             {children}
             <EditFieldModal />
+            <ExperienceFormModal />
+            <DeleteExperienceDialog />
             <GlobalSnackbar />
           </SkeletonTheme>
         </ThemeProvider>

@@ -73,4 +73,20 @@ export interface Translation {
   networkUpdatedError: string;
   invalidUrlError: string;
   requiredFieldError: string;
+  addExperienceTitle: string;
+  editExperienceTitle: string;
+  deleteExperienceTitle: string;
+  deleteExperienceConfirmation: string;
+  companyNameLabel: string;
+  positionLabel: string;
+  startDateLabel: string;
+  endDateLabel: string;
+  experienceAddedSuccess: string;
+  experienceUpdatedSuccess: string;
+  experienceDeletedSuccess: string;
+  experienceError: string;
+  addLabel: string;
+  deleteLabel: string;
+  tasksLabel: string;
+  addTaskLabel: string;
 }
