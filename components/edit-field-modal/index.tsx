@@ -128,11 +128,7 @@ const EditFieldModal: React.FC = () => {
           onBlur={() => setTouched(true)}
           error={urlError}
           helperText={
-            urlError
-              ? !url.trim()
-                ? strings.requiredFieldError
-                : strings.invalidUrlError
-              : ' '
+            urlError ? (!url.trim() ? strings.requiredFieldError : strings.invalidUrlError) : ' '
           }
           inputProps={{ maxLength: 200 }}
           sx={inputSx}

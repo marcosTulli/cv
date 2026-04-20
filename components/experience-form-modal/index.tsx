@@ -93,7 +93,7 @@ const ExperienceFormModal: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched(true);
-    if (hasError || !user._id || !experience?._id && isEdit) return;
+    if (hasError || !user._id || (!experience?._id && isEdit)) return;
 
     if (isAdd) {
       setSubmitting(true);
@@ -179,7 +179,12 @@ const ExperienceFormModal: React.FC = () => {
       promises.push(
         new Promise((resolve, reject) =>
           mutations.patchActivePeriod.mutate(
-            { userId: user._id, experienceId: expId, startDate: startDate.trim(), endDate: endDate.trim() },
+            {
+              userId: user._id,
+              experienceId: expId,
+              startDate: startDate.trim(),
+              endDate: endDate.trim(),
+            },
             { onSuccess: resolve, onError: reject },
           ),
         ),
@@ -224,7 +229,13 @@ const ExperienceFormModal: React.FC = () => {
         promises.push(
           new Promise((resolve, reject) =>
             mutations.patchTask.mutate(
-              { userId: user._id, experienceId: expId, lang, taskId: task.id, task: task.value.trim() },
+              {
+                userId: user._id,
+                experienceId: expId,
+                lang,
+                taskId: task.id,
+                task: task.value.trim(),
+              },
               { onSuccess: resolve, onError: reject },
             ),
           ),
@@ -353,7 +364,9 @@ const ExperienceFormModal: React.FC = () => {
         {isEdit && (
           <>
             <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
+            <Box
+              sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}
+            >
               <Typography variant="subtitle2" sx={{ color: 'secondary.main', fontWeight: 600 }}>
                 {strings.tasksLabel}
               </Typography>
@@ -364,7 +377,10 @@ const ExperienceFormModal: React.FC = () => {
               </Tooltip>
             </Box>
             {tasks.map((task, index) => (
-              <Box key={task.id} sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5, mb: 0.5 }}>
+              <Box
+                key={task.id}
+                sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5, mb: 0.5 }}
+              >
                 <TextField
                   fullWidth
                   size="small"
@@ -401,7 +417,12 @@ const ExperienceFormModal: React.FC = () => {
         >
           {strings.cancelLabel}
         </Button>
-        <Button disabled={submitting || hasError} type="submit" variant="contained" sx={submitButtonSx}>
+        <Button
+          disabled={submitting || hasError}
+          type="submit"
+          variant="contained"
+          sx={submitButtonSx}
+        >
           {submitting ? (
             <CircularProgress size={18} sx={{ color: 'white' }} />
           ) : isAdd ? (

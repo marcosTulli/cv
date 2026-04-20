@@ -15,12 +15,7 @@ const EditButton: React.FC<IEditButtonProps> = ({ onClick, className }) => {
 
   return (
     <span className={className}>
-      <ButtonComponent
-        onClick={onClick}
-        display
-        variant="outlined"
-        title={label}
-      >
+      <ButtonComponent onClick={onClick} display variant="outlined" title={label}>
         <EditIcon sx={{ fontSize: { xs: 14, sm: 16 } }} />
       </ButtonComponent>
     </span>
