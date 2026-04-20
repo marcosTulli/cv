@@ -1,13 +1,15 @@
 'use client';
 import * as React from 'react';
-import { Box, FormControlLabel, Switch, Tooltip } from '@mui/material';
+import { Box, Button, FormControlLabel, Switch, Tooltip } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { languageStore } from '@/store';
-import { useAuth, useUi } from '@/hooks';
+import { useAuth, useLogout, useUi } from '@/hooks';
 
 const EditModeSwitch: React.FC = () => {
   const { strings } = languageStore();
   const { isEditMode, toggleEditMode, setEditMode } = useUi();
   const { isAdmin } = useAuth();
+  const { logout } = useLogout();
 
   React.useEffect(() => {
     if (!isAdmin && isEditMode) {
@@ -17,24 +19,30 @@ const EditModeSwitch: React.FC = () => {
 
   if (!isAdmin) return null;
 
-  const label = strings.editswitchlabel || 'Edit mode';
+  const editLabel = strings.editswitchlabel || 'Edit mode';
+  const logoutLabel = strings.logoutButtonLabel || 'Log out';
 
   return (
-    <Tooltip title={label}>
-      <Box sx={{ alignItems: 'center', display: 'flex' }}>
+    <Box sx={{ alignItems: 'center', display: 'flex', gap: 1 }}>
+      <Tooltip title={editLabel}>
         <FormControlLabel
           control={
             <Switch checked={isEditMode} onChange={toggleEditMode} color="secondary" size="small" />
           }
-          label={label}
+          label={editLabel}
           sx={{
             m: 0,
             color: 'secondary.main',
             '& .MuiFormControlLabel-label': { display: 'flex', alignItems: 'center' },
           }}
         />
-      </Box>
-    </Tooltip>
+      </Tooltip>
+      <Tooltip title={logoutLabel}>
+        <Button onClick={logout} color="secondary" sx={{ textTransform: 'none', minWidth: 'auto' }}>
+          <LogoutIcon fontSize="small" />
+        </Button>
+      </Tooltip>
+    </Box>
   );
 };
 

@@ -36,6 +36,7 @@ const LoginPage: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         p: { xs: 2, sm: 3 },
+        bgcolor: 'primary.main',
       }}
     >
       <Paper elevation={3} sx={{ p: { xs: 3, sm: 4 }, width: '100%', maxWidth: 400 }}>
