@@ -13,6 +13,7 @@ import DeleteExperienceDialog from '@/components/delete-experience-dialog';
 import SkillFormModal from '@/components/skill-form-modal';
 import DeleteSkillDialog from '@/components/delete-skill-dialog';
 import GlobalSnackbar from '@/components/global-snackbar';
+import TokenRefresher from '@/components/token-refresher';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,6 +50,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             <SkillFormModal />
             <DeleteSkillDialog />
             <GlobalSnackbar />
+            <TokenRefresher />
           </SkeletonTheme>
         </ThemeProvider>
       </QueryClientProvider>

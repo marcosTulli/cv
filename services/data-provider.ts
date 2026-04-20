@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from 'axios';
 import { TAxiosGetParams } from '../models/types';
 import { IGetIconParams } from '@/models/interfaces';
 import { authStore } from '@/store';
@@ -6,6 +6,88 @@ import { authStore } from '@/store';
 const cvApiKey = process.env.NEXT_PUBLIC_API_KEY || '';
 const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
 const uploadThingUrl = process.env.NEXT_PUBLIC_UPLOADTHING_URL;
+
+let isRefreshing = false;
+let refreshQueue: Array<{
+  resolve: (token: string) => void;
+  reject: (error: Error) => void;
+}> = [];
+
+const toError = (err: unknown): Error => (err instanceof Error ? err : new Error(String(err)));
+
+const processQueue = (token: string | null, error?: unknown) => {
+  refreshQueue.forEach((p) => {
+    if (token) p.resolve(token);
+    else p.reject(toError(error));
+  });
+  refreshQueue = [];
+};
+
+const createApiInstance = (): AxiosInstance => {
+  const instance = axios.create({ baseURL: baseUrl });
+
+  instance.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+      const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
+
+      if (error.response?.status !== 401 || originalRequest._retry) {
+        return Promise.reject(toError(error));
+      }
+
+      // Don't intercept auth endpoints
+      if (originalRequest.url?.includes('/auth/')) {
+        return Promise.reject(toError(error));
+      }
+
+      const currentToken = authStore.getState().accessToken;
+      if (!currentToken) {
+        authStore.getState().clearToken();
+        return Promise.reject(toError(error));
+      }
+
+      if (isRefreshing) {
+        return new Promise((resolve, reject) => {
+          refreshQueue.push({
+            resolve: (token: string) => {
+              originalRequest._retry = true;
+              originalRequest.headers.Authorization = `Bearer ${token}`;
+              resolve(instance(originalRequest));
+            },
+            reject,
+          });
+        });
+      }
+
+      isRefreshing = true;
+      originalRequest._retry = true;
+
+      try {
+        const authModule = await import('./authService');
+        const authService = authModule.default;
+        const result = await authService.refresh(currentToken);
+        const access_token: string = result.access_token;
+        authStore.getState().setToken(access_token);
+        processQueue(access_token);
+        originalRequest.headers.Authorization = `Bearer ${access_token}`;
+        return instance(originalRequest);
+      } catch (refreshError) {
+        processQueue(null, refreshError);
+        authStore.getState().clearToken();
+        if (typeof window !== 'undefined') {
+          window.location.href = '/login';
+        }
+        return Promise.reject(toError(refreshError));
+      } finally {
+        isRefreshing = false;
+      }
+    },
+  );
+
+  return instance;
+};
+
+const apiInstance = createApiInstance();
 
 class DataProvider {
   jsonHeaders: Record<string, string> = {
@@ -21,7 +103,7 @@ class DataProvider {
     params: Record<string, unknown> = {},
     options: AxiosRequestConfig = {},
   ): Promise<T> {
-    const response = await axios.get(baseUrl + location, {
+    const response = await apiInstance.get(location, {
       ...options,
       params,
       paramsSerializer: {
@@ -44,7 +126,7 @@ class DataProvider {
     body: Record<string, unknown> = {},
     options: AxiosRequestConfig = {},
   ): Promise<T> {
-    const response = await axios.post(baseUrl + location, body, {
+    const response = await apiInstance.post(location, body, {
       ...options,
       headers: this.authHeaders(),
     });
@@ -56,7 +138,7 @@ class DataProvider {
     body: Record<string, unknown> = {},
     options: AxiosRequestConfig = {},
   ): Promise<T> {
-    const response = await axios.patch(baseUrl + location, body, {
+    const response = await apiInstance.patch(location, body, {
       ...options,
       headers: this.authHeaders(),
     });
@@ -64,7 +146,7 @@ class DataProvider {
   }
 
   public async delete<T>(location: string, options: AxiosRequestConfig = {}): Promise<T> {
-    const response = await axios.delete(baseUrl + location, {
+    const response = await apiInstance.delete(location, {
       ...options,
       headers: this.authHeaders(),
     });

@@ -72,7 +72,12 @@ const SkillFormModal: React.FC = () => {
       }
 
       patchSkill.mutate(
-        { userId: user._id, skillId: String(skill._id), name: name.trim(), formattedName: formattedName.trim() },
+        {
+          userId: user._id,
+          skillId: String(skill._id),
+          name: name.trim(),
+          formattedName: formattedName.trim(),
+        },
         { onSuccess: handleClose },
       );
     }
@@ -163,7 +168,12 @@ const SkillFormModal: React.FC = () => {
         >
           {strings.cancelLabel}
         </Button>
-        <Button disabled={isPending || hasError} type="submit" variant="contained" sx={submitButtonSx}>
+        <Button
+          disabled={isPending || hasError}
+          type="submit"
+          variant="contained"
+          sx={submitButtonSx}
+        >
           {isPending ? (
             <CircularProgress size={18} sx={{ color: 'white' }} />
           ) : isAdd ? (
