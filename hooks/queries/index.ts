@@ -6,3 +6,4 @@ export { default as useSkills } from './useSkills';
 export { default as useIcons } from './useIcons';
 export { default as useIconKey } from './useIconKey';
 export { default as useLogin } from './useLogin';
+export { default as useUpdateNetwork } from './useUpdateNetwork';

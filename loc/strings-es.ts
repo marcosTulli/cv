@@ -51,6 +51,16 @@ const es: Partial<Translation> = {
   downloadPdf: 'Descargar en PDF',
   activelyWorkingLabel: 'Actual',
   header: 'Inicio',
+  editLabel: 'Editar',
+  editswitchlabel: 'Modo edición',
+  editNetworkDialogTitle: 'Editar red',
+  displayLabel: 'Texto',
+  urlLabel: 'URL',
+  saveLabel: 'Guardar',
+  networkUpdatedSuccess: 'Red actualizada',
+  networkUpdatedError: 'No se pudo actualizar la red',
+  invalidUrlError: 'URL inválida',
+  requiredFieldError: 'Requerido',
 };
 
 export default es;

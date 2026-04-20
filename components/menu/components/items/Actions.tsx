@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Download, ThemePicker, LanguageSelector } from '../items';
+import { Download, ThemePicker, LanguageSelector, EditModeSwitch } from '../items';
 
 const Actions: React.FC = () => {
   return (
@@ -7,6 +7,7 @@ const Actions: React.FC = () => {
       <LanguageSelector />
       <ThemePicker />
       <Download />
+      <EditModeSwitch />
     </>
   );
 };

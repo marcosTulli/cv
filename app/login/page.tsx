@@ -3,22 +3,23 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Box, Button, Paper, TextField, Typography, Alert, CircularProgress } from '@mui/material';
 import { useLogin } from '@/hooks/queries';
-import { authStore } from '@/store';
+import { useAuth } from '@/hooks';
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
   const [ready, setReady] = React.useState(false);
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const { mutate, isPending, isError } = useLogin();
 
   React.useEffect(() => {
-    if (authStore.getState().isAuthenticated()) {
+    if (isAuthenticated) {
       router.replace('/');
     } else {
       setReady(true);
     }
-  }, [router]);
+  }, [isAuthenticated, router]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

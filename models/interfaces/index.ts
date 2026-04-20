@@ -25,3 +25,4 @@ export * from './ActivePeriod';
 export * from './Project';
 export * from './Node';
 export * from './Login';
+export * from './PatchNetwork';

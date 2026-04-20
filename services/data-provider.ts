@@ -51,6 +51,26 @@ class DataProvider {
     return response.data;
   }
 
+  public async patch<T>(
+    location: string,
+    body: Record<string, unknown> = {},
+    options: AxiosRequestConfig = {},
+  ): Promise<T> {
+    const response = await axios.patch(baseUrl + location, body, {
+      ...options,
+      headers: this.authHeaders(),
+    });
+    return response.data;
+  }
+
+  public async delete<T>(location: string, options: AxiosRequestConfig = {}): Promise<T> {
+    const response = await axios.delete(baseUrl + location, {
+      ...options,
+      headers: this.authHeaders(),
+    });
+    return response.data;
+  }
+
   public async getCdn(
     location: string,
     params: Record<string, unknown> = {},

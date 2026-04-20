@@ -1,20 +1,33 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
+import { Roles } from '@/models/enums';
+
+interface IJwtPayload {
+  sub?: string;
+  email?: string;
+  role?: Roles;
+  exp?: number;
+}
 
 interface IAuthStore {
   accessToken: string | null;
   setToken: (token: string) => void;
   clearToken: () => void;
   isAuthenticated: () => boolean;
+  isAdmin: () => boolean;
 }
 
-const isTokenValid = (token: string): boolean => {
+const decodePayload = (token: string): IJwtPayload | null => {
   try {
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    return typeof payload.exp === 'number' && payload.exp * 1000 > Date.now();
+    return JSON.parse(atob(token.split('.')[1]));
   } catch {
-    return false;
+    return null;
   }
+};
+
+const isPayloadValid = (payload: IJwtPayload | null): boolean => {
+  if (!payload) return false;
+  return typeof payload.exp === 'number' && payload.exp * 1000 > Date.now();
 };
 
 export const authStore = create<IAuthStore>()(
@@ -26,11 +39,19 @@ export const authStore = create<IAuthStore>()(
       isAuthenticated: () => {
         const token = get().accessToken;
         if (!token) return false;
-        if (!isTokenValid(token)) {
+        const payload = decodePayload(token);
+        if (!isPayloadValid(payload)) {
           set({ accessToken: null });
           return false;
         }
         return true;
+      },
+      isAdmin: () => {
+        const token = get().accessToken;
+        if (!token) return false;
+        const payload = decodePayload(token);
+        if (!isPayloadValid(payload)) return false;
+        return payload?.role === Roles.admin;
       },
     }),
     {

@@ -64,4 +64,13 @@ export interface Translation {
   downloadPdf: string;
   activelyWorkingLabel: string;
   header: string;
+  editLabel: string;
+  editNetworkDialogTitle: string;
+  displayLabel: string;
+  urlLabel: string;
+  saveLabel: string;
+  networkUpdatedSuccess: string;
+  networkUpdatedError: string;
+  invalidUrlError: string;
+  requiredFieldError: string;
 }

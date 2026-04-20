@@ -7,6 +7,8 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 import { ThemeProvider } from '@mui/material';
 import { useTheme } from '@/hooks';
 import AuthProvider from './auth0-provider';
+import EditFieldModal from '@/components/edit-field-modal';
+import GlobalSnackbar from '@/components/global-snackbar';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,6 +39,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
               theme={'dark'}
             />
             {children}
+            <EditFieldModal />
+            <GlobalSnackbar />
           </SkeletonTheme>
         </ThemeProvider>
       </QueryClientProvider>
