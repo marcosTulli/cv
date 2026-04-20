@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { IExperience, NetworkName } from '../models/interfaces';
+import { IExperience, ISkills, NetworkName } from '../models/interfaces';
 
 export type EditTargetType = 'network';
 
@@ -17,6 +17,13 @@ export interface IExperienceDialog {
   experience: IExperience | null;
 }
 
+export type SkillDialogMode = 'add' | 'edit' | 'delete' | null;
+
+export interface ISkillDialog {
+  mode: SkillDialogMode;
+  skill: ISkills | null;
+}
+
 export type SnackbarSeverity = 'success' | 'error' | 'info' | 'warning';
 
 interface ISnackbarState {
@@ -29,6 +36,7 @@ interface IUiStore {
   isEditMode: boolean;
   editTarget: IEditTarget | null;
   experienceDialog: IExperienceDialog;
+  skillDialog: ISkillDialog;
   snackbar: ISnackbarState;
   toggleEditMode: () => void;
   setEditMode: (value: boolean) => void;
@@ -36,6 +44,8 @@ interface IUiStore {
   closeEdit: () => void;
   openExperienceDialog: (mode: ExperienceDialogMode, experience?: IExperience) => void;
   closeExperienceDialog: () => void;
+  openSkillDialog: (mode: SkillDialogMode, skill?: ISkills) => void;
+  closeSkillDialog: () => void;
   showSnackbar: (message: string, severity?: SnackbarSeverity) => void;
   closeSnackbar: () => void;
 }
@@ -51,10 +61,16 @@ const initialExperienceDialog: IExperienceDialog = {
   experience: null,
 };
 
+const initialSkillDialog: ISkillDialog = {
+  mode: null,
+  skill: null,
+};
+
 export const uiStore = create<IUiStore>()((set) => ({
   isEditMode: false,
   editTarget: null,
   experienceDialog: initialExperienceDialog,
+  skillDialog: initialSkillDialog,
   snackbar: initialSnackbar,
   toggleEditMode: () => set((state) => ({ isEditMode: !state.isEditMode })),
   setEditMode: (value: boolean) => set({ isEditMode: value }),
@@ -63,6 +79,9 @@ export const uiStore = create<IUiStore>()((set) => ({
   openExperienceDialog: (mode, experience = undefined) =>
     set({ experienceDialog: { mode, experience: experience ?? null } }),
   closeExperienceDialog: () => set({ experienceDialog: initialExperienceDialog }),
+  openSkillDialog: (mode, skill = undefined) =>
+    set({ skillDialog: { mode, skill: skill ?? null } }),
+  closeSkillDialog: () => set({ skillDialog: initialSkillDialog }),
   showSnackbar: (message: string, severity: SnackbarSeverity = 'success') =>
     set({ snackbar: { isOpen: true, message, severity } }),
   closeSnackbar: () => set((state) => ({ snackbar: { ...state.snackbar, isOpen: false } })),

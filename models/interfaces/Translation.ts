@@ -89,4 +89,14 @@ export interface Translation {
   deleteLabel: string;
   tasksLabel: string;
   addTaskLabel: string;
+  addSkillTitle: string;
+  editSkillTitle: string;
+  deleteSkillTitle: string;
+  deleteSkillConfirmation: string;
+  skillNameLabel: string;
+  formattedNameLabel: string;
+  skillAddedSuccess: string;
+  skillUpdatedSuccess: string;
+  skillDeletedSuccess: string;
+  skillError: string;
 }

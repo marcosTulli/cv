@@ -10,6 +10,8 @@ import AuthProvider from './auth0-provider';
 import EditFieldModal from '@/components/edit-field-modal';
 import ExperienceFormModal from '@/components/experience-form-modal';
 import DeleteExperienceDialog from '@/components/delete-experience-dialog';
+import SkillFormModal from '@/components/skill-form-modal';
+import DeleteSkillDialog from '@/components/delete-skill-dialog';
 import GlobalSnackbar from '@/components/global-snackbar';
 
 const queryClient = new QueryClient({
@@ -44,6 +46,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
             <EditFieldModal />
             <ExperienceFormModal />
             <DeleteExperienceDialog />
+            <SkillFormModal />
+            <DeleteSkillDialog />
             <GlobalSnackbar />
           </SkeletonTheme>
         </ThemeProvider>

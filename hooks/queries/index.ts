@@ -8,3 +8,4 @@ export { default as useIconKey } from './useIconKey';
 export { default as useLogin } from './useLogin';
 export { default as useUpdateNetwork } from './useUpdateNetwork';
 export { default as useExperienceMutations } from './useExperienceMutations';
+export { default as useSkillMutations } from './useSkillMutations';

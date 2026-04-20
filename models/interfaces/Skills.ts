@@ -1,5 +1,5 @@
 export interface ISkills {
-  _id: number;
+  _id: string;
   name: string;
   formattedName: string;
 }

@@ -77,6 +77,16 @@ const en: Partial<Translation> = {
   deleteLabel: 'Delete',
   tasksLabel: 'Tasks',
   addTaskLabel: 'Add task',
+  addSkillTitle: 'Add skill',
+  editSkillTitle: 'Edit skill',
+  deleteSkillTitle: 'Delete skill',
+  deleteSkillConfirmation: 'Are you sure you want to delete this skill?',
+  skillNameLabel: 'Icon name',
+  formattedNameLabel: 'Display name',
+  skillAddedSuccess: 'Skill added',
+  skillUpdatedSuccess: 'Skill updated',
+  skillDeletedSuccess: 'Skill deleted',
+  skillError: 'Something went wrong',
 };
 
 export default en;

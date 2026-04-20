@@ -11,6 +11,9 @@ const useUi = () => {
   const closeEdit = uiStore((state) => state.closeEdit);
   const openExperienceDialog = uiStore((state) => state.openExperienceDialog);
   const closeExperienceDialog = uiStore((state) => state.closeExperienceDialog);
+  const skillDialog = uiStore((state) => state.skillDialog);
+  const openSkillDialog = uiStore((state) => state.openSkillDialog);
+  const closeSkillDialog = uiStore((state) => state.closeSkillDialog);
   const showSnackbar = uiStore((state) => state.showSnackbar);
   const closeSnackbar = uiStore((state) => state.closeSnackbar);
 
@@ -25,6 +28,9 @@ const useUi = () => {
     closeEdit,
     openExperienceDialog,
     closeExperienceDialog,
+    skillDialog,
+    openSkillDialog,
+    closeSkillDialog,
     showSnackbar,
     closeSnackbar,
     isEditOpen: editTarget !== null,

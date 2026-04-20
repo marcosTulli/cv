@@ -77,6 +77,16 @@ const es: Partial<Translation> = {
   deleteLabel: 'Eliminar',
   tasksLabel: 'Tareas',
   addTaskLabel: 'Agregar tarea',
+  addSkillTitle: 'Agregar habilidad',
+  editSkillTitle: 'Editar habilidad',
+  deleteSkillTitle: 'Eliminar habilidad',
+  deleteSkillConfirmation: '¿Seguro que desea eliminar esta habilidad?',
+  skillNameLabel: 'Nombre de icono',
+  formattedNameLabel: 'Nombre a mostrar',
+  skillAddedSuccess: 'Habilidad agregada',
+  skillUpdatedSuccess: 'Habilidad actualizada',
+  skillDeletedSuccess: 'Habilidad eliminada',
+  skillError: 'Algo salió mal',
 };
 
 export default es;
