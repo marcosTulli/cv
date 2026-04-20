@@ -1,14 +1,24 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
+import Switch from '@mui/material/Switch';
 import LanguageIcon from '@mui/icons-material/Public';
 import DownloadIcon from '@mui/icons-material/Download';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import EditIcon from '@mui/icons-material/Edit';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { languageStore, themeStore } from '@/store';
 import { Language, Themes } from '@/models/enums';
-import { useDownload, useTheme } from '@/hooks';
+import { useAuth, useDownload, useLogout, useTheme, useUi } from '@/hooks';
 import { useActionsMenu } from '../../hooks/useActionsMenu';
+
+interface ActionItem {
+  icon: React.ReactNode;
+  name: string;
+  onClick: () => void;
+  custom?: React.ReactNode;
+}
 
 export function ActionsMenu() {
   const { isActionsMenuOpen, toggleActionsMenu } = useActionsMenu();
@@ -16,6 +26,9 @@ export function ActionsMenu() {
   const { currentLanguage, setLang, strings } = languageStore();
   const { handleDownload: download } = useDownload();
   const { theme } = useTheme();
+  const { isAdmin } = useAuth();
+  const { isEditMode, toggleEditMode } = useUi();
+  const { logout } = useLogout();
 
   const handleClose = () => {
     if (isActionsMenuOpen) toggleActionsMenu();
@@ -36,9 +49,14 @@ export function ActionsMenu() {
     handleClose();
   };
 
+  const handleLogout = () => {
+    handleClose();
+    logout();
+  };
+
   const isDark = selectedTheme === Themes.dark;
 
-  const actions = [
+  const actions: ActionItem[] = [
     {
       icon: <LanguageIcon />,
       name: currentLanguage === Language.EN ? 'Español' : 'English',
@@ -55,6 +73,24 @@ export function ActionsMenu() {
       onClick: handleDownloadPDF,
     },
   ];
+
+  if (isAdmin) {
+    actions.push({
+      icon: <EditIcon />,
+      name: strings.editswitchlabel || 'Edit',
+      onClick: toggleEditMode,
+      custom: (
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Switch checked={isEditMode} onChange={toggleEditMode} color="secondary" size="small" />
+        </Box>
+      ),
+    });
+    actions.push({
+      icon: <LogoutIcon />,
+      name: strings.logoutButtonLabel || 'Log out',
+      onClick: handleLogout,
+    });
+  }
 
   if (!isActionsMenuOpen) return null;
 
@@ -122,9 +158,11 @@ export function ActionsMenu() {
             >
               {action.name}
             </Box>
-            <Fab size="small" onClick={action.onClick}>
-              {action.icon}
-            </Fab>
+            {action.custom || (
+              <Fab size="small" onClick={action.onClick}>
+                {action.icon}
+              </Fab>
+            )}
           </Box>
         ))}
       </Box>

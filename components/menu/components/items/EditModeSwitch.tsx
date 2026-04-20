@@ -19,8 +19,8 @@ const EditModeSwitch: React.FC = () => {
 
   if (!isAdmin) return null;
 
-  const editLabel = strings.editswitchlabel || 'Edit mode';
-  const logoutLabel = strings.logoutButtonLabel || 'Log out';
+  const editLabel = strings.editswitchlabel;
+  const logoutLabel = strings.logoutButtonLabel;
 
   return (
     <Box sx={{ alignItems: 'center', display: 'flex', gap: 1 }}>

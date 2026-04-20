@@ -52,7 +52,7 @@ const es: Partial<Translation> = {
   activelyWorkingLabel: 'Actual',
   header: 'Inicio',
   editLabel: 'Editar',
-  editswitchlabel: 'Modo edición',
+  editswitchlabel: 'Editar',
   editNetworkDialogTitle: 'Editar red',
   displayLabel: 'Texto',
   urlLabel: 'URL',

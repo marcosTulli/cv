@@ -52,7 +52,7 @@ const en: Partial<Translation> = {
   activelyWorkingLabel: 'Present',
   header: 'Home',
   editLabel: 'Edit',
-  editswitchlabel: 'Edit mode',
+  editswitchlabel: 'Edit',
   editNetworkDialogTitle: 'Edit network',
   displayLabel: 'Display',
   urlLabel: 'URL',
