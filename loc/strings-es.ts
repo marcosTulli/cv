@@ -87,6 +87,16 @@ const es: Partial<Translation> = {
   skillUpdatedSuccess: 'Habilidad actualizada',
   skillDeletedSuccess: 'Habilidad eliminada',
   skillError: 'Algo salió mal',
+  addEducationTitle: 'Agregar educación',
+  editEducationTitle: 'Editar educación',
+  deleteEducationTitle: 'Eliminar educación',
+  deleteEducationConfirmation: '¿Seguro que desea eliminar esta entrada?',
+  educationTitleLabel: 'Título',
+  educationContentLabel: 'Descripción',
+  educationAddedSuccess: 'Educación agregada',
+  educationUpdatedSuccess: 'Educación actualizada',
+  educationDeletedSuccess: 'Educación eliminada',
+  educationError: 'Algo salió mal',
 };
 
 export default es;

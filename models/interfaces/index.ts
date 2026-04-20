@@ -28,3 +28,4 @@ export * from './Login';
 export * from './PatchNetwork';
 export * from './WorkExperienceMutations';
 export * from './SkillsMutations';
+export * from './EducationMutations';

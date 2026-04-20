@@ -7,8 +7,9 @@ import { LoadableSections, Sections } from '@/models/enums';
 import useSectionRef from '../hooks/useSectionRef';
 import { languageStore, userStore } from '@/store';
 import { useEducation } from '@/hooks/queries';
-import { useIsLoadingSections } from '@/hooks';
-import { Box } from '@mui/material';
+import { useAuth, useIsLoadingSections, useUi } from '@/hooks';
+import { Box, Button, Tooltip } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 const Education: React.FC = () => {
   const { strings } = languageStore();
@@ -19,6 +20,9 @@ const Education: React.FC = () => {
     id: user._id,
     lang: currentLanguage,
   });
+  const { isEditMode, openEducationDialog } = useUi();
+  const { isAdmin } = useAuth();
+  const showAdd = isEditMode && isAdmin;
   const { handleLoad } = useIsLoadingSections();
 
   React.useEffect(() => {
@@ -30,11 +34,36 @@ const Education: React.FC = () => {
 
   return (
     <Box component={'section'} ref={sectionRef} className={styles.container}>
-      <SectionHeader
-        title={strings.education}
-        description={strings.educationDescription}
-        isLoading={isLoadingUser || isLoadingEducation}
-      />
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ flex: 1 }}>
+          <SectionHeader
+            title={strings.education}
+            description={strings.educationDescription}
+            isLoading={isLoadingUser || isLoadingEducation}
+          />
+        </Box>
+        {showAdd && (
+          <Tooltip title={strings.addEducationTitle}>
+            <Button
+              onClick={() => openEducationDialog('add')}
+              variant="contained"
+              startIcon={<AddIcon />}
+              sx={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                borderRadius: 2,
+                textTransform: 'none',
+                fontSize: '0.85rem',
+                flexShrink: 0,
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%)',
+                },
+              }}
+            >
+              {strings.addLabel}
+            </Button>
+          </Tooltip>
+        )}
+      </Box>
       <EducationBody data={education} isLoading={isLoadingUser || isLoadingEducation} />
     </Box>
   );

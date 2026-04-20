@@ -99,4 +99,14 @@ export interface Translation {
   skillUpdatedSuccess: string;
   skillDeletedSuccess: string;
   skillError: string;
+  addEducationTitle: string;
+  editEducationTitle: string;
+  deleteEducationTitle: string;
+  deleteEducationConfirmation: string;
+  educationTitleLabel: string;
+  educationContentLabel: string;
+  educationAddedSuccess: string;
+  educationUpdatedSuccess: string;
+  educationDeletedSuccess: string;
+  educationError: string;
 }

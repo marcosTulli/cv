@@ -87,6 +87,16 @@ const en: Partial<Translation> = {
   skillUpdatedSuccess: 'Skill updated',
   skillDeletedSuccess: 'Skill deleted',
   skillError: 'Something went wrong',
+  addEducationTitle: 'Add education',
+  editEducationTitle: 'Edit education',
+  deleteEducationTitle: 'Delete education',
+  deleteEducationConfirmation: 'Are you sure you want to delete this entry?',
+  educationTitleLabel: 'Title',
+  educationContentLabel: 'Description',
+  educationAddedSuccess: 'Education added',
+  educationUpdatedSuccess: 'Education updated',
+  educationDeletedSuccess: 'Education deleted',
+  educationError: 'Something went wrong',
 };
 
 export default en;

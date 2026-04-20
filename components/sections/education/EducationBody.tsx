@@ -21,7 +21,7 @@ const EducationBody: React.FC<IEdcuationBody> = ({ data, isLoading }) => {
       <div className={styles.educationGrid}>
         {isLoading
           ? Array.from({ length: 4 })?.map((_, i) => <EducationSkeleton key={i} />)
-          : data?.map((school) => <EducationCard key={school.id} school={school} />)}
+          : data?.map((school) => <EducationCard key={school._id || school.id} school={school} />)}
       </div>
     </Grid>
   );

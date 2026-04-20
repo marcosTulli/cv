@@ -12,6 +12,8 @@ import ExperienceFormModal from '@/components/experience-form-modal';
 import DeleteExperienceDialog from '@/components/delete-experience-dialog';
 import SkillFormModal from '@/components/skill-form-modal';
 import DeleteSkillDialog from '@/components/delete-skill-dialog';
+import EducationFormModal from '@/components/education-form-modal';
+import DeleteEducationDialog from '@/components/delete-education-dialog';
 import GlobalSnackbar from '@/components/global-snackbar';
 import TokenRefresher from '@/components/token-refresher';
 
@@ -49,6 +51,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
             <DeleteExperienceDialog />
             <SkillFormModal />
             <DeleteSkillDialog />
+            <EducationFormModal />
+            <DeleteEducationDialog />
             <GlobalSnackbar />
             <TokenRefresher />
           </SkeletonTheme>
