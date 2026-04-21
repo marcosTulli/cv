@@ -23,6 +23,8 @@ const Skill: React.FC<ISkillProps> = ({ skill }) => {
   const handleOpen = (e: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(e.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 600;
+
   return (
     <>
       <Icon name={skill.name} />
@@ -36,8 +38,17 @@ const Skill: React.FC<ISkillProps> = ({ skill }) => {
             open={Boolean(anchorEl)}
             anchorEl={anchorEl}
             onClose={handleClose}
-            anchorOrigin={{ vertical: 'center', horizontal: 'right' }}
-            transformOrigin={{ vertical: 'center', horizontal: 'left' }}
+            disableScrollLock
+            anchorOrigin={
+              isMobile
+                ? { vertical: 'top', horizontal: 'center' }
+                : { vertical: 'center', horizontal: 'right' }
+            }
+            transformOrigin={
+              isMobile
+                ? { vertical: 'bottom', horizontal: 'center' }
+                : { vertical: 'center', horizontal: 'left' }
+            }
             slotProps={{
               paper: {
                 sx: {
