@@ -8,10 +8,16 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import EditIcon from '@mui/icons-material/Edit';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { languageStore, themeStore } from '@/store';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import UploadIcon from '@mui/icons-material/Upload';
+import { languageStore, themeStore, userStore, uiStore } from '@/store';
 import { Language, Themes } from '@/models/enums';
 import { useAuth, useDownload, useLogout, useTheme, useUi } from '@/hooks';
 import { useActionsMenu } from '../../hooks/useActionsMenu';
+import { useSkills, useWorkExperience, useEducation } from '@/hooks/queries';
+import useJsonLoader from '@/hooks/useJsonLoader';
+import LoadJsonModal from '@/components/load-json-modal';
+import { fullCvTemplate } from '@/utils/jsonTemplates';
 
 interface ActionItem {
   icon: React.ReactNode;
@@ -29,6 +35,13 @@ export function ActionsMenu() {
   const { isAdmin } = useAuth();
   const { isEditMode, toggleEditMode } = useUi();
   const { logout } = useLogout();
+  const { user } = userStore();
+  const showSnackbar = uiStore((state) => state.showSnackbar);
+  const { data: skills } = useSkills({ id: user._id });
+  const { data: workExperience } = useWorkExperience({ id: user._id, lang: currentLanguage });
+  const { data: education } = useEducation({ id: user._id, lang: currentLanguage });
+  const { loadFullCv } = useJsonLoader();
+  const [loadJsonOpen, setLoadJsonOpen] = React.useState(false);
 
   const handleClose = () => {
     if (isActionsMenuOpen) toggleActionsMenu();
@@ -52,6 +65,44 @@ export function ActionsMenu() {
   const handleLogout = () => {
     handleClose();
     logout();
+  };
+
+  const handleCopyJson = () => {
+    const fullData = {
+      user: {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        location: user.location,
+        network: {
+          linkedin: user.network?.linkedin?.display,
+          github: user.network?.github?.display,
+        },
+        candidateTitle: user.info?.candidateTitle,
+        about: user.info?.about,
+        languages: user.info?.languages?.map((l) => l.language),
+      },
+      skills: skills?.map((s) => s.formattedName),
+      workExperience: workExperience?.map((exp) => ({
+        companyName: exp.companyName,
+        position: exp.info?.position,
+        startDate: exp.activePeriod?.startDate,
+        endDate: exp.activePeriod?.endDate,
+        tasks: exp.info?.tasks?.map((t) => t.task),
+      })),
+      education: education?.map((e) => ({
+        title: e.title,
+        content: e.content,
+      })),
+    };
+    navigator.clipboard.writeText(JSON.stringify(fullData, null, 2));
+    showSnackbar(strings.jsonCopiedSuccess || 'JSON copied', 'success');
+    handleClose();
+  };
+
+  const handleLoadJson = () => {
+    setLoadJsonOpen(true);
+    handleClose();
   };
 
   const isDark = selectedTheme === Themes.dark;
@@ -90,9 +141,31 @@ export function ActionsMenu() {
       name: strings.logoutButtonLabel || 'Log out',
       onClick: handleLogout,
     });
+    if (isEditMode) {
+      actions.push({
+        icon: <ContentCopyIcon />,
+        name: strings.copyJsonLabel || 'Copy JSON',
+        onClick: handleCopyJson,
+      });
+      actions.push({
+        icon: <UploadIcon />,
+        name: strings.loadJsonLabel || 'Load JSON',
+        onClick: handleLoadJson,
+      });
+    }
   }
 
-  if (!isActionsMenuOpen) return null;
+  const loadModal = (
+    <LoadJsonModal
+      open={loadJsonOpen}
+      onClose={() => setLoadJsonOpen(false)}
+      onLoad={loadFullCv}
+      template={fullCvTemplate}
+      title="Load CV JSON"
+    />
+  );
+
+  if (!isActionsMenuOpen) return loadModal;
 
   return (
     <>
@@ -166,6 +239,7 @@ export function ActionsMenu() {
           </Box>
         ))}
       </Box>
+      {loadModal}
     </>
   );
 }

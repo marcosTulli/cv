@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Button, Tooltip } from '@mui/material';
+import { Box, Button, Tooltip, Typography } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import UploadIcon from '@mui/icons-material/Upload';
 import { languageStore } from '@/store';
@@ -15,6 +15,10 @@ interface JsonActionsProps {
   template: string;
   loadTitle?: string;
 }
+
+const NavLabel: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <Typography display={{ xs: 'none', sm: 'none', md: 'flex' }}>{children}</Typography>
+);
 
 const JsonActions: React.FC<JsonActionsProps> = ({
   data,
@@ -43,33 +47,19 @@ const JsonActions: React.FC<JsonActionsProps> = ({
   return (
     <>
       <Tooltip title={strings.copyJsonLabel}>
-        <Button
-          size="small"
-          startIcon={<ContentCopyIcon sx={{ fontSize: 14 }} />}
-          onClick={handleCopy}
-          sx={{
-            color: '#667eea',
-            textTransform: 'none',
-            fontSize: '0.75rem',
-            minWidth: 'auto',
-          }}
-        >
-          {strings.copyJsonLabel}
+        <Button onClick={handleCopy} sx={{ color: 'secondary.main', textTransform: 'none' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <ContentCopyIcon />
+            <NavLabel>{strings.copyJsonLabel}</NavLabel>
+          </Box>
         </Button>
       </Tooltip>
       <Tooltip title={strings.loadJsonLabel}>
-        <Button
-          size="small"
-          startIcon={<UploadIcon sx={{ fontSize: 14 }} />}
-          onClick={() => setLoadOpen(true)}
-          sx={{
-            color: '#667eea',
-            textTransform: 'none',
-            fontSize: '0.75rem',
-            minWidth: 'auto',
-          }}
-        >
-          {strings.loadJsonLabel}
+        <Button onClick={() => setLoadOpen(true)} sx={{ color: 'secondary.main', textTransform: 'none' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <UploadIcon />
+            <NavLabel>{strings.loadJsonLabel}</NavLabel>
+          </Box>
         </Button>
       </Tooltip>
       <LoadJsonModal
