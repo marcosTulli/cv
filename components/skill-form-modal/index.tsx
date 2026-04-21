@@ -164,7 +164,11 @@ const SkillFormModal: React.FC = () => {
           <>
             <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
             <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
-              <LoadJsonButton onLoad={loadSkills} onLoadSuccess={handleClose} template={skillsTemplate} />
+              <LoadJsonButton
+                onLoad={loadSkills}
+                onLoadSuccess={handleClose}
+                template={skillsTemplate}
+              />
             </Box>
           </>
         )}

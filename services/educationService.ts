@@ -13,10 +13,7 @@ const educationService = {
   getEducation: async ({ lang, id }: IGetEducationParams): Promise<IEducation[]> => {
     return DataProviderInstance.get(`${location}/${lang}/${id}`);
   },
-  addEducation: async ({
-    userId,
-    ...body
-  }: IAddEducationParams): Promise<{ _id: string }> => {
+  addEducation: async ({ userId, ...body }: IAddEducationParams): Promise<{ _id: string }> => {
     return DataProviderInstance.post(`${location}/${userId}`, body);
   },
   deleteEducation: async ({ userId, educationId }: IDeleteEducationParams) => {
@@ -41,17 +38,11 @@ const educationService = {
   },
   upsertUrl: async ({ userId, educationId, url }: IPatchUrlParams) => {
     try {
-      return await DataProviderInstance.post(
-        `${location}/${userId}/${educationId}/url`,
-        { url },
-      );
+      return await DataProviderInstance.post(`${location}/${userId}/${educationId}/url`, { url });
     } catch (err: unknown) {
       const status = (err as { response?: { status?: number } })?.response?.status;
       if (status === 409) {
-        return DataProviderInstance.patch(
-          `${location}/${userId}/${educationId}/url`,
-          { url },
-        );
+        return DataProviderInstance.patch(`${location}/${userId}/${educationId}/url`, { url });
       }
       throw err;
     }

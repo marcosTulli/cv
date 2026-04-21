@@ -44,11 +44,13 @@ const Skills: React.FC = () => {
         </Box>
         {showAdd && (
           <>
-          <CopyJsonButton
-            data={skillsData}
-            transform={(d) => (Array.isArray(d) ? d.map((s: Record<string, unknown>) => s.formattedName) : d)}
-          />
-          <Tooltip title={strings.addSkillTitle}>
+            <CopyJsonButton
+              data={skillsData}
+              transform={(d) =>
+                Array.isArray(d) ? d.map((s: Record<string, unknown>) => s.formattedName) : d
+              }
+            />
+            <Tooltip title={strings.addSkillTitle}>
               <Button
                 onClick={() => openSkillDialog('add')}
                 variant="contained"

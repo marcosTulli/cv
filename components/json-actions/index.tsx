@@ -16,16 +16,25 @@ interface JsonActionsProps {
   loadTitle?: string;
 }
 
-const JsonActions: React.FC<JsonActionsProps> = ({ data, onLoad, onLoadSuccess, transform, template, loadTitle }) => {
+const JsonActions: React.FC<JsonActionsProps> = ({
+  data,
+  onLoad,
+  onLoadSuccess,
+  transform,
+  template,
+  loadTitle,
+}) => {
   const { strings } = languageStore();
   const showSnackbar = uiStore((state) => state.showSnackbar);
   const [loadOpen, setLoadOpen] = React.useState(false);
 
   const handleCopy = () => {
-    const stripped = JSON.parse(JSON.stringify(data, (key, value: unknown) => {
-      if (key === '_id' || key === 'id') return undefined;
-      return value;
-    })) as unknown;
+    const stripped = JSON.parse(
+      JSON.stringify(data, (key, value: unknown) => {
+        if (key === '_id' || key === 'id') return undefined;
+        return value;
+      }),
+    ) as unknown;
     const cleaned = transform ? transform(stripped) : stripped;
     navigator.clipboard.writeText(JSON.stringify(cleaned, null, 2));
     showSnackbar(strings.jsonCopiedSuccess || 'JSON copied to clipboard', 'success');

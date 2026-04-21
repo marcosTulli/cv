@@ -89,7 +89,10 @@ const ExperienceFormModal: React.FC = () => {
   const companyNameError = touched && !companyName.trim();
   const startDateError = touched && !startDate.trim();
   const endDateError = touched && isEndDateBeforeStartDate(startDate.trim(), endDate.trim());
-  const hasError = !companyName.trim() || !startDate.trim() || isEndDateBeforeStartDate(startDate.trim(), endDate.trim());
+  const hasError =
+    !companyName.trim() ||
+    !startDate.trim() ||
+    isEndDateBeforeStartDate(startDate.trim(), endDate.trim());
 
   const handleClose = () => {
     if (!submitting) closeExperienceDialog();
@@ -184,7 +187,12 @@ const ExperienceFormModal: React.FC = () => {
       promises.push(
         new Promise((resolve, reject) =>
           mutations.patchActivePeriod.mutate(
-            { userId: user._id, experienceId: expId, startDate: startDate.trim(), endDate: endDate.trim() },
+            {
+              userId: user._id,
+              experienceId: expId,
+              startDate: startDate.trim(),
+              endDate: endDate.trim(),
+            },
             { onSuccess: resolve, onError: reject },
           ),
         ),
@@ -225,7 +233,13 @@ const ExperienceFormModal: React.FC = () => {
         promises.push(
           new Promise((resolve, reject) =>
             mutations.patchTask.mutate(
-              { userId: user._id, experienceId: expId, lang, taskId: task.id, task: task.value.trim() },
+              {
+                userId: user._id,
+                experienceId: expId,
+                lang,
+                taskId: task.id,
+                task: task.value.trim(),
+              },
               { onSuccess: resolve, onError: reject },
             ),
           ),
@@ -336,7 +350,9 @@ const ExperienceFormModal: React.FC = () => {
             onChange={(e) => setEndDate(e.target.value)}
             onBlur={() => setTouched(true)}
             error={endDateError}
-            helperText={endDateError ? strings.endDateBeforeStartError : strings.activelyWorkingLabel}
+            helperText={
+              endDateError ? strings.endDateBeforeStartError : strings.activelyWorkingLabel
+            }
             inputProps={{ maxLength: 7 }}
             sx={inputSx}
           />
@@ -366,7 +382,15 @@ const ExperienceFormModal: React.FC = () => {
               sx={inputSx}
             />
 
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1, mt: 1 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                mb: 1,
+                mt: 1,
+              }}
+            >
               <Typography variant="subtitle2" sx={{ color: 'secondary.main', fontWeight: 600 }}>
                 {strings.tasksLabel}
               </Typography>
@@ -417,7 +441,11 @@ const ExperienceFormModal: React.FC = () => {
 
             <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
             <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
-              <LoadJsonButton onLoad={loadExperiences} onLoadSuccess={handleClose} template={experiencesTemplate} />
+              <LoadJsonButton
+                onLoad={loadExperiences}
+                onLoadSuccess={handleClose}
+                template={experiencesTemplate}
+              />
             </Box>
           </>
         )}
@@ -435,7 +463,9 @@ const ExperienceFormModal: React.FC = () => {
               helperText=" "
               sx={inputSx}
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
+            <Box
+              sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}
+            >
               <Typography variant="subtitle2" sx={{ color: 'secondary.main', fontWeight: 600 }}>
                 {strings.tasksLabel}
               </Typography>
@@ -446,7 +476,10 @@ const ExperienceFormModal: React.FC = () => {
               </Tooltip>
             </Box>
             {editTasks.map((task, index) => (
-              <Box key={task.id} sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5, mb: 0.5 }}>
+              <Box
+                key={task.id}
+                sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5, mb: 0.5 }}
+              >
                 <TextField
                   fullWidth
                   size="small"
@@ -483,7 +516,12 @@ const ExperienceFormModal: React.FC = () => {
         >
           {strings.cancelLabel}
         </Button>
-        <Button disabled={submitting || hasError} type="submit" variant="contained" sx={submitButtonSx}>
+        <Button
+          disabled={submitting || hasError}
+          type="submit"
+          variant="contained"
+          sx={submitButtonSx}
+        >
           {submitting ? (
             <CircularProgress size={18} sx={{ color: 'white' }} />
           ) : isAdd ? (

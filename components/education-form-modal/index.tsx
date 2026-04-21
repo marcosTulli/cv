@@ -73,7 +73,13 @@ const EducationFormModal: React.FC = () => {
           onSuccess: (data) => {
             const newId = data._id;
             mutations.upsertTranslation.mutate(
-              { userId: user._id, educationId: newId, lang, title: title.trim(), content: content.trim() },
+              {
+                userId: user._id,
+                educationId: newId,
+                lang,
+                title: title.trim(),
+                content: content.trim(),
+              },
               {
                 onSuccess: () => {
                   setSubmitting(false);
@@ -99,7 +105,13 @@ const EducationFormModal: React.FC = () => {
       promises.push(
         new Promise((resolve, reject) =>
           mutations.upsertTranslation.mutate(
-            { userId: user._id, educationId: (education._id || education.id)!, lang, title: title.trim(), content: content.trim() },
+            {
+              userId: user._id,
+              educationId: (education._id || education.id)!,
+              lang,
+              title: title.trim(),
+              content: content.trim(),
+            },
             { onSuccess: resolve, onError: reject },
           ),
         ),
@@ -214,7 +226,11 @@ const EducationFormModal: React.FC = () => {
           <>
             <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
             <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
-              <LoadJsonButton onLoad={loadEducation} onLoadSuccess={handleClose} template={educationTemplate} />
+              <LoadJsonButton
+                onLoad={loadEducation}
+                onLoadSuccess={handleClose}
+                template={educationTemplate}
+              />
             </Box>
           </>
         )}
@@ -231,7 +247,12 @@ const EducationFormModal: React.FC = () => {
         >
           {strings.cancelLabel}
         </Button>
-        <Button disabled={submitting || hasError} type="submit" variant="contained" sx={submitButtonSx}>
+        <Button
+          disabled={submitting || hasError}
+          type="submit"
+          variant="contained"
+          sx={submitButtonSx}
+        >
           {submitting ? (
             <CircularProgress size={18} sx={{ color: 'white' }} />
           ) : isAdd ? (

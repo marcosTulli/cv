@@ -61,10 +61,10 @@ const Education: React.FC = () => {
                     background: 'linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%)',
                   },
                 }}
-            >
-              {strings.addLabel}
-            </Button>
-          </Tooltip>
+              >
+                {strings.addLabel}
+              </Button>
+            </Tooltip>
           </>
         )}
       </Box>

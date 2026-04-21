@@ -47,8 +47,8 @@ const WorkExperience: React.FC = () => {
         </Box>
         {showAdd && (
           <>
-          <CopyJsonButton data={data} />
-          <Tooltip title={strings.addExperienceTitle}>
+            <CopyJsonButton data={data} />
+            <Tooltip title={strings.addExperienceTitle}>
               <Button
                 onClick={() => openExperienceDialog('add')}
                 variant="contained"

@@ -25,7 +25,13 @@ interface LoadJsonModalProps {
   title?: string;
 }
 
-const LoadJsonModal: React.FC<LoadJsonModalProps> = ({ open, onClose, onLoad, template, title }) => {
+const LoadJsonModal: React.FC<LoadJsonModalProps> = ({
+  open,
+  onClose,
+  onLoad,
+  template,
+  title,
+}) => {
   const { strings } = languageStore();
   const [json, setJson] = React.useState('');
   const [error, setError] = React.useState('');

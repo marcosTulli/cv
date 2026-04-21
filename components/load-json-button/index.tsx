@@ -12,7 +12,12 @@ interface LoadJsonButtonProps {
   loadTitle?: string;
 }
 
-const LoadJsonButton: React.FC<LoadJsonButtonProps> = ({ onLoad, onLoadSuccess, template, loadTitle }) => {
+const LoadJsonButton: React.FC<LoadJsonButtonProps> = ({
+  onLoad,
+  onLoadSuccess,
+  template,
+  loadTitle,
+}) => {
   const { strings } = languageStore();
   const [open, setOpen] = React.useState(false);
 
