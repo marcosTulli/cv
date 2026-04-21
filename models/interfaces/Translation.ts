@@ -109,4 +109,12 @@ export interface Translation {
   educationUpdatedSuccess: string;
   educationDeletedSuccess: string;
   educationError: string;
+  copyJsonLabel: string;
+  loadJsonLabel: string;
+  loadJsonTitle: string;
+  jsonCopiedSuccess: string;
+  jsonLoadedSuccess: string;
+  jsonParseError: string;
+  jsonTemplateLabel: string;
+  endDateBeforeStartError: string;
 }

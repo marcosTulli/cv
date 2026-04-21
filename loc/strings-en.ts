@@ -97,6 +97,14 @@ const en: Partial<Translation> = {
   educationUpdatedSuccess: 'Education updated',
   educationDeletedSuccess: 'Education deleted',
   educationError: 'Something went wrong',
+  copyJsonLabel: 'Copy JSON',
+  loadJsonLabel: 'Load JSON',
+  loadJsonTitle: 'Load JSON',
+  jsonCopiedSuccess: 'JSON copied to clipboard',
+  jsonLoadedSuccess: 'JSON loaded successfully',
+  jsonParseError: 'Invalid JSON',
+  jsonTemplateLabel: 'Copy template',
+  endDateBeforeStartError: 'End date cannot be before start date',
 };
 
 export default en;

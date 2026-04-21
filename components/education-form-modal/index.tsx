@@ -12,15 +12,20 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
+import { Divider } from '@mui/material';
 import { languageStore, userStore } from '@/store';
 import { useUi } from '@/hooks';
 import { useEducationMutations } from '@/hooks/queries';
+import useJsonLoader from '@/hooks/useJsonLoader';
+import LoadJsonButton from '@/components/load-json-button';
+import { educationTemplate } from '@/utils/jsonTemplates';
 
 const EducationFormModal: React.FC = () => {
   const { strings, currentLanguage: lang } = languageStore();
   const { user } = userStore();
   const { educationDialog, closeEducationDialog } = useUi();
   const mutations = useEducationMutations();
+  const { loadEducation } = useJsonLoader();
 
   const isAdd = educationDialog.mode === 'add';
   const isEdit = educationDialog.mode === 'edit';
@@ -205,6 +210,14 @@ const EducationFormModal: React.FC = () => {
           helperText=" "
           sx={inputSx}
         />
+        {isAdd && (
+          <>
+            <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
+            <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
+              <LoadJsonButton onLoad={loadEducation} onLoadSuccess={handleClose} template={educationTemplate} />
+            </Box>
+          </>
+        )}
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 2.5, gap: 1 }}>
         <Button

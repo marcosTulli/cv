@@ -13,15 +13,20 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
+import { Divider } from '@mui/material';
 import { languageStore, userStore } from '@/store';
 import { useUi } from '@/hooks';
 import { useSkillMutations } from '@/hooks/queries';
+import useJsonLoader from '@/hooks/useJsonLoader';
+import LoadJsonButton from '@/components/load-json-button';
+import { skillsTemplate } from '@/utils/jsonTemplates';
 
 const SkillFormModal: React.FC = () => {
   const { strings } = languageStore();
   const { user } = userStore();
   const { skillDialog, closeSkillDialog } = useUi();
   const { addSkill, patchSkill } = useSkillMutations();
+  const { loadSkills } = useJsonLoader();
 
   const isAdd = skillDialog.mode === 'add';
   const isEdit = skillDialog.mode === 'edit';
@@ -154,6 +159,14 @@ const SkillFormModal: React.FC = () => {
           <Typography variant="caption" sx={{ color: 'secondary.main', opacity: 0.6, mt: 0.5 }}>
             Icon path: /icons/{name.trim()}.svg
           </Typography>
+        )}
+        {isAdd && (
+          <>
+            <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
+            <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
+              <LoadJsonButton onLoad={loadSkills} onLoadSuccess={handleClose} template={skillsTemplate} />
+            </Box>
+          </>
         )}
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 2.5, gap: 1 }}>

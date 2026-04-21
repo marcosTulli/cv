@@ -10,6 +10,7 @@ import { useSkills } from '@/hooks/queries';
 import { useAuth, useIsLoadingSections, useUi } from '@/hooks';
 import { Box, Button, Tooltip } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import CopyJsonButton from '@/components/copy-json-button';
 
 const Skills: React.FC = () => {
   const { strings } = languageStore();
@@ -42,25 +43,31 @@ const Skills: React.FC = () => {
           />
         </Box>
         {showAdd && (
+          <>
+          <CopyJsonButton
+            data={skillsData}
+            transform={(d) => (Array.isArray(d) ? d.map((s: Record<string, unknown>) => s.formattedName) : d)}
+          />
           <Tooltip title={strings.addSkillTitle}>
-            <Button
-              onClick={() => openSkillDialog('add')}
-              variant="contained"
-              startIcon={<AddIcon />}
-              sx={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                borderRadius: 2,
-                textTransform: 'none',
-                fontSize: '0.85rem',
-                flexShrink: 0,
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%)',
-                },
-              }}
-            >
-              {strings.addLabel}
-            </Button>
-          </Tooltip>
+              <Button
+                onClick={() => openSkillDialog('add')}
+                variant="contained"
+                startIcon={<AddIcon />}
+                sx={{
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: 2,
+                  textTransform: 'none',
+                  fontSize: '0.85rem',
+                  flexShrink: 0,
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%)',
+                  },
+                }}
+              >
+                {strings.addLabel}
+              </Button>
+            </Tooltip>
+          </>
         )}
       </Box>
       <SkillsBody skillsData={skillsData} isLoading={isLoadingUser || isLoadingSkills} />

@@ -21,9 +21,10 @@ const workService = {
     userId,
     ...body
   }: IAddExperienceParams): Promise<{ _id: string; companyName: string }> => {
-    return DataProviderInstance.post(`${location}/${userId}/experiences`, {
-      companyName: body.companyName,
-    });
+    return DataProviderInstance.post(
+      `${location}/${userId}/experiences`,
+      body as Record<string, unknown>,
+    );
   },
   deleteExperience: async ({ userId, experienceId }: IDeleteExperienceParams) => {
     return DataProviderInstance.delete(`${location}/${userId}/experiences/${experienceId}`);

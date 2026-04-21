@@ -1,8 +1,15 @@
+export interface IExperienceInfoLang {
+  position: string;
+  tasks?: { task: string }[];
+}
+
 export interface IAddExperienceParams {
   userId: string;
   companyName: string;
-  startDate: string;
-  endDate?: string;
+  comapnyUrl?: string;
+  companyLogo?: string;
+  activePeriod?: { startDate: string; endDate?: string };
+  info?: Record<string, IExperienceInfoLang>;
 }
 
 export interface IDeleteExperienceParams {

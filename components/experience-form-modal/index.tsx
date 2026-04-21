@@ -20,6 +20,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { languageStore, userStore } from '@/store';
 import { useUi } from '@/hooks';
 import { useExperienceMutations } from '@/hooks/queries';
+import useJsonLoader from '@/hooks/useJsonLoader';
+import LoadJsonButton from '@/components/load-json-button';
+import { experiencesTemplate } from '@/utils/jsonTemplates';
+import { isEndDateBeforeStartDate } from '@/utils/dateValidation';
 
 interface TaskField {
   id: string;
@@ -27,12 +31,18 @@ interface TaskField {
   isNew: boolean;
 }
 
+interface TaskPair {
+  id: string;
+  en: string;
+  es: string;
+}
+
 const ExperienceFormModal: React.FC = () => {
   const { strings, currentLanguage: lang } = languageStore();
   const { user } = userStore();
   const { experienceDialog, closeExperienceDialog } = useUi();
   const mutations = useExperienceMutations();
-  const { postActivePeriod, upsertInfo } = mutations;
+  const { loadExperiences } = useJsonLoader();
 
   const isAdd = experienceDialog.mode === 'add';
   const isEdit = experienceDialog.mode === 'edit';
@@ -40,31 +50,37 @@ const ExperienceFormModal: React.FC = () => {
   const experience = experienceDialog.experience;
 
   const [companyName, setCompanyName] = React.useState('');
-  const [position, setPosition] = React.useState('');
   const [startDate, setStartDate] = React.useState('');
   const [endDate, setEndDate] = React.useState('');
-  const [tasks, setTasks] = React.useState<TaskField[]>([]);
   const [touched, setTouched] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
 
+  // Add mode: both languages
+  const [positionEn, setPositionEn] = React.useState('');
+  const [positionEs, setPositionEs] = React.useState('');
+  const [taskPairs, setTaskPairs] = React.useState<TaskPair[]>([]);
+
+  // Edit mode: current language only
+  const [editPosition, setEditPosition] = React.useState('');
+  const [editTasks, setEditTasks] = React.useState<TaskField[]>([]);
   const originalTasksRef = React.useRef<{ _id: string; task: string }[]>([]);
 
   React.useEffect(() => {
     if (isEdit && experience) {
       setCompanyName(experience.companyName || '');
-      setPosition(experience.info?.position || '');
       setStartDate(experience.activePeriod?.startDate || '');
       setEndDate(experience.activePeriod?.endDate || '');
-      const originalTasks = experience.info?.tasks || [];
-      originalTasksRef.current = originalTasks;
-      setTasks(originalTasks.map((t) => ({ id: t._id, value: t.task, isNew: false })));
+      setEditPosition(experience.info?.position || '');
+      const origTasks = experience.info?.tasks || [];
+      originalTasksRef.current = origTasks;
+      setEditTasks(origTasks.map((t) => ({ id: t._id, value: t.task, isNew: false })));
     } else if (isAdd) {
       setCompanyName('');
-      setPosition('');
       setStartDate('');
       setEndDate('');
-      setTasks([]);
-      originalTasksRef.current = [];
+      setPositionEn('');
+      setPositionEs('');
+      setTaskPairs([]);
     }
     setTouched(false);
     setSubmitting(false);
@@ -72,80 +88,71 @@ const ExperienceFormModal: React.FC = () => {
 
   const companyNameError = touched && !companyName.trim();
   const startDateError = touched && !startDate.trim();
-  const hasError = !companyName.trim() || !startDate.trim();
+  const endDateError = touched && isEndDateBeforeStartDate(startDate.trim(), endDate.trim());
+  const hasError = !companyName.trim() || !startDate.trim() || isEndDateBeforeStartDate(startDate.trim(), endDate.trim());
 
   const handleClose = () => {
     if (!submitting) closeExperienceDialog();
   };
 
-  const handleTaskChange = (index: number, value: string) => {
-    setTasks((prev) => prev.map((t, i) => (i === index ? { ...t, value } : t)));
+  // Add mode: task pair helpers
+  const handleAddTaskPair = () => {
+    setTaskPairs((prev) => [...prev, { id: `new-${Date.now()}`, en: '', es: '' }]);
   };
 
-  const handleRemoveTask = (index: number) => {
-    setTasks((prev) => prev.filter((_, i) => i !== index));
+  const handleTaskPairChange = (index: number, lang: 'en' | 'es', value: string) => {
+    setTaskPairs((prev) => prev.map((p, i) => (i === index ? { ...p, [lang]: value } : p)));
   };
 
-  const handleAddTask = () => {
-    setTasks((prev) => [...prev, { id: `new-${Date.now()}`, value: '', isNew: true }]);
+  const handleRemoveTaskPair = (index: number) => {
+    setTaskPairs((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  // Edit mode: task helpers
+  const handleEditTaskChange = (index: number, value: string) => {
+    setEditTasks((prev) => prev.map((t, i) => (i === index ? { ...t, value } : t)));
+  };
+
+  const handleRemoveEditTask = (index: number) => {
+    setEditTasks((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleAddEditTask = () => {
+    setEditTasks((prev) => [...prev, { id: `new-${Date.now()}`, value: '', isNew: true }]);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched(true);
-    if (hasError || !user._id || (!experience?._id && isEdit)) return;
+    if (hasError || !user._id) return;
 
     if (isAdd) {
       setSubmitting(true);
+      const info: Record<string, { position: string; tasks?: { task: string }[] }> = {};
+
+      const enTasks = taskPairs.filter((p) => p.en.trim()).map((p) => ({ task: p.en.trim() }));
+      const esTasks = taskPairs.filter((p) => p.es.trim()).map((p) => ({ task: p.es.trim() }));
+
+      if (positionEn.trim() || enTasks.length) {
+        info.en = { position: positionEn.trim(), tasks: enTasks.length ? enTasks : undefined };
+      }
+      if (positionEs.trim() || esTasks.length) {
+        info.es = { position: positionEs.trim(), tasks: esTasks.length ? esTasks : undefined };
+      }
+
       mutations.addExperience.mutate(
         {
           userId: user._id,
           companyName: companyName.trim(),
-          startDate: startDate.trim(),
-          endDate: endDate.trim() || undefined,
+          activePeriod: startDate.trim()
+            ? { startDate: startDate.trim(), endDate: endDate.trim() || undefined }
+            : undefined,
+          info: Object.keys(info).length > 0 ? info : undefined,
         },
         {
-          onSuccess: (data) => {
-            const newId = (data as { _id: string })._id;
-            const followUp: Promise<unknown>[] = [];
-
-            if (startDate.trim()) {
-              followUp.push(
-                new Promise((resolve, reject) =>
-                  postActivePeriod.mutate(
-                    {
-                      userId: user._id,
-                      experienceId: newId,
-                      startDate: startDate.trim(),
-                      endDate: endDate.trim(),
-                    },
-                    { onSuccess: resolve, onError: reject },
-                  ),
-                ),
-              );
-            }
-
-            if (position.trim()) {
-              followUp.push(
-                new Promise((resolve, reject) =>
-                  upsertInfo.mutate(
-                    { userId: user._id, experienceId: newId, lang, position: position.trim() },
-                    { onSuccess: resolve, onError: reject },
-                  ),
-                ),
-              );
-            }
-
-            if (followUp.length === 0) {
-              setSubmitting(false);
-              handleClose();
-              return;
-            }
-
-            Promise.all(followUp)
-              .then(() => handleClose())
-              .catch(() => {})
-              .finally(() => setSubmitting(false));
+          onSuccess: () => {
+            setSubmitting(false);
+            handleClose();
           },
           onError: () => setSubmitting(false),
         },
@@ -153,13 +160,12 @@ const ExperienceFormModal: React.FC = () => {
       return;
     }
 
+    // Edit flow: per-field patches
     if (!experience) return;
     setSubmitting(true);
-
-    const promises: Promise<unknown>[] = [];
     const expId = experience._id;
+    const promises: Promise<unknown>[] = [];
 
-    // Company name
     if (companyName.trim() !== (experience.companyName || '')) {
       promises.push(
         new Promise((resolve, reject) =>
@@ -171,7 +177,6 @@ const ExperienceFormModal: React.FC = () => {
       );
     }
 
-    // Active period
     if (
       startDate.trim() !== (experience.activePeriod?.startDate || '') ||
       endDate.trim() !== (experience.activePeriod?.endDate || '')
@@ -179,35 +184,27 @@ const ExperienceFormModal: React.FC = () => {
       promises.push(
         new Promise((resolve, reject) =>
           mutations.patchActivePeriod.mutate(
-            {
-              userId: user._id,
-              experienceId: expId,
-              startDate: startDate.trim(),
-              endDate: endDate.trim(),
-            },
+            { userId: user._id, experienceId: expId, startDate: startDate.trim(), endDate: endDate.trim() },
             { onSuccess: resolve, onError: reject },
           ),
         ),
       );
     }
 
-    // Position
-    if (position.trim() !== (experience.info?.position || '')) {
+    if (editPosition.trim() !== (experience.info?.position || '')) {
       promises.push(
         new Promise((resolve, reject) =>
-          upsertInfo.mutate(
-            { userId: user._id, experienceId: expId, lang, position: position.trim() },
+          mutations.upsertInfo.mutate(
+            { userId: user._id, experienceId: expId, lang, position: editPosition.trim() },
             { onSuccess: resolve, onError: reject },
           ),
         ),
       );
     }
 
-    // Tasks diff
     const originals = originalTasksRef.current;
-    const currentIds = new Set(tasks.filter((t) => !t.isNew).map((t) => t.id));
+    const currentIds = new Set(editTasks.filter((t) => !t.isNew).map((t) => t.id));
 
-    // Deleted tasks
     for (const orig of originals) {
       if (!currentIds.has(orig._id)) {
         promises.push(
@@ -221,21 +218,14 @@ const ExperienceFormModal: React.FC = () => {
       }
     }
 
-    // Edited tasks
-    for (const task of tasks) {
+    for (const task of editTasks) {
       if (task.isNew) continue;
       const orig = originals.find((o) => o._id === task.id);
       if (orig && task.value.trim() !== orig.task) {
         promises.push(
           new Promise((resolve, reject) =>
             mutations.patchTask.mutate(
-              {
-                userId: user._id,
-                experienceId: expId,
-                lang,
-                taskId: task.id,
-                task: task.value.trim(),
-              },
+              { userId: user._id, experienceId: expId, lang, taskId: task.id, task: task.value.trim() },
               { onSuccess: resolve, onError: reject },
             ),
           ),
@@ -243,8 +233,7 @@ const ExperienceFormModal: React.FC = () => {
       }
     }
 
-    // New tasks
-    for (const task of tasks) {
+    for (const task of editTasks) {
       if (!task.isNew || !task.value.trim()) continue;
       promises.push(
         new Promise((resolve, reject) =>
@@ -265,7 +254,7 @@ const ExperienceFormModal: React.FC = () => {
       await Promise.all(promises);
       handleClose();
     } catch {
-      // individual errors already show snackbar
+      // errors shown via snackbar
     } finally {
       setSubmitting(false);
     }
@@ -323,16 +312,6 @@ const ExperienceFormModal: React.FC = () => {
           inputProps={{ maxLength: 100 }}
           sx={inputSx}
         />
-        <TextField
-          fullWidth
-          margin="dense"
-          label={strings.positionLabel}
-          value={position}
-          onChange={(e) => setPosition(e.target.value)}
-          inputProps={{ maxLength: 100 }}
-          helperText=" "
-          sx={inputSx}
-        />
         <Box sx={{ display: 'flex', gap: 1.5 }}>
           <TextField
             required
@@ -355,46 +334,133 @@ const ExperienceFormModal: React.FC = () => {
             placeholder="MM/YYYY"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            helperText={strings.activelyWorkingLabel}
+            onBlur={() => setTouched(true)}
+            error={endDateError}
+            helperText={endDateError ? strings.endDateBeforeStartError : strings.activelyWorkingLabel}
             inputProps={{ maxLength: 7 }}
             sx={inputSx}
           />
         </Box>
 
-        {isEdit && (
+        {isAdd && (
           <>
             <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
-            <Box
-              sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}
-            >
+            <TextField
+              fullWidth
+              margin="dense"
+              label={`${strings.positionLabel} (EN)`}
+              value={positionEn}
+              onChange={(e) => setPositionEn(e.target.value)}
+              inputProps={{ maxLength: 100 }}
+              helperText=" "
+              sx={inputSx}
+            />
+            <TextField
+              fullWidth
+              margin="dense"
+              label={`${strings.positionLabel} (ES)`}
+              value={positionEs}
+              onChange={(e) => setPositionEs(e.target.value)}
+              inputProps={{ maxLength: 100 }}
+              helperText=" "
+              sx={inputSx}
+            />
+
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1, mt: 1 }}>
               <Typography variant="subtitle2" sx={{ color: 'secondary.main', fontWeight: 600 }}>
                 {strings.tasksLabel}
               </Typography>
               <Tooltip title={strings.addTaskLabel}>
-                <IconButton size="small" onClick={handleAddTask} sx={{ color: '#667eea' }}>
+                <IconButton size="small" onClick={handleAddTaskPair} sx={{ color: '#667eea' }}>
                   <AddIcon fontSize="small" />
                 </IconButton>
               </Tooltip>
             </Box>
-            {tasks.map((task, index) => (
-              <Box
-                key={task.id}
-                sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5, mb: 0.5 }}
-              >
+            {taskPairs.map((pair, index) => (
+              <React.Fragment key={pair.id}>
+                {index > 0 && <Divider sx={{ my: 1, borderColor: 'rgba(255,255,255,0.06)' }} />}
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5, mb: 0.5 }}>
+                  <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                    <TextField
+                      fullWidth
+                      size="small"
+                      multiline
+                      maxRows={3}
+                      value={pair.en}
+                      onChange={(e) => handleTaskPairChange(index, 'en', e.target.value)}
+                      placeholder={`EN — ${strings.tasksLabel} ${index + 1}`}
+                      sx={taskInputSx}
+                    />
+                    <TextField
+                      fullWidth
+                      size="small"
+                      multiline
+                      maxRows={3}
+                      value={pair.es}
+                      onChange={(e) => handleTaskPairChange(index, 'es', e.target.value)}
+                      placeholder={`ES — ${strings.tasksLabel} ${index + 1}`}
+                      sx={taskInputSx}
+                    />
+                  </Box>
+                  <Tooltip title={strings.deleteLabel}>
+                    <IconButton
+                      size="small"
+                      onClick={() => handleRemoveTaskPair(index)}
+                      sx={{ color: '#e53935', mt: 0.5 }}
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
+              </React.Fragment>
+            ))}
+
+            <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
+            <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
+              <LoadJsonButton onLoad={loadExperiences} onLoadSuccess={handleClose} template={experiencesTemplate} />
+            </Box>
+          </>
+        )}
+
+        {isEdit && (
+          <>
+            <Divider sx={{ my: 2, borderColor: 'rgba(255,255,255,0.08)' }} />
+            <TextField
+              fullWidth
+              margin="dense"
+              label={strings.positionLabel}
+              value={editPosition}
+              onChange={(e) => setEditPosition(e.target.value)}
+              inputProps={{ maxLength: 100 }}
+              helperText=" "
+              sx={inputSx}
+            />
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
+              <Typography variant="subtitle2" sx={{ color: 'secondary.main', fontWeight: 600 }}>
+                {strings.tasksLabel}
+              </Typography>
+              <Tooltip title={strings.addTaskLabel}>
+                <IconButton size="small" onClick={handleAddEditTask} sx={{ color: '#667eea' }}>
+                  <AddIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
+            </Box>
+            {editTasks.map((task, index) => (
+              <Box key={task.id} sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5, mb: 0.5 }}>
                 <TextField
                   fullWidth
                   size="small"
                   multiline
                   maxRows={3}
                   value={task.value}
-                  onChange={(e) => handleTaskChange(index, e.target.value)}
+                  onChange={(e) => handleEditTaskChange(index, e.target.value)}
                   placeholder={`${strings.tasksLabel} ${index + 1}`}
                   sx={taskInputSx}
                 />
                 <Tooltip title={strings.deleteLabel}>
                   <IconButton
                     size="small"
-                    onClick={() => handleRemoveTask(index)}
+                    onClick={() => handleRemoveEditTask(index)}
                     sx={{ color: '#e53935', mt: 0.5 }}
                   >
                     <DeleteIcon fontSize="small" />
@@ -417,12 +483,7 @@ const ExperienceFormModal: React.FC = () => {
         >
           {strings.cancelLabel}
         </Button>
-        <Button
-          disabled={submitting || hasError}
-          type="submit"
-          variant="contained"
-          sx={submitButtonSx}
-        >
+        <Button disabled={submitting || hasError} type="submit" variant="contained" sx={submitButtonSx}>
           {submitting ? (
             <CircularProgress size={18} sx={{ color: 'white' }} />
           ) : isAdd ? (
