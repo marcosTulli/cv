@@ -53,12 +53,13 @@ const Social: React.FC<ISocialProps> = ({ isLoading }) => {
       <Box className={styles.socialItem} sx={itemSx}>
         <Box
           component={'a'}
-          sx={{ color: 'secondary.main', display: 'flex', alignItems: 'center' }}
+          sx={{ color: 'secondary.main' }}
+          className={styles.socialLink}
           href={user.network.linkedin.url}
           target="_blank"
           title={user.network.linkedin.url}
         >
-          <LinkedInIcon className={styles.icon} style={{ marginRight: '0.4rem' }} />
+          <LinkedInIcon className={styles.icon} />
           <p>{user.network.linkedin.display}</p>
         </Box>
         {showEdit && <EditButton onClick={() => handleEdit('linkedin')} />}
@@ -66,12 +67,13 @@ const Social: React.FC<ISocialProps> = ({ isLoading }) => {
       <Box className={styles.socialItem} sx={itemSx}>
         <Box
           component={'a'}
-          sx={{ color: 'secondary.main', display: 'flex', alignItems: 'center' }}
+          sx={{ color: 'secondary.main' }}
+          className={styles.socialLink}
           href={user.network.github.url}
           target="_blank"
           title={user.network.github.url}
         >
-          <GitHubIcon className={styles.icon} style={{ marginRight: '0.4rem' }} />
+          <GitHubIcon className={styles.icon} />
           <p>{user.network.github.display}</p>
         </Box>
         {showEdit && <EditButton onClick={() => handleEdit('github')} />}

@@ -15,9 +15,17 @@ const Info: React.FC = () => {
     <Box component={'section'} className={styles.info}>
       <Box className={styles.infoGrid}>
         <ProfilePicture isLoading={isLoading} />
-        <Contact isLoading={isLoading} />
-        <Social isLoading={isLoading} />
-        <Languages isLoading={isLoading} />
+        <Box className={styles.infoDetails}>
+          <Box className={styles.detailSection}>
+            <Contact isLoading={isLoading} />
+          </Box>
+          <Box className={styles.detailSection}>
+            <Social isLoading={isLoading} />
+          </Box>
+          <Box className={styles.detailSection}>
+            <Languages isLoading={isLoading} />
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
