@@ -51,6 +51,7 @@ const en: Partial<Translation> = {
   downloadPdf: 'Download as PDF',
   activelyWorkingLabel: 'Present',
   header: 'Home',
+  about: 'About Me',
   editLabel: 'Edit',
   editswitchlabel: 'Edit',
   editNetworkDialogTitle: 'Edit network',

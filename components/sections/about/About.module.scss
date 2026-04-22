@@ -1,0 +1,27 @@
+@import '../../../styles/global.scss';
+
+.section {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(md) {
+    padding: 2rem 0.5rem 2rem 0.5rem;
+  }
+}
+
+.aboutContent {
+  font-family: $defaultCourier;
+  max-width: 800px;
+  width: 100%;
+  padding: 1.5rem 0;
+  line-height: 1.8;
+  font-size: 1rem;
+  white-space: pre-line;
+  text-align: center;
+
+  @include respond-to(md) {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
