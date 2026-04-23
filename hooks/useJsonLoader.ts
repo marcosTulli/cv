@@ -75,7 +75,6 @@ const useJsonLoader = () => {
       if (!Array.isArray(items)) throw new Error('Expected array');
 
       const userId = getUserId();
-      const lang = getLang();
 
       for (const item of items) {
         if (

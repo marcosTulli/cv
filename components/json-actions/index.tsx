@@ -55,7 +55,10 @@ const JsonActions: React.FC<JsonActionsProps> = ({
         </Button>
       </Tooltip>
       <Tooltip title={strings.loadJsonLabel}>
-        <Button onClick={() => setLoadOpen(true)} sx={{ color: 'secondary.main', textTransform: 'none' }}>
+        <Button
+          onClick={() => setLoadOpen(true)}
+          sx={{ color: 'secondary.main', textTransform: 'none' }}
+        >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <UploadIcon />
             <NavLabel>{strings.loadJsonLabel}</NavLabel>

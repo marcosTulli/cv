@@ -2,7 +2,7 @@
 import React from 'react';
 import { ISkills } from '@/models/interfaces';
 import Icon from '@/components/icon/Icon';
-import { Box, IconButton, Popover, Tooltip } from '@mui/material';
+import { IconButton, Popover, Tooltip } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
