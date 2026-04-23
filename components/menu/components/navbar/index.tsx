@@ -3,7 +3,7 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import { PageSections, Actions } from '../items';
+import { PageSections, LanguageSelector, ThemePicker, Download, EditModeSwitch } from '../items';
 import SpeedDialTrigger from '../items/SpeedDialTrigger';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -55,14 +55,22 @@ const NavBar: React.FC = () => {
           <>
             <Box
               sx={{
-                display: { xs: 'none', sm: 'flex', gap: '1rem' },
+                display: { xs: 'none', sm: 'flex' },
                 flexWrap: 'nowrap',
                 alignItems: 'center',
-                mx: 'auto',
+                width: '100%',
               }}
             >
-              <PageSections />
-              <Actions />
+              <Box sx={{ flex: 1 }} />
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <PageSections />
+                <LanguageSelector />
+                <ThemePicker />
+                <Download />
+              </Box>
+              <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+                <EditModeSwitch />
+              </Box>
             </Box>
           </>
         ) : (

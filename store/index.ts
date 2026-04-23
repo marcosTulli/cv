@@ -4,3 +4,5 @@ export { default as downloadRefStore } from './downloadRefStore';
 export { default as sectionsLoadingStateStore } from './sectionsLoadingStateStore';
 export { default as languageStore } from './languageStore';
 export { default as themeStore } from './themeStore';
+export { default as authStore } from './authStore';
+export { default as uiStore } from './uiStore';

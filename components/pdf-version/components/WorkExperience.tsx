@@ -33,13 +33,13 @@ const WorkExperience: React.FC = () => {
             <header className={styles.experienceHeader}>
               <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, alignItems: 'center' }}>
                 <Typography component="h3" className={styles.jobTitle}>
-                  {experience.info.position}
+                  {experience.info?.position}
                 </Typography>
                 <Typography className={styles.companyName}>{experience.companyName}</Typography>
               </Box>
               <span className={styles.datePeriod}>
-                {experience.activePeriod.startDate} -{' '}
-                {experience.activePeriod.endDate.length > 0
+                {experience.activePeriod?.startDate || ''} -{' '}
+                {experience.activePeriod?.endDate
                   ? experience.activePeriod.endDate
                   : strings.activelyWorkingLabel}
               </span>

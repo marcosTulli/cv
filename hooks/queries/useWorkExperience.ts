@@ -13,8 +13,10 @@ const useWorkExperience = ({ lang, id }: IGetWorkDataParams) => {
   const sortedData = React.useMemo(() => {
     if (!data) return data;
     return [...data].sort((a, b) => {
-      const [monthA, yearA] = a.activePeriod.startDate.split('/').map(Number);
-      const [monthB, yearB] = b.activePeriod.startDate.split('/').map(Number);
+      const dateA = a.activePeriod?.startDate || '';
+      const dateB = b.activePeriod?.startDate || '';
+      const [monthA = 0, yearA = 0] = dateA.split('/').map(Number);
+      const [monthB = 0, yearB = 0] = dateB.split('/').map(Number);
 
       if (yearB !== yearA) {
         return yearB - yearA;

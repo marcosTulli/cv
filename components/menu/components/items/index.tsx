@@ -4,3 +4,4 @@ export { default as LanguageSelector } from './LanguageSelector';
 export { default as ThemePicker } from './ThemePicker';
 export { default as Actions } from './Actions';
 export { default as PageSections } from './PageSections';
+export { default as EditModeSwitch } from './EditModeSwitch';

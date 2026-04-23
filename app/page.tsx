@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import { Education, WorkExperience, Skills, Projects } from '@components/sections';
+import { About, Education, WorkExperience, Skills, Projects } from '@components/sections';
 import Info from '@components/info';
 import { Box } from '@mui/material';
 import { useDownload } from '@/hooks';
@@ -18,6 +18,7 @@ const HomeHeader = () => (
 
 const sections = [
   { id: Sections.Header, component: <HomeHeader /> },
+  { id: Sections.About, component: <About /> },
   { id: Sections.Skills, component: <Skills /> },
   { id: Sections.WorkExperience, component: <WorkExperience /> },
   { id: Sections.Projects, component: <Projects /> },

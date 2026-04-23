@@ -19,7 +19,7 @@ const Education: React.FC = () => {
       </Typography>
       <div className={styles.educationList}>
         {educationData?.map((education) => (
-          <div className={styles.educationItem} key={education.id}>
+          <div className={styles.educationItem} key={education._id || education.id}>
             <Typography className={styles.degree}>{education.title}</Typography>
             <Typography className={styles.institution}>{education.content}</Typography>
           </div>

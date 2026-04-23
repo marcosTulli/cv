@@ -10,6 +10,7 @@ interface ISectionHeaderProps {
   description?: string | undefined;
   isLoading: boolean;
   pageHeader?: boolean;
+  action?: React.ReactNode;
 }
 
 const SectionHeader: React.FC<ISectionHeaderProps> = ({
@@ -17,20 +18,24 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({
   description,
   isLoading,
   pageHeader,
+  action,
 }) => {
   return (
     <Container className={styles.sectionHeader}>
       <Box sx={{ color: 'secondary.main' }}>
-        <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`}>
-          {isLoading ? (
-            <Skeleton
-              height={pageHeader ? 64 : 32}
-              width={pageHeader ? '45%' : '40%'}
-              style={{ fontSize: pageHeader ? '4rem' : '2rem' }}
-            />
-          ) : (
-            title
-          )}
+        <div className={styles.titleRow}>
+          <div className={`${pageHeader ? styles.pageTitle : styles.sectionTitle}`}>
+            {isLoading ? (
+              <Skeleton
+                height={pageHeader ? 64 : 32}
+                width={pageHeader ? '45%' : '40%'}
+                style={{ fontSize: pageHeader ? '4rem' : '2rem' }}
+              />
+            ) : (
+              title
+            )}
+          </div>
+          {action && !isLoading && <div className={styles.titleAction}>{action}</div>}
         </div>
 
         {(description || isLoading) && (

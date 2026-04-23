@@ -7,8 +7,10 @@ import { LoadableSections, Sections } from '@/models/enums';
 import useSectionRef from '../hooks/useSectionRef';
 import { languageStore, userStore } from '@/store';
 import { useSkills } from '@/hooks/queries';
-import { useIsLoadingSections } from '@/hooks';
-import { Box } from '@mui/material';
+import { useAuth, useIsLoadingSections, useUi } from '@/hooks';
+import { Box, Button, Tooltip } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import CopyJsonButton from '@/components/copy-json-button';
 
 const Skills: React.FC = () => {
   const { strings } = languageStore();
@@ -17,6 +19,9 @@ const Skills: React.FC = () => {
   const { data: skillsData, isLoading: isLoadingSkills } = useSkills({
     id: user._id,
   });
+  const { isEditMode, openSkillDialog } = useUi();
+  const { isAdmin } = useAuth();
+  const showAdd = isEditMode && isAdmin;
 
   const { handleLoad } = useIsLoadingSections();
 
@@ -29,6 +34,35 @@ const Skills: React.FC = () => {
 
   return (
     <Box component="section" ref={sectionRef} className={styles.container}>
+      {showAdd && (
+        <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+          <CopyJsonButton
+            data={skillsData}
+            transform={(d) =>
+              Array.isArray(d) ? d.map((s: Record<string, unknown>) => s.formattedName) : d
+            }
+          />
+          <Tooltip title={strings.addSkillTitle}>
+            <Button
+              onClick={() => openSkillDialog('add')}
+              variant="contained"
+              startIcon={<AddIcon />}
+              sx={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                borderRadius: 2,
+                textTransform: 'none',
+                fontSize: '0.85rem',
+                flexShrink: 0,
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%)',
+                },
+              }}
+            >
+              {strings.addLabel}
+            </Button>
+          </Tooltip>
+        </Box>
+      )}
       <SectionHeader
         title={strings.skills}
         description={strings.skillsDescription}
