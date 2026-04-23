@@ -7,6 +7,7 @@ export { default as useIcons } from './useIcons';
 export { default as useIconKey } from './useIconKey';
 export { default as useLogin } from './useLogin';
 export { default as useUpdateNetwork } from './useUpdateNetwork';
+export { default as useUpdateAbout } from './useUpdateAbout';
 export { default as useExperienceMutations } from './useExperienceMutations';
 export { default as useSkillMutations } from './useSkillMutations';
 export { default as useEducationMutations } from './useEducationMutations';

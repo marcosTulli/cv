@@ -26,6 +26,7 @@ export * from './Project';
 export * from './Node';
 export * from './Login';
 export * from './PatchNetwork';
+export * from './PatchAbout';
 export * from './WorkExperienceMutations';
 export * from './SkillsMutations';
 export * from './EducationMutations';

@@ -1,14 +1,19 @@
 import { create } from 'zustand';
 import { IEducation, IExperience, ISkills, NetworkName } from '../models/interfaces';
 
-export type EditTargetType = 'network';
+export type EditTargetType = 'network' | 'about';
 
-export interface IEditTarget {
-  type: EditTargetType;
-  name: NetworkName;
-  display: string;
-  url: string;
-}
+export type IEditTarget =
+  | {
+      type: 'network';
+      name: NetworkName;
+      display: string;
+      url: string;
+    }
+  | {
+      type: 'about';
+      about: string;
+    };
 
 export type ExperienceDialogMode = 'add' | 'edit' | 'delete' | null;
 

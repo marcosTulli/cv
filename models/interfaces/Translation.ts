@@ -66,11 +66,15 @@ export interface Translation {
   header: string;
   editLabel: string;
   editNetworkDialogTitle: string;
+  editAboutDialogTitle: string;
   displayLabel: string;
   urlLabel: string;
+  aboutLabel: string;
   saveLabel: string;
   networkUpdatedSuccess: string;
   networkUpdatedError: string;
+  aboutUpdatedSuccess: string;
+  aboutUpdatedError: string;
   invalidUrlError: string;
   requiredFieldError: string;
   addExperienceTitle: string;

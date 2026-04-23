@@ -13,7 +13,7 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import { languageStore, userStore } from '@/store';
 import { useUi } from '@/hooks';
-import { useUpdateNetwork } from '@/hooks/queries';
+import { useUpdateAbout, useUpdateNetwork } from '@/hooks/queries';
 
 const isValidUrl = (value: string): boolean => {
   try {
@@ -28,23 +28,38 @@ const EditFieldModal: React.FC = () => {
   const { strings } = languageStore();
   const { user } = userStore();
   const { editTarget, isEditOpen, closeEdit } = useUi();
-  const { mutate, isPending } = useUpdateNetwork();
+  const { currentLanguage } = languageStore();
+  const networkMutation = useUpdateNetwork();
+  const aboutMutation = useUpdateAbout();
 
   const [display, setDisplay] = React.useState('');
   const [url, setUrl] = React.useState('');
+  const [about, setAbout] = React.useState('');
   const [touched, setTouched] = React.useState(false);
 
   React.useEffect(() => {
     if (editTarget) {
-      setDisplay(editTarget.display);
-      setUrl(editTarget.url);
+      if (editTarget.type === 'network') {
+        setDisplay(editTarget.display);
+        setUrl(editTarget.url);
+      }
+      if (editTarget.type === 'about') {
+        setAbout(editTarget.about);
+      }
       setTouched(false);
     }
   }, [editTarget]);
 
-  const displayError = touched && !display.trim();
-  const urlError = touched && (!url.trim() || !isValidUrl(url));
-  const hasError = !display.trim() || !url.trim() || !isValidUrl(url);
+  const isNetworkEdit = editTarget?.type === 'network';
+  const isAboutEdit = editTarget?.type === 'about';
+  const displayError = isNetworkEdit && touched && !display.trim();
+  const urlError = isNetworkEdit && touched && (!url.trim() || !isValidUrl(url));
+  const aboutError = isAboutEdit && touched && !about.trim();
+  const hasError = isNetworkEdit
+    ? !display.trim() || !url.trim() || !isValidUrl(url)
+    : !about.trim();
+  const isPending = networkMutation.isPending || aboutMutation.isPending;
+  const dialogTitle = isAboutEdit ? strings.editAboutDialogTitle : strings.editNetworkDialogTitle;
 
   return (
     <Dialog
@@ -53,8 +68,18 @@ const EditFieldModal: React.FC = () => {
         e.preventDefault();
         setTouched(true);
         if (hasError || !editTarget || !user._id) return;
-        mutate(
-          { userId: user._id, name: editTarget.name, display: display.trim(), url: url.trim() },
+        if (editTarget.type === 'network') {
+          networkMutation.mutate(
+            { userId: user._id, name: editTarget.name, display: display.trim(), url: url.trim() },
+            {
+              onSuccess: () => closeEdit(),
+            },
+          );
+          return;
+        }
+
+        aboutMutation.mutate(
+          { userId: user._id, lang: currentLanguage, about: about.trim() },
           {
             onSuccess: () => closeEdit(),
           },
@@ -94,45 +119,73 @@ const EditFieldModal: React.FC = () => {
             fontSize: { xs: '1rem', sm: '1.1rem' },
           }}
         >
-          {strings.editNetworkDialogTitle}
+          {dialogTitle}
         </DialogTitle>
       </Box>
       <DialogContent sx={{ pt: 3, pb: 2 }}>
-        <TextField
-          autoFocus
-          required
-          fullWidth
-          margin="dense"
-          name="display"
-          label={strings.displayLabel}
-          type="text"
-          variant="outlined"
-          value={display}
-          onChange={(e) => setDisplay(e.target.value)}
-          onBlur={() => setTouched(true)}
-          error={displayError}
-          helperText={displayError ? strings.requiredFieldError : ' '}
-          inputProps={{ maxLength: 60 }}
-          sx={inputSx}
-        />
-        <TextField
-          required
-          fullWidth
-          margin="dense"
-          name="url"
-          label={strings.urlLabel}
-          type="url"
-          variant="outlined"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          onBlur={() => setTouched(true)}
-          error={urlError}
-          helperText={
-            urlError ? (!url.trim() ? strings.requiredFieldError : strings.invalidUrlError) : ' '
-          }
-          inputProps={{ maxLength: 200 }}
-          sx={inputSx}
-        />
+        {isNetworkEdit ? (
+          <>
+            <TextField
+              autoFocus
+              required
+              fullWidth
+              margin="dense"
+              name="display"
+              label={strings.displayLabel}
+              type="text"
+              variant="outlined"
+              value={display}
+              onChange={(e) => setDisplay(e.target.value)}
+              onBlur={() => setTouched(true)}
+              error={displayError}
+              helperText={displayError ? strings.requiredFieldError : ' '}
+              inputProps={{ maxLength: 60 }}
+              sx={inputSx}
+            />
+            <TextField
+              required
+              fullWidth
+              margin="dense"
+              name="url"
+              label={strings.urlLabel}
+              type="url"
+              variant="outlined"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              onBlur={() => setTouched(true)}
+              error={urlError}
+              helperText={
+                urlError
+                  ? !url.trim()
+                    ? strings.requiredFieldError
+                    : strings.invalidUrlError
+                  : ' '
+              }
+              inputProps={{ maxLength: 200 }}
+              sx={inputSx}
+            />
+          </>
+        ) : (
+          <TextField
+            autoFocus
+            required
+            fullWidth
+            multiline
+            minRows={6}
+            maxRows={12}
+            margin="dense"
+            name="about"
+            label={strings.aboutLabel}
+            variant="outlined"
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
+            onBlur={() => setTouched(true)}
+            error={aboutError}
+            helperText={aboutError ? strings.requiredFieldError : ' '}
+            inputProps={{ maxLength: 2000 }}
+            sx={inputSx}
+          />
+        )}
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 2.5, gap: 1 }}>
         <Button

@@ -10,6 +10,11 @@
   }
 }
 
+.aboutWrapper {
+  width: 100%;
+  max-width: 800px;
+}
+
 .aboutContent {
   font-family: $defaultCourier;
   max-width: 800px;
@@ -24,4 +29,8 @@
     padding: 1rem;
     font-size: 0.9rem;
   }
+}
+
+.editButton {
+  padding-inline: 0.5rem;
 }
